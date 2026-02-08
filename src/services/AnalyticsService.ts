@@ -123,7 +123,7 @@ class AnalyticsService {
     }
 
     this.log('User properties:', properties);
-    this.sendToAnalytics('user_properties', properties as Record<string, unknown>);
+    this.sendToAnalytics('user_properties', { ...properties });
   }
 
   /**
