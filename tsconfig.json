@@ -18,10 +18,10 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@engine/*": ["../src/engine/*"],
-      "@ai/*": ["../src/ai/*"]
+      "@engine/*": ["./src/engine/*"],
+      "@ai/*": ["./src/ai/*"]
     }
   },
-  "include": ["src", "../src/engine", "../src/ai"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
