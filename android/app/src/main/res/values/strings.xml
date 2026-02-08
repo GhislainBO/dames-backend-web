@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dames</string>
+    <string name="title_activity_main">Dames</string>
+    <string name="package_name">com.tccdames.app</string>
+    <string name="custom_url_scheme">com.tccdames.app</string>
+</resources>

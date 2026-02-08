@@ -1,0 +1,81 @@
+/**
+ * Styles pour le contrôle audio
+ */
+
+.audio-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.audio-toggle {
+  background: #2a2a3e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-toggle:hover {
+  background: #3a3a4e;
+  border-color: #555;
+}
+
+.audio-toggle.disabled {
+  opacity: 0.6;
+}
+
+.volume-slider-container {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2a2a3e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 15px 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.volume-slider {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 8px;
+  height: 80px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1a1a2e;
+  border-radius: 4px;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4a9eff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  background: #6ab0ff;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #4a9eff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}

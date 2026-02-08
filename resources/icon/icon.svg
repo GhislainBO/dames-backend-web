@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <!-- Gradient pour le fond -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+
+    <!-- Gradient pour le pion rouge -->
+    <radialGradient id="redPieceGradient" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="50%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#c23a51"/>
+    </radialGradient>
+
+    <!-- Gradient pour le pion blanc -->
+    <radialGradient id="whitePieceGradient" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="50%" style="stop-color:#f0f0f0"/>
+      <stop offset="100%" style="stop-color:#d0d0d0"/>
+    </radialGradient>
+
+    <!-- Ombre -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Fond arrondi -->
+  <rect x="0" y="0" width="1024" height="1024" rx="200" fill="url(#bgGradient)"/>
+
+  <!-- Damier stylisé en arrière-plan -->
+  <g opacity="0.15">
+    <rect x="112" y="112" width="200" height="200" fill="#fff"/>
+    <rect x="312" y="112" width="200" height="200" fill="#000"/>
+    <rect x="512" y="112" width="200" height="200" fill="#fff"/>
+    <rect x="712" y="112" width="200" height="200" fill="#000"/>
+
+    <rect x="112" y="312" width="200" height="200" fill="#000"/>
+    <rect x="312" y="312" width="200" height="200" fill="#fff"/>
+    <rect x="512" y="312" width="200" height="200" fill="#000"/>
+    <rect x="712" y="312" width="200" height="200" fill="#fff"/>
+
+    <rect x="112" y="512" width="200" height="200" fill="#fff"/>
+    <rect x="312" y="512" width="200" height="200" fill="#000"/>
+    <rect x="512" y="512" width="200" height="200" fill="#fff"/>
+    <rect x="712" y="512" width="200" height="200" fill="#000"/>
+
+    <rect x="112" y="712" width="200" height="200" fill="#000"/>
+    <rect x="312" y="712" width="200" height="200" fill="#fff"/>
+    <rect x="512" y="712" width="200" height="200" fill="#000"/>
+    <rect x="712" y="712" width="200" height="200" fill="#fff"/>
+  </g>
+
+  <!-- Pion rouge (principal) -->
+  <g filter="url(#shadow)">
+    <!-- Base du pion -->
+    <ellipse cx="512" cy="580" rx="220" ry="60" fill="#8b2a3a"/>
+
+    <!-- Corps du pion - couches pour effet 3D -->
+    <ellipse cx="512" cy="520" rx="220" ry="60" fill="#a33347"/>
+    <ellipse cx="512" cy="460" rx="200" ry="55" fill="#c23a51"/>
+    <ellipse cx="512" cy="400" rx="180" ry="50" fill="url(#redPieceGradient)"/>
+
+    <!-- Surface du pion -->
+    <ellipse cx="512" cy="360" rx="160" ry="45" fill="url(#redPieceGradient)"/>
+
+    <!-- Reflet lumineux -->
+    <ellipse cx="460" cy="340" rx="60" ry="20" fill="#fff" opacity="0.3"/>
+
+    <!-- Cercles décoratifs (couronne de dame) -->
+    <ellipse cx="512" cy="360" rx="100" ry="28" fill="none" stroke="#ffd700" stroke-width="8"/>
+    <ellipse cx="512" cy="360" rx="60" ry="17" fill="none" stroke="#ffd700" stroke-width="6"/>
+  </g>
+
+  <!-- Petit pion blanc en arrière-plan -->
+  <g transform="translate(680, 650) scale(0.4)" opacity="0.9">
+    <ellipse cx="0" cy="80" rx="150" ry="40" fill="#888"/>
+    <ellipse cx="0" cy="40" rx="150" ry="40" fill="#aaa"/>
+    <ellipse cx="0" cy="0" rx="130" ry="35" fill="#ccc"/>
+    <ellipse cx="0" cy="-35" rx="110" ry="30" fill="url(#whitePieceGradient)"/>
+    <ellipse cx="-30" cy="-45" rx="40" ry="12" fill="#fff" opacity="0.4"/>
+  </g>
+
+  <!-- Petit pion rouge en arrière-plan -->
+  <g transform="translate(280, 720) scale(0.35)" opacity="0.8">
+    <ellipse cx="0" cy="80" rx="150" ry="40" fill="#6b1a2a"/>
+    <ellipse cx="0" cy="40" rx="150" ry="40" fill="#8b2a3a"/>
+    <ellipse cx="0" cy="0" rx="130" ry="35" fill="#a33347"/>
+    <ellipse cx="0" cy="-35" rx="110" ry="30" fill="url(#redPieceGradient)"/>
+    <ellipse cx="-30" cy="-45" rx="40" ry="12" fill="#fff" opacity="0.3"/>
+  </g>
+</svg>

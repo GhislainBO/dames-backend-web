@@ -1,0 +1,409 @@
+/**
+ * BOUTIQUE - Design Premium Luxueux
+ */
+
+.shop-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: shopFadeIn 0.3s ease;
+}
+
+@keyframes shopFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.shop-modal {
+  background: linear-gradient(145deg, #1a1a2e 0%, #0d0d1a 100%);
+  border-radius: 24px;
+  padding: 35px;
+  width: 95%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: shopSlideIn 0.4s ease;
+}
+
+@keyframes shopSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Bordure dorée animée */
+.shop-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent,
+    #d4af37 20%,
+    #f4d03f 50%,
+    #d4af37 80%,
+    transparent
+  );
+  border-radius: 24px 24px 0 0;
+}
+
+.shop-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-close:hover {
+  color: #fff;
+  background: rgba(233, 69, 96, 0.3);
+  border-color: rgba(233, 69, 96, 0.5);
+  transform: rotate(90deg);
+}
+
+.shop-modal h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shop-message {
+  text-align: center;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.15) 100%);
+  color: #2ecc71;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  font-weight: 500;
+}
+
+/* === CATÉGORIES PREMIUM === */
+.shop-categories {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 12px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.category-btn:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  color: #fff;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
+  border-color: transparent;
+  color: #1a1a2e;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* === GRILLE DE COSMÉTIQUES === */
+.cosmetics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* === CARTE COSMÉTIQUE LUXUEUSE === */
+.cosmetic-card {
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.8) 0%, rgba(26, 26, 46, 0.9) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmetic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.5s ease;
+}
+
+.cosmetic-card:hover::before {
+  left: 100%;
+}
+
+.cosmetic-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.cosmetic-card.owned {
+  border-color: rgba(74, 158, 255, 0.5);
+  background: linear-gradient(145deg, rgba(74, 158, 255, 0.1) 0%, rgba(26, 26, 46, 0.9) 100%);
+}
+
+.cosmetic-card.equipped {
+  border-color: rgba(46, 204, 113, 0.6);
+  background: linear-gradient(145deg, rgba(46, 204, 113, 0.15) 0%, rgba(26, 26, 46, 0.9) 100%);
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.2);
+}
+
+/* === PRÉVISUALISATION === */
+.cosmetic-preview {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.avatar-emoji {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.board-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.preview-square {
+  width: 35px;
+  height: 35px;
+}
+
+.piece-preview {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.preview-piece {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* === INFO COSMÉTIQUE === */
+.cosmetic-info {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.cosmetic-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.cosmetic-info p {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.premium-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
+  color: #1a1a2e;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+/* === BOUTONS D'ACTION === */
+.cosmetic-action {
+  text-align: center;
+}
+
+.buy-btn,
+.equip-btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.buy-btn {
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
+  color: #1a1a2e;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.buy-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+}
+
+.buy-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.equip-btn {
+  background: linear-gradient(135deg, #4a9eff 0%, #357abd 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.equip-btn:hover {
+  box-shadow: 0 6px 25px rgba(74, 158, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.equipped-badge {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* === SCROLLBAR PERSONNALISÉE === */
+.shop-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.shop-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+}
+
+.shop-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #b8860b);
+  border-radius: 4px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .shop-modal {
+    padding: 25px 20px;
+    border-radius: 20px;
+  }
+
+  .shop-modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .cosmetics-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .category-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .cosmetic-card {
+    padding: 15px;
+  }
+
+  .cosmetic-preview {
+    height: 70px;
+  }
+
+  .avatar-emoji {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-categories {
+    gap: 8px;
+  }
+
+  .category-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .cosmetics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}

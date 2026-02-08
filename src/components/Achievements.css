@@ -1,0 +1,609 @@
+/**
+ * SUCCÈS & PARRAINAGE - Design Premium Luxueux
+ * Système de récompenses et progression
+ */
+
+.achievements-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: achFadeIn 0.3s ease;
+}
+
+@keyframes achFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.achievements-modal {
+  background: linear-gradient(145deg, #1a1a2e 0%, #0d0d1a 100%);
+  border-radius: 24px;
+  padding: 30px;
+  width: 95%;
+  max-width: 650px;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(46, 204, 113, 0.2);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(46, 204, 113, 0.1);
+  animation: achSlideIn 0.4s ease;
+}
+
+@keyframes achSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Bordure verte supérieure */
+.achievements-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent,
+    #2ecc71 20%,
+    #27ae60 50%,
+    #2ecc71 80%,
+    transparent
+  );
+  border-radius: 24px 24px 0 0;
+}
+
+.achievements-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.achievements-close:hover {
+  background: rgba(233, 69, 96, 0.3);
+  border-color: rgba(233, 69, 96, 0.5);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.achievements-modal h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 50%, #1e8449 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.achievements-message {
+  text-align: center;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.15) 100%);
+  color: #2ecc71;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  font-weight: 500;
+}
+
+/* === ONGLETS === */
+.achievements-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #aaa;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.2) 0%, rgba(39, 174, 96, 0.2) 100%);
+  color: #2ecc71;
+  border-color: rgba(46, 204, 113, 0.3);
+}
+
+.tab-btn .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.4);
+}
+
+/* === LISTE DES SUCCÈS === */
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* === CARTE DE SUCCÈS === */
+.achievement-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.5) 0%, rgba(26, 26, 46, 0.7) 100%);
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  background: linear-gradient(145deg, rgba(50, 50, 70, 0.6) 0%, rgba(30, 30, 50, 0.8) 100%);
+  transform: translateX(5px);
+}
+
+.achievement-card.unlocked {
+  border-color: rgba(46, 204, 113, 0.5);
+  background: linear-gradient(145deg, rgba(46, 204, 113, 0.1) 0%, rgba(26, 26, 46, 0.8) 100%);
+}
+
+.achievement-card.unlocked.claimed {
+  border-color: rgba(100, 100, 100, 0.3);
+  opacity: 0.6;
+}
+
+.achievement-card.locked {
+  opacity: 0.4;
+  filter: grayscale(0.3);
+}
+
+/* === ICÔNE DE SUCCÈS === */
+.achievement-icon {
+  font-size: 2.2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.achievement-card.unlocked .achievement-icon {
+  background: linear-gradient(145deg, rgba(46, 204, 113, 0.2) 0%, rgba(39, 174, 96, 0.1) 100%);
+  border-color: rgba(46, 204, 113, 0.3);
+}
+
+.achievement-card.locked .achievement-icon {
+  filter: grayscale(1);
+}
+
+/* === INFO SUCCÈS === */
+.achievement-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.achievement-info h4 {
+  margin: 0 0 6px 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.achievement-card.unlocked .achievement-info h4 {
+  color: #2ecc71;
+}
+
+.achievement-info p {
+  margin: 0 0 6px 0;
+  color: #777;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.achievement-category {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #4a9eff;
+  background: rgba(74, 158, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* === RÉCOMPENSE === */
+.achievement-reward {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.claim-btn {
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.claim-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.claimed-badge {
+  color: #2ecc71;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.reward-preview {
+  color: #555;
+  font-size: 0.85rem;
+}
+
+/* === SECTION PARRAINAGE === */
+.referral-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.referral-card {
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.6) 0%, rgba(26, 26, 46, 0.8) 100%);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.referral-card h3 {
+  margin: 0 0 20px 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* === CODE DE PARRAINAGE === */
+.referral-code-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.referral-code-display .code {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.15) 0%, rgba(184, 134, 11, 0.1) 100%);
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-family: 'Consolas', monospace;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.share-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #4a9eff 0%, #7b2cbf 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(74, 158, 255, 0.3);
+}
+
+.share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(74, 158, 255, 0.4);
+}
+
+/* === STATISTIQUES PARRAINAGE === */
+.referral-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.referral-stats .stat {
+  text-align: center;
+}
+
+.referral-stats .stat-value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.referral-stats .stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.referral-info {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* === UTILISER UN CODE === */
+.use-code p {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.code-input-group {
+  display: flex;
+  gap: 12px;
+}
+
+.code-input-group input {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.code-input-group input:focus {
+  outline: none;
+  border-color: #4a9eff;
+  box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+}
+
+.code-input-group button {
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.code-input-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+/* === POPUP NOUVEAU SUCCÈS === */
+.new-achievements-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(145deg, #252540 0%, #1a1a2e 100%);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
+  z-index: 1100;
+  animation: achPopIn 0.4s ease;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(212, 175, 55, 0.2);
+}
+
+@keyframes achPopIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.new-achievements-popup h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.new-achievement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px 20px;
+  background: rgba(46, 204, 113, 0.1);
+  border-radius: 10px;
+}
+
+.new-achievement .icon {
+  font-size: 1.6rem;
+}
+
+.new-achievement .name {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.new-achievements-popup button {
+  margin-top: 15px;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.new-achievements-popup button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+}
+
+/* === SCROLLBAR === */
+.achievements-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.achievements-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+}
+
+.achievements-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2ecc71, #27ae60);
+  border-radius: 4px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .achievements-modal {
+    padding: 20px 15px;
+    border-radius: 20px;
+  }
+
+  .achievements-tabs {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .achievement-card {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+  }
+
+  .referral-code-display {
+    flex-direction: column;
+  }
+
+  .referral-code-display .code {
+    font-size: 1.5rem;
+    padding: 12px 20px;
+  }
+
+  .referral-stats {
+    gap: 25px;
+  }
+
+  .code-input-group {
+    flex-direction: column;
+  }
+}
