@@ -293,8 +293,8 @@ function Achievements({ isOpen, onClose, onBalanceChange }: AchievementsProps) {
                 <button className="copy-btn" onClick={copyReferralCode}>{t('achievements.copy')}</button>
               </div>
 
-              {/* Boutons de partage réseaux sociaux */}
-              <div className="social-share-section">
+              {/* Boutons de partage réseaux sociaux - v2 */}
+              <div className="social-share-section" data-version="2.0">
                 <p className="share-label">{t('achievements.shareVia')}</p>
                 <div className="social-buttons">
                   <button className="social-btn whatsapp" onClick={shareViaWhatsApp} title="WhatsApp">
