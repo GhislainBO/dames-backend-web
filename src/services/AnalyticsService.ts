@@ -26,6 +26,7 @@ interface UserProperties {
   language?: string;
   gamesPlayed?: number;
   winRate?: number;
+  [key: string]: string | boolean | number | undefined;
 }
 
 class AnalyticsService {
@@ -122,7 +123,7 @@ class AnalyticsService {
     }
 
     this.log('User properties:', properties);
-    this.sendToAnalytics('user_properties', properties);
+    this.sendToAnalytics('user_properties', properties as Record<string, unknown>);
   }
 
   /**

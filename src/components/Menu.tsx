@@ -9,7 +9,6 @@ import Tournaments from './Tournaments';
 import Achievements from './Achievements';
 import BattlePass from './BattlePass';
 import PromotionalOffers from './PromotionalOffers';
-import LanguageSelector from './LanguageSelector';
 import LocalStats from './LocalStats';
 import DailyPuzzle from './DailyPuzzle';
 import LocalAchievements from './LocalAchievements';
@@ -60,10 +59,6 @@ function Menu({ onStartGame }: MenuProps) {
 
   return (
     <div className="menu">
-      <div className="menu-header">
-        <LanguageSelector compact />
-      </div>
-
       <h2>{t('menu.title')}</h2>
 
       <div className="menu-buttons">

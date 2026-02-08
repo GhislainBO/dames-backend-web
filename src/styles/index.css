@@ -198,14 +198,29 @@ body::after {
 
 /* === FOOTER PREMIUM === */
 .app-footer {
-  text-align: center;
-  padding: 20px;
+  padding: 15px 20px;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-top: 1px solid var(--glass-border);
   font-size: 0.85rem;
   color: var(--color-text-muted);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+.footer-separator {
+  color: var(--color-text-muted);
+  opacity: 0.5;
 }
 
 /* === MENU PRINCIPAL LUXUEUX === */
@@ -216,11 +231,6 @@ body::after {
   padding: 20px;
 }
 
-.menu-header {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 15px;
-}
 
 .menu h2 {
   margin-bottom: 35px;

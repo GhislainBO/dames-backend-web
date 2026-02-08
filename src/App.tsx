@@ -11,6 +11,7 @@ import InterstitialAd from './components/InterstitialAd';
 import { SocketProvider } from './context/SocketContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CosmeticsProvider } from './context/CosmeticsContext';
+import LanguageSelector from './components/LanguageSelector';
 import { Difficulty } from './game/types';
 import { adMobService } from './services/AdMobService';
 import { notificationService } from './services/NotificationService';
@@ -182,7 +183,11 @@ function AppContent({ gameMode, renderContent }: { gameMode: GameMode; renderCon
       </main>
 
       <footer className="app-footer">
-        <p>Regles FMJD - Developpe avec React + Phaser.js</p>
+        <div className="footer-content">
+          <p>Regles FMJD - Developpe avec React + Phaser.js</p>
+          <span className="footer-separator">|</span>
+          <LanguageSelector compact />
+        </div>
       </footer>
 
       {/* Composants publicitaires globaux */}
