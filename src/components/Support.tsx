@@ -20,13 +20,13 @@ interface SupportProps {
 // =============================================================================
 const STRIPE_PAYMENT_LINKS = {
   // Lien pour don de 2€
-  donation_2: 'https://buy.stripe.com/test_XXXXXXXX_2EUR',
+  donation_2: 'https://buy.stripe.com/28E3cv7ZYcMQbuJgkR4Vyq00',
   // Lien pour don de 5€
-  donation_5: 'https://buy.stripe.com/test_XXXXXXXX_5EUR',
+  donation_5: 'https://buy.stripe.com/eVqaEX2MIbIM6ap70I4Vyq01',
   // Lien pour don de 10€
-  donation_10: 'https://buy.stripe.com/test_XXXXXXXX_10EUR',
+  donation_10: 'https://buy.stripe.com/4gM14ngDy3cgfKZ5Gd4Vyq02',
   // Lien pour don de 25€
-  donation_25: 'https://buy.stripe.com/test_XXXXXXXX_25EUR',
+  donation_25: 'https://buy.stripe.com/14A9AT872d0U42h7014Vyq04',
 };
 
 // Configuration des plateformes alternatives
