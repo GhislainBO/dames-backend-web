@@ -17,10 +17,10 @@ interface SupportProps {
 // CONFIGURATION DES LIENS DE PAIEMENT STRIPE
 // =============================================================================
 const STRIPE_PAYMENT_LINKS: Record<number, string> = {
-  2: 'https://buy.stripe.com/28E3cv7ZYcMQbuJgkA4VyQ0',
-  5: 'https://buy.stripe.com/eVgaEX2MIbIM6ap7014VyQ1',
-  10: 'https://buy.stripe.com/4gM14ngDv3cgfKZ5Gd4VyQ2',
-  25: 'https://buy.stripe.com/14A9AT872d0U42h7014VyQ4',
+  2: 'https://buy.stripe.com/28E3cv72YcMQbuJgkR4Vy00',
+  5: 'https://buy.stripe.com/eVqaEX2MIbIM6ap7Ol4Vy01',
+  10: 'https://buy.stripe.com/4gM14ngDy3cgfKZ5Gd4Vy02',
+  25: 'https://buy.stripe.com/14A9AT872dQU42h7Ol4Vy04',
 };
 
 // Configuration des plateformes alternatives
