@@ -16,6 +16,8 @@
     "tournaments": "Tournaments",
     "achievements": "Achievements & Referrals",
     "stats": "Statistics",
+    "puzzle": "Daily Puzzle",
+    "localAchievements": "Local Achievements",
     "back": "Back",
     "settings": "Settings",
     "language": "Language"
@@ -403,5 +405,53 @@
     "lastPlayed": "Last played",
     "reset": "Reset",
     "confirmReset": "Confirm reset?"
+  },
+  "localAchievements": {
+    "title": "Local Achievements",
+    "unlocked": "Achievement unlocked!",
+    "completed": "Unlocked",
+    "earned": "Earned",
+    "toClaim": "To claim",
+    "claimed": "Claimed",
+    "all": "All",
+    "categories": {
+      "games": "Games",
+      "wins": "Wins",
+      "puzzle": "Puzzles",
+      "learning": "Learning",
+      "streak": "Streaks",
+      "special": "Special"
+    }
+  },
+  "puzzle": {
+    "title": "Daily Puzzle",
+    "loading": "Loading...",
+    "solved": "Well done!",
+    "congratulations": "Puzzle solved in {{time}} with {{attempts}} attempt(s).",
+    "alreadySolved": "You have already solved today's puzzle.",
+    "hint": "Hint",
+    "hintLabel": "Hint:",
+    "reset": "Reset",
+    "attempts": "Attempts",
+    "viewStats": "View statistics",
+    "share": "Share",
+    "shareText": "I solved today's puzzle on DAMESELITE in {{time}}! {{streak}} day streak.",
+    "time": "Time",
+    "streak": "Streak",
+    "stats": "Statistics",
+    "totalSolved": "Solved",
+    "currentStreak": "Current streak",
+    "bestStreak": "Best streak",
+    "averageTime": "Average time",
+    "dayStreak": "consecutive days",
+    "backToPuzzle": "Back to puzzle",
+    "playAs": "Play as",
+    "white": "White",
+    "black": "Black",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    }
   }
 }

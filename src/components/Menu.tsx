@@ -11,6 +11,8 @@ import BattlePass from './BattlePass';
 import PromotionalOffers from './PromotionalOffers';
 import LanguageSelector from './LanguageSelector';
 import LocalStats from './LocalStats';
+import DailyPuzzle from './DailyPuzzle';
+import LocalAchievements from './LocalAchievements';
 
 interface MenuProps {
   onStartGame: (mode: 'pvp' | 'ai' | 'online', difficulty?: Difficulty, color?: 'white' | 'black') => void;
@@ -29,6 +31,8 @@ function Menu({ onStartGame }: MenuProps) {
   const [showBattlePass, setShowBattlePass] = useState(false);
   const [showPromotions, setShowPromotions] = useState(false);
   const [showLocalStats, setShowLocalStats] = useState(false);
+  const [showDailyPuzzle, setShowDailyPuzzle] = useState(false);
+  const [showLocalAchievements, setShowLocalAchievements] = useState(false);
 
   const toggleAISettings = () => {
     setShowAISettings(!showAISettings);
@@ -157,6 +161,20 @@ function Menu({ onStartGame }: MenuProps) {
           {t('menu.stats', 'Statistiques')}
         </button>
 
+        <button
+          className="menu-btn puzzle"
+          onClick={() => setShowDailyPuzzle(true)}
+        >
+          {t('menu.puzzle', 'Puzzle du Jour')}
+        </button>
+
+        <button
+          className="menu-btn local-achievements"
+          onClick={() => setShowLocalAchievements(true)}
+        >
+          {t('menu.localAchievements', 'Succes Locaux')}
+        </button>
+
       </div>
 
       <Leaderboard
@@ -197,6 +215,15 @@ function Menu({ onStartGame }: MenuProps) {
       <LocalStats
         isOpen={showLocalStats}
         onClose={() => setShowLocalStats(false)}
+      />
+
+      {showDailyPuzzle && (
+        <DailyPuzzle onClose={() => setShowDailyPuzzle(false)} />
+      )}
+
+      <LocalAchievements
+        isOpen={showLocalAchievements}
+        onClose={() => setShowLocalAchievements(false)}
       />
     </div>
   );

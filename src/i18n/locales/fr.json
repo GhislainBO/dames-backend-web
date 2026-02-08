@@ -16,6 +16,8 @@
     "tournaments": "Tournois",
     "achievements": "Succès et Parrainage",
     "stats": "Statistiques",
+    "puzzle": "Puzzle du Jour",
+    "localAchievements": "Succes Locaux",
     "back": "Retour",
     "settings": "Paramètres",
     "language": "Langue"
@@ -403,5 +405,53 @@
     "lastPlayed": "Derniere partie",
     "reset": "Reinitialiser",
     "confirmReset": "Confirmer la reinitialisation ?"
+  },
+  "localAchievements": {
+    "title": "Succes Locaux",
+    "unlocked": "Succes debloque!",
+    "completed": "Debloques",
+    "earned": "Gagnes",
+    "toClaim": "A reclamer",
+    "claimed": "Reclame",
+    "all": "Tous",
+    "categories": {
+      "games": "Parties",
+      "wins": "Victoires",
+      "puzzle": "Puzzles",
+      "learning": "Apprentissage",
+      "streak": "Series",
+      "special": "Special"
+    }
+  },
+  "puzzle": {
+    "title": "Puzzle du Jour",
+    "loading": "Chargement...",
+    "solved": "Bravo !",
+    "congratulations": "Puzzle resolu en {{time}} avec {{attempts}} essai(s).",
+    "alreadySolved": "Vous avez deja resolu ce puzzle.",
+    "hint": "Indice",
+    "hintLabel": "Indice:",
+    "reset": "Recommencer",
+    "attempts": "Essais",
+    "viewStats": "Voir les statistiques",
+    "share": "Partager",
+    "shareText": "J'ai resolu le puzzle du jour sur DAMESELITE en {{time}} ! Serie de {{streak}} jours.",
+    "time": "Temps",
+    "streak": "Serie",
+    "stats": "Statistiques",
+    "totalSolved": "Resolus",
+    "currentStreak": "Serie actuelle",
+    "bestStreak": "Meilleure serie",
+    "averageTime": "Temps moyen",
+    "dayStreak": "jours consecutifs",
+    "backToPuzzle": "Retour au puzzle",
+    "playAs": "Jouez les",
+    "white": "Blancs",
+    "black": "Noirs",
+    "difficulty": {
+      "easy": "Facile",
+      "medium": "Moyen",
+      "hard": "Difficile"
+    }
   }
 }

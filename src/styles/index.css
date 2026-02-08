@@ -379,6 +379,48 @@ body::after {
   box-shadow: 0 8px 30px rgba(0, 188, 212, 0.5);
 }
 
+/* Bouton Puzzle du Jour (violet/orange) */
+.menu-btn.puzzle {
+  background: linear-gradient(135deg, #9c27b0 0%, #ff9800 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(156, 39, 176, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.puzzle::before {
+  content: '🧩';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.puzzle:hover {
+  box-shadow: 0 8px 30px rgba(156, 39, 176, 0.5);
+}
+
+/* Bouton Succes Locaux (vert emeraude) */
+.menu-btn.local-achievements {
+  background: linear-gradient(135deg, #00c853 0%, #1b5e20 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 200, 83, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.local-achievements::before {
+  content: '🏆';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.local-achievements:hover {
+  box-shadow: 0 8px 30px rgba(0, 200, 83, 0.5);
+}
+
 /* Bouton Battle Pass (dégradé animé) */
 .menu-btn.battlepass {
   background: linear-gradient(135deg, #4a9eff 0%, #7b2cbf 50%, #e94560 100%);
