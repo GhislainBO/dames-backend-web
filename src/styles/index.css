@@ -619,6 +619,48 @@ body::after {
   box-shadow: 0 8px 30px rgba(249, 202, 36, 0.5);
 }
 
+/* Bouton Profile (bleu elegant) */
+.menu-btn.profile {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.profile::before {
+  content: '👤';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.profile:hover {
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+}
+
+/* Bouton Settings (gris elegant) */
+.menu-btn.settings {
+  background: linear-gradient(135deg, #606c88 0%, #3f4c6b 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(96, 108, 136, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.settings::before {
+  content: '⚙️';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.settings:hover {
+  box-shadow: 0 8px 30px rgba(96, 108, 136, 0.5);
+}
+
 /* === PARAMÈTRES IA === */
 .ai-settings {
   margin-top: 25px;

@@ -19,6 +19,8 @@ import Community from './Community';
 import Support from './Support';
 import Resources from './Resources';
 import Partners from './Partners';
+import Settings from './Settings';
+import ProfileEnhanced from './ProfileEnhanced';
 
 interface MenuProps {
   onStartGame: (mode: 'pvp' | 'ai' | 'online', difficulty?: Difficulty, color?: 'white' | 'black') => void;
@@ -45,6 +47,8 @@ function Menu({ onStartGame }: MenuProps) {
   const [showSupport, setShowSupport] = useState(false);
   const [showResources, setShowResources] = useState(false);
   const [showPartners, setShowPartners] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   const toggleAISettings = () => {
     setShowAISettings(!showAISettings);
@@ -229,6 +233,20 @@ function Menu({ onStartGame }: MenuProps) {
           {t('menu.partners', 'Partenaires')}
         </button>
 
+        <button
+          className="menu-btn profile"
+          onClick={() => setShowProfile(true)}
+        >
+          {t('menu.profile', 'Mon Profil')}
+        </button>
+
+        <button
+          className="menu-btn settings"
+          onClick={() => setShowSettings(true)}
+        >
+          {t('menu.settings', 'Parametres')}
+        </button>
+
       </div>
 
       <Leaderboard
@@ -308,6 +326,16 @@ function Menu({ onStartGame }: MenuProps) {
       <Partners
         isOpen={showPartners}
         onClose={() => setShowPartners(false)}
+      />
+
+      <Settings
+        isOpen={showSettings}
+        onClose={() => setShowSettings(false)}
+      />
+
+      <ProfileEnhanced
+        isOpen={showProfile}
+        onClose={() => setShowProfile(false)}
       />
     </div>
   );
