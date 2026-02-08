@@ -15,18 +15,12 @@ interface SupportProps {
 
 // =============================================================================
 // CONFIGURATION DES LIENS DE PAIEMENT STRIPE
-// Remplacez ces URLs par vos vrais Stripe Payment Links
-// Créez-les sur: https://dashboard.stripe.com/payment-links
 // =============================================================================
-const STRIPE_PAYMENT_LINKS = {
-  // Lien pour don de 2€
-  donation_2: 'https://buy.stripe.com/28E3cv7ZYcMQbuJgkR4Vyq00',
-  // Lien pour don de 5€
-  donation_5: 'https://buy.stripe.com/eVqaEX2MIbIM6ap70I4Vyq01',
-  // Lien pour don de 10€
-  donation_10: 'https://buy.stripe.com/4gM14ngDy3cgfKZ5Gd4Vyq02',
-  // Lien pour don de 25€
-  donation_25: 'https://buy.stripe.com/14A9AT872d0U42h7014Vyq04',
+const STRIPE_PAYMENT_LINKS: Record<number, string> = {
+  2: 'https://buy.stripe.com/28E3cv7ZYcMQbuJgkA4VyQ0',
+  5: 'https://buy.stripe.com/eVgaEX2MIbIM6ap7014VyQ1',
+  10: 'https://buy.stripe.com/4gM14ngDv3cgfKZ5Gd4VyQ2',
+  25: 'https://buy.stripe.com/14A9AT872d0U42h7014VyQ4',
 };
 
 // Configuration des plateformes alternatives
@@ -94,7 +88,7 @@ const SUPPORT_TIERS = [
     name: 'Cafe',
     icon: '☕',
     description: 'Un petit cafe pour nous motiver',
-    stripeLink: STRIPE_PAYMENT_LINKS.donation_2,
+    stripeLink: STRIPE_PAYMENT_LINKS[2],
   },
   {
     amount: 5,
@@ -102,7 +96,7 @@ const SUPPORT_TIERS = [
     name: 'Supporter',
     icon: '⭐',
     description: 'Aide a payer les serveurs',
-    stripeLink: STRIPE_PAYMENT_LINKS.donation_5,
+    stripeLink: STRIPE_PAYMENT_LINKS[5],
   },
   {
     amount: 10,
@@ -110,7 +104,7 @@ const SUPPORT_TIERS = [
     name: 'Champion',
     icon: '🏆',
     description: 'Soutien important au projet',
-    stripeLink: STRIPE_PAYMENT_LINKS.donation_10,
+    stripeLink: STRIPE_PAYMENT_LINKS[10],
   },
   {
     amount: 25,
@@ -118,7 +112,7 @@ const SUPPORT_TIERS = [
     name: 'Legende',
     icon: '👑',
     description: 'Vous etes incroyable!',
-    stripeLink: STRIPE_PAYMENT_LINKS.donation_25,
+    stripeLink: STRIPE_PAYMENT_LINKS[25],
   },
 ];
 
