@@ -195,7 +195,7 @@ function Achievements({ isOpen, onClose, onBalanceChange }: AchievementsProps) {
   };
 
   const shareNative = () => {
-    if (referralStats?.code && navigator.share) {
+    if (referralStats?.code && 'share' in navigator) {
       navigator.share({
         title: t('achievements.shareTitle'),
         text: getShareText(),
@@ -322,7 +322,7 @@ function Achievements({ isOpen, onClose, onBalanceChange }: AchievementsProps) {
                     <span className="social-name">SMS</span>
                   </button>
                 </div>
-                {navigator.share && (
+                {'share' in navigator && (
                   <button className="share-btn-native" onClick={shareNative}>
                     {t('achievements.moreOptions')}
                   </button>
