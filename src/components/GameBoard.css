@@ -400,3 +400,177 @@
   animation: losePulse 1s ease-in-out 3;
   border-color: rgba(231, 76, 60, 0.5);
 }
+
+/* === CONFETTIS DE VICTOIRE === */
+.victory-confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    top: -20px;
+    opacity: 1;
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(90deg) translateX(20px);
+  }
+  50% {
+    transform: rotate(180deg) translateX(-20px);
+  }
+  75% {
+    transform: rotate(270deg) translateX(20px);
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+    transform: rotate(360deg) translateX(0);
+  }
+}
+
+/* === INDICATEUR DE TOUR AMELIORE === */
+.turn-indicator {
+  animation: fadeInSlide 0.3s ease;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.your-turn {
+  color: #2ecc71;
+  font-weight: 700;
+  animation: pulseText 1s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.game-over-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* === COMPTEUR DE PIECES AMELIORE === */
+.pieces-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.piece-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 70px;
+}
+
+.piece-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.piece-icon:hover {
+  transform: scale(1.1);
+}
+
+.piece-icon.white {
+  background: linear-gradient(145deg, #faf0e6 0%, #e8d4b8 100%);
+  color: #5b3210;
+  border: 2px solid #d4c4a8;
+  box-shadow: 0 4px 15px rgba(250, 240, 230, 0.3);
+}
+
+.piece-icon.black {
+  background: linear-gradient(145deg, #5b3210 0%, #3d2209 100%);
+  color: #faf0e6;
+  border: 2px solid #8b4513;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.kings-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+  color: #1a1a2e;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffd700;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+}
+
+.piece-label {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.captures-count {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.vs-divider {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+/* === ANIMATIONS DE CAPTURE === */
+@keyframes captureFlash {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.piece-counter.capturing .piece-icon {
+  animation: captureFlash 0.3s ease;
+}

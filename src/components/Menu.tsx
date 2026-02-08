@@ -10,6 +10,7 @@ import Achievements from './Achievements';
 import BattlePass from './BattlePass';
 import PromotionalOffers from './PromotionalOffers';
 import LanguageSelector from './LanguageSelector';
+import LocalStats from './LocalStats';
 
 interface MenuProps {
   onStartGame: (mode: 'pvp' | 'ai' | 'online', difficulty?: Difficulty, color?: 'white' | 'black') => void;
@@ -27,6 +28,7 @@ function Menu({ onStartGame }: MenuProps) {
   const [showAchievements, setShowAchievements] = useState(false);
   const [showBattlePass, setShowBattlePass] = useState(false);
   const [showPromotions, setShowPromotions] = useState(false);
+  const [showLocalStats, setShowLocalStats] = useState(false);
 
   const toggleAISettings = () => {
     setShowAISettings(!showAISettings);
@@ -148,6 +150,13 @@ function Menu({ onStartGame }: MenuProps) {
           {t('menu.achievements')}
         </button>
 
+        <button
+          className="menu-btn stats"
+          onClick={() => setShowLocalStats(true)}
+        >
+          {t('menu.stats', 'Statistiques')}
+        </button>
+
       </div>
 
       <Leaderboard
@@ -183,6 +192,11 @@ function Menu({ onStartGame }: MenuProps) {
       <PromotionalOffers
         isOpen={showPromotions}
         onClose={() => setShowPromotions(false)}
+      />
+
+      <LocalStats
+        isOpen={showLocalStats}
+        onClose={() => setShowLocalStats(false)}
       />
     </div>
   );

@@ -367,6 +367,18 @@ body::after {
   box-shadow: 0 8px 30px rgba(46, 204, 113, 0.5);
 }
 
+/* Bouton Stats (bleu cyan) */
+.menu-btn.stats {
+  background: linear-gradient(135deg, #00bcd4 0%, #0097a7 50%, #00838f 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 188, 212, 0.4);
+}
+
+.menu-btn.stats:hover {
+  box-shadow: 0 8px 30px rgba(0, 188, 212, 0.5);
+}
+
 /* Bouton Battle Pass (dégradé animé) */
 .menu-btn.battlepass {
   background: linear-gradient(135deg, #4a9eff 0%, #7b2cbf 50%, #e94560 100%);

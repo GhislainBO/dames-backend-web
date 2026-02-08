@@ -46,10 +46,24 @@ const DIFFICULTY_MAP: Record<string, Difficulty> = {
   'expert': Difficulty.EXPERT,
 };
 
+// Interface pour l'état du jeu
+export interface GameState {
+  currentTurn: 'white' | 'black';
+  whitePieces: number;
+  blackPieces: number;
+  whiteKings: number;
+  blackKings: number;
+  capturedByWhite: number;
+  capturedByBlack: number;
+  isGameOver: boolean;
+  winner?: string;
+}
+
 // Interface pour les callbacks vers React
 export interface SceneCallbacks {
   onMoveHistoryChange?: (moves: string[], currentIndex: number) => void;
   onGameOver?: (winner: string, reason: string) => void;
+  onGameStateChange?: (state: GameState) => void;
 }
 
 // Objet global pour stocker les callbacks actuels (permet de les mettre à jour)
@@ -80,6 +94,10 @@ export class DraughtsScene extends Phaser.Scene {
   private replayMode: boolean = false;
   private replayIndex: number = -1;
   private savedEngineStates: string[] = []; // États du moteur pour replay
+
+  // Compteurs de captures
+  private capturedByWhite: number = 0;
+  private capturedByBlack: number = 0;
 
   // Callbacks
   private callbacks: SceneCallbacks = {};
@@ -174,6 +192,9 @@ export class DraughtsScene extends Phaser.Scene {
 
     // Exposer les méthodes pour React
     this.registry.set('sceneInstance', this);
+
+    // Notifier l'état initial
+    this.time.delayedCall(100, () => this.notifyGameStateChange());
   }
 
   /**
@@ -1052,9 +1073,18 @@ export class DraughtsScene extends Phaser.Scene {
    * Exécute un coup via le moteur
    */
   private executeMove(move: Move) {
+    // Déterminer qui joue avant le coup
+    const currentPlayer = this.engine.getCurrentPlayer();
+
     // Son de capture ou de déplacement
     if (move.captures.length > 0) {
       audioManager.play('capture');
+      // Compter les captures
+      if (currentPlayer === Color.WHITE) {
+        this.capturedByWhite += move.captures.length;
+      } else {
+        this.capturedByBlack += move.captures.length;
+      }
       for (const captured of move.captures) {
         this.showCaptureEffect(captured);
       }
@@ -1087,6 +1117,9 @@ export class DraughtsScene extends Phaser.Scene {
       this.drawPieces();
       this.updateStatus();
 
+      // Notifier l'état du jeu
+      this.notifyGameStateChange();
+
       if (this.engine.isGameOver()) {
         this.gameOver = true;
         // Son de victoire ou défaite
@@ -1098,6 +1131,8 @@ export class DraughtsScene extends Phaser.Scene {
         } else {
           audioManager.play('victory');
         }
+        // Notifier l'état final
+        this.notifyGameStateChange();
         if (sceneCallbacksRef.current.onGameOver) {
           sceneCallbacksRef.current.onGameOver(info.result, info.reason);
         }
@@ -1634,6 +1669,56 @@ export class DraughtsScene extends Phaser.Scene {
    */
   public isInReplayMode(): boolean {
     return this.replayMode;
+  }
+
+  /**
+   * Retourne l'état actuel du jeu
+   */
+  public getGameState(): GameState {
+    const board = this.engine.getBoard();
+    let whitePieces = 0;
+    let blackPieces = 0;
+    let whiteKings = 0;
+    let blackKings = 0;
+
+    // Compter les pièces
+    for (let row = 0; row < 10; row++) {
+      for (let col = 0; col < 10; col++) {
+        const piece = board.getPiece({ row, col });
+        if (piece) {
+          if (piece.color === Color.WHITE) {
+            whitePieces++;
+            if (piece.type === PieceType.KING) whiteKings++;
+          } else {
+            blackPieces++;
+            if (piece.type === PieceType.KING) blackKings++;
+          }
+        }
+      }
+    }
+
+    const info = this.engine.getGameInfo();
+
+    return {
+      currentTurn: this.engine.getCurrentPlayer() === Color.WHITE ? 'white' : 'black',
+      whitePieces,
+      blackPieces,
+      whiteKings,
+      blackKings,
+      capturedByWhite: this.capturedByWhite,
+      capturedByBlack: this.capturedByBlack,
+      isGameOver: this.gameOver,
+      winner: info.result,
+    };
+  }
+
+  /**
+   * Notifie React des changements d'état du jeu
+   */
+  private notifyGameStateChange(): void {
+    if (sceneCallbacksRef.current.onGameStateChange) {
+      sceneCallbacksRef.current.onGameStateChange(this.getGameState());
+    }
   }
 
   /**
