@@ -173,6 +173,7 @@ function AppContent({ gameMode, renderContent }: { gameMode: GameMode; renderCon
           <span className="header-subtitle">FMJD 10×10 • RÈGLES INTERNATIONALES</span>
         </div>
         <div className="header-right">
+          <LanguageSelector compact />
           <Wallet />
           <UserProfile />
         </div>
@@ -183,11 +184,7 @@ function AppContent({ gameMode, renderContent }: { gameMode: GameMode; renderCon
       </main>
 
       <footer className="app-footer">
-        <div className="footer-content">
-          <p>Regles FMJD - Developpe avec React + Phaser.js</p>
-          <span className="footer-separator">|</span>
-          <LanguageSelector compact />
-        </div>
+        <p>Regles FMJD - Developpe avec React + Phaser.js</p>
       </footer>
 
       {/* Composants publicitaires globaux */}
