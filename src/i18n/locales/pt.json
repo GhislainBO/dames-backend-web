@@ -135,7 +135,9 @@
     "newUnlocked": "Novas conquistas desbloqueadas!",
     "referralInfo": "Ganhe {{amount}} moedas para cada amigo que usar seu código!",
     "shareTitle": "Junte-se a mim no Damas!",
-    "shareText": "Use meu código {{code}} para receber {{amount}} moedas grátis!"
+    "shareText": "Use meu código {{code}} para receber {{amount}} moedas grátis!",
+    "shareVia": "Compartilhar via",
+    "moreOptions": "Mais opções"
   },
   "categories": {
     "games": "Partidas",

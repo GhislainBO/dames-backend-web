@@ -135,7 +135,9 @@
     "newUnlocked": "إنجازات جديدة مفتوحة!",
     "referralInfo": "اربح {{amount}} عملات لكل صديق يستخدم رمزك!",
     "shareTitle": "انضم إلي في لعبة الداما!",
-    "shareText": "استخدم رمزي {{code}} للحصول على {{amount}} عملات مجانية!"
+    "shareText": "استخدم رمزي {{code}} للحصول على {{amount}} عملات مجانية!",
+    "shareVia": "مشاركة عبر",
+    "moreOptions": "خيارات أخرى"
   },
   "categories": {
     "games": "المباريات",

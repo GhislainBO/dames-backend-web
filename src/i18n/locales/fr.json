@@ -135,7 +135,9 @@
     "newUnlocked": "Nouveaux succès débloqués !",
     "referralInfo": "Gagnez {{amount}} jetons pour chaque ami qui utilise votre code !",
     "shareTitle": "Rejoins-moi sur Dames !",
-    "shareText": "Utilise mon code {{code}} pour recevoir {{amount}} jetons gratuits !"
+    "shareText": "Utilise mon code {{code}} pour recevoir {{amount}} jetons gratuits !",
+    "shareVia": "Partager via",
+    "moreOptions": "Plus d'options"
   },
   "categories": {
     "games": "Parties",

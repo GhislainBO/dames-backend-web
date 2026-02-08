@@ -135,7 +135,9 @@
     "newUnlocked": "Neue Erfolge freigeschaltet!",
     "referralInfo": "Verdiene {{amount}} Münzen für jeden Freund, der deinen Code verwendet!",
     "shareTitle": "Spiel mit mir Dame!",
-    "shareText": "Verwende meinen Code {{code}}, um {{amount}} kostenlose Münzen zu erhalten!"
+    "shareText": "Verwende meinen Code {{code}}, um {{amount}} kostenlose Münzen zu erhalten!",
+    "shareVia": "Teilen über",
+    "moreOptions": "Mehr Optionen"
   },
   "categories": {
     "games": "Spiele",

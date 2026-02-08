@@ -135,7 +135,9 @@
     "newUnlocked": "New achievements unlocked!",
     "referralInfo": "Earn {{amount}} coins for each friend who uses your code!",
     "shareTitle": "Join me on Checkers!",
-    "shareText": "Use my code {{code}} to receive {{amount}} free coins!"
+    "shareText": "Use my code {{code}} to receive {{amount}} free coins!",
+    "shareVia": "Share via",
+    "moreOptions": "More options"
   },
   "categories": {
     "games": "Games",

@@ -363,26 +363,147 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.share-btn {
+/* === SECTION PARTAGE RÉSEAUX SOCIAUX === */
+.social-share-section {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.share-label {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.social-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 10px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon {
+  font-size: 1.5rem;
+}
+
+.social-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* WhatsApp */
+.social-btn.whatsapp {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(37, 211, 102, 0.1) 100%);
+  border-color: rgba(37, 211, 102, 0.3);
+  color: #25d366;
+}
+.social-btn.whatsapp:hover {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.3) 0%, rgba(37, 211, 102, 0.2) 100%);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* Email */
+.social-btn.email {
+  background: linear-gradient(135deg, rgba(234, 67, 53, 0.2) 0%, rgba(234, 67, 53, 0.1) 100%);
+  border-color: rgba(234, 67, 53, 0.3);
+  color: #ea4335;
+}
+.social-btn.email:hover {
+  background: linear-gradient(135deg, rgba(234, 67, 53, 0.3) 0%, rgba(234, 67, 53, 0.2) 100%);
+  box-shadow: 0 6px 20px rgba(234, 67, 53, 0.3);
+}
+
+/* Facebook */
+.social-btn.facebook {
+  background: linear-gradient(135deg, rgba(24, 119, 242, 0.2) 0%, rgba(24, 119, 242, 0.1) 100%);
+  border-color: rgba(24, 119, 242, 0.3);
+  color: #1877f2;
+}
+.social-btn.facebook:hover {
+  background: linear-gradient(135deg, rgba(24, 119, 242, 0.3) 0%, rgba(24, 119, 242, 0.2) 100%);
+  box-shadow: 0 6px 20px rgba(24, 119, 242, 0.3);
+}
+
+/* Twitter */
+.social-btn.twitter {
+  background: linear-gradient(135deg, rgba(29, 161, 242, 0.2) 0%, rgba(29, 161, 242, 0.1) 100%);
+  border-color: rgba(29, 161, 242, 0.3);
+  color: #1da1f2;
+}
+.social-btn.twitter:hover {
+  background: linear-gradient(135deg, rgba(29, 161, 242, 0.3) 0%, rgba(29, 161, 242, 0.2) 100%);
+  box-shadow: 0 6px 20px rgba(29, 161, 242, 0.3);
+}
+
+/* Telegram */
+.social-btn.telegram {
+  background: linear-gradient(135deg, rgba(0, 136, 204, 0.2) 0%, rgba(0, 136, 204, 0.1) 100%);
+  border-color: rgba(0, 136, 204, 0.3);
+  color: #0088cc;
+}
+.social-btn.telegram:hover {
+  background: linear-gradient(135deg, rgba(0, 136, 204, 0.3) 0%, rgba(0, 136, 204, 0.2) 100%);
+  box-shadow: 0 6px 20px rgba(0, 136, 204, 0.3);
+}
+
+/* SMS */
+.social-btn.sms {
+  background: linear-gradient(135deg, rgba(52, 199, 89, 0.2) 0%, rgba(52, 199, 89, 0.1) 100%);
+  border-color: rgba(52, 199, 89, 0.3);
+  color: #34c759;
+}
+.social-btn.sms:hover {
+  background: linear-gradient(135deg, rgba(52, 199, 89, 0.3) 0%, rgba(52, 199, 89, 0.2) 100%);
+  box-shadow: 0 6px 20px rgba(52, 199, 89, 0.3);
+}
+
+/* Bouton Plus d'options (natif) */
+.share-btn-native {
   width: 100%;
-  padding: 16px;
+  padding: 12px;
   background: linear-gradient(135deg, #4a9eff 0%, #7b2cbf 100%);
   color: #fff;
   border: none;
-  border-radius: 12px;
-  font-size: 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  margin-bottom: 20px;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 20px rgba(74, 158, 255, 0.3);
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
 }
 
-.share-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(74, 158, 255, 0.4);
+.share-btn-native:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
 }
 
 /* === STATISTIQUES PARRAINAGE === */
@@ -605,5 +726,21 @@
 
   .code-input-group {
     flex-direction: column;
+  }
+
+  .social-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .social-btn {
+    padding: 12px 8px;
+  }
+
+  .social-icon {
+    font-size: 1.3rem;
+  }
+
+  .social-name {
+    font-size: 0.65rem;
   }
 }

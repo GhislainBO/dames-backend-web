@@ -150,11 +150,56 @@ function Achievements({ isOpen, onClose, onBalanceChange }: AchievementsProps) {
     }
   };
 
-  const shareReferralCode = () => {
+  const getShareText = () => {
+    if (!referralStats) return '';
+    return t('achievements.shareText', {
+      code: referralStats.code,
+      amount: referralStats.rewards.referee
+    });
+  };
+
+  const getShareUrl = () => {
+    return `https://dames-backend-web.vercel.app/?ref=${referralStats?.code || ''}`;
+  };
+
+  const shareViaWhatsApp = () => {
+    const text = encodeURIComponent(`${getShareText()}\n${getShareUrl()}`);
+    window.open(`https://wa.me/?text=${text}`, '_blank');
+  };
+
+  const shareViaEmail = () => {
+    const subject = encodeURIComponent(t('achievements.shareTitle'));
+    const body = encodeURIComponent(`${getShareText()}\n\n${getShareUrl()}`);
+    window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
+  };
+
+  const shareViaFacebook = () => {
+    const url = encodeURIComponent(getShareUrl());
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+  };
+
+  const shareViaTwitter = () => {
+    const text = encodeURIComponent(getShareText());
+    const url = encodeURIComponent(getShareUrl());
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+  };
+
+  const shareViaTelegram = () => {
+    const text = encodeURIComponent(`${getShareText()}\n${getShareUrl()}`);
+    window.open(`https://t.me/share/url?url=${encodeURIComponent(getShareUrl())}&text=${text}`, '_blank');
+  };
+
+  const shareViaSMS = () => {
+    const text = encodeURIComponent(`${getShareText()} ${getShareUrl()}`);
+    window.open(`sms:?body=${text}`, '_blank');
+  };
+
+  const shareNative = () => {
     if (referralStats?.code && navigator.share) {
       navigator.share({
         title: t('achievements.shareTitle'),
-        text: t('achievements.shareText', { code: referralStats.code, amount: referralStats.rewards.referee }),
+        text: getShareText(),
+        url: getShareUrl(),
       });
     } else {
       copyReferralCode();
@@ -247,9 +292,43 @@ function Achievements({ isOpen, onClose, onBalanceChange }: AchievementsProps) {
                 <span className="code">{referralStats?.code || '...'}</span>
                 <button className="copy-btn" onClick={copyReferralCode}>{t('achievements.copy')}</button>
               </div>
-              <button className="share-btn" onClick={shareReferralCode}>
-                {t('achievements.share')}
-              </button>
+
+              {/* Boutons de partage réseaux sociaux */}
+              <div className="social-share-section">
+                <p className="share-label">{t('achievements.shareVia')}</p>
+                <div className="social-buttons">
+                  <button className="social-btn whatsapp" onClick={shareViaWhatsApp} title="WhatsApp">
+                    <span className="social-icon">📱</span>
+                    <span className="social-name">WhatsApp</span>
+                  </button>
+                  <button className="social-btn email" onClick={shareViaEmail} title="Email">
+                    <span className="social-icon">📧</span>
+                    <span className="social-name">Email</span>
+                  </button>
+                  <button className="social-btn facebook" onClick={shareViaFacebook} title="Facebook">
+                    <span className="social-icon">📘</span>
+                    <span className="social-name">Facebook</span>
+                  </button>
+                  <button className="social-btn twitter" onClick={shareViaTwitter} title="X / Twitter">
+                    <span className="social-icon">🐦</span>
+                    <span className="social-name">Twitter</span>
+                  </button>
+                  <button className="social-btn telegram" onClick={shareViaTelegram} title="Telegram">
+                    <span className="social-icon">✈️</span>
+                    <span className="social-name">Telegram</span>
+                  </button>
+                  <button className="social-btn sms" onClick={shareViaSMS} title="SMS">
+                    <span className="social-icon">💬</span>
+                    <span className="social-name">SMS</span>
+                  </button>
+                </div>
+                {navigator.share && (
+                  <button className="share-btn-native" onClick={shareNative}>
+                    {t('achievements.moreOptions')}
+                  </button>
+                )}
+              </div>
+
               <div className="referral-stats">
                 <div className="stat">
                   <span className="stat-value">{referralStats?.referralCount || 0}</span>
