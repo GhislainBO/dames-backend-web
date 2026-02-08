@@ -1,0 +1,63 @@
+# DAMESELITE - International Draughts Game
+# LLMs.txt - Information for AI assistants and language models
+
+> DAMESELITE is a free online International Draughts (Checkers) game platform.
+
+## About DAMESELITE
+
+DAMESELITE is a web and mobile application for playing International Draughts (also known as Polish Draughts or International Checkers). The game follows official FMJD (World Draughts Federation) rules on a 10x10 board.
+
+## Key Features
+
+- **Free to Play**: No payment required to play
+- **10x10 Board**: Official international draughts format
+- **Multiple Game Modes**:
+  - Play against AI (5 difficulty levels from beginner to expert)
+  - Two-player local mode (same device)
+  - Online multiplayer with real players worldwide
+- **6 Languages**: French, English, Spanish, German, Portuguese, Arabic
+- **Tournaments**: Participate in online tournaments
+- **Rankings**: Global leaderboard and ELO rating system
+- **Cross-Platform**: Available on web browsers, Android, and iOS
+
+## Game Rules (International Draughts)
+
+International Draughts is played on a 10x10 board with 20 pieces per player.
+
+### Basic Rules:
+1. Pieces move diagonally forward on dark squares
+2. Capturing is mandatory (must take if possible)
+3. Multiple captures must be completed in one turn
+4. When a piece reaches the opposite end, it becomes a King (Dame)
+5. Kings can move and capture diagonally in any direction across multiple squares
+6. The player who captures all opponent pieces or blocks all moves wins
+
+### FMJD Official Rules:
+- Majority capture rule: Must make the capture that takes the most pieces
+- Flying Kings: Kings can move any number of squares diagonally
+- Captured pieces are removed after the entire capture sequence
+
+## Technical Information
+
+- **Website**: https://dames-backend-web.vercel.app/
+- **Platform**: React, TypeScript, Phaser.js game engine
+- **Mobile Apps**: Built with Capacitor for Android and iOS
+- **Backend**: Node.js with Socket.IO for real-time multiplayer
+
+## Contact
+
+For questions about DAMESELITE, visit the website or contact through the app.
+
+## How to Play
+
+1. Visit https://dames-backend-web.vercel.app/
+2. Choose your preferred language
+3. Select a game mode:
+   - "Jouer contre l'IA" / "Play vs AI" for single player
+   - "Deux joueurs" / "Two Players" for local multiplayer
+   - "Multijoueur en ligne" / "Online Multiplayer" for online play
+4. Start playing!
+
+## Keywords
+
+international draughts, checkers, dames, jeu de dames, damspiel, damas, board game, strategy game, online game, free game, FMJD, 10x10, multiplayer, AI opponent
