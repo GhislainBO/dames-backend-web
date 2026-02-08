@@ -21,6 +21,9 @@
     "hallOfFame": "Hall of Fame",
     "blog": "Blog & News",
     "community": "Community",
+    "support": "Support Us",
+    "resources": "Resources",
+    "partners": "Partners",
     "back": "Back",
     "settings": "Settings",
     "language": "Language"
@@ -496,5 +499,49 @@
       "medium": "Medium",
       "hard": "Hard"
     }
+  },
+  "support": {
+    "title": "Support Us",
+    "subtitle": "Help us keep DAMESELITE free!",
+    "freemium": "DAMESELITE is 100% free. Your support helps us continue.",
+    "donate": "Make a donation",
+    "donateDesc": "Support development with a one-time donation",
+    "monthly": "Monthly support",
+    "monthlyDesc": "Become a regular supporter",
+    "otherWays": "Other ways to help",
+    "shareGame": "Share the game",
+    "shareGameDesc": "Invite your friends to play!",
+    "leaveReview": "Leave a review",
+    "leaveReviewDesc": "Rate us on the stores",
+    "joinCommunity": "Join the community",
+    "joinCommunityDesc": "Discord, social media...",
+    "donors": "Recent donors",
+    "anonymous": "Anonymous",
+    "thankYou": "Thank you for your support!"
+  },
+  "resources": {
+    "title": "Recommended Resources",
+    "subtitle": "Books, courses and equipment to improve",
+    "affiliateNotice": "Some links are affiliate links. Your purchases help us keep the game free.",
+    "all": "All",
+    "books": "Books",
+    "courses": "Courses",
+    "equipment": "Equipment",
+    "apps": "Apps",
+    "view": "View",
+    "footerText": "Thank you for supporting DAMESELITE by using our links!"
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "Thanks to those who support us",
+    "becomePartner": "Become a Partner",
+    "becomePartnerDesc": "Associate your brand with DAMESELITE and reach thousands of passionate players.",
+    "contactUs": "Contact Us",
+    "ourReach": "Our Reach",
+    "monthlyPlayers": "Players/month",
+    "pageViews": "Page views",
+    "socialFollowers": "Followers",
+    "countries": "Countries",
+    "footerText": "Contact: partnership@dameselite.com"
   }
 }

@@ -556,6 +556,69 @@ body::after {
   50%, 100% { left: 100%; }
 }
 
+/* Bouton Support (rouge coeur) */
+.menu-btn.support {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(196, 69, 105, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.support::before {
+  content: '❤️';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.support:hover {
+  box-shadow: 0 8px 30px rgba(196, 69, 105, 0.5);
+}
+
+/* Bouton Resources (bleu-vert) */
+.menu-btn.resources {
+  background: linear-gradient(135deg, #26de81 0%, #20bf6b 50%, #1abc9c 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(38, 222, 129, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.resources::before {
+  content: '📚';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.resources:hover {
+  box-shadow: 0 8px 30px rgba(38, 222, 129, 0.5);
+}
+
+/* Bouton Partners (or elegant) */
+.menu-btn.partners {
+  background: linear-gradient(135deg, #f9ca24 0%, #f0932b 100%);
+  color: #1a1a2e;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(249, 202, 36, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.partners::before {
+  content: '🤝';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.partners:hover {
+  box-shadow: 0 8px 30px rgba(249, 202, 36, 0.5);
+}
+
 /* === PARAMÈTRES IA === */
 .ai-settings {
   margin-top: 25px;

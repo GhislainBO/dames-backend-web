@@ -16,6 +16,9 @@ import LocalAchievements from './LocalAchievements';
 import HallOfFame from './HallOfFame';
 import Blog from './Blog';
 import Community from './Community';
+import Support from './Support';
+import Resources from './Resources';
+import Partners from './Partners';
 
 interface MenuProps {
   onStartGame: (mode: 'pvp' | 'ai' | 'online', difficulty?: Difficulty, color?: 'white' | 'black') => void;
@@ -39,6 +42,9 @@ function Menu({ onStartGame }: MenuProps) {
   const [showHallOfFame, setShowHallOfFame] = useState(false);
   const [showBlog, setShowBlog] = useState(false);
   const [showCommunity, setShowCommunity] = useState(false);
+  const [showSupport, setShowSupport] = useState(false);
+  const [showResources, setShowResources] = useState(false);
+  const [showPartners, setShowPartners] = useState(false);
 
   const toggleAISettings = () => {
     setShowAISettings(!showAISettings);
@@ -202,6 +208,27 @@ function Menu({ onStartGame }: MenuProps) {
           {t('menu.community', 'Communaute')}
         </button>
 
+        <button
+          className="menu-btn support"
+          onClick={() => setShowSupport(true)}
+        >
+          {t('menu.support', 'Nous Soutenir')}
+        </button>
+
+        <button
+          className="menu-btn resources"
+          onClick={() => setShowResources(true)}
+        >
+          {t('menu.resources', 'Ressources')}
+        </button>
+
+        <button
+          className="menu-btn partners"
+          onClick={() => setShowPartners(true)}
+        >
+          {t('menu.partners', 'Partenaires')}
+        </button>
+
       </div>
 
       <Leaderboard
@@ -266,6 +293,21 @@ function Menu({ onStartGame }: MenuProps) {
       <Community
         isOpen={showCommunity}
         onClose={() => setShowCommunity(false)}
+      />
+
+      <Support
+        isOpen={showSupport}
+        onClose={() => setShowSupport(false)}
+      />
+
+      <Resources
+        isOpen={showResources}
+        onClose={() => setShowResources(false)}
+      />
+
+      <Partners
+        isOpen={showPartners}
+        onClose={() => setShowPartners(false)}
       />
     </div>
   );

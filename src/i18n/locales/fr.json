@@ -21,6 +21,9 @@
     "hallOfFame": "Hall of Fame",
     "blog": "Blog & Actualites",
     "community": "Communaute",
+    "support": "Nous Soutenir",
+    "resources": "Ressources",
+    "partners": "Partenaires",
     "back": "Retour",
     "settings": "Paramètres",
     "language": "Langue"
@@ -496,5 +499,49 @@
       "medium": "Moyen",
       "hard": "Difficile"
     }
+  },
+  "support": {
+    "title": "Nous Soutenir",
+    "subtitle": "Aidez-nous a garder DAMESELITE gratuit!",
+    "freemium": "DAMESELITE est 100% gratuit. Votre soutien nous aide a continuer.",
+    "donate": "Faire un don",
+    "donateDesc": "Soutenez le developpement avec un don ponctuel",
+    "monthly": "Soutien mensuel",
+    "monthlyDesc": "Devenez un soutien regulier",
+    "otherWays": "Autres facons d'aider",
+    "shareGame": "Partager le jeu",
+    "shareGameDesc": "Invitez vos amis a jouer!",
+    "leaveReview": "Laisser un avis",
+    "leaveReviewDesc": "Notez-nous sur les stores",
+    "joinCommunity": "Rejoindre la communaute",
+    "joinCommunityDesc": "Discord, reseaux sociaux...",
+    "donors": "Donateurs recents",
+    "anonymous": "Anonyme",
+    "thankYou": "Merci pour votre soutien!"
+  },
+  "resources": {
+    "title": "Ressources Recommandees",
+    "subtitle": "Livres, cours et materiel pour progresser",
+    "affiliateNotice": "Certains liens sont affilies. Vos achats nous aident a maintenir le jeu gratuit.",
+    "all": "Tous",
+    "books": "Livres",
+    "courses": "Cours",
+    "equipment": "Materiel",
+    "apps": "Applications",
+    "view": "Voir",
+    "footerText": "Merci de soutenir DAMESELITE en utilisant nos liens!"
+  },
+  "partners": {
+    "title": "Nos Partenaires",
+    "subtitle": "Merci a ceux qui nous soutiennent",
+    "becomePartner": "Devenir Partenaire",
+    "becomePartnerDesc": "Associez votre marque a DAMESELITE et touchez des milliers de joueurs passionnes.",
+    "contactUs": "Nous Contacter",
+    "ourReach": "Notre Audience",
+    "monthlyPlayers": "Joueurs/mois",
+    "pageViews": "Pages vues",
+    "socialFollowers": "Abonnes",
+    "countries": "Pays",
+    "footerText": "Contact: partnership@dameselite.com"
   }
 }

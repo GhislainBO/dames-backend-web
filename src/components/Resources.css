@@ -1,0 +1,286 @@
+/**
+ * Resources.css - Styles pour la page de ressources
+ */
+
+.resources-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.resources-modal {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resources-modal .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resources-modal .close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.resources-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.resources-header h2 {
+  color: #ffd700;
+  font-size: 1.8rem;
+  margin: 0 0 5px 0;
+}
+
+.resources-header p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* Notice affiliation */
+.affiliate-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(33, 150, 243, 0.1);
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+}
+
+.notice-icon {
+  font-size: 1.2rem;
+}
+
+.affiliate-notice p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* Filtres */
+.category-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+  border-color: #ffd700;
+  color: #1a1a2e;
+  font-weight: bold;
+}
+
+/* Liste des ressources */
+.resources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resource-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.resource-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateX(5px);
+}
+
+.resource-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.resource-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.resource-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.resource-content h4 {
+  color: white;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.resource-badge {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.resource-content p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 5px 0 8px 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 0.85rem;
+}
+
+.rating-number {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  margin-left: 3px;
+}
+
+.resource-category {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.resource-price {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.price {
+  display: block;
+  color: #4CAF50;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.view-btn {
+  color: #ffd700;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.resources-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resources-footer p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .resources-modal {
+    padding: 20px;
+  }
+
+  .resources-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .resource-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .resource-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .resource-price {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .price {
+    margin-bottom: 0;
+  }
+}

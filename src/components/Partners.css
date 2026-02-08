@@ -1,0 +1,318 @@
+/**
+ * Partners.css - Styles pour la page partenaires
+ */
+
+.partners-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.partners-modal {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.partners-modal .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.partners-modal .close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.partners-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.partners-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.partners-header h2 {
+  color: #ffd700;
+  font-size: 1.8rem;
+  margin: 0 0 5px 0;
+}
+
+.partners-header p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* Grille des partenaires */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.partner-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.partner-card.clickable {
+  cursor: pointer;
+}
+
+.partner-card.clickable:hover {
+  transform: translateY(-5px);
+  border-color: var(--tier-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.partner-card.placeholder {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  opacity: 0.7;
+}
+
+.tier-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+}
+
+.partner-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-placeholder {
+  font-size: 2rem;
+  color: var(--tier-color);
+  font-weight: bold;
+}
+
+.partner-card h4 {
+  color: white;
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+}
+
+.partner-card p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Devenir partenaire */
+.become-partner {
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.become-partner h3 {
+  color: #ffd700;
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+}
+
+.become-partner > p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 20px 0;
+}
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.tier-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px 15px;
+  border: 1px solid var(--tier-color, rgba(255, 255, 255, 0.1));
+}
+
+.tier-card .tier-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tier-card h4 {
+  color: var(--tier-color);
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.tier-price {
+  display: block;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.tier-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.tier-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  padding: 5px 0;
+}
+
+.tier-card .check {
+  color: var(--tier-color);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.contact-btn {
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+  color: #1a1a2e;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+/* Stats */
+.reach-stats {
+  margin-bottom: 20px;
+}
+
+.reach-stats h3 {
+  color: white;
+  text-align: center;
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.stat-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 15px 10px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+}
+
+/* Footer */
+.partners-footer {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.partners-footer p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .partners-modal {
+    padding: 20px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tiers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+}
