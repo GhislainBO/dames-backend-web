@@ -13,6 +13,9 @@ import LanguageSelector from './LanguageSelector';
 import LocalStats from './LocalStats';
 import DailyPuzzle from './DailyPuzzle';
 import LocalAchievements from './LocalAchievements';
+import HallOfFame from './HallOfFame';
+import Blog from './Blog';
+import Community from './Community';
 
 interface MenuProps {
   onStartGame: (mode: 'pvp' | 'ai' | 'online', difficulty?: Difficulty, color?: 'white' | 'black') => void;
@@ -33,6 +36,9 @@ function Menu({ onStartGame }: MenuProps) {
   const [showLocalStats, setShowLocalStats] = useState(false);
   const [showDailyPuzzle, setShowDailyPuzzle] = useState(false);
   const [showLocalAchievements, setShowLocalAchievements] = useState(false);
+  const [showHallOfFame, setShowHallOfFame] = useState(false);
+  const [showBlog, setShowBlog] = useState(false);
+  const [showCommunity, setShowCommunity] = useState(false);
 
   const toggleAISettings = () => {
     setShowAISettings(!showAISettings);
@@ -175,6 +181,27 @@ function Menu({ onStartGame }: MenuProps) {
           {t('menu.localAchievements', 'Succes Locaux')}
         </button>
 
+        <button
+          className="menu-btn hall-of-fame"
+          onClick={() => setShowHallOfFame(true)}
+        >
+          {t('menu.hallOfFame', 'Hall of Fame')}
+        </button>
+
+        <button
+          className="menu-btn blog"
+          onClick={() => setShowBlog(true)}
+        >
+          {t('menu.blog', 'Blog & Actualites')}
+        </button>
+
+        <button
+          className="menu-btn community"
+          onClick={() => setShowCommunity(true)}
+        >
+          {t('menu.community', 'Communaute')}
+        </button>
+
       </div>
 
       <Leaderboard
@@ -224,6 +251,21 @@ function Menu({ onStartGame }: MenuProps) {
       <LocalAchievements
         isOpen={showLocalAchievements}
         onClose={() => setShowLocalAchievements(false)}
+      />
+
+      <HallOfFame
+        isOpen={showHallOfFame}
+        onClose={() => setShowHallOfFame(false)}
+      />
+
+      <Blog
+        isOpen={showBlog}
+        onClose={() => setShowBlog(false)}
+      />
+
+      <Community
+        isOpen={showCommunity}
+        onClose={() => setShowCommunity(false)}
       />
     </div>
   );

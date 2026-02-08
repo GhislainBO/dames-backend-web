@@ -1,0 +1,340 @@
+/**
+ * HallOfFame.css - Styles pour le Hall of Fame
+ */
+
+.hall-of-fame-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hall-of-fame-modal {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.hall-of-fame-modal .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hall-of-fame-modal .close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.hall-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.trophy-icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hall-header h2 {
+  color: #ffd700;
+  font-size: 2rem;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.hall-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 5px 0 0 0;
+  font-style: italic;
+}
+
+/* Onglets */
+.hall-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.hall-tabs .tab-btn {
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hall-tabs .tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.hall-tabs .tab-btn.active {
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+  border-color: #ffd700;
+  color: #1a1a2e;
+  font-weight: bold;
+}
+
+/* Liste des joueurs */
+.players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.player-card:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.player-card.rank-gold {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.player-card.rank-silver {
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.05));
+  border: 1px solid rgba(192, 192, 192, 0.3);
+}
+
+.player-card.rank-bronze {
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.2), rgba(205, 127, 50, 0.05));
+  border: 1px solid rgba(205, 127, 50, 0.3);
+}
+
+.player-rank {
+  width: 50px;
+  text-align: center;
+}
+
+.rank-badge {
+  font-size: 1.8rem;
+}
+
+.rank-badge.default {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+}
+
+.player-avatar {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.player-avatar img,
+.avatar-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.country-flag {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  font-size: 1rem;
+  background: #1a1a2e;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.player-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.player-name {
+  color: white;
+  margin: 0 0 3px 0;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-title {
+  color: #ffd700;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.player-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.player-stats .stat {
+  text-align: center;
+}
+
+.player-stats .stat-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.player-stats .stat-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+/* Records */
+.records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.record-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.record-icon {
+  font-size: 2rem;
+}
+
+.record-info h4 {
+  color: white;
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.record-value {
+  color: #ffd700;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.record-holder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+/* Footer */
+.hall-footer {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hall-footer p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  margin: 5px 0;
+}
+
+.join-text {
+  color: #ffd700 !important;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .hall-of-fame-modal {
+    padding: 20px;
+  }
+
+  .trophy-icon {
+    font-size: 3rem;
+  }
+
+  .hall-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .player-card {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .player-rank {
+    width: 40px;
+  }
+
+  .player-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .player-stats {
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

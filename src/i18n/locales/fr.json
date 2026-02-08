@@ -18,6 +18,9 @@
     "stats": "Statistiques",
     "puzzle": "Puzzle du Jour",
     "localAchievements": "Succes Locaux",
+    "hallOfFame": "Hall of Fame",
+    "blog": "Blog & Actualites",
+    "community": "Communaute",
     "back": "Retour",
     "settings": "Paramètres",
     "language": "Langue"
@@ -422,6 +425,46 @@
       "streak": "Series",
       "special": "Special"
     }
+  },
+  "hallOfFame": {
+    "title": "Hall of Fame",
+    "subtitle": "Les legendes de DAMESELITE",
+    "topPlayers": "Top 10 Joueurs",
+    "records": "Records",
+    "wins": "Victoires",
+    "heldBy": "Detenu par",
+    "updateInfo": "Mis a jour chaque semaine",
+    "joinUs": "Jouez et grimpez dans le classement!"
+  },
+  "blog": {
+    "title": "Blog & Actualites",
+    "subtitle": "Conseils, strategies et nouveautes",
+    "all": "Tous",
+    "backToList": "Retour aux articles",
+    "category": {
+      "strategy": "Strategie",
+      "news": "Actualites",
+      "tips": "Conseils",
+      "community": "Communaute"
+    }
+  },
+  "community": {
+    "title": "Communaute",
+    "subtitle": "Rejoignez des milliers de joueurs passionnes",
+    "joinDiscord": "Rejoignez notre Discord",
+    "discordDesc": "Echangez, apprenez et participez aux defis!",
+    "membersOnline": "50+ en ligne",
+    "join": "Rejoindre",
+    "followUs": "Suivez-nous",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Recevez le puzzle de la semaine et les actualites",
+    "emailPlaceholder": "Votre email",
+    "subscribe": "S'inscrire",
+    "subscribed": "Merci! Vous etes inscrit.",
+    "privacyNote": "Pas de spam. Desabonnement en un clic.",
+    "players": "Joueurs",
+    "gamesPlayed": "Parties jouees",
+    "countries": "Pays"
   },
   "puzzle": {
     "title": "Puzzle du Jour",

@@ -421,6 +421,69 @@ body::after {
   box-shadow: 0 8px 30px rgba(0, 200, 83, 0.5);
 }
 
+/* Bouton Hall of Fame (or) */
+.menu-btn.hall-of-fame {
+  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+  color: #1a1a2e;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.hall-of-fame::before {
+  content: '🏆';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.hall-of-fame:hover {
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Bouton Blog (bleu) */
+.menu-btn.blog {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.blog::before {
+  content: '📰';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.blog:hover {
+  box-shadow: 0 8px 30px rgba(52, 152, 219, 0.5);
+}
+
+/* Bouton Communaute (violet) */
+.menu-btn.community {
+  background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(142, 68, 173, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn.community::before {
+  content: '🌍';
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+}
+
+.menu-btn.community:hover {
+  box-shadow: 0 8px 30px rgba(142, 68, 173, 0.5);
+}
+
 /* Bouton Battle Pass (dégradé animé) */
 .menu-btn.battlepass {
   background: linear-gradient(135deg, #4a9eff 0%, #7b2cbf 50%, #e94560 100%);

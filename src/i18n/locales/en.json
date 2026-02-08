@@ -18,6 +18,9 @@
     "stats": "Statistics",
     "puzzle": "Daily Puzzle",
     "localAchievements": "Local Achievements",
+    "hallOfFame": "Hall of Fame",
+    "blog": "Blog & News",
+    "community": "Community",
     "back": "Back",
     "settings": "Settings",
     "language": "Language"
@@ -422,6 +425,46 @@
       "streak": "Streaks",
       "special": "Special"
     }
+  },
+  "hallOfFame": {
+    "title": "Hall of Fame",
+    "subtitle": "The legends of DAMESELITE",
+    "topPlayers": "Top 10 Players",
+    "records": "Records",
+    "wins": "Wins",
+    "heldBy": "Held by",
+    "updateInfo": "Updated weekly",
+    "joinUs": "Play and climb the rankings!"
+  },
+  "blog": {
+    "title": "Blog & News",
+    "subtitle": "Tips, strategies and updates",
+    "all": "All",
+    "backToList": "Back to articles",
+    "category": {
+      "strategy": "Strategy",
+      "news": "News",
+      "tips": "Tips",
+      "community": "Community"
+    }
+  },
+  "community": {
+    "title": "Community",
+    "subtitle": "Join thousands of passionate players",
+    "joinDiscord": "Join our Discord",
+    "discordDesc": "Chat, learn and participate in challenges!",
+    "membersOnline": "50+ online",
+    "join": "Join",
+    "followUs": "Follow us",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Get the weekly puzzle and news",
+    "emailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "subscribed": "Thanks! You are subscribed.",
+    "privacyNote": "No spam. Unsubscribe in one click.",
+    "players": "Players",
+    "gamesPlayed": "Games played",
+    "countries": "Countries"
   },
   "puzzle": {
     "title": "Daily Puzzle",
