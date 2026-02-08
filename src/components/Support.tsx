@@ -13,12 +13,28 @@ interface SupportProps {
   onClose: () => void;
 }
 
-// Configuration des plateformes - À REMPLACER avec vos vrais comptes
+// =============================================================================
+// CONFIGURATION DES LIENS DE PAIEMENT STRIPE
+// Remplacez ces URLs par vos vrais Stripe Payment Links
+// Créez-les sur: https://dashboard.stripe.com/payment-links
+// =============================================================================
+const STRIPE_PAYMENT_LINKS = {
+  // Lien pour don de 2€
+  donation_2: 'https://buy.stripe.com/test_XXXXXXXX_2EUR',
+  // Lien pour don de 5€
+  donation_5: 'https://buy.stripe.com/test_XXXXXXXX_5EUR',
+  // Lien pour don de 10€
+  donation_10: 'https://buy.stripe.com/test_XXXXXXXX_10EUR',
+  // Lien pour don de 25€
+  donation_25: 'https://buy.stripe.com/test_XXXXXXXX_25EUR',
+};
+
+// Configuration des plateformes alternatives
 const DONATION_CONFIG = {
-  // Remplacez ces URLs par vos vrais comptes quand ils seront créés
+  // Plateformes de don alternatives (optionnel)
   buymeacoffee: {
-    enabled: true, // Mettre false si le compte n'existe pas encore
-    username: 'dameselite', // Votre username Buy Me a Coffee
+    enabled: true,
+    username: 'dameselite',
     url: 'https://buymeacoffee.com/dameselite',
   },
   kofi: {
@@ -28,12 +44,11 @@ const DONATION_CONFIG = {
   },
   paypal: {
     enabled: true,
-    // Utilisez PayPal.me ou un bouton de don PayPal
-    email: 'contact@dameselite.com', // Remplacez par votre email PayPal
+    email: 'contact@dameselite.com',
     url: 'https://paypal.me/dameselite',
   },
   // Liens sociaux
-  discord: 'https://discord.gg/dameselite', // Remplacez par votre lien Discord
+  discord: 'https://discord.gg/dameselite',
   twitter: 'https://twitter.com/dameselite',
   instagram: 'https://instagram.com/dameselite',
   facebook: 'https://facebook.com/dameselite',
@@ -79,6 +94,7 @@ const SUPPORT_TIERS = [
     name: 'Cafe',
     icon: '☕',
     description: 'Un petit cafe pour nous motiver',
+    stripeLink: STRIPE_PAYMENT_LINKS.donation_2,
   },
   {
     amount: 5,
@@ -86,6 +102,7 @@ const SUPPORT_TIERS = [
     name: 'Supporter',
     icon: '⭐',
     description: 'Aide a payer les serveurs',
+    stripeLink: STRIPE_PAYMENT_LINKS.donation_5,
   },
   {
     amount: 10,
@@ -93,6 +110,7 @@ const SUPPORT_TIERS = [
     name: 'Champion',
     icon: '🏆',
     description: 'Soutien important au projet',
+    stripeLink: STRIPE_PAYMENT_LINKS.donation_10,
   },
   {
     amount: 25,
@@ -100,54 +118,27 @@ const SUPPORT_TIERS = [
     name: 'Legende',
     icon: '👑',
     description: 'Vous etes incroyable!',
+    stripeLink: STRIPE_PAYMENT_LINKS.donation_25,
   },
 ];
 
 const Support: React.FC<SupportProps> = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
   const [showThanks, setShowThanks] = useState(false);
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
-  const [showPlatformChoice, setShowPlatformChoice] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
 
-  // Ouvrir le lien de donation
+  // Ouvrir le lien de donation (plateforme alternative)
   const openDonationLink = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
     setTimeout(() => setShowThanks(true), 2000);
   };
 
-  // Sélectionner un montant et afficher les options
-  const selectAmount = (amount: number) => {
-    setSelectedAmount(amount);
-    setShowPlatformChoice(true);
-  };
-
-  // Construire l'URL avec le montant présélectionné
-  const getDonationUrlWithAmount = (platformId: string, amount: number): string => {
-    switch (platformId) {
-      case 'buymeacoffee':
-        // Buy Me a Coffee supporte les montants via l'URL
-        return `https://buymeacoffee.com/${DONATION_CONFIG.buymeacoffee.username}`;
-      case 'kofi':
-        // Ko-fi permet de suggérer un montant
-        return `https://ko-fi.com/${DONATION_CONFIG.kofi.username}?amount=${amount}`;
-      case 'paypal':
-        // PayPal.me supporte les montants
-        return `https://paypal.me/${DONATION_CONFIG.paypal.url.split('/').pop()}/${amount}EUR`;
-      default:
-        return '';
-    }
-  };
-
-  // Confirmer la donation avec le montant sélectionné
-  const confirmDonation = (platformId: string) => {
-    if (selectedAmount) {
-      const url = getDonationUrlWithAmount(platformId, selectedAmount);
-      openDonationLink(url);
-    }
-    setShowPlatformChoice(false);
-    setSelectedAmount(null);
+  // Ouvrir le lien Stripe Payment pour un montant donné
+  const openStripePaymentLink = (stripeLink: string) => {
+    window.open(stripeLink, '_blank', 'noopener,noreferrer');
+    // Afficher le message de remerciement après un délai
+    setTimeout(() => setShowThanks(true), 3000);
   };
 
   // Partager le jeu
@@ -220,37 +211,6 @@ const Support: React.FC<SupportProps> = ({ isOpen, onClose }) => {
           </div>
         )}
 
-        {/* Modal de choix de plateforme */}
-        {showPlatformChoice && selectedAmount && (
-          <div className="platform-choice-overlay" onClick={() => setShowPlatformChoice(false)}>
-            <div className="platform-choice-modal" onClick={e => e.stopPropagation()}>
-              <h3>{t('support.choosePlatform', 'Choisissez votre plateforme')}</h3>
-              <p className="selected-amount">
-                {t('support.selectedAmount', 'Montant sélectionné')}: <strong>{selectedAmount}€</strong>
-              </p>
-              <div className="platform-choice-buttons">
-                {DONATION_PLATFORMS.filter(p => p.enabled).map(platform => (
-                  <button
-                    key={platform.id}
-                    className="platform-choice-btn"
-                    onClick={() => confirmDonation(platform.id)}
-                    style={{
-                      '--platform-color': platform.color,
-                      '--platform-text': platform.textColor,
-                    } as React.CSSProperties}
-                  >
-                    <span className="platform-icon">{platform.icon}</span>
-                    <span>{platform.name}</span>
-                  </button>
-                ))}
-              </div>
-              <button className="cancel-btn" onClick={() => setShowPlatformChoice(false)}>
-                {t('common.cancel', 'Annuler')}
-              </button>
-            </div>
-          </div>
-        )}
-
         {/* Modal de partage */}
         {showShareModal && (
           <div className="share-modal-overlay" onClick={() => setShowShareModal(false)}>
@@ -309,16 +269,16 @@ const Support: React.FC<SupportProps> = ({ isOpen, onClose }) => {
           </ul>
         </div>
 
-        {/* Tiers de donation - MAINTENANT CLIQUABLES */}
+        {/* Tiers de donation - Redirection vers Stripe Payment Links */}
         <div className="donation-tiers">
           {SUPPORT_TIERS.map(tier => (
             <div
               key={tier.amount}
               className="tier-card clickable"
-              onClick={() => selectAmount(tier.amount)}
+              onClick={() => openStripePaymentLink(tier.stripeLink)}
               role="button"
               tabIndex={0}
-              onKeyPress={(e) => e.key === 'Enter' && selectAmount(tier.amount)}
+              onKeyPress={(e) => e.key === 'Enter' && openStripePaymentLink(tier.stripeLink)}
             >
               <span className="tier-icon">{tier.icon}</span>
               <span className="tier-amount">{tier.label}</span>
