@@ -46,6 +46,34 @@ class OnlineGameScene extends Phaser.Scene {
   private readonly CELL_SIZE = 55;
   private readonly BOARD_OFFSET = 25;
 
+  // Retourne les coordonnées d'écran en tenant compte de l'orientation
+  private getScreenCoords(row: number, col: number): { x: number; y: number } {
+    // Retourner le plateau si le joueur est noir
+    if (globalPlayerColor === 'black') {
+      return {
+        x: this.BOARD_OFFSET + (this.BOARD_SIZE - 1 - col) * this.CELL_SIZE + this.CELL_SIZE / 2,
+        y: this.BOARD_OFFSET + (this.BOARD_SIZE - 1 - row) * this.CELL_SIZE + this.CELL_SIZE / 2,
+      };
+    }
+    return {
+      x: this.BOARD_OFFSET + col * this.CELL_SIZE + this.CELL_SIZE / 2,
+      y: this.BOARD_OFFSET + row * this.CELL_SIZE + this.CELL_SIZE / 2,
+    };
+  }
+
+  // Convertit les coordonnées écran en position plateau
+  private getBoardPos(screenX: number, screenY: number): { row: number; col: number } {
+    let col = Math.floor((screenX - this.BOARD_OFFSET) / this.CELL_SIZE);
+    let row = Math.floor((screenY - this.BOARD_OFFSET) / this.CELL_SIZE);
+
+    if (globalPlayerColor === 'black') {
+      col = this.BOARD_SIZE - 1 - col;
+      row = this.BOARD_SIZE - 1 - row;
+    }
+
+    return { row, col };
+  }
+
   constructor() {
     super({ key: 'OnlineGameScene' });
   }
@@ -110,8 +138,9 @@ class OnlineGameScene extends Phaser.Scene {
   }
 
   createPiece(row: number, col: number, piece: Piece, currentPlayer: 'white' | 'black') {
-    const x = this.BOARD_OFFSET + col * this.CELL_SIZE + this.CELL_SIZE / 2;
-    const y = this.BOARD_OFFSET + row * this.CELL_SIZE + this.CELL_SIZE / 2;
+    const coords = this.getScreenCoords(row, col);
+    const x = coords.x;
+    const y = coords.y;
 
     const container = this.add.container(x, y);
     const radius = this.CELL_SIZE * 0.38;
@@ -159,8 +188,9 @@ class OnlineGameScene extends Phaser.Scene {
   }
 
   addValidMoveIndicator(row: number, col: number, isCapture = false) {
-    const x = this.BOARD_OFFSET + col * this.CELL_SIZE + this.CELL_SIZE / 2;
-    const y = this.BOARD_OFFSET + row * this.CELL_SIZE + this.CELL_SIZE / 2;
+    const coords = this.getScreenCoords(row, col);
+    const x = coords.x;
+    const y = coords.y;
 
     const graphics = this.add.graphics();
     graphics.fillStyle(isCapture ? 0xff6b6b : 0x90ee90, 0.7);
@@ -234,8 +264,18 @@ function OnlineGame({ roomId, playerId, initialPlayers, onLeave }: OnlineGamePro
       backgroundColor: '#1a1a2e',
       scene: OnlineGameScene,
       scale: {
-        mode: Phaser.Scale.NONE,
-        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 600,
+        height: 600,
+        min: {
+          width: 280,
+          height: 280,
+        },
+        max: {
+          width: 600,
+          height: 600,
+        },
       },
     };
 
@@ -392,7 +432,7 @@ function OnlineGame({ roomId, playerId, initialPlayers, onLeave }: OnlineGamePro
               Tour : {currentPlayer === 'white' ? 'Blancs ⚪' : 'Noirs ⚫'}
               {currentPlayer === myColor && ' (À vous !)'}
             </div>
-            <div ref={containerRef} className="game-canvas" style={{ width: 600, height: 600 }} />
+            <div ref={containerRef} className="game-canvas" style={{ width: '100%', maxWidth: 600, aspectRatio: '1/1' }} />
           </>
         )}
 

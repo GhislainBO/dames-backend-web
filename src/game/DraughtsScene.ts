@@ -72,6 +72,7 @@ export class DraughtsScene extends Phaser.Scene {
   private selectedPos: Position | null = null;
   private gameOver: boolean = false;
   private aiThinking: boolean = false;
+  private boardFlipped: boolean = false; // true = vue du joueur noir (plateau retourné)
 
   // Historique et replay
   private moveHistory: Move[] = [];
@@ -155,6 +156,9 @@ export class DraughtsScene extends Phaser.Scene {
       this.infoText.setText(`IA: ${this.getDifficultyName()}`);
     }
 
+    // Configure l'orientation du plateau selon le mode
+    this.updateBoardOrientation();
+
     // Dessine le plateau
     this.drawBoard();
     this.drawPieces();
@@ -170,6 +174,58 @@ export class DraughtsScene extends Phaser.Scene {
 
     // Exposer les méthodes pour React
     this.registry.set('sceneInstance', this);
+  }
+
+  /**
+   * Retourne les coordonnées d'écran pour une position du plateau
+   * Prend en compte le retournement du plateau
+   */
+  private getScreenCoords(row: number, col: number): { x: number; y: number } {
+    if (this.boardFlipped) {
+      return {
+        x: BOARD_OFFSET + (BOARD_SIZE - 1 - col) * CELL_SIZE + CELL_SIZE / 2,
+        y: BOARD_OFFSET + (BOARD_SIZE - 1 - row) * CELL_SIZE + CELL_SIZE / 2,
+      };
+    }
+    return {
+      x: BOARD_OFFSET + col * CELL_SIZE + CELL_SIZE / 2,
+      y: BOARD_OFFSET + row * CELL_SIZE + CELL_SIZE / 2,
+    };
+  }
+
+  /**
+   * Convertit les coordonnées d'écran en position du plateau
+   * Prend en compte le retournement du plateau
+   */
+  private getBoardPos(screenX: number, screenY: number): { row: number; col: number } {
+    let col = Math.floor((screenX - BOARD_OFFSET) / CELL_SIZE);
+    let row = Math.floor((screenY - BOARD_OFFSET) / CELL_SIZE);
+
+    if (this.boardFlipped) {
+      col = BOARD_SIZE - 1 - col;
+      row = BOARD_SIZE - 1 - row;
+    }
+
+    return { row, col };
+  }
+
+  /**
+   * Met à jour l'orientation du plateau selon le mode et le joueur actuel
+   */
+  private updateBoardOrientation() {
+    if (this.mode === 'pvp') {
+      // En mode PvP, retourner le plateau quand c'est au tour des noirs
+      const shouldFlip = this.engine.getCurrentPlayer() === Color.BLACK;
+      if (this.boardFlipped !== shouldFlip) {
+        this.boardFlipped = shouldFlip;
+        this.drawBoard();
+        this.drawPieces();
+        this.updateHighlights();
+      }
+    } else if (this.mode === 'ai') {
+      // En mode IA, le plateau est orienté selon la couleur du joueur
+      this.boardFlipped = this.playerColor === Color.BLACK;
+    }
   }
 
   /**
@@ -420,8 +476,9 @@ export class DraughtsScene extends Phaser.Scene {
    * Dessine une pièce luxueuse avec effets de lumière réalistes
    */
   private drawPiece(row: number, col: number, color: Color, type: PieceType) {
-    const x = BOARD_OFFSET + col * CELL_SIZE + CELL_SIZE / 2;
-    const y = BOARD_OFFSET + row * CELL_SIZE + CELL_SIZE / 2;
+    const coords = this.getScreenCoords(row, col);
+    const x = coords.x;
+    const y = coords.y;
 
     const graphics = this.add.graphics();
     this.piecesContainer.add(graphics);
@@ -727,10 +784,11 @@ export class DraughtsScene extends Phaser.Scene {
    * Dessine une case surlignée avec dégradé
    */
   private drawHighlightedSquare(col: number, row: number, color: number, alpha: number) {
-    const x = BOARD_OFFSET + col * CELL_SIZE;
-    const y = BOARD_OFFSET + row * CELL_SIZE;
-    const cx = x + CELL_SIZE / 2;
-    const cy = y + CELL_SIZE / 2;
+    const coords = this.getScreenCoords(row, col);
+    const x = coords.x - CELL_SIZE / 2;
+    const y = coords.y - CELL_SIZE / 2;
+    const cx = coords.x;
+    const cy = coords.y;
 
     // Fond principal
     this.highlightGraphics.fillStyle(color, alpha);
@@ -745,10 +803,11 @@ export class DraughtsScene extends Phaser.Scene {
    * Dessine la case de la pièce sélectionnée
    */
   private drawSelectedSquare(col: number, row: number) {
-    const x = BOARD_OFFSET + col * CELL_SIZE;
-    const y = BOARD_OFFSET + row * CELL_SIZE;
-    const cx = x + CELL_SIZE / 2;
-    const cy = y + CELL_SIZE / 2;
+    const coords = this.getScreenCoords(row, col);
+    const x = coords.x - CELL_SIZE / 2;
+    const y = coords.y - CELL_SIZE / 2;
+    const cx = coords.x;
+    const cy = coords.y;
 
     // Halo lumineux vert
     this.highlightGraphics.fillStyle(0x44ff44, 0.15);
@@ -795,10 +854,11 @@ export class DraughtsScene extends Phaser.Scene {
    * Dessine une case de déplacement possible
    */
   private drawMoveSquare(col: number, row: number) {
-    const x = BOARD_OFFSET + col * CELL_SIZE;
-    const y = BOARD_OFFSET + row * CELL_SIZE;
-    const cx = x + CELL_SIZE / 2;
-    const cy = y + CELL_SIZE / 2;
+    const coords = this.getScreenCoords(row, col);
+    const x = coords.x - CELL_SIZE / 2;
+    const y = coords.y - CELL_SIZE / 2;
+    const cx = coords.x;
+    const cy = coords.y;
 
     // Fond subtil
     this.highlightGraphics.fillStyle(0x44ff44, 0.12);
@@ -821,10 +881,11 @@ export class DraughtsScene extends Phaser.Scene {
    * Dessine une case de capture possible
    */
   private drawCaptureSquare(col: number, row: number) {
-    const x = BOARD_OFFSET + col * CELL_SIZE;
-    const y = BOARD_OFFSET + row * CELL_SIZE;
-    const cx = x + CELL_SIZE / 2;
-    const cy = y + CELL_SIZE / 2;
+    const coords = this.getScreenCoords(row, col);
+    const x = coords.x - CELL_SIZE / 2;
+    const y = coords.y - CELL_SIZE / 2;
+    const cx = coords.x;
+    const cy = coords.y;
 
     // Fond rouge
     this.highlightGraphics.fillStyle(0xff4444, 0.2);
@@ -857,10 +918,12 @@ export class DraughtsScene extends Phaser.Scene {
    * Dessine une flèche de mouvement
    */
   private drawMoveArrow(from: Position, to: Position, color: number) {
-    const fromX = BOARD_OFFSET + from.col * CELL_SIZE + CELL_SIZE / 2;
-    const fromY = BOARD_OFFSET + from.row * CELL_SIZE + CELL_SIZE / 2;
-    const toX = BOARD_OFFSET + to.col * CELL_SIZE + CELL_SIZE / 2;
-    const toY = BOARD_OFFSET + to.row * CELL_SIZE + CELL_SIZE / 2;
+    const fromCoords = this.getScreenCoords(from.row, from.col);
+    const toCoords = this.getScreenCoords(to.row, to.col);
+    const fromX = fromCoords.x;
+    const fromY = fromCoords.y;
+    const toX = toCoords.x;
+    const toY = toCoords.y;
 
     // Ligne de la flèche
     this.highlightGraphics.lineStyle(3, color, 0.6);
@@ -934,8 +997,9 @@ export class DraughtsScene extends Phaser.Scene {
       return;
     }
 
-    const col = Math.floor((pointer.x - BOARD_OFFSET) / CELL_SIZE);
-    const row = Math.floor((pointer.y - BOARD_OFFSET) / CELL_SIZE);
+    const boardPos = this.getBoardPos(pointer.x, pointer.y);
+    const col = boardPos.col;
+    const row = boardPos.row;
 
     if (row < 0 || row >= BOARD_SIZE || col < 0 || col >= BOARD_SIZE) {
       return;
@@ -1018,6 +1082,8 @@ export class DraughtsScene extends Phaser.Scene {
 
     // Redessiner après l'animation
     this.time.delayedCall(150, () => {
+      // Mettre à jour l'orientation du plateau (rotation en mode PvP)
+      this.updateBoardOrientation();
       this.drawPieces();
       this.updateStatus();
 
@@ -1048,10 +1114,12 @@ export class DraughtsScene extends Phaser.Scene {
    * Animation de déplacement d'une pièce réaliste
    */
   private animateMove(move: Move) {
-    const fromX = BOARD_OFFSET + move.from.col * CELL_SIZE + CELL_SIZE / 2;
-    const fromY = BOARD_OFFSET + move.from.row * CELL_SIZE + CELL_SIZE / 2;
-    const toX = BOARD_OFFSET + move.to.col * CELL_SIZE + CELL_SIZE / 2;
-    const toY = BOARD_OFFSET + move.to.row * CELL_SIZE + CELL_SIZE / 2;
+    const fromCoords = this.getScreenCoords(move.from.row, move.from.col);
+    const toCoords = this.getScreenCoords(move.to.row, move.to.col);
+    const fromX = fromCoords.x;
+    const fromY = fromCoords.y;
+    const toX = toCoords.x;
+    const toY = toCoords.y;
 
     // Créer une pièce temporaire pour l'animation
     const board = this.engine.getBoard();
@@ -1164,8 +1232,9 @@ export class DraughtsScene extends Phaser.Scene {
    * Effet visuel de capture spectaculaire
    */
   private showCaptureEffect(pos: Position) {
-    const x = BOARD_OFFSET + pos.col * CELL_SIZE + CELL_SIZE / 2;
-    const y = BOARD_OFFSET + pos.row * CELL_SIZE + CELL_SIZE / 2;
+    const coords = this.getScreenCoords(pos.row, pos.col);
+    const x = coords.x;
+    const y = coords.y;
 
     // === ONDE DE CHOC ===
     for (let i = 0; i < 3; i++) {
@@ -1271,8 +1340,9 @@ export class DraughtsScene extends Phaser.Scene {
    * Effet visuel de promotion magique et spectaculaire
    */
   private showPromotionEffect(pos: Position) {
-    const x = BOARD_OFFSET + pos.col * CELL_SIZE + CELL_SIZE / 2;
-    const y = BOARD_OFFSET + pos.row * CELL_SIZE + CELL_SIZE / 2;
+    const coords = this.getScreenCoords(pos.row, pos.col);
+    const x = coords.x;
+    const y = coords.y;
 
     // === PILIER DE LUMIÈRE ===
     const pillar = this.add.graphics();
