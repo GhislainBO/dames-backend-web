@@ -450,11 +450,14 @@
 
 /* === TIRELIRE LUXUEUSE === */
 .piggybank-content {
-  padding: 40px 25px;
+  padding: 40px 25px 50px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .piggybank-visual {
@@ -610,16 +613,19 @@
 }
 
 /* === SCROLLBAR === */
-.promo-content::-webkit-scrollbar {
+.promo-content::-webkit-scrollbar,
+.piggybank-content::-webkit-scrollbar {
   width: 8px;
 }
 
-.promo-content::-webkit-scrollbar-track {
+.promo-content::-webkit-scrollbar-track,
+.piggybank-content::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 4px;
 }
 
-.promo-content::-webkit-scrollbar-thumb {
+.promo-content::-webkit-scrollbar-thumb,
+.piggybank-content::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #ff6b6b, #e94560);
   border-radius: 4px;
 }
@@ -641,6 +647,11 @@
 
   .promo-content {
     padding: 20px 15px;
+  }
+
+  .piggybank-content {
+    padding: 25px 15px 40px 15px;
+    gap: 20px;
   }
 
   .offer-card {
@@ -668,8 +679,21 @@
     font-size: 4rem;
   }
 
+  .piggybank-info {
+    width: 100%;
+  }
+
+  .piggybank-info h3 {
+    font-size: 1.3rem;
+  }
+
   .break-btn {
     padding: 15px 40px;
     font-size: 1rem;
+    width: 100%;
+  }
+
+  .piggy-hint {
+    margin-bottom: 10px;
   }
 }
