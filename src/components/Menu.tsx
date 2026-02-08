@@ -28,12 +28,12 @@ function Menu({ onStartGame }: MenuProps) {
   const [showBattlePass, setShowBattlePass] = useState(false);
   const [showPromotions, setShowPromotions] = useState(false);
 
-  const handlePlayVsAI = () => {
-    if (showAISettings) {
-      onStartGame('ai', difficulty, playerColor);
-    } else {
-      setShowAISettings(true);
-    }
+  const toggleAISettings = () => {
+    setShowAISettings(!showAISettings);
+  };
+
+  const handleStartAIGame = () => {
+    onStartGame('ai', difficulty, playerColor);
   };
 
   return (
@@ -45,8 +45,8 @@ function Menu({ onStartGame }: MenuProps) {
       <h2>{t('menu.title')}</h2>
 
       <div className="menu-buttons">
-        <button className="menu-btn primary" onClick={handlePlayVsAI}>
-          {showAISettings ? t('menu.start') : t('menu.playVsAI')}
+        <button className={`menu-btn primary ${showAISettings ? 'active' : ''}`} onClick={toggleAISettings}>
+          {t('menu.playVsAI')}
         </button>
 
         {showAISettings && (
@@ -75,6 +75,10 @@ function Menu({ onStartGame }: MenuProps) {
                 <option value="black">{t('ai.black')}</option>
               </select>
             </div>
+
+            <button className="menu-btn start-game" onClick={handleStartAIGame}>
+              {t('menu.start')}
+            </button>
           </div>
         )}
 
@@ -144,14 +148,6 @@ function Menu({ onStartGame }: MenuProps) {
           {t('menu.achievements')}
         </button>
 
-        {showAISettings && (
-          <button
-            className="menu-btn secondary"
-            onClick={() => setShowAISettings(false)}
-          >
-            {t('menu.back')}
-          </button>
-        )}
       </div>
 
       <Leaderboard

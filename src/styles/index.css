@@ -289,6 +289,11 @@ body::after {
   box-shadow: 0 8px 30px rgba(233, 69, 96, 0.5);
 }
 
+.menu-btn.primary.active {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 50%, #922b21 100%);
+  box-shadow: 0 4px 20px rgba(169, 50, 38, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* Bouton secondaire (glass) */
 .menu-btn.secondary {
   background: var(--glass-bg);
@@ -449,8 +454,20 @@ body::after {
   margin-bottom: 18px;
 }
 
-.setting-group:last-child {
+.setting-group:last-of-type {
   margin-bottom: 0;
+}
+
+/* Bouton Commencer dans les paramètres IA */
+.ai-settings .menu-btn.start-game {
+  margin-top: 20px;
+  width: 100%;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 50%, #1e8449 100%);
+  box-shadow: 0 4px 20px rgba(46, 204, 113, 0.4);
+}
+
+.ai-settings .menu-btn.start-game:hover {
+  box-shadow: 0 8px 30px rgba(46, 204, 113, 0.5);
 }
 
 .setting-group label {
