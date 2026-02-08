@@ -1117,9 +1117,18 @@ body::after {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  padding: 25px;
+  padding: 15px;
   border-radius: var(--radius-large);
   border: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.game-canvas canvas {
+  display: block;
+  margin: 0 auto;
 }
 
 /* === PANNEAU LATÉRAL === */
