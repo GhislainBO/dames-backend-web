@@ -127,7 +127,7 @@ const Partners: React.FC<PartnersProps> = ({ isOpen, onClose }) => {
   };
 
   const contactForPartnership = () => {
-    window.location.href = 'mailto:partnership@dameselite.com?subject=Demande de partenariat DAMESELITE';
+    window.location.href = 'mailto:dev.mesapps@gmail.com?subject=Demande de partenariat DAMESELITE';
   };
 
   if (!isOpen) return null;
@@ -226,7 +226,7 @@ const Partners: React.FC<PartnersProps> = ({ isOpen, onClose }) => {
         {/* Footer */}
         <div className="partners-footer">
           <p>
-            {t('partners.footerText', 'Contact: partnership@dameselite.com')}
+            {t('partners.footerText', 'Contact: dev.mesapps@gmail.com')}
           </p>
         </div>
       </div>
