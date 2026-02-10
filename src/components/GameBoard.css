@@ -142,18 +142,22 @@
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
+  background: rgba(26, 26, 46, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .turn-indicator.white-turn {
-  background: linear-gradient(145deg, rgba(250, 240, 230, 0.15) 0%, rgba(245, 230, 211, 0.1) 100%);
-  border: 1px solid rgba(250, 240, 230, 0.3);
-  color: #faf0e6;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.25) 0%, rgba(26, 26, 46, 0.9) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #ffd700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .turn-indicator.black-turn {
-  background: linear-gradient(145deg, rgba(139, 69, 19, 0.2) 0%, rgba(91, 50, 16, 0.15) 100%);
-  border: 1px solid rgba(139, 69, 19, 0.4);
-  color: #d2691e;
+  background: linear-gradient(145deg, rgba(60, 60, 80, 0.9) 0%, rgba(26, 26, 46, 0.9) 100%);
+  border: 1px solid rgba(100, 100, 120, 0.5);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .turn-indicator::before {
@@ -169,13 +173,13 @@
 }
 
 .turn-indicator.white-turn::before {
-  background: radial-gradient(circle, #faf0e6 0%, #e8d4b8 100%);
-  box-shadow: 0 0 15px rgba(250, 240, 230, 0.5);
+  background: radial-gradient(circle, #ffd700 0%, #d4af37 100%);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
 }
 
 .turn-indicator.black-turn::before {
-  background: radial-gradient(circle, #8b4513 0%, #5b3210 100%);
-  box-shadow: 0 0 15px rgba(139, 69, 19, 0.5);
+  background: radial-gradient(circle, #ffffff 0%, #cccccc 100%);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 @keyframes turnPulse {
@@ -462,6 +466,7 @@
   color: #2ecc71;
   font-weight: 700;
   animation: pulseText 1s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
 }
 
 @keyframes pulseText {
@@ -470,9 +475,12 @@
 }
 
 .game-over-text {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffd700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
   letter-spacing: 2px;
 }
 
