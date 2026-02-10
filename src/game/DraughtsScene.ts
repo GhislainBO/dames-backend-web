@@ -156,12 +156,12 @@ export class DraughtsScene extends Phaser.Scene {
     this.highlightGraphics = this.add.graphics();
     this.piecesContainer = this.add.container(0, 0);
 
-    // Texte de statut
+    // Texte de statut (masqué - affiché dans le HUD React à la place)
     this.statusText = this.add.text(300, 580, '', {
       fontSize: '16px',
       color: '#ffffff',
       align: 'center',
-    }).setOrigin(0.5);
+    }).setOrigin(0.5).setVisible(false);
 
     // Texte d'info (niveau IA)
     this.infoText = this.add.text(300, 12, '', {
