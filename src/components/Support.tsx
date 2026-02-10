@@ -125,14 +125,15 @@ const Support: React.FC<SupportProps> = ({ isOpen, onClose }) => {
   // Ouvrir le lien de donation (plateforme alternative)
   const openDonationLink = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
-    setTimeout(() => setShowThanks(true), 2000);
+    // Note: Le message de remerciement ne s'affiche plus automatiquement
+    // car on ne peut pas vérifier si le paiement a été effectué
   };
 
   // Ouvrir le lien Stripe Payment pour un montant donné
   const openStripePaymentLink = (stripeLink: string) => {
     window.open(stripeLink, '_blank', 'noopener,noreferrer');
-    // Afficher le message de remerciement après un délai
-    setTimeout(() => setShowThanks(true), 3000);
+    // Note: Le message de remerciement sera affiché via la page de succès Stripe
+    // ou via un webhook backend (à implémenter)
   };
 
   // Partager le jeu
