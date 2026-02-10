@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.tccdames.app',
-  appName: 'Dames - Jeu de Dames',
+  appId: 'com.dameselite.app',
+  appName: 'DAMESELITE',
   webDir: 'dist',
 
   // Configuration serveur

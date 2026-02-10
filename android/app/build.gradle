@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "com.tccdames.app"
+    namespace = "com.dameselite.app"
     compileSdk = rootProject.ext.compileSdkVersion
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_21
         targetCompatibility JavaVersion.VERSION_21
     }
     defaultConfig {
-        applicationId "com.tccdames.app"
+        applicationId "com.dameselite.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

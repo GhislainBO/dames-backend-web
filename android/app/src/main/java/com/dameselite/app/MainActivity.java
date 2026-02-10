@@ -1,4 +1,4 @@
-package com.tccdames.app;
+package com.dameselite.app;
 
 import com.getcapacitor.BridgeActivity;
 
