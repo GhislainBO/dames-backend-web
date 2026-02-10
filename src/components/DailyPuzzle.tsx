@@ -232,20 +232,63 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
     }
   };
 
-  // Afficher l'indice
+  // Afficher l'indice - montre le premier coup visuellement
   const handleShowHint = () => {
+    if (!puzzle || puzzle.solution.length === 0) return;
+
     setShowHint(true);
     setUsedHint(true);
+
+    // Extraire la case de départ du premier coup de la solution
+    const firstMove = puzzle.solution[0];
+    const fromPos = parseInt(firstMove.split(/[-x]/)[0]);
+
+    if (fromPos > 0 && fromPos <= 50) {
+      const { row, col } = fromNotation(fromPos);
+      // Sélectionner automatiquement la pièce à jouer
+      setSelectedCell({ row, col });
+    }
   };
 
-  // Reinitialiser
+  // Reinitialiser - reset complet du plateau
   const handleReset = () => {
-    if (puzzle) {
-      setMoves([]);
-      setSelectedCell(null);
-      setFailed(false);
-      initializeBoard(puzzle);
+    if (!puzzle) return;
+
+    // Reset tous les états
+    setMoves([]);
+    setSelectedCell(null);
+    setFailed(false);
+    setShowHint(false);
+
+    // Recréer le plateau depuis zéro
+    const newBoard: BoardCell[][] = [];
+    for (let row = 0; row < 10; row++) {
+      const rowCells: BoardCell[] = [];
+      for (let col = 0; col < 10; col++) {
+        const isPlayable = (row + col) % 2 === 1;
+        const position = isPlayable ? toNotation(row, col) : 0;
+        rowCells.push({
+          state: 'empty',
+          isPlayable,
+          position,
+        });
+      }
+      newBoard.push(rowCells);
     }
+
+    // Replacer les pièces originales
+    puzzle.pieces.forEach(piece => {
+      const { row, col, color, isKing } = piece;
+      if (row >= 0 && row < 10 && col >= 0 && col < 10) {
+        if (color === 'white') {
+          newBoard[row][col].state = isKing ? 'whiteKing' : 'white';
+        } else {
+          newBoard[row][col].state = isKing ? 'blackKing' : 'black';
+        }
+      }
+    });
+
+    setBoard(newBoard);
   };
 
   // Partager le resultat
