@@ -32,6 +32,7 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
   const [failed, setFailed] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [usedHint, setUsedHint] = useState(false);
+  const [currentCapture, setCurrentCapture] = useState<string>(''); // Pour les multi-captures en cours
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [showStats, setShowStats] = useState(false);
   const [alreadySolved, setAlreadySolved] = useState(false);
@@ -113,6 +114,43 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
     setBoard(newBoard);
   };
 
+  // Vérifie si des captures sont disponibles depuis une position
+  const hasMoreCaptures = (boardState: BoardCell[][], row: number, col: number, playerColor: string): boolean => {
+    const directions = [[-2, -2], [-2, 2], [2, -2], [2, 2]];
+    const pieceState = boardState[row][col].state;
+    const isKing = pieceState === 'whiteKing' || pieceState === 'blackKing';
+
+    for (const [dr, dc] of directions) {
+      // Pour les pions, vérifier la direction
+      if (!isKing) {
+        if (playerColor === 'white' && dr > 0) continue; // Blancs vont vers le haut
+        if (playerColor === 'black' && dr < 0) continue; // Noirs vont vers le bas
+      }
+
+      const midRow = row + dr / 2;
+      const midCol = col + dc / 2;
+      const newRow = row + dr;
+      const newCol = col + dc;
+
+      if (newRow < 0 || newRow >= 10 || newCol < 0 || newCol >= 10) continue;
+
+      const midCell = boardState[midRow]?.[midCol];
+      const targetCell = boardState[newRow]?.[newCol];
+
+      if (!midCell || !targetCell) continue;
+
+      // Vérifier s'il y a une pièce adverse au milieu et une case vide à la destination
+      const isEnemyPiece =
+        (playerColor === 'white' && (midCell.state === 'black' || midCell.state === 'blackKing')) ||
+        (playerColor === 'black' && (midCell.state === 'white' || midCell.state === 'whiteKing'));
+
+      if (isEnemyPiece && targetCell.state === 'empty') {
+        return true;
+      }
+    }
+    return false;
+  };
+
   // Gerer le clic sur une case
   const handleCellClick = (row: number, col: number) => {
     if (solved || alreadySolved || !puzzle) return;
@@ -120,10 +158,11 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
     const cell = board[row][col];
     if (!cell.isPlayable) return;
 
+    const playerColor = puzzle.playerColor;
+
     // Si aucune piece selectionnee
     if (!selectedCell) {
       // Selectionner une piece du joueur
-      const playerColor = puzzle.playerColor;
       const isPlayerPiece =
         (playerColor === 'white' && (cell.state === 'white' || cell.state === 'whiteKing')) ||
         (playerColor === 'black' && (cell.state === 'black' || cell.state === 'blackKing'));
@@ -137,36 +176,54 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
       const toPos = toNotation(row, col);
 
       if (fromPos && toPos) {
-        const move = `${fromPos}-${toPos}`;
-        const captureMove = `${fromPos}x${toPos}`;
-
         // Verifier si c'est une capture
         const isCapture = Math.abs(row - selectedCell.row) >= 2;
-        const moveStr = isCapture ? captureMove : move;
-
-        // Ajouter le coup
-        const newMoves = [...moves, moveStr];
-        setMoves(newMoves);
 
         // Deplacer la piece sur le plateau (visuellement)
-        const newBoard = [...board.map(r => [...r])];
+        const newBoard = [...board.map(r => r.map(c => ({ ...c })))];
         newBoard[row][col].state = newBoard[selectedCell.row][selectedCell.col].state;
         newBoard[selectedCell.row][selectedCell.col].state = 'empty';
 
         // Si capture, retirer la piece capturee
         if (isCapture) {
-          const midRow = (row + selectedCell.row) / 2;
-          const midCol = (col + selectedCell.col) / 2;
-          newBoard[Math.floor(midRow)][Math.floor(midCol)].state = 'empty';
+          const midRow = Math.floor((row + selectedCell.row) / 2);
+          const midCol = Math.floor((col + selectedCell.col) / 2);
+          newBoard[midRow][midCol].state = 'empty';
         }
 
         setBoard(newBoard);
-        setSelectedCell(null);
 
-        // Verifier la solution
-        checkSolution(newMoves);
+        if (isCapture) {
+          // Construire la notation de multi-capture
+          const newCaptureNotation = currentCapture
+            ? `${currentCapture}x${toPos}`
+            : `${fromPos}x${toPos}`;
+
+          // Vérifier s'il y a d'autres captures disponibles
+          if (hasMoreCaptures(newBoard, row, col, playerColor)) {
+            // Multi-capture en cours - garder la pièce sélectionnée
+            setCurrentCapture(newCaptureNotation);
+            setSelectedCell({ row, col });
+          } else {
+            // Fin de la capture - enregistrer le coup complet
+            const newMoves = [...moves, newCaptureNotation];
+            setMoves(newMoves);
+            setCurrentCapture('');
+            setSelectedCell(null);
+            checkSolution(newMoves);
+          }
+        } else {
+          // Déplacement simple (pas de capture)
+          const moveStr = `${fromPos}-${toPos}`;
+          const newMoves = [...moves, moveStr];
+          setMoves(newMoves);
+          setCurrentCapture('');
+          setSelectedCell(null);
+          checkSolution(newMoves);
+        }
       } else {
         setSelectedCell(null);
+        setCurrentCapture('');
       }
     }
   };
@@ -259,6 +316,7 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
     setSelectedCell(null);
     setFailed(false);
     setShowHint(false);
+    setCurrentCapture('');
 
     // Recréer le plateau depuis zéro
     const newBoard: BoardCell[][] = [];
