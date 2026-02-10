@@ -24,14 +24,14 @@ const LIGHT_INTENSITY = 0.8;
 
 // Couleurs par défaut (seront remplacées par les cosmétiques)
 const DEFAULT_COLORS = {
-  lightSquare: 0xf0d9b5,
-  darkSquare: 0xb58863,
-  selected: 0x7fff7f,
-  legalMove: 0x90ee90,
+  lightSquare: 0xdcc7a1,   // Beige sable (cahier des charges)
+  darkSquare: 0x6b4a2f,    // Brun noisette mat (cahier des charges)
+  selected: 0x2ecc71,      // Vert élégant
+  legalMove: 0x2ecc71,     // Vert action (cahier des charges)
   capture: 0xff6b6b,
-  whitePiece: 0xffefd5,
-  whitePieceStroke: 0xdaa520,
-  blackPiece: 0x2c2c2c,
+  whitePiece: 0xd4af37,    // Or principal (cahier des charges)
+  whitePieceStroke: 0xffd700,
+  blackPiece: 0x2c2c2c,    // Ébène satiné
   blackPieceStroke: 0x1a1a1a,
   kingMark: 0xffd700,
   replayHighlight: 0x9966ff,
@@ -377,24 +377,24 @@ export class DraughtsScene extends Phaser.Scene {
     // Couleurs nobles
     const baseColor = isDark ? this.COLORS.darkSquare : this.COLORS.lightSquare;
 
-    // Palette pour cases foncées (acajou/ébène)
+    // Palette pour cases foncées (brun noisette mat - cahier des charges)
     const darkPalette = {
-      base: 0x8b5a2b,
-      dark: 0x5c3317,
-      darker: 0x3d1f0d,
-      light: 0xa67c52,
-      grain: 0x4a2511,
-      highlight: 0xc9956c,
+      base: 0x6b4a2f,      // Brun noisette principal
+      dark: 0x5a3d26,
+      darker: 0x4a321e,
+      light: 0x7c5a3a,
+      grain: 0x3d2815,
+      highlight: 0x8b6a4a,
     };
 
-    // Palette pour cases claires (érable/bouleau)
+    // Palette pour cases claires (beige sable - cahier des charges)
     const lightPalette = {
-      base: 0xf5deb3,
-      dark: 0xe8cfa0,
-      darker: 0xd4b896,
-      light: 0xfff8e7,
-      grain: 0xdec896,
-      highlight: 0xfffef5,
+      base: 0xdcc7a1,      // Beige sable principal
+      dark: 0xd0bb95,
+      darker: 0xc4af89,
+      light: 0xe8d9b5,
+      grain: 0xc9b48a,
+      highlight: 0xf0e5c9,
     };
 
     const palette = isDark ? darkPalette : lightPalette;
@@ -425,6 +425,21 @@ export class DraughtsScene extends Phaser.Scene {
       }
       this.boardGraphics.lineTo(x + CELL_SIZE, offsetY + Math.sin(seed) * 2 + curve);
       this.boardGraphics.strokePath();
+    }
+
+    // === MOTIF WAVY DISCRET (cases claires uniquement) ===
+    if (!isDark) {
+      this.boardGraphics.lineStyle(1, 0xc9b48a, 0.08);
+      for (let i = 0; i < 8; i++) {
+        const waveY = y + 5 + i * 7;
+        this.boardGraphics.beginPath();
+        this.boardGraphics.moveTo(x, waveY);
+        for (let j = 0; j <= CELL_SIZE; j += 4) {
+          const waveFactor = Math.sin((j / CELL_SIZE) * Math.PI * 3 + seed * 0.5) * 2;
+          this.boardGraphics.lineTo(x + j, waveY + waveFactor);
+        }
+        this.boardGraphics.strokePath();
+      }
     }
 
     // === NŒUDS DU BOIS (occasionnels) ===
@@ -507,26 +522,28 @@ export class DraughtsScene extends Phaser.Scene {
     const isWhite = color === Color.WHITE;
 
     // === PALETTE DE COULEURS LUXUEUSES ===
+    // Pions OR métallique (ancien blanc -> or luxueux)
     const whitePalette = {
-      base: 0xfaf0e6,      // Lin
-      mid: 0xf5e6d3,       // Crème
-      dark: 0xe8d4b8,      // Beige
-      darker: 0xd4bc98,    // Chamois
-      edge: 0xc9a86c,      // Bord doré
-      shadow: 0xa08060,    // Ombre chaude
-      highlight: 0xffffff, // Blanc pur
-      specular: 0xfffef8,  // Reflet spéculaire
+      base: 0xd4af37,      // Or principal
+      mid: 0xc9a227,       // Or moyen
+      dark: 0xb8960b,      // Or foncé
+      darker: 0x8b6914,    // Or antique
+      edge: 0xffd700,      // Bord or vif
+      shadow: 0x6b4c0a,    // Ombre dorée
+      highlight: 0xffec8b, // Or clair
+      specular: 0xfffacd,  // Reflet or brillant
     };
 
+    // Pions NOIRS ébène satiné
     const blackPalette = {
-      base: 0x3d2b1f,      // Ébène
-      mid: 0x2d1f15,       // Chocolat noir
-      dark: 0x1f140d,      // Espresso
-      darker: 0x130c07,    // Noir chaud
-      edge: 0x4a3525,      // Bord acajou
-      shadow: 0x0a0604,    // Ombre profonde
-      highlight: 0x6b5344, // Reflet brun
-      specular: 0x8b7355,  // Reflet cuivré
+      base: 0x2c2c2c,      // Ébène satiné
+      mid: 0x1f1f1f,       // Noir profond
+      dark: 0x151515,      // Noir intense
+      darker: 0x0a0a0a,    // Noir absolu
+      edge: 0x3d3d3d,      // Bord gris sombre
+      shadow: 0x050505,    // Ombre profonde
+      highlight: 0x4a4a4a, // Reflet gris
+      specular: 0x5a5a5a,  // Reflet satiné
     };
 
     const p = isWhite ? whitePalette : blackPalette;
@@ -822,6 +839,7 @@ export class DraughtsScene extends Phaser.Scene {
 
   /**
    * Dessine la case de la pièce sélectionnée
+   * Style: halo/ring discret autour de la pièce (cahier des charges)
    */
   private drawSelectedSquare(col: number, row: number) {
     const coords = this.getScreenCoords(row, col);
@@ -830,49 +848,22 @@ export class DraughtsScene extends Phaser.Scene {
     const cx = coords.x;
     const cy = coords.y;
 
-    // Halo lumineux vert
-    this.highlightGraphics.fillStyle(0x44ff44, 0.15);
+    // Halo subtil de sélection
+    this.highlightGraphics.fillStyle(0x2ecc71, 0.1);
     this.highlightGraphics.fillRect(x, y, CELL_SIZE, CELL_SIZE);
 
-    // Cercle de sélection
-    this.highlightGraphics.lineStyle(3, 0x44ff44, 0.8);
-    this.highlightGraphics.strokeCircle(cx, cy, PIECE_RADIUS + 4);
+    // Ring discret autour de la pièce (cahier des charges)
+    this.highlightGraphics.lineStyle(2.5, 0x2ecc71, 0.7);
+    this.highlightGraphics.strokeCircle(cx, cy, PIECE_RADIUS + 3);
 
-    // Effet de brillance intérieure
-    this.highlightGraphics.lineStyle(1, 0xaaffaa, 0.5);
-    this.highlightGraphics.strokeCircle(cx, cy, PIECE_RADIUS + 2);
-
-    // Coins lumineux
-    const cornerSize = 8;
-    this.highlightGraphics.lineStyle(2, 0x88ff88, 0.9);
-    // Coin haut-gauche
-    this.highlightGraphics.beginPath();
-    this.highlightGraphics.moveTo(x + 2, y + cornerSize + 2);
-    this.highlightGraphics.lineTo(x + 2, y + 2);
-    this.highlightGraphics.lineTo(x + cornerSize + 2, y + 2);
-    this.highlightGraphics.strokePath();
-    // Coin haut-droit
-    this.highlightGraphics.beginPath();
-    this.highlightGraphics.moveTo(x + CELL_SIZE - cornerSize - 2, y + 2);
-    this.highlightGraphics.lineTo(x + CELL_SIZE - 2, y + 2);
-    this.highlightGraphics.lineTo(x + CELL_SIZE - 2, y + cornerSize + 2);
-    this.highlightGraphics.strokePath();
-    // Coin bas-gauche
-    this.highlightGraphics.beginPath();
-    this.highlightGraphics.moveTo(x + 2, y + CELL_SIZE - cornerSize - 2);
-    this.highlightGraphics.lineTo(x + 2, y + CELL_SIZE - 2);
-    this.highlightGraphics.lineTo(x + cornerSize + 2, y + CELL_SIZE - 2);
-    this.highlightGraphics.strokePath();
-    // Coin bas-droit
-    this.highlightGraphics.beginPath();
-    this.highlightGraphics.moveTo(x + CELL_SIZE - cornerSize - 2, y + CELL_SIZE - 2);
-    this.highlightGraphics.lineTo(x + CELL_SIZE - 2, y + CELL_SIZE - 2);
-    this.highlightGraphics.lineTo(x + CELL_SIZE - 2, y + CELL_SIZE - cornerSize - 2);
-    this.highlightGraphics.strokePath();
+    // Effet glow subtil
+    this.highlightGraphics.lineStyle(6, 0x2ecc71, 0.15);
+    this.highlightGraphics.strokeCircle(cx, cy, PIECE_RADIUS + 6);
   }
 
   /**
    * Dessine une case de déplacement possible
+   * Style: contour vert (2px) + point vert central (cahier des charges)
    */
   private drawMoveSquare(col: number, row: number) {
     const coords = this.getScreenCoords(row, col);
@@ -881,21 +872,17 @@ export class DraughtsScene extends Phaser.Scene {
     const cx = coords.x;
     const cy = coords.y;
 
-    // Fond subtil
-    this.highlightGraphics.fillStyle(0x44ff44, 0.12);
-    this.highlightGraphics.fillRect(x, y, CELL_SIZE, CELL_SIZE);
+    // Contour vert 2px (cahier des charges)
+    this.highlightGraphics.lineStyle(2, 0x2ecc71, 0.9);
+    this.highlightGraphics.strokeRect(x + 2, y + 2, CELL_SIZE - 4, CELL_SIZE - 4);
 
-    // Indicateur central (point)
-    this.highlightGraphics.fillStyle(0x44ff44, 0.7);
-    this.highlightGraphics.fillCircle(cx, cy, 8);
+    // Point vert central (cahier des charges)
+    this.highlightGraphics.fillStyle(0x2ecc71, 0.85);
+    this.highlightGraphics.fillCircle(cx, cy, 6);
 
-    // Anneau lumineux
-    this.highlightGraphics.lineStyle(2, 0x88ff88, 0.4);
-    this.highlightGraphics.strokeCircle(cx, cy, 12);
-
-    // Halo extérieur
-    this.highlightGraphics.fillStyle(0x44ff44, 0.15);
-    this.highlightGraphics.fillCircle(cx, cy, 18);
+    // Halo subtil autour du point
+    this.highlightGraphics.fillStyle(0x2ecc71, 0.15);
+    this.highlightGraphics.fillCircle(cx, cy, 12);
   }
 
   /**
@@ -1056,6 +1043,7 @@ export class DraughtsScene extends Phaser.Scene {
       if (hasLegalMoves) {
         audioManager.play('click');
         this.selectedPos = { row, col };
+        this.showTapEffect({ row, col }); // Animation tap (cahier des charges)
         this.updateHighlights();
       } else {
         audioManager.play('invalid');
@@ -1164,12 +1152,12 @@ export class DraughtsScene extends Phaser.Scene {
     const graphics = this.add.graphics();
     const isWhite = piece.color === Color.WHITE;
 
-    // Couleurs réalistes
-    const baseColor = isWhite ? 0xf5deb3 : 0x4a3728;
-    const darkColor = isWhite ? 0xd4a574 : 0x2d1f15;
-    const lightColor = isWhite ? 0xfff8dc : 0x6b4423;
-    const edgeColor = isWhite ? 0xc4a060 : 0x1a1209;
-    const rimColor = isWhite ? 0xe8d4a8 : 0x3d2a1a;
+    // Couleurs OR métallique (blanc) et ébène satiné (noir)
+    const baseColor = isWhite ? 0xd4af37 : 0x2c2c2c;     // Or / Ébène
+    const darkColor = isWhite ? 0xb8960b : 0x1a1a1a;     // Or foncé / Noir
+    const lightColor = isWhite ? 0xffd700 : 0x4a4a4a;    // Or vif / Gris
+    const edgeColor = isWhite ? 0x8b6914 : 0x0a0a0a;     // Or antique / Noir absolu
+    const rimColor = isWhite ? 0xffec8b : 0x3d3d3d;      // Or clair / Gris sombre
 
     // Ombre
     graphics.fillStyle(0x000000, 0.35);
@@ -1196,8 +1184,8 @@ export class DraughtsScene extends Phaser.Scene {
     graphics.fillStyle(0xffffff, isWhite ? 0.4 : 0.15);
     graphics.fillEllipse(-5, -6, 12, 8);
 
-    // Rainures
-    graphics.lineStyle(1, isWhite ? 0xc9a86c : 0x352518, 0.3);
+    // Rainures (style or métallique / ébène)
+    graphics.lineStyle(1, isWhite ? 0x8b6914 : 0x151515, 0.3);
     graphics.strokeCircle(0, 0, PIECE_RADIUS * 0.7);
     graphics.strokeCircle(0, 0, PIECE_RADIUS * 0.5);
 
@@ -1261,6 +1249,42 @@ export class DraughtsScene extends Phaser.Scene {
 
     graphics.lineStyle(1.5, crownHighlight, 0.8);
     graphics.strokeCircle(0, 0, 10);
+  }
+
+  /**
+   * Effet visuel de tap sur une pièce (micro-scale 1.02 + shadow)
+   * Cahier des charges: tap piece micro-scale 1.02
+   */
+  private showTapEffect(pos: Position) {
+    const coords = this.getScreenCoords(pos.row, pos.col);
+    const x = coords.x;
+    const y = coords.y;
+
+    // Cercle de tap avec scale animation
+    const tapCircle = this.add.circle(x, y, PIECE_RADIUS + 2, 0x2ecc71, 0);
+    tapCircle.setStrokeStyle(2, 0x2ecc71, 0.8);
+    tapCircle.setScale(0.95);
+
+    // Animation micro-scale 1.02 puis retour
+    this.tweens.add({
+      targets: tapCircle,
+      scale: 1.08,
+      alpha: 0,
+      duration: 200,
+      ease: 'Quad.easeOut',
+      onComplete: () => tapCircle.destroy(),
+    });
+
+    // Effet shadow supplémentaire
+    const shadowPulse = this.add.circle(x, y + 3, PIECE_RADIUS, 0x000000, 0.15);
+    this.tweens.add({
+      targets: shadowPulse,
+      scale: 1.15,
+      alpha: 0,
+      duration: 250,
+      ease: 'Quad.easeOut',
+      onComplete: () => shadowPulse.destroy(),
+    });
   }
 
   /**
