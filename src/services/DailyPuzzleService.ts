@@ -62,7 +62,7 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
       { row: 4, col: 5, color: 'black', isKing: false },
       { row: 2, col: 3, color: 'black', isKing: false },
     ],
-    solution: ['28x17x6'],
+    solution: ['28x17x8'],
     hint: 'Commencez par la piece de gauche.',
   },
   {
