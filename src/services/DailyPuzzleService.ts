@@ -98,11 +98,11 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
     playerColor: 'white',
     pieces: [
       { row: 6, col: 3, color: 'white', isKing: true },  // position 32
-      { row: 4, col: 5, color: 'black', isKing: false }, // position 23
-      { row: 3, col: 6, color: 'black', isKing: false }, // position 19
+      { row: 5, col: 2, color: 'black', isKing: false }, // position 27
+      { row: 3, col: 2, color: 'black', isKing: false }, // position 17
     ],
-    solution: ['32x5x28'],
-    hint: 'Capturez le premier pion et allez au bout de la diagonale.',
+    solution: ['32x21x12'],
+    hint: 'Capturez en diagonale vers le haut-gauche.',
   },
   {
     title: 'Triple capture',
