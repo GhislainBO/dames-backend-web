@@ -71,12 +71,12 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
     difficulty: 'easy',
     playerColor: 'white',
     pieces: [
-      { row: 1, col: 2, color: 'white', isKing: false },
-      { row: 2, col: 3, color: 'black', isKing: false },
-      { row: 3, col: 4, color: 'black', isKing: false },
+      { row: 4, col: 3, color: 'white', isKing: false },  // position 22
+      { row: 3, col: 4, color: 'black', isKing: false },  // position 18
+      { row: 1, col: 4, color: 'black', isKing: false },  // position 8
     ],
-    solution: ['7x18x29'],
-    hint: 'La double capture mene a la promotion.',
+    solution: ['22x13x2'],
+    hint: 'La double capture en zigzag mene a la promotion.',
   },
   {
     title: 'Piege tactique',
