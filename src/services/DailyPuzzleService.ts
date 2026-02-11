@@ -39,17 +39,16 @@ const STREAK_KEY = 'dameselite_puzzle_streak';
 // Collection de puzzles predefinies
 const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
   {
-    title: 'Capture simple',
-    description: 'Trouvez la capture gagnante pour les Blancs.',
+    title: 'Capture et promotion',
+    description: 'Capturez et devenez dame en un coup.',
     difficulty: 'easy',
     playerColor: 'white',
     pieces: [
-      { row: 4, col: 5, color: 'white', isKing: false },
-      { row: 3, col: 4, color: 'black', isKing: false },
-      { row: 5, col: 2, color: 'black', isKing: false },
+      { row: 2, col: 5, color: 'white', isKing: false },  // position 13
+      { row: 1, col: 4, color: 'black', isKing: false },  // position 8
     ],
-    solution: ['23-18'],
-    hint: 'Regardez la diagonale vers le haut-gauche.',
+    solution: ['13x2'],
+    hint: 'La capture mene directement a la promotion.',
   },
   {
     title: 'Double prise',
