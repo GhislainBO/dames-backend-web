@@ -147,18 +147,18 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
     hint: 'Offrez un pion pour ouvrir une ligne de capture.',
   },
   {
-    title: 'Coup force',
-    description: 'Forcez l\'adversaire a vous donner deux pieces.',
+    title: 'Choix decisif',
+    description: 'Trouvez la bonne capture qui mene a la promotion.',
     difficulty: 'hard',
     playerColor: 'white',
     pieces: [
-      { row: 6, col: 3, color: 'white', isKing: false },  // position 32
-      { row: 5, col: 4, color: 'black', isKing: false },  // position 28
-      { row: 5, col: 6, color: 'black', isKing: false },  // position 29
+      { row: 4, col: 5, color: 'white', isKing: false },  // position 23
       { row: 3, col: 4, color: 'black', isKing: false },  // position 18
+      { row: 3, col: 6, color: 'black', isKing: false },  // position 19
+      { row: 1, col: 2, color: 'black', isKing: false },  // position 7
     ],
-    solution: ['32-27'],
-    hint: 'Sacrifiez pour forcer une capture obligatoire.',
+    solution: ['23x12x1'],
+    hint: 'Une capture mene a la promotion, l\'autre non.',
   },
   {
     title: 'Rafle magistrale',
