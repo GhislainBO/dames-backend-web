@@ -208,6 +208,27 @@ class DailyPuzzleService {
   }
 
   /**
+   * Retourne un puzzle par son index (pour le mode test)
+   */
+  getPuzzleByIndex(index: number): DailyPuzzle {
+    const safeIndex = ((index % PUZZLES.length) + PUZZLES.length) % PUZZLES.length;
+    const basePuzzle = PUZZLES[safeIndex];
+
+    return {
+      ...basePuzzle,
+      id: `puzzle-test-${safeIndex}`,
+      date: `Test #${safeIndex + 1}/${PUZZLES.length}`,
+    };
+  }
+
+  /**
+   * Retourne le nombre total de puzzles
+   */
+  getTotalPuzzles(): number {
+    return PUZZLES.length;
+  }
+
+  /**
    * Verifie si le puzzle du jour a deja ete resolu
    */
   isPuzzleSolvedToday(): boolean {

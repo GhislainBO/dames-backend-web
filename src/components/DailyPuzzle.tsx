@@ -38,6 +38,12 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
   const [alreadySolved, setAlreadySolved] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Mode test pour parcourir tous les puzzles
+  const [testMode, setTestMode] = useState(false);
+  const [testPuzzleIndex, setTestPuzzleIndex] = useState(0);
+  const titleClickCount = useRef(0);
+  const titleClickTimer = useRef<NodeJS.Timeout | null>(null);
+
   // Initialiser le puzzle
   useEffect(() => {
     const todayPuzzle = dailyPuzzleService.getPuzzleOfDay();
@@ -51,6 +57,72 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
 
     initializeBoard(todayPuzzle);
   }, []);
+
+  // Activer le mode test (triple clic sur le titre)
+  const handleTitleClick = () => {
+    titleClickCount.current++;
+
+    if (titleClickTimer.current) {
+      clearTimeout(titleClickTimer.current);
+    }
+
+    if (titleClickCount.current >= 3) {
+      // Triple clic détecté - activer/désactiver le mode test
+      setTestMode(prev => !prev);
+      if (!testMode) {
+        // Entrer en mode test - charger le premier puzzle
+        const firstPuzzle = dailyPuzzleService.getPuzzleByIndex(0);
+        setPuzzle(firstPuzzle);
+        setTestPuzzleIndex(0);
+        resetPuzzleState();
+        initializeBoard(firstPuzzle);
+      } else {
+        // Quitter le mode test - revenir au puzzle du jour
+        const todayPuzzle = dailyPuzzleService.getPuzzleOfDay();
+        setPuzzle(todayPuzzle);
+        resetPuzzleState();
+        initializeBoard(todayPuzzle);
+      }
+      titleClickCount.current = 0;
+    } else {
+      titleClickTimer.current = setTimeout(() => {
+        titleClickCount.current = 0;
+      }, 500);
+    }
+  };
+
+  // Réinitialiser l'état du puzzle
+  const resetPuzzleState = () => {
+    setMoves([]);
+    setSelectedCell(null);
+    setFailed(false);
+    setShowHint(false);
+    setUsedHint(false);
+    setCurrentCapture('');
+    setSolved(false);
+    setAlreadySolved(false);
+    setAttempts(0);
+    setTimeElapsed(0);
+  };
+
+  // Navigation en mode test
+  const goToPuzzle = (index: number) => {
+    const newPuzzle = dailyPuzzleService.getPuzzleByIndex(index);
+    setPuzzle(newPuzzle);
+    setTestPuzzleIndex(index);
+    resetPuzzleState();
+    initializeBoard(newPuzzle);
+  };
+
+  const goToPreviousPuzzle = () => {
+    const newIndex = testPuzzleIndex - 1;
+    goToPuzzle(newIndex);
+  };
+
+  const goToNextPuzzle = () => {
+    const newIndex = testPuzzleIndex + 1;
+    goToPuzzle(newIndex);
+  };
 
   // Timer
   useEffect(() => {
@@ -415,8 +487,17 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
         <button className="puzzle-close-btn" onClick={onClose}>×</button>
 
         <div className="puzzle-header">
-          <h2>{t('puzzle.title', 'Puzzle du Jour')}</h2>
+          <h2 onClick={handleTitleClick} style={{ cursor: 'pointer' }}>
+            {testMode ? '🧪 Mode Test' : t('puzzle.title', 'Puzzle du Jour')}
+          </h2>
           <div className="puzzle-date">{puzzle.date}</div>
+          {testMode && (
+            <div className="test-navigation">
+              <button className="test-nav-btn" onClick={goToPreviousPuzzle}>◀ Précédent</button>
+              <span className="test-nav-info">{testPuzzleIndex + 1} / {dailyPuzzleService.getTotalPuzzles()}</span>
+              <button className="test-nav-btn" onClick={goToNextPuzzle}>Suivant ▶</button>
+            </div>
+          )}
         </div>
 
         {!showStats ? (

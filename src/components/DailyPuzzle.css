@@ -454,6 +454,42 @@
 }
 
 /* Responsive */
+/* Test mode navigation */
+.test-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.test-nav-btn {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.test-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+}
+
+.test-nav-info {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 480px) {
   .daily-puzzle-modal {
     padding: 20px;
@@ -489,5 +525,15 @@
 
   .stat-value {
     font-size: 1.5rem;
+  }
+
+  .test-navigation {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .test-nav-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }
