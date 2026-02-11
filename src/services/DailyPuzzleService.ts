@@ -93,17 +93,16 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
   },
   {
     title: 'Attaque de dame',
-    description: 'Utilisez votre dame pour capturer.',
+    description: 'Utilisez votre dame pour capturer deux pieces.',
     difficulty: 'medium',
     playerColor: 'white',
     pieces: [
-      { row: 7, col: 2, color: 'white', isKing: true },
-      { row: 4, col: 5, color: 'black', isKing: false },
-      { row: 3, col: 6, color: 'black', isKing: false },
-      { row: 5, col: 8, color: 'black', isKing: false },
+      { row: 6, col: 3, color: 'white', isKing: true },  // position 32
+      { row: 4, col: 5, color: 'black', isKing: false }, // position 23
+      { row: 3, col: 6, color: 'black', isKing: false }, // position 19
     ],
     solution: ['32x5x28'],
-    hint: 'La dame peut changer de direction apres une capture.',
+    hint: 'Capturez le premier pion et allez au bout de la diagonale.',
   },
   {
     title: 'Triple capture',
@@ -111,12 +110,12 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
     difficulty: 'medium',
     playerColor: 'white',
     pieces: [
-      { row: 6, col: 3, color: 'white', isKing: false },
-      { row: 5, col: 4, color: 'black', isKing: false },
-      { row: 3, col: 4, color: 'black', isKing: false },
-      { row: 3, col: 6, color: 'black', isKing: false },
+      { row: 6, col: 5, color: 'white', isKing: false },  // position 33
+      { row: 5, col: 4, color: 'black', isKing: false },  // position 28
+      { row: 3, col: 2, color: 'black', isKing: false },  // position 17
+      { row: 1, col: 2, color: 'black', isKing: false },  // position 7
     ],
-    solution: ['33x22x11x4'],
+    solution: ['33x22x11x2'],
     hint: 'Zigzaguez a travers les pieces adverses.',
   },
   {
