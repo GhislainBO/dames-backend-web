@@ -149,18 +149,18 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
     hint: 'Offrez un pion pour ouvrir une ligne de capture.',
   },
   {
-    title: 'Opposition',
-    description: 'Utilisez l\'opposition pour bloquer l\'adversaire.',
+    title: 'Coup force',
+    description: 'Forcez l\'adversaire a vous donner deux pieces.',
     difficulty: 'hard',
     playerColor: 'white',
     pieces: [
-      { row: 5, col: 4, color: 'white', isKing: false },
-      { row: 5, col: 6, color: 'white', isKing: false },
-      { row: 4, col: 5, color: 'black', isKing: false },
-      { row: 6, col: 5, color: 'black', isKing: true },
+      { row: 6, col: 3, color: 'white', isKing: false },  // position 32
+      { row: 5, col: 4, color: 'black', isKing: false },  // position 28
+      { row: 5, col: 6, color: 'black', isKing: false },  // position 29
+      { row: 3, col: 4, color: 'black', isKing: false },  // position 18
     ],
-    solution: ['28-22'],
-    hint: 'Forcez la dame adverse dans un coin.',
+    solution: ['32-27'],
+    hint: 'Sacrifiez pour forcer une capture obligatoire.',
   },
   {
     title: 'Rafle magistrale',
@@ -168,14 +168,14 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
     difficulty: 'hard',
     playerColor: 'white',
     pieces: [
-      { row: 7, col: 4, color: 'white', isKing: false },
-      { row: 6, col: 3, color: 'black', isKing: false },
-      { row: 6, col: 5, color: 'black', isKing: false },
-      { row: 4, col: 3, color: 'black', isKing: false },
-      { row: 4, col: 5, color: 'black', isKing: false },
+      { row: 7, col: 4, color: 'white', isKing: false },  // position 38
+      { row: 6, col: 3, color: 'black', isKing: false },  // position 32
+      { row: 6, col: 5, color: 'black', isKing: false },  // position 33
+      { row: 4, col: 3, color: 'black', isKing: false },  // position 22
+      { row: 4, col: 5, color: 'black', isKing: false },  // position 23
     ],
-    solution: ['38x27x18x29x40'],
-    hint: 'La cle est de commencer par le bon cote.',
+    solution: ['38x27x18x29x38'],
+    hint: 'La cle est de commencer par le bon cote et revenir au depart.',
   },
 ];
 

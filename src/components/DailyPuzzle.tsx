@@ -187,17 +187,13 @@ const DailyPuzzle: React.FC<DailyPuzzleProps> = ({ onClose }) => {
   };
 
   // Vérifie si des captures sont disponibles depuis une position
+  // Note: En dames internationales, les pions PEUVENT capturer en arrière!
   const hasMoreCaptures = (boardState: BoardCell[][], row: number, col: number, playerColor: string): boolean => {
     const directions = [[-2, -2], [-2, 2], [2, -2], [2, 2]];
-    const pieceState = boardState[row][col].state;
-    const isKing = pieceState === 'whiteKing' || pieceState === 'blackKing';
 
     for (const [dr, dc] of directions) {
-      // Pour les pions, vérifier la direction
-      if (!isKing) {
-        if (playerColor === 'white' && dr > 0) continue; // Blancs vont vers le haut
-        if (playerColor === 'black' && dr < 0) continue; // Noirs vont vers le bas
-      }
+      // En dames internationales, les captures sont possibles dans TOUTES les directions
+      // (même en arrière pour les pions)
 
       const midRow = row + dr / 2;
       const midCol = col + dc / 2;
