@@ -1,0 +1,565 @@
+/**
+ * PremiumButton.css - Styles des boutons premium DAMESELITE
+ * Design System Elite Edition
+ */
+
+/* ============================================
+   BASE BUTTON
+   ============================================ */
+.premium-btn {
+  /* Reset */
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+
+  /* Layout */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Dimensions par defaut (md) */
+  min-height: 52px;
+  padding: 16px 32px;
+
+  /* Typographie */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+
+  /* Style */
+  border-radius: 14px;
+  cursor: pointer;
+  overflow: hidden;
+
+  /* Transitions */
+  transition:
+    transform 250ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 250ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    background 250ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Touch */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+
+  /* Rendu */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contenu interne */
+.premium-btn__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Texte */
+.premium-btn__text {
+  position: relative;
+}
+
+/* Icones */
+.premium-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Effet de brillance (shine) */
+.premium-btn__shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 500ms cubic-bezier(0, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Border glow effect */
+.premium-btn__border-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 169, 98, 0.5) 0%,
+    transparent 50%,
+    rgba(201, 169, 98, 0.5) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+/* Focus visible */
+.premium-btn:focus-visible {
+  outline: 2px solid #c9a962;
+  outline-offset: 3px;
+}
+
+/* Disabled */
+.premium-btn:disabled,
+.premium-btn--loading {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.premium-btn:disabled:hover,
+.premium-btn--loading:hover {
+  transform: none;
+}
+
+/* ============================================
+   VARIANTE: PLAY (CTA PRINCIPAL)
+   ============================================ */
+.premium-btn--play {
+  /* Fond or metallique premium */
+  background:
+    linear-gradient(
+      135deg,
+      #e8d5a3 0%,
+      #c9a962 15%,
+      #b8944d 35%,
+      #c9a962 55%,
+      #d4bc7a 75%,
+      #e8d5a3 100%
+    );
+  background-size: 200% 200%;
+
+  /* Texte sombre */
+  color: #0f1120;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+
+  /* Ombre cinematique doree */
+  box-shadow:
+    0 4px 20px rgba(201, 169, 98, 0.25),
+    0 8px 40px rgba(201, 169, 98, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+
+  /* Animation subtile du gradient */
+  animation: playGradientShift 8s ease-in-out infinite;
+}
+
+@keyframes playGradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.premium-btn--play:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 30px rgba(201, 169, 98, 0.35),
+    0 12px 50px rgba(201, 169, 98, 0.25),
+    0 0 60px rgba(201, 169, 98, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.premium-btn--play:hover .premium-btn__shine {
+  left: 130%;
+}
+
+.premium-btn--play:hover .premium-btn__border-glow {
+  opacity: 1;
+}
+
+.premium-btn--play:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow:
+    0 2px 15px rgba(201, 169, 98, 0.3),
+    inset 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition-duration: 100ms;
+}
+
+/* ============================================
+   VARIANTE: SECONDARY (GLASS)
+   ============================================ */
+.premium-btn--secondary {
+  background: rgba(21, 24, 41, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+  color: #ffffff;
+
+  border: 1px solid rgba(201, 169, 98, 0.15);
+
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.premium-btn--secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(35, 40, 66, 0.9);
+  border-color: rgba(201, 169, 98, 0.4);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(201, 169, 98, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.premium-btn--secondary:hover .premium-btn__shine {
+  left: 130%;
+}
+
+.premium-btn--secondary:active {
+  transform: translateY(-1px) scale(0.98);
+  background: rgba(21, 24, 41, 0.95);
+}
+
+/* ============================================
+   VARIANTE: TOURNAMENT (AMETHYSTE)
+   ============================================ */
+.premium-btn--tournament {
+  background: linear-gradient(
+    135deg,
+    #9333ea 0%,
+    #7c3aed 25%,
+    #6d28d9 50%,
+    #7c3aed 75%,
+    #9333ea 100%
+  );
+  background-size: 200% 200%;
+
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    0 4px 20px rgba(124, 58, 237, 0.3),
+    0 8px 40px rgba(124, 58, 237, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.premium-btn--tournament .premium-btn__border-glow {
+  background: linear-gradient(
+    135deg,
+    rgba(147, 51, 234, 0.6) 0%,
+    transparent 50%,
+    rgba(147, 51, 234, 0.6) 100%
+  );
+}
+
+.premium-btn--tournament:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 30px rgba(124, 58, 237, 0.4),
+    0 12px 50px rgba(124, 58, 237, 0.25),
+    0 0 60px rgba(124, 58, 237, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.premium-btn--tournament:hover .premium-btn__shine {
+  left: 130%;
+}
+
+.premium-btn--tournament:hover .premium-btn__border-glow {
+  opacity: 1;
+}
+
+.premium-btn--tournament:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* ============================================
+   VARIANTE: PROFILE (SAPHIR)
+   ============================================ */
+.premium-btn--profile {
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #2563eb 25%,
+    #1d4ed8 50%,
+    #2563eb 75%,
+    #3b82f6 100%
+  );
+  background-size: 200% 200%;
+
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    0 4px 20px rgba(37, 99, 235, 0.3),
+    0 8px 40px rgba(37, 99, 235, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.premium-btn--profile:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 30px rgba(37, 99, 235, 0.4),
+    0 12px 50px rgba(37, 99, 235, 0.25),
+    0 0 60px rgba(37, 99, 235, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.premium-btn--profile:hover .premium-btn__shine {
+  left: 130%;
+}
+
+.premium-btn--profile:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* ============================================
+   VARIANTE: OUTLINE GOLD
+   ============================================ */
+.premium-btn--outline-gold {
+  background: transparent;
+  color: #c9a962;
+
+  border: 2px solid rgba(201, 169, 98, 0.5);
+
+  box-shadow: 0 0 20px rgba(201, 169, 98, 0.1);
+}
+
+.premium-btn--outline-gold:hover {
+  transform: translateY(-3px);
+  background: rgba(201, 169, 98, 0.08);
+  border-color: rgba(201, 169, 98, 0.8);
+  color: #d4bc7a;
+
+  box-shadow: 0 0 30px rgba(201, 169, 98, 0.25);
+}
+
+.premium-btn--outline-gold:active {
+  transform: translateY(-1px) scale(0.98);
+  background: rgba(201, 169, 98, 0.12);
+}
+
+/* ============================================
+   VARIANTE: RUBY (VICTOIRE/DANGER)
+   ============================================ */
+.premium-btn--ruby {
+  background: linear-gradient(
+    135deg,
+    #ef4444 0%,
+    #dc2626 25%,
+    #b91c1c 50%,
+    #dc2626 75%,
+    #ef4444 100%
+  );
+  background-size: 200% 200%;
+
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    0 4px 20px rgba(220, 38, 38, 0.3),
+    0 8px 40px rgba(220, 38, 38, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.premium-btn--ruby:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 30px rgba(220, 38, 38, 0.4),
+    0 12px 50px rgba(220, 38, 38, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.premium-btn--ruby:hover .premium-btn__shine {
+  left: 130%;
+}
+
+.premium-btn--ruby:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* ============================================
+   VARIANTE: EMERALD (SUCCES)
+   ============================================ */
+.premium-btn--emerald {
+  background: linear-gradient(
+    135deg,
+    #22c55e 0%,
+    #16a34a 25%,
+    #15803d 50%,
+    #16a34a 75%,
+    #22c55e 100%
+  );
+  background-size: 200% 200%;
+
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    0 4px 20px rgba(22, 163, 74, 0.3),
+    0 8px 40px rgba(22, 163, 74, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.premium-btn--emerald:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 30px rgba(22, 163, 74, 0.4),
+    0 12px 50px rgba(22, 163, 74, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.premium-btn--emerald:hover .premium-btn__shine {
+  left: 130%;
+}
+
+.premium-btn--emerald:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* ============================================
+   TAILLES
+   ============================================ */
+.premium-btn--sm {
+  min-height: 40px;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  border-radius: 10px;
+}
+
+.premium-btn--lg {
+  min-height: 64px;
+  padding: 20px 48px;
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+  border-radius: 18px;
+}
+
+/* ============================================
+   PLEINE LARGEUR
+   ============================================ */
+.premium-btn--full {
+  width: 100%;
+}
+
+/* ============================================
+   LOADER
+   ============================================ */
+.premium-btn__loader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 10px;
+}
+
+.premium-btn__loader-dot {
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+  animation: loaderPulse 1.4s ease-in-out infinite;
+}
+
+.premium-btn__loader-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.premium-btn__loader-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loaderPulse {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   ANIMATIONS SPECIALES
+   ============================================ */
+
+/* Pulse pour CTA */
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 20px rgba(201, 169, 98, 0.25),
+      0 8px 40px rgba(201, 169, 98, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 4px 30px rgba(201, 169, 98, 0.35),
+      0 8px 50px rgba(201, 169, 98, 0.25);
+  }
+}
+
+.premium-btn--play.premium-btn--pulse {
+  animation: ctaPulse 2s ease-in-out infinite, playGradientShift 8s ease-in-out infinite;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+  .premium-btn {
+    min-height: 48px;
+    padding: 14px 24px;
+    font-size: 0.9rem;
+  }
+
+  .premium-btn--lg {
+    min-height: 56px;
+    padding: 16px 36px;
+    font-size: 1rem;
+  }
+
+  .premium-btn--sm {
+    min-height: 36px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITE
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .premium-btn,
+  .premium-btn__shine,
+  .premium-btn__border-glow {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .premium-btn:hover {
+    transform: none;
+  }
+}

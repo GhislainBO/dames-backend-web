@@ -1,57 +1,61 @@
 /* ============================================
-   DAMES - DESIGN SYSTEM LUXUEUX
-   Theme: Elegance & Premium Gaming Experience
+   DAMESELITE - DESIGN SYSTEM PREMIUM
+   Theme: Luxe, Noblesse Strategique, Elite
+   Version: 2.0 Elite Edition
    ============================================ */
 
-/* === VARIABLES CSS GLOBALES === */
-:root {
-  /* Palette de couleurs principale */
-  --color-bg-primary: #0d0d1a;
-  --color-bg-secondary: #1a1a2e;
-  --color-bg-tertiary: #252540;
+/* Import du Design System Premium */
+@import './design-system.css';
 
-  /* Accents dorés (luxe) */
-  --color-gold-primary: #d4af37;
-  --color-gold-light: #f4d03f;
-  --color-gold-dark: #b8860b;
+/* === VARIABLES CSS LEGACY (compatibilite) === */
+:root {
+  /* Palette de couleurs principale - mappee vers design system */
+  --color-bg-primary: var(--ds-bg-primary, #0f1120);
+  --color-bg-secondary: var(--ds-bg-secondary, #151829);
+  --color-bg-tertiary: var(--ds-bg-tertiary, #1c2035);
+
+  /* Accents dores (luxe) - Or champagne metallique */
+  --color-gold-primary: var(--ds-gold-500, #c9a962);
+  --color-gold-light: var(--ds-gold-300, #e8d5a3);
+  --color-gold-dark: var(--ds-gold-700, #9a7b3c);
 
   /* Accents de couleur */
-  --color-accent-primary: #e94560;
-  --color-accent-secondary: #7b2cbf;
-  --color-accent-tertiary: #4a9eff;
+  --color-accent-primary: var(--ds-accent-ruby, #c41e3a);
+  --color-accent-secondary: var(--ds-accent-amethyst, #7c3aed);
+  --color-accent-tertiary: var(--ds-accent-sapphire, #2563eb);
 
   /* Texte */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #b0b0c0;
-  --color-text-muted: #6a6a7a;
+  --color-text-primary: var(--ds-text-primary, #ffffff);
+  --color-text-secondary: var(--ds-text-secondary, #b8c0d4);
+  --color-text-muted: var(--ds-text-muted, #6b7280);
 
   /* Feedback */
-  --color-success: #2ecc71;
-  --color-error: #e74c3c;
-  --color-warning: #f39c12;
+  --color-success: var(--ds-success, #22c55e);
+  --color-error: var(--ds-error, #ef4444);
+  --color-warning: var(--ds-warning, #f59e0b);
 
-  /* Effets */
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
-  --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-strong: 0 15px 50px rgba(0, 0, 0, 0.5);
-  --shadow-glow-gold: 0 0 30px rgba(212, 175, 55, 0.3);
-  --shadow-glow-accent: 0 0 30px rgba(233, 69, 96, 0.3);
+  /* Effets - Ombres cinematiques */
+  --shadow-soft: var(--ds-shadow-sm);
+  --shadow-medium: var(--ds-shadow-md);
+  --shadow-strong: var(--ds-shadow-xl);
+  --shadow-glow-gold: var(--ds-glow-gold);
+  --shadow-glow-accent: 0 0 30px rgba(196, 30, 58, 0.3);
 
-  /* Glass morphism */
-  --glass-bg: rgba(26, 26, 46, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: blur(20px);
+  /* Glass morphism premium */
+  --glass-bg: var(--ds-glass-bg);
+  --glass-border: var(--ds-glass-border);
+  --glass-blur: var(--ds-glass-blur);
 
-  /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-medium: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  /* Transitions premium */
+  --transition-fast: 150ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-medium: 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-slow: 400ms cubic-bezier(0.22, 0.61, 0.36, 1);
 
   /* Bordures */
-  --radius-small: 8px;
-  --radius-medium: 12px;
-  --radius-large: 20px;
-  --radius-full: 50%;
+  --radius-small: var(--ds-radius-sm, 6px);
+  --radius-medium: var(--ds-radius-md, 10px);
+  --radius-large: var(--ds-radius-xl, 20px);
+  --radius-full: var(--ds-radius-full, 9999px);
 }
 
 /* === RESET ET BASE === */
