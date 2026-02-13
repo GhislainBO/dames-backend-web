@@ -6,6 +6,7 @@
 
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { adMobService } from '../services/AdMobService';
 import './Support.css';
 
 interface SupportProps {
@@ -264,52 +265,66 @@ const Support: React.FC<SupportProps> = ({ isOpen, onClose }) => {
           </ul>
         </div>
 
-        {/* Tiers de donation - Redirection vers Stripe Payment Links */}
-        <div className="donation-tiers">
-          {SUPPORT_TIERS.map(tier => (
-            <div
-              key={tier.amount}
-              className="tier-card clickable"
-              onClick={() => openStripePaymentLink(tier.stripeLink)}
-              role="button"
-              tabIndex={0}
-              onKeyPress={(e) => e.key === 'Enter' && openStripePaymentLink(tier.stripeLink)}
-            >
-              <span className="tier-icon">{tier.icon}</span>
-              <span className="tier-amount">{tier.label}</span>
-              <span className="tier-name">{tier.name}</span>
-              <span className="tier-desc">{tier.description}</span>
+        {/* Message pour les utilisateurs mobiles */}
+        {adMobService.isNative() && (
+          <div className="mobile-donation-note">
+            <span className="note-icon">📱</span>
+            <p>{t('support.mobileNote', 'Les dons sont disponibles sur la version web du jeu.')}</p>
+            <p className="web-url">dames-backend-web.vercel.app</p>
+          </div>
+        )}
+
+        {/* Tiers de donation - Désactivés sur mobile (Google Play) */}
+        {!adMobService.isNative() && (
+          <>
+            {/* Tiers de donation - Redirection vers Stripe Payment Links */}
+            <div className="donation-tiers">
+              {SUPPORT_TIERS.map(tier => (
+                <div
+                  key={tier.amount}
+                  className="tier-card clickable"
+                  onClick={() => openStripePaymentLink(tier.stripeLink)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyPress={(e) => e.key === 'Enter' && openStripePaymentLink(tier.stripeLink)}
+                >
+                  <span className="tier-icon">{tier.icon}</span>
+                  <span className="tier-amount">{tier.label}</span>
+                  <span className="tier-name">{tier.name}</span>
+                  <span className="tier-desc">{tier.description}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Plateformes de donation */}
-        <h3 className="section-title">{t('support.donateVia', 'Ou directement via')}</h3>
-        <div className="donation-platforms">
-          {DONATION_PLATFORMS.filter(p => p.enabled).map(platform => (
-            <button
-              key={platform.id}
-              className="platform-btn"
-              onClick={() => openDonationLink(platform.url)}
-              style={{
-                '--platform-color': platform.color,
-                '--platform-text': platform.textColor,
-              } as React.CSSProperties}
-            >
-              <span className="platform-icon">{platform.icon}</span>
-              <div className="platform-info">
-                <span className="platform-name">{platform.name}</span>
-                <span className="platform-desc">{platform.description}</span>
-              </div>
-            </button>
-          ))}
-        </div>
+            {/* Plateformes de donation */}
+            <h3 className="section-title">{t('support.donateVia', 'Ou directement via')}</h3>
+            <div className="donation-platforms">
+              {DONATION_PLATFORMS.filter(p => p.enabled).map(platform => (
+                <button
+                  key={platform.id}
+                  className="platform-btn"
+                  onClick={() => openDonationLink(platform.url)}
+                  style={{
+                    '--platform-color': platform.color,
+                    '--platform-text': platform.textColor,
+                  } as React.CSSProperties}
+                >
+                  <span className="platform-icon">{platform.icon}</span>
+                  <div className="platform-info">
+                    <span className="platform-name">{platform.name}</span>
+                    <span className="platform-desc">{platform.description}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
 
-        {/* Note importante */}
-        <div className="setup-note">
-          <span className="note-icon">ℹ️</span>
-          <p>{t('support.setupNote', 'Les comptes de paiement sont en cours de configuration. Merci de votre patience!')}</p>
-        </div>
+            {/* Note importante */}
+            <div className="setup-note">
+              <span className="note-icon">ℹ️</span>
+              <p>{t('support.setupNote', 'Les comptes de paiement sont en cours de configuration. Merci de votre patience!')}</p>
+            </div>
+          </>
+        )}
 
         {/* Message alternatif - MAINTENANT CLIQUABLE */}
         <div className="alternative-support">

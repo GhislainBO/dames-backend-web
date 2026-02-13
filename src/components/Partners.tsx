@@ -256,7 +256,7 @@ Cordialement,
             ))}
           </div>
 
-          <button className="contact-btn" onClick={contactForPartnership}>
+          <button className="contact-btn" onClick={() => contactForPartnership()}>
             {t('partners.contactUs', 'Nous Contacter')}
           </button>
         </div>
