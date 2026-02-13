@@ -1,0 +1,699 @@
+/**
+ * OFFRES PROMOTIONNELLES - Design Premium Luxueux
+ * Système de vente et promotions spéciales
+ */
+
+.promo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: promoFadeIn 0.3s ease;
+}
+
+@keyframes promoFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.promo-modal {
+  background: linear-gradient(145deg, #1a1a2e 0%, #0d0d1a 100%);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 750px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(233, 69, 96, 0.15);
+  position: relative;
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  animation: promoSlideIn 0.4s ease;
+}
+
+@keyframes promoSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.promo-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.promo-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+/* === HEADER SPECTACULAIRE === */
+.promo-header {
+  padding: 35px 25px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #e94560 50%, #c0392b 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de brillance animé */
+.promo-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
+  animation: promoHeaderShine 3s ease-in-out infinite;
+}
+
+@keyframes promoHeaderShine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.promo-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.promo-subtitle {
+  margin: 12px 0 0 0;
+  opacity: 0.9;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.promo-message {
+  padding: 14px 25px;
+  background: linear-gradient(135deg, rgba(74, 158, 255, 0.15) 0%, rgba(106, 90, 205, 0.15) 100%);
+  text-align: center;
+  color: #4a9eff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(74, 158, 255, 0.2);
+}
+
+/* === ONGLETS === */
+.promo-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.promo-tabs .tab {
+  flex: 1;
+  padding: 16px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.promo-tabs .tab:hover {
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.promo-tabs .tab.active {
+  color: white;
+  background: rgba(233, 69, 96, 0.1);
+}
+
+.promo-tabs .tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #e94560);
+}
+
+/* === CONTENU === */
+.promo-content {
+  padding: 25px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.loading-text {
+  text-align: center;
+  color: #666;
+  padding: 50px;
+  font-size: 1rem;
+}
+
+/* === CARTES D'OFFRES LUXUEUSES === */
+.offer-card {
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.6) 0%, rgba(26, 26, 46, 0.8) 100%);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transition: left 0.5s ease;
+}
+
+.offer-card:hover::before {
+  left: 100%;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(233, 69, 96, 0.3);
+}
+
+/* Premier achat - Design spécial */
+.offer-card.first-purchase {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.15) 0%, rgba(26, 26, 46, 0.9) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  text-align: center;
+}
+
+.offer-card.first-purchase:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+/* Offres limitées */
+.offer-card.limited {
+  border-left: 4px solid #ff6b6b;
+}
+
+/* Bundles */
+.offer-card.bundle {
+  border-left: 4px solid #4a9eff;
+}
+
+/* === BADGE D'OFFRE === */
+.offer-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #e94560 100%);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+.offer-badge.popular {
+  background: linear-gradient(135deg, #4a9eff 0%, #7b2cbf 100%);
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.offer-icon {
+  font-size: 3.5rem;
+  margin: 15px 0;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+.offer-card h3,
+.offer-card h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.offer-desc {
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+/* === MONTANT DE JETONS === */
+.offer-coins {
+  margin: 20px 0;
+}
+
+.coins-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coins-label {
+  margin-left: 8px;
+  font-size: 1rem;
+  color: #888;
+}
+
+/* === PRIX === */
+.offer-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #666;
+  font-size: 1rem;
+}
+
+.current-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === BADGE DE RÉDUCTION === */
+.offer-discount {
+  display: inline-block;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 12px 0;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* === TIMER === */
+.offer-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background: rgba(233, 69, 96, 0.1);
+  border-radius: 10px;
+}
+
+.timer-icon {
+  animation: timerPulse 1s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* === BOUTON D'OFFRE === */
+.offer-btn {
+  width: 100%;
+  padding: 16px 25px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #e94560 50%, #c0392b 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.offer-btn:hover::before {
+  left: 100%;
+}
+
+.offer-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(233, 69, 96, 0.5);
+}
+
+/* === SECTIONS === */
+.offers-section {
+  margin-top: 30px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  margin: 0 0 18px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(180deg, #ff6b6b, #e94560);
+  border-radius: 2px;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.no-offers {
+  text-align: center;
+  color: #666;
+  padding: 50px;
+  font-size: 1rem;
+}
+
+/* === TIRELIRE LUXUEUSE === */
+.piggybank-content {
+  padding: 40px 25px 50px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.piggybank-visual {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 134, 11, 0.05) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.piggy-icon {
+  font-size: 5.5rem;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.piggy-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.4) 0%, rgba(212, 175, 55, 0.7) 100%);
+  border-radius: 0 0 50% 50%;
+  transition: height 0.8s ease;
+}
+
+.piggy-coins {
+  position: absolute;
+  bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f4d03f;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.piggybank-info {
+  text-align: center;
+  max-width: 420px;
+}
+
+.piggybank-info h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.piggybank-info p {
+  color: #888;
+  margin: 0 0 25px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* === STATS TIRELIRE === */
+.piggy-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.piggy-stats .stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-label {
+  color: #777;
+}
+
+.stat-value {
+  font-weight: 700;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === BOUTON CASSER LA TIRELIRE === */
+.break-btn {
+  padding: 18px 50px;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
+  border: none;
+  border-radius: 30px;
+  color: #1a1a2e;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.break-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.break-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.break-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.6);
+}
+
+.break-btn:disabled {
+  background: rgba(100, 100, 100, 0.3);
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.piggy-hint {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+}
+
+.login-warning {
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(230, 126, 34, 0.1) 100%);
+  text-align: center;
+  color: #f39c12;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  width: 100%;
+  border: 1px solid rgba(243, 156, 18, 0.3);
+}
+
+/* === SCROLLBAR === */
+.promo-content::-webkit-scrollbar,
+.piggybank-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.promo-content::-webkit-scrollbar-track,
+.piggybank-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+}
+
+.promo-content::-webkit-scrollbar-thumb,
+.piggybank-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff6b6b, #e94560);
+  border-radius: 4px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .promo-modal {
+    max-height: 95vh;
+    border-radius: 20px;
+  }
+
+  .promo-header {
+    padding: 25px 20px;
+  }
+
+  .promo-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .promo-content {
+    padding: 20px 15px;
+  }
+
+  .piggybank-content {
+    padding: 25px 15px 40px 15px;
+    gap: 20px;
+  }
+
+  .offer-card {
+    padding: 20px;
+  }
+
+  .offer-card.first-purchase {
+    padding: 20px 15px;
+  }
+
+  .coins-amount {
+    font-size: 2rem;
+  }
+
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .piggybank-visual {
+    width: 140px;
+    height: 140px;
+  }
+
+  .piggy-icon {
+    font-size: 4rem;
+  }
+
+  .piggybank-info {
+    width: 100%;
+  }
+
+  .piggybank-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .break-btn {
+    padding: 15px 40px;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .piggy-hint {
+    margin-bottom: 10px;
+  }
+}

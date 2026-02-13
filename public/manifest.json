@@ -1,0 +1,100 @@
+{
+  "name": "DAMESELITE - Jeu de Dames International",
+  "short_name": "DAMESELITE",
+  "description": "Jouez aux dames internationales gratuitement en ligne. Plateau 10x10, mode multijoueur, IA 5 niveaux, tournois et classements.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d1a",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["games", "entertainment", "education"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/game-board.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Plateau de jeu DAMESELITE"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Jouer contre l'IA",
+      "short_name": "vs IA",
+      "description": "Commencer une partie contre l'ordinateur",
+      "url": "/?mode=ai",
+      "icons": [{ "src": "/icons/ai-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Multijoueur",
+      "short_name": "Multi",
+      "description": "Jouer en ligne contre d'autres joueurs",
+      "url": "/?mode=online",
+      "icons": [{ "src": "/icons/multiplayer-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Puzzle du jour",
+      "short_name": "Puzzle",
+      "description": "Resoudre le puzzle quotidien",
+      "url": "/?mode=puzzle",
+      "icons": [{ "src": "/icons/puzzle-icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.dameselite.app",
+      "id": "com.dameselite.app"
+    }
+  ],
+  "prefer_related_applications": false
+}

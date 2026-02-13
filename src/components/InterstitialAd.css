@@ -1,0 +1,124 @@
+/**
+ * InterstitialAd - Styles pour la pub plein écran
+ */
+
+.interstitial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.interstitial-content {
+  width: 90%;
+  max-width: 400px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.interstitial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ad-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.countdown {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #4a9eff;
+}
+
+.close-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.interstitial-body {
+  padding: 40px 20px;
+}
+
+.ad-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  background: rgba(74, 158, 255, 0.05);
+  border: 2px dashed rgba(74, 158, 255, 0.3);
+  border-radius: 12px;
+}
+
+.ad-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.ad-placeholder h3 {
+  margin: 0 0 10px 0;
+  color: #4a9eff;
+  font-size: 1.2rem;
+}
+
+.ad-placeholder p {
+  margin: 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.interstitial-footer {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.interstitial-footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ffd700;
+}

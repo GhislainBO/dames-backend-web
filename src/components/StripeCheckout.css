@@ -1,0 +1,121 @@
+/**
+ * Styles pour le formulaire Stripe
+ */
+
+.stripe-checkout {
+  padding: 20px;
+  background: #1a1a2e;
+  border-radius: 12px;
+}
+
+.checkout-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.checkout-header h3 {
+  color: #fff;
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+}
+
+.checkout-amount {
+  color: #ffd700;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.checkout-error {
+  background: rgba(248, 113, 113, 0.2);
+  color: #f87171;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.checkout-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.checkout-cancel-btn,
+.checkout-pay-btn {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.checkout-cancel-btn {
+  background: #333;
+  color: #aaa;
+}
+
+.checkout-cancel-btn:hover:not(:disabled) {
+  background: #444;
+  color: #fff;
+}
+
+.checkout-pay-btn {
+  background: linear-gradient(135deg, #4a9eff, #6a5acd);
+  color: #fff;
+}
+
+.checkout-pay-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 158, 255, 0.3);
+}
+
+.checkout-pay-btn:disabled,
+.checkout-cancel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkout-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* Personnalisation des elements Stripe */
+.stripe-checkout form {
+  width: 100%;
+}
+
+/* Style pour les cartes de test */
+.test-cards-info {
+  background: rgba(74, 158, 255, 0.1);
+  border: 1px dashed #4a9eff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  color: #4a9eff;
+}
+
+.test-cards-info strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.test-cards-info code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}

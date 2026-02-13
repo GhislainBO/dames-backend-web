@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2732 2732">
+  <defs>
+    <!-- Gradient pour le fond -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+
+    <!-- Gradient pour le pion rouge -->
+    <radialGradient id="redPieceGradient" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="50%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#c23a51"/>
+    </radialGradient>
+
+    <!-- Ombre -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="15" stdDeviation="20" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fond -->
+  <rect x="0" y="0" width="2732" height="2732" fill="url(#bgGradient)"/>
+
+  <!-- Motif damier subtil -->
+  <g opacity="0.05">
+    <pattern id="checkerPattern" width="200" height="200" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="100" height="100" fill="#fff"/>
+      <rect x="100" y="100" width="100" height="100" fill="#fff"/>
+    </pattern>
+    <rect x="0" y="0" width="2732" height="2732" fill="url(#checkerPattern)"/>
+  </g>
+
+  <!-- Cercles décoratifs en arrière-plan -->
+  <circle cx="1366" cy="1200" r="600" fill="none" stroke="#e94560" stroke-width="2" opacity="0.1"/>
+  <circle cx="1366" cy="1200" r="500" fill="none" stroke="#e94560" stroke-width="2" opacity="0.15"/>
+  <circle cx="1366" cy="1200" r="400" fill="none" stroke="#e94560" stroke-width="2" opacity="0.2"/>
+
+  <!-- Pion principal -->
+  <g filter="url(#shadow)" transform="translate(1366, 1200)">
+    <!-- Base du pion -->
+    <ellipse cx="0" cy="120" rx="280" ry="75" fill="#6b1a2a"/>
+
+    <!-- Corps du pion - couches pour effet 3D -->
+    <ellipse cx="0" cy="60" rx="280" ry="75" fill="#8b2a3a"/>
+    <ellipse cx="0" cy="0" rx="260" ry="70" fill="#a33347"/>
+    <ellipse cx="0" cy="-60" rx="240" ry="65" fill="#c23a51"/>
+    <ellipse cx="0" cy="-120" rx="220" ry="60" fill="url(#redPieceGradient)"/>
+
+    <!-- Surface du pion -->
+    <ellipse cx="0" cy="-170" rx="200" ry="55" fill="url(#redPieceGradient)"/>
+
+    <!-- Reflet lumineux -->
+    <ellipse cx="-60" cy="-190" rx="80" ry="25" fill="#fff" opacity="0.35"/>
+
+    <!-- Couronne dorée (dame) -->
+    <ellipse cx="0" cy="-170" rx="130" ry="36" fill="none" stroke="#ffd700" stroke-width="10" filter="url(#glow)"/>
+    <ellipse cx="0" cy="-170" rx="80" ry="22" fill="none" stroke="#ffd700" stroke-width="8"/>
+
+    <!-- Points dorés sur la couronne -->
+    <circle cx="-100" cy="-175" r="12" fill="#ffd700"/>
+    <circle cx="100" cy="-175" r="12" fill="#ffd700"/>
+    <circle cx="0" cy="-195" r="12" fill="#ffd700"/>
+  </g>
+
+  <!-- Titre "DAMES" -->
+  <text x="1366" y="1750"
+        font-family="Arial Black, Arial, sans-serif"
+        font-size="180"
+        font-weight="bold"
+        fill="#fff"
+        text-anchor="middle"
+        letter-spacing="20">
+    DAMES
+  </text>
+
+  <!-- Sous-titre -->
+  <text x="1366" y="1850"
+        font-family="Arial, sans-serif"
+        font-size="60"
+        fill="#e94560"
+        text-anchor="middle"
+        opacity="0.8">
+    Jeu de Dames Internationales
+  </text>
+
+  <!-- Indicateur de chargement (spinner) -->
+  <g transform="translate(1366, 2100)">
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#e94560" stroke-width="6" stroke-dasharray="60 200" opacity="0.8">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0"
+        to="360"
+        dur="1s"
+        repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

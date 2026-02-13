@@ -1,0 +1,683 @@
+/* ============================================
+   DAMESELITE - DESIGN SYSTEM PREMIUM
+   Version: 2.0 Elite Edition
+   Direction: Luxe, Noblesse Strategique, Elite
+   ============================================ */
+
+/* ============================================
+   1. TOKENS COULEURS
+   ============================================ */
+:root {
+  /* === FOND PREMIUM === */
+  --ds-bg-void: #0a0a14;           /* Noir profond absolu */
+  --ds-bg-primary: #0f1120;        /* Fond principal */
+  --ds-bg-secondary: #151829;      /* Fond secondaire */
+  --ds-bg-tertiary: #1c2035;       /* Fond tertiaire */
+  --ds-bg-elevated: #232842;       /* Surfaces elevees */
+
+  /* === OR CHAMPAGNE METALLIQUE === */
+  --ds-gold-50: #fffbf0;           /* Or tres clair */
+  --ds-gold-100: #fef3d9;          /* Or clair */
+  --ds-gold-200: #f5e6b8;          /* Or doux */
+  --ds-gold-300: #e8d5a3;          /* Champagne clair */
+  --ds-gold-400: #d4bc7a;          /* Champagne */
+  --ds-gold-500: #c9a962;          /* Or champagne principal */
+  --ds-gold-600: #b8944d;          /* Or moyen */
+  --ds-gold-700: #9a7b3c;          /* Or fonce */
+  --ds-gold-800: #7d632f;          /* Bronze dore */
+  --ds-gold-900: #5c4822;          /* Or antique */
+
+  /* Gradients Or Premium */
+  --ds-gold-gradient: linear-gradient(
+    135deg,
+    #e8d5a3 0%,
+    #c9a962 25%,
+    #b8944d 50%,
+    #c9a962 75%,
+    #e8d5a3 100%
+  );
+  --ds-gold-gradient-subtle: linear-gradient(
+    180deg,
+    rgba(201, 169, 98, 0.15) 0%,
+    rgba(201, 169, 98, 0.05) 100%
+  );
+  --ds-gold-shine: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 251, 240, 0.4) 50%,
+    transparent 80%
+  );
+
+  /* === BOIS NOBLE === */
+  --ds-wood-light: #d4a574;        /* Bois clair (erable) */
+  --ds-wood-medium: #b8860b;       /* Bois moyen (chene) */
+  --ds-wood-dark: #8b4513;         /* Bois fonce (noyer) */
+  --ds-wood-deep: #5d3a1a;         /* Bois profond (acajou) */
+
+  /* === TEXTES === */
+  --ds-text-primary: #ffffff;
+  --ds-text-secondary: #b8c0d4;
+  --ds-text-muted: #6b7280;
+  --ds-text-disabled: #4a5064;
+  --ds-text-gold: var(--ds-gold-400);
+  --ds-text-inverse: #0f1120;
+
+  /* === ACCENTS === */
+  --ds-accent-ruby: #c41e3a;       /* Rouge rubis (victoire) */
+  --ds-accent-ruby-light: #dc3545;
+  --ds-accent-emerald: #2d8b56;    /* Vert emeraude (succes) */
+  --ds-accent-sapphire: #2563eb;   /* Bleu saphir (info) */
+  --ds-accent-amethyst: #7c3aed;   /* Violet amethyste (special) */
+
+  /* === FEEDBACK === */
+  --ds-success: #22c55e;
+  --ds-error: #ef4444;
+  --ds-warning: #f59e0b;
+  --ds-info: #3b82f6;
+
+  /* ============================================
+     2. TOKENS OMBRES (CINEMATIQUES)
+     ============================================ */
+
+  /* Ombres diffuses premium */
+  --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --ds-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --ds-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --ds-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --ds-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --ds-shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.5);
+
+  /* Ombres cinematiques avec couleur */
+  --ds-shadow-gold:
+    0 4px 20px rgba(201, 169, 98, 0.15),
+    0 8px 40px rgba(201, 169, 98, 0.1);
+  --ds-shadow-gold-intense:
+    0 4px 20px rgba(201, 169, 98, 0.25),
+    0 8px 40px rgba(201, 169, 98, 0.15),
+    0 0 60px rgba(201, 169, 98, 0.1);
+  --ds-shadow-ruby:
+    0 4px 20px rgba(196, 30, 58, 0.2),
+    0 8px 40px rgba(196, 30, 58, 0.1);
+  --ds-shadow-amethyst:
+    0 4px 20px rgba(124, 58, 237, 0.2),
+    0 8px 40px rgba(124, 58, 237, 0.1);
+
+  /* Glow premium */
+  --ds-glow-gold: 0 0 30px rgba(201, 169, 98, 0.4);
+  --ds-glow-gold-soft: 0 0 20px rgba(201, 169, 98, 0.2);
+  --ds-glow-white: 0 0 20px rgba(255, 255, 255, 0.1);
+
+  /* Ombre interieure (profondeur) */
+  --ds-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  --ds-shadow-inset-gold: inset 0 1px 0 rgba(255, 251, 240, 0.1);
+
+  /* ============================================
+     3. TOKENS RADIUS
+     ============================================ */
+  --ds-radius-none: 0;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 10px;
+  --ds-radius-lg: 14px;
+  --ds-radius-xl: 20px;
+  --ds-radius-2xl: 28px;
+  --ds-radius-full: 9999px;
+
+  /* ============================================
+     4. TOKENS SPACING
+     ============================================ */
+  --ds-space-0: 0;
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-5: 20px;
+  --ds-space-6: 24px;
+  --ds-space-7: 28px;
+  --ds-space-8: 32px;
+  --ds-space-10: 40px;
+  --ds-space-12: 48px;
+  --ds-space-16: 64px;
+  --ds-space-20: 80px;
+
+  /* ============================================
+     5. TYPOGRAPHIE
+     ============================================ */
+  --ds-font-display: 'Playfair Display', 'Georgia', serif;
+  --ds-font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ds-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ds-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Tailles */
+  --ds-text-xs: 0.75rem;     /* 12px */
+  --ds-text-sm: 0.875rem;    /* 14px */
+  --ds-text-base: 1rem;      /* 16px */
+  --ds-text-lg: 1.125rem;    /* 18px */
+  --ds-text-xl: 1.25rem;     /* 20px */
+  --ds-text-2xl: 1.5rem;     /* 24px */
+  --ds-text-3xl: 1.875rem;   /* 30px */
+  --ds-text-4xl: 2.25rem;    /* 36px */
+
+  /* Poids */
+  --ds-font-light: 300;
+  --ds-font-normal: 400;
+  --ds-font-medium: 500;
+  --ds-font-semibold: 600;
+  --ds-font-bold: 700;
+
+  /* Letter spacing */
+  --ds-tracking-tight: -0.025em;
+  --ds-tracking-normal: 0;
+  --ds-tracking-wide: 0.05em;
+  --ds-tracking-wider: 0.1em;
+  --ds-tracking-widest: 0.2em;
+
+  /* ============================================
+     6. ANIMATIONS & TRANSITIONS
+     ============================================ */
+  --ds-duration-instant: 0ms;
+  --ds-duration-fast: 150ms;
+  --ds-duration-normal: 250ms;
+  --ds-duration-slow: 400ms;
+  --ds-duration-slower: 600ms;
+
+  --ds-ease-linear: linear;
+  --ds-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ds-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ds-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ds-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ds-ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ds-ease-premium: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* ============================================
+     7. GLASS MORPHISM PREMIUM
+     ============================================ */
+  --ds-glass-bg: rgba(21, 24, 41, 0.85);
+  --ds-glass-bg-light: rgba(35, 40, 66, 0.7);
+  --ds-glass-border: rgba(201, 169, 98, 0.12);
+  --ds-glass-border-subtle: rgba(255, 255, 255, 0.06);
+  --ds-glass-blur: blur(24px);
+  --ds-glass-saturate: saturate(180%);
+}
+
+/* ============================================
+   ANIMATIONS KEYFRAMES
+   ============================================ */
+
+/* Shimmer dore premium */
+@keyframes ds-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Pulse subtil */
+@keyframes ds-pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* Glow pulse */
+@keyframes ds-glow-pulse {
+  0%, 100% {
+    box-shadow: var(--ds-shadow-gold);
+  }
+  50% {
+    box-shadow: var(--ds-shadow-gold-intense);
+  }
+}
+
+/* Float elegant */
+@keyframes ds-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Shine sweep */
+@keyframes ds-shine-sweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+/* Border glow */
+@keyframes ds-border-glow {
+  0%, 100% {
+    border-color: rgba(201, 169, 98, 0.3);
+  }
+  50% {
+    border-color: rgba(201, 169, 98, 0.6);
+  }
+}
+
+/* Scale press */
+@keyframes ds-press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   COMPOSANTS BOUTONS PREMIUM
+   ============================================ */
+
+/* === BASE BUTTON === */
+.ds-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-3);
+
+  /* Dimensions */
+  min-height: 52px;
+  padding: var(--ds-space-4) var(--ds-space-8);
+
+  /* Typographie */
+  font-family: var(--ds-font-heading);
+  font-size: var(--ds-text-base);
+  font-weight: var(--ds-font-semibold);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Apparence */
+  border: none;
+  border-radius: var(--ds-radius-lg);
+  cursor: pointer;
+  overflow: hidden;
+
+  /* Transitions */
+  transition:
+    transform var(--ds-duration-normal) var(--ds-ease-premium),
+    box-shadow var(--ds-duration-normal) var(--ds-ease-premium),
+    background var(--ds-duration-normal) var(--ds-ease-premium);
+
+  /* Accessibilite */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+
+  /* Anti-aliasing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible */
+.ds-btn:focus-visible {
+  outline: 2px solid var(--ds-gold-400);
+  outline-offset: 3px;
+}
+
+/* Disabled state */
+.ds-btn:disabled,
+.ds-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* === BOUTON CTA PRINCIPAL "JOUER" === */
+.ds-btn-play {
+  /* Dimensions heroiques */
+  min-height: 64px;
+  padding: var(--ds-space-5) var(--ds-space-12);
+  font-size: var(--ds-text-lg);
+  letter-spacing: var(--ds-tracking-wider);
+  border-radius: var(--ds-radius-xl);
+
+  /* Fond or metallique */
+  background:
+    linear-gradient(
+      135deg,
+      #e8d5a3 0%,
+      #c9a962 20%,
+      #b8944d 40%,
+      #c9a962 60%,
+      #d4bc7a 80%,
+      #e8d5a3 100%
+    );
+  background-size: 200% 200%;
+
+  /* Texte */
+  color: var(--ds-bg-primary);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Bordure interne subtile */
+  box-shadow:
+    var(--ds-shadow-gold),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Shine overlay */
+.ds-btn-play::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left var(--ds-duration-slow) var(--ds-ease-out);
+}
+
+/* Hover */
+.ds-btn-play:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    var(--ds-shadow-gold-intense),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  animation: ds-glow-pulse 2s ease-in-out infinite;
+}
+
+.ds-btn-play:hover::before {
+  left: 120%;
+}
+
+/* Active */
+.ds-btn-play:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow:
+    0 2px 10px rgba(201, 169, 98, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* === BOUTON SECONDAIRE GLASS === */
+.ds-btn-secondary {
+  background: var(--ds-glass-bg);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+
+  color: var(--ds-text-primary);
+
+  border: 1px solid var(--ds-glass-border);
+  box-shadow:
+    var(--ds-shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Hover */
+.ds-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(35, 40, 66, 0.9);
+  border-color: var(--ds-gold-500);
+  box-shadow:
+    var(--ds-shadow-lg),
+    var(--ds-glow-gold-soft),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Active */
+.ds-btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+  background: rgba(21, 24, 41, 0.95);
+}
+
+/* === BOUTON TOURNOIS (AMETHYSTE) === */
+.ds-btn-tournament {
+  background: linear-gradient(
+    135deg,
+    #9333ea 0%,
+    #7c3aed 30%,
+    #6d28d9 60%,
+    #7c3aed 100%
+  );
+
+  color: var(--ds-text-primary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    var(--ds-shadow-amethyst),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.ds-btn-tournament::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left var(--ds-duration-slow) var(--ds-ease-out);
+}
+
+.ds-btn-tournament:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 25px rgba(124, 58, 237, 0.35),
+    0 8px 50px rgba(124, 58, 237, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.ds-btn-tournament:hover::before {
+  left: 120%;
+}
+
+.ds-btn-tournament:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* === BOUTON PROFIL (SAPHIR) === */
+.ds-btn-profile {
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #2563eb 30%,
+    #1d4ed8 60%,
+    #2563eb 100%
+  );
+
+  color: var(--ds-text-primary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    0 4px 20px rgba(37, 99, 235, 0.25),
+    0 8px 40px rgba(37, 99, 235, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.ds-btn-profile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left var(--ds-duration-slow) var(--ds-ease-out);
+}
+
+.ds-btn-profile:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 25px rgba(37, 99, 235, 0.35),
+    0 8px 50px rgba(37, 99, 235, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.ds-btn-profile:hover::before {
+  left: 120%;
+}
+
+.ds-btn-profile:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* === BOUTON OUTLINE GOLD === */
+.ds-btn-outline-gold {
+  background: transparent;
+  color: var(--ds-gold-400);
+
+  border: 2px solid var(--ds-gold-500);
+  box-shadow: var(--ds-glow-gold-soft);
+}
+
+.ds-btn-outline-gold:hover {
+  background: rgba(201, 169, 98, 0.1);
+  border-color: var(--ds-gold-400);
+  color: var(--ds-gold-300);
+  transform: translateY(-2px);
+  box-shadow: var(--ds-glow-gold);
+}
+
+.ds-btn-outline-gold:active {
+  transform: translateY(0) scale(0.98);
+  background: rgba(201, 169, 98, 0.15);
+}
+
+/* === TAILLES === */
+.ds-btn-sm {
+  min-height: 40px;
+  padding: var(--ds-space-2) var(--ds-space-5);
+  font-size: var(--ds-text-sm);
+  border-radius: var(--ds-radius-md);
+}
+
+.ds-btn-lg {
+  min-height: 60px;
+  padding: var(--ds-space-5) var(--ds-space-10);
+  font-size: var(--ds-text-xl);
+  border-radius: var(--ds-radius-xl);
+}
+
+/* === ICONES === */
+.ds-btn-icon {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.ds-btn-icon-left {
+  margin-right: var(--ds-space-1);
+}
+
+.ds-btn-icon-right {
+  margin-left: var(--ds-space-1);
+}
+
+/* === LARGEUR PLEINE === */
+.ds-btn-full {
+  width: 100%;
+}
+
+/* ============================================
+   CARTES PREMIUM
+   ============================================ */
+.ds-card {
+  background: var(--ds-glass-bg);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+
+  border: 1px solid var(--ds-glass-border);
+  border-radius: var(--ds-radius-xl);
+
+  box-shadow: var(--ds-shadow-lg);
+
+  padding: var(--ds-space-6);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ligne doree en haut */
+.ds-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ds-gold-500) 50%,
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* ============================================
+   SEPARATEURS
+   ============================================ */
+.ds-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ds-glass-border) 20%,
+    var(--ds-gold-500) 50%,
+    var(--ds-glass-border) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  margin: var(--ds-space-6) 0;
+}
+
+/* ============================================
+   TEXTE DORE
+   ============================================ */
+.ds-text-gold {
+  background: var(--ds-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ds-text-shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--ds-gold-400) 0%,
+    var(--ds-gold-200) 25%,
+    var(--ds-gold-400) 50%,
+    var(--ds-gold-200) 75%,
+    var(--ds-gold-400) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: ds-shimmer 3s linear infinite;
+}

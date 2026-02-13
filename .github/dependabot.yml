@@ -1,0 +1,41 @@
+# Dependabot configuration for automated security updates
+version: 2
+updates:
+  # NPM dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps"
+    groups:
+      react:
+        patterns:
+          - "react*"
+          - "@types/react*"
+      capacitor:
+        patterns:
+          - "@capacitor/*"
+      testing:
+        patterns:
+          - "vitest"
+          - "@testing-library/*"
+      vite:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "ci"
+    commit-message:
+      prefix: "deps(actions)"

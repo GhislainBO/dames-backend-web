@@ -1,0 +1,32 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "DAMESELITE - International Draughts",
+  "name_for_model": "dameselite_draughts",
+  "description_for_human": "Play International Draughts (Checkers) online for free. Features AI opponents, multiplayer, tournaments and rankings.",
+  "description_for_model": "DAMESELITE is a free online International Draughts (10x10 checkers) game. Users can play against AI with 5 difficulty levels, play locally with two players, or play online multiplayer. The game follows official FMJD (World Draughts Federation) rules including flying kings and mandatory maximum captures. Available in French, English, Spanish, German, Portuguese, and Arabic. The platform includes tournaments, global rankings, and an ELO rating system.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://dames-backend-web.vercel.app/openapi.yaml"
+  },
+  "logo_url": "https://dames-backend-web.vercel.app/favicon.svg",
+  "contact_email": "contact@dameselite.com",
+  "legal_info_url": "https://dames-backend-web.vercel.app/terms-of-service.html",
+  "keywords": [
+    "draughts",
+    "checkers",
+    "dames",
+    "board game",
+    "strategy game",
+    "online game",
+    "multiplayer",
+    "AI game",
+    "FMJD",
+    "international draughts",
+    "10x10 board",
+    "free game"
+  ],
+  "category": "games"
+}

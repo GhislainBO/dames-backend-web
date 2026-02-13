@@ -1,0 +1,416 @@
+/**
+ * LocalStats - Styles pour les statistiques locales
+ */
+
+.localstats-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.localstats-modal {
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.95) 0%, rgba(26, 26, 46, 0.98) 100%);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.localstats-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 28px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.localstats-close:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.localstats-modal h2 {
+  text-align: center;
+  margin: 0 0 25px 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === SECTION NIVEAU === */
+.level-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border-radius: 15px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.level-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #d4af37 0%, #b8860b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  flex-shrink: 0;
+}
+
+.level-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.level-info {
+  flex: 1;
+}
+
+.level-title {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d4af37;
+  margin-bottom: 8px;
+}
+
+.level-progress-container {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.level-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37 0%, #f4d03f 100%);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.level-next {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* === GRILLE STATS === */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 10px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card.wins {
+  border-color: rgba(46, 204, 113, 0.3);
+  background: rgba(46, 204, 113, 0.1);
+}
+
+.stat-card.losses {
+  border-color: rgba(231, 76, 60, 0.3);
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.stat-card.wins .stat-value {
+  color: #2ecc71;
+}
+
+.stat-card.losses .stat-value {
+  color: #e74c3c;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === TAUX DE VICTOIRE === */
+.winrate-section {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.winrate-circle {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.winrate-circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.winrate-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 3.5;
+}
+
+.winrate-progress {
+  fill: none;
+  stroke: url(#goldGradient);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke: #d4af37;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.winrate-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+.winrate-label {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* === RECORDS === */
+.records-section {
+  margin-bottom: 25px;
+}
+
+.records-section h3 {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.records-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.record-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.record-icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.record-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 3px;
+}
+
+.record-label {
+  font-size: 0.7rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+/* === TOTAUX === */
+.totals-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 15px;
+}
+
+.total-item {
+  text-align: center;
+}
+
+.total-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.total-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #aaa;
+}
+
+/* === DERNIERE PARTIE === */
+.last-played {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* === RESET === */
+.reset-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: 10px;
+  color: #e74c3c;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: rgba(231, 76, 60, 0.2);
+}
+
+.confirm-reset {
+  text-align: center;
+}
+
+.confirm-reset p {
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.confirm-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.confirm-yes,
+.confirm-no {
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.confirm-yes {
+  background: #e74c3c;
+  border: none;
+  color: white;
+}
+
+.confirm-yes:hover {
+  background: #c0392b;
+}
+
+.confirm-no {
+  background: transparent;
+  border: 1px solid #666;
+  color: #888;
+}
+
+.confirm-no:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+  .localstats-modal {
+    padding: 20px 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .level-section {
+    padding: 15px;
+  }
+
+  .level-badge {
+    width: 50px;
+    height: 50px;
+  }
+
+  .level-number {
+    font-size: 1.5rem;
+  }
+}

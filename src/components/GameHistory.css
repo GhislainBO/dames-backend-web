@@ -1,0 +1,310 @@
+/**
+ * HISTORIQUE DE PARTIE - Design Premium Luxueux
+ * Suivi des coups et replay
+ */
+
+.game-history {
+  background: linear-gradient(145deg, rgba(30, 30, 50, 0.95) 0%, rgba(20, 20, 35, 0.98) 100%);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 300px;
+  max-height: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* === HEADER === */
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-header h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.history-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-icon {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #888;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.btn-icon.active {
+  background: linear-gradient(135deg, #4a9eff 0%, #357abd 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(74, 158, 255, 0.3);
+}
+
+/* === LISTE DES COUPS === */
+.moves-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  padding-right: 5px;
+}
+
+.no-moves {
+  color: #555;
+  text-align: center;
+  padding: 30px 15px;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* === TABLEAU DES COUPS === */
+.moves-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.moves-table th {
+  text-align: left;
+  color: #666;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.moves-table td {
+  padding: 6px 10px;
+}
+
+.move-number {
+  color: #555;
+  width: 35px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* === COUP INDIVIDUEL === */
+.move {
+  color: #bbb;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-family: 'Consolas', monospace;
+  font-size: 0.9rem;
+}
+
+.move:hover {
+  background: rgba(74, 158, 255, 0.15);
+  color: #fff;
+}
+
+.move.current {
+  background: linear-gradient(135deg, #4a9eff 0%, #357abd 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(74, 158, 255, 0.3);
+}
+
+.move.played {
+  color: #666;
+}
+
+/* Coup avec capture */
+.move.capture {
+  color: #e94560;
+}
+
+.move.capture.current {
+  background: linear-gradient(135deg, #e94560 0%, #c0392b 100%);
+  box-shadow: 0 2px 10px rgba(233, 69, 96, 0.3);
+}
+
+/* === CONTRÔLES DE REPLAY === */
+.replay-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.replay-controls button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.replay-controls button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #4a9eff 0%, #357abd 100%);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.replay-controls button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Bouton play/pause central */
+.replay-controls button.play-pause {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+}
+
+.replay-controls button.play-pause:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.move-counter {
+  color: #888;
+  font-size: 0.8rem;
+  min-width: 70px;
+  text-align: center;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+
+/* === CONTRÔLES D'EXPORT === */
+.export-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-export,
+.btn-import {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-export:hover,
+.btn-import:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.btn-export {
+  border-color: rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+}
+
+.btn-export:hover {
+  background: rgba(46, 204, 113, 0.15);
+  border-color: rgba(46, 204, 113, 0.5);
+}
+
+.btn-import {
+  border-color: rgba(74, 158, 255, 0.3);
+  color: #4a9eff;
+}
+
+.btn-import:hover {
+  background: rgba(74, 158, 255, 0.15);
+  border-color: rgba(74, 158, 255, 0.5);
+}
+
+/* === SCROLLBAR PERSONNALISÉE === */
+.moves-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.moves-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+}
+
+.moves-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #b8860b);
+  border-radius: 3px;
+}
+
+.moves-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f4d03f, #d4af37);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .game-history {
+    padding: 14px;
+    min-height: 250px;
+  }
+
+  .replay-controls button {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .replay-controls button.play-pause {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .btn-export,
+  .btn-import {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,584 @@
+/**
+ * PLATEAU DE JEU - Design Premium Luxueux
+ * Conteneur du jeu Phaser avec effets visuels
+ */
+
+.game-board-wrapper {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.game-board-container {
+  flex-shrink: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 620px;
+  position: relative;
+}
+
+/* === CONTENEUR PHASER LUXUEUX === */
+.phaser-container {
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+
+  /* Ombre portée luxueuse multicouche */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(139, 69, 19, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* Bordure dorée subtile */
+  border: 2px solid rgba(139, 69, 19, 0.3);
+
+  /* Fond bois foncé (visible pendant le chargement) */
+  background: linear-gradient(145deg, #3d2817 0%, #2a1a0f 100%);
+}
+
+/* Effet de brillance sur le cadre */
+.phaser-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 10%,
+    rgba(212, 175, 55, 0.4) 30%,
+    rgba(212, 175, 55, 0.6) 50%,
+    rgba(212, 175, 55, 0.4) 70%,
+    transparent 90%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Reflet lumineux en coin */
+.phaser-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  background: radial-gradient(
+    ellipse at 0% 0%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 70%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+.phaser-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 600px;
+  max-height: 600px;
+  display: block;
+}
+
+/* === SIDEBAR LUXUEUSE === */
+.game-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+/* === PANNEAU D'INFO LUXUEUX === */
+.game-info-panel {
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.8) 0%, rgba(26, 26, 46, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.game-info-panel h3 {
+  margin: 0 0 20px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === INDICATEUR DE TOUR SPECTACULAIRE === */
+.turn-indicator {
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(26, 26, 46, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.turn-indicator.white-turn {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.25) 0%, rgba(26, 26, 46, 0.9) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #ffd700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.turn-indicator.black-turn {
+  background: linear-gradient(145deg, rgba(60, 60, 80, 0.9) 0%, rgba(26, 26, 46, 0.9) 100%);
+  border: 1px solid rgba(100, 100, 120, 0.5);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.turn-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: turnPulse 1.5s ease-in-out infinite;
+}
+
+.turn-indicator.white-turn::before {
+  background: radial-gradient(circle, #ffd700 0%, #d4af37 100%);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.turn-indicator.black-turn::before {
+  background: radial-gradient(circle, #ffffff 0%, #cccccc 100%);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes turnPulse {
+  0%, 100% { transform: translateY(-50%) scale(1); opacity: 1; }
+  50% { transform: translateY(-50%) scale(1.2); opacity: 0.7; }
+}
+
+/* === COMPTEUR DE PIÈCES === */
+.pieces-count {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+}
+
+.piece-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.piece-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.piece-icon.white {
+  background: linear-gradient(145deg, #faf0e6 0%, #e8d4b8 100%);
+  color: #5b3210;
+  border: 2px solid #d4c4a8;
+}
+
+.piece-icon.black {
+  background: linear-gradient(145deg, #5b3210 0%, #3d2209 100%);
+  color: #faf0e6;
+  border: 2px solid #8b4513;
+}
+
+.piece-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* === BOUTONS DE JEU === */
+.game-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.game-btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.game-btn:hover::before {
+  left: 100%;
+}
+
+.game-btn.primary {
+  background: linear-gradient(135deg, #ff6b6b 0%, #e94560 50%, #c0392b 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+.game-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(233, 69, 96, 0.4);
+}
+
+.game-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.game-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* === ÉTAT DE CHARGEMENT === */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 13, 26, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
+  border-radius: 16px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(212, 175, 55, 0.2);
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* === RESPONSIVE - TABLETTE === */
+@media (max-width: 900px) {
+  .game-board-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .game-sidebar {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .phaser-container {
+    max-width: 100%;
+  }
+}
+
+/* === RESPONSIVE - MOBILE === */
+@media (max-width: 600px) {
+  .game-board-wrapper {
+    padding: 8px;
+    gap: 15px;
+  }
+
+  .game-board-container {
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+  }
+
+  .phaser-container {
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+    border-radius: 12px;
+    border-width: 1px;
+  }
+
+  .game-sidebar {
+    width: 100%;
+    padding: 0;
+  }
+
+  .game-info-panel {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  .turn-indicator {
+    padding: 14px;
+    font-size: 1rem;
+  }
+}
+
+/* === ANIMATIONS POUR ÉVÉNEMENTS DE JEU === */
+@keyframes winPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(46, 204, 113, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(46, 204, 113, 0.6); }
+}
+
+@keyframes losePulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(231, 76, 60, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(231, 76, 60, 0.6); }
+}
+
+.phaser-container.game-won {
+  animation: winPulse 1s ease-in-out 3;
+  border-color: rgba(46, 204, 113, 0.5);
+}
+
+.phaser-container.game-lost {
+  animation: losePulse 1s ease-in-out 3;
+  border-color: rgba(231, 76, 60, 0.5);
+}
+
+/* === CONFETTIS DE VICTOIRE === */
+.victory-confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    top: -20px;
+    opacity: 1;
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(90deg) translateX(20px);
+  }
+  50% {
+    transform: rotate(180deg) translateX(-20px);
+  }
+  75% {
+    transform: rotate(270deg) translateX(20px);
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+    transform: rotate(360deg) translateX(0);
+  }
+}
+
+/* === INDICATEUR DE TOUR AMELIORE === */
+.turn-indicator {
+  animation: fadeInSlide 0.3s ease;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.your-turn {
+  color: #2ecc71;
+  font-weight: 700;
+  animation: pulseText 1s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.game-over-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffd700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+  letter-spacing: 2px;
+}
+
+/* === COMPTEUR DE PIECES AMELIORE === */
+.pieces-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.piece-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 70px;
+}
+
+.piece-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.piece-icon:hover {
+  transform: scale(1.1);
+}
+
+.piece-icon.white {
+  background: linear-gradient(145deg, #faf0e6 0%, #e8d4b8 100%);
+  color: #5b3210;
+  border: 2px solid #d4c4a8;
+  box-shadow: 0 4px 15px rgba(250, 240, 230, 0.3);
+}
+
+.piece-icon.black {
+  background: linear-gradient(145deg, #5b3210 0%, #3d2209 100%);
+  color: #faf0e6;
+  border: 2px solid #8b4513;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.kings-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+  color: #1a1a2e;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffd700;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+}
+
+.piece-label {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.captures-count {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.vs-divider {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+/* === ANIMATIONS DE CAPTURE === */
+@keyframes captureFlash {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.piece-counter.capturing .piece-icon {
+  animation: captureFlash 0.3s ease;
+}
