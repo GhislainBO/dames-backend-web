@@ -132,18 +132,17 @@ const PUZZLES: Omit<DailyPuzzle, 'id' | 'date'>[] = [
     hint: 'Capturez en diagonale vers le haut-gauche.',
   },
   {
-    title: 'Sacrifice gagnant',
-    description: 'Sacrifiez une piece pour gagner la partie.',
+    title: 'Double rafle',
+    description: 'Capturez deux pions en une seule rafle.',
     difficulty: 'hard',
     playerColor: 'white',
     pieces: [
-      { row: 6, col: 3, color: 'white', isKing: false },  // position 32 - sacrifice
-      { row: 7, col: 2, color: 'white', isKing: false },  // position 37 - counter
-      { row: 4, col: 3, color: 'black', isKing: false },  // position 22
-      { row: 4, col: 1, color: 'black', isKing: false },  // position 21
+      { row: 6, col: 5, color: 'white', isKing: false },  // position 33
+      { row: 5, col: 4, color: 'black', isKing: false },  // position 28
+      { row: 3, col: 2, color: 'black', isKing: false },  // position 17
     ],
-    solution: ['32-27', '37x26x17'],
-    hint: 'Sacrifiez pour forcer une capture, puis contre-attaquez.',
+    solution: ['33x22x11'],
+    hint: 'Capturez en diagonale vers le haut-gauche.',
   },
   {
     title: 'Choix decisif',
