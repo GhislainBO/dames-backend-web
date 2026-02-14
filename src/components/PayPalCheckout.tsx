@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // PayPal Client ID (Sandbox pour test, remplacer par live en production)
-const PAYPAL_CLIENT_ID = process.env.REACT_APP_PAYPAL_CLIENT_ID || 'sb'; // 'sb' = sandbox
+const PAYPAL_CLIENT_ID = import.meta.env.VITE_PAYPAL_CLIENT_ID || 'sb'; // 'sb' = sandbox
 
 interface PayPalCheckoutProps {
   amount: number; // En centimes
