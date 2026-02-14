@@ -171,23 +171,11 @@ const PayPalCheckout: React.FC<PayPalCheckoutProps> = ({
       onApprove: async (data: PayPalApproveData, actions: PayPalActions) => {
         console.log('[PayPal] onApprove called, orderID:', data.orderID);
         setProcessing(true);
-        try {
-          console.log('[PayPal] Capturing order...');
-          const captureResult = await actions.order.capture();
-          console.log('[PayPal] Capture result:', captureResult.status, captureResult.id);
 
-          if (captureResult.status === 'COMPLETED') {
-            console.log('[PayPal] Payment completed, calling onSuccess...');
-            // Appeler onSuccess immédiatement
-            onSuccess(captureResult.id);
-          } else {
-            console.log('[PayPal] Payment not completed:', captureResult.status);
-            onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
-          }
-        } catch (error) {
-          console.error('[PayPal] Capture error:', error);
-          onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
-        }
+        // Envoyer l'orderID au backend pour capture et validation
+        // Ne pas capturer côté client pour éviter "Window closed before response"
+        console.log('[PayPal] Sending orderID to backend for capture...');
+        onSuccess(data.orderID);
       },
       onError: (err: Error) => {
         console.error('PayPal Error:', err);
