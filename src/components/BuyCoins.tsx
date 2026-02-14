@@ -512,3 +512,4 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
 }
 
 export default BuyCoins;
+// Force rebuild Sat, Feb 14, 2026  9:42:17 PM
