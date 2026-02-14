@@ -169,26 +169,24 @@ const PayPalCheckout: React.FC<PayPalCheckoutProps> = ({
         });
       },
       onApprove: async (data: PayPalApproveData, actions: PayPalActions) => {
+        console.log('[PayPal] onApprove called, orderID:', data.orderID);
         setProcessing(true);
         try {
+          console.log('[PayPal] Capturing order...');
           const captureResult = await actions.order.capture();
+          console.log('[PayPal] Capture result:', captureResult.status, captureResult.id);
 
           if (captureResult.status === 'COMPLETED') {
-            // Attendre un peu pour laisser PayPal terminer son traitement
-            setTimeout(() => {
-              if (isMounted.current) {
-                onSuccess(captureResult.id);
-              }
-            }, 500);
+            console.log('[PayPal] Payment completed, calling onSuccess...');
+            // Appeler onSuccess immédiatement
+            onSuccess(captureResult.id);
           } else {
-            if (isMounted.current) {
-              onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
-            }
-          }
-        } catch (error) {
-          if (isMounted.current) {
+            console.log('[PayPal] Payment not completed:', captureResult.status);
             onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
           }
+        } catch (error) {
+          console.error('[PayPal] Capture error:', error);
+          onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
         }
       },
       onError: (err: Error) => {
