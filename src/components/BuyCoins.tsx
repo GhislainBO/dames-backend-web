@@ -14,8 +14,8 @@ import './BuyCoins.css';
 
 const API_URL = 'https://dames-backend-production.up.railway.app';
 
-// Cle publique Stripe (production)
-const STRIPE_PUBLIC_KEY = 'pk_live_51SqyQTGpbzjOCrW2CY3RFhglzimZJVNrNEhojZaPnFXiTQW8feJBAjGm9IzPI1MzXMbCtEZCocp96O47yipd4zKS00h1ex1yjw';
+// Cle publique Stripe (utilise la variable d'environnement)
+const STRIPE_PUBLIC_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || 'pk_test_51SqyQTGpbzjOCrW2fakekey';
 
 // Initialiser Stripe
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
