@@ -258,7 +258,17 @@
     "configureStripe": "قم بتكوين VITE_STRIPE_PUBLIC_KEY في الواجهة الأمامية",
     "processing": "جاري المعالجة...",
     "acceptedPayments": "طرق الدفع المقبولة",
-    "creditCard": "بطاقة ائتمان"
+    "creditCard": "بطاقة ائتمان",
+    "selectPaymentMethod": "اختر طريقة الدفع",
+    "changePack": "تغيير الباقة",
+    "howToPay": "كيف تريد الدفع؟"
+  },
+  "paypal": {
+    "loading": "جاري تحميل PayPal...",
+    "loadError": "خطأ في تحميل PayPal",
+    "securePayment": "دفع آمن عبر PayPal",
+    "captureError": "خطأ في تأكيد الدفع",
+    "paymentError": "خطأ في دفع PayPal"
   },
   "gameInfo": {
     "title": "معلومات",

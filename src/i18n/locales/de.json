@@ -258,7 +258,17 @@
     "configureStripe": "Konfigurieren Sie VITE_STRIPE_PUBLIC_KEY im Frontend",
     "processing": "Verarbeitung...",
     "acceptedPayments": "Akzeptierte Zahlungsmethoden",
-    "creditCard": "Kreditkarte"
+    "creditCard": "Kreditkarte",
+    "selectPaymentMethod": "Zahlungsmethode auswählen",
+    "changePack": "Paket ändern",
+    "howToPay": "Wie möchten Sie bezahlen?"
+  },
+  "paypal": {
+    "loading": "PayPal wird geladen...",
+    "loadError": "PayPal-Ladefehler",
+    "securePayment": "Sichere Zahlung mit PayPal",
+    "captureError": "Fehler beim Erfassen der Zahlung",
+    "paymentError": "PayPal-Zahlungsfehler"
   },
   "gameInfo": {
     "title": "Informationen",

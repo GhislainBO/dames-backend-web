@@ -1,5 +1,5 @@
 /**
- * BuyCoins - Interface d'achat de jetons avec Stripe
+ * BuyCoins - Interface d'achat de jetons avec Stripe et PayPal
  */
 
 import React, { useState, useEffect } from 'react';
@@ -9,6 +9,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { useAuth } from '../context/AuthContext';
 import StripeCheckout from './StripeCheckout';
+import PayPalCheckout from './PayPalCheckout';
 import './BuyCoins.css';
 
 const API_URL = 'https://dames-backend-production.up.railway.app';
@@ -18,6 +19,8 @@ const STRIPE_PUBLIC_KEY = 'pk_live_51SqyQTGpbzjOCrW2CY3RFhglzimZJVNrNEhojZaPnFXi
 
 // Initialiser Stripe
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
+
+type PaymentMethod = 'stripe' | 'paypal' | null;
 
 interface CoinPack {
   id: string;
@@ -41,6 +44,8 @@ interface PaymentState {
   pack: CoinPack;
 }
 
+type CheckoutStep = 'select-pack' | 'select-method' | 'checkout';
+
 function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
   const { t, i18n } = useTranslation();
   const { token, isAuthenticated } = useAuth();
@@ -51,12 +56,25 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
   const [stripeConfigured, setStripeConfigured] = useState(false);
   const [paymentState, setPaymentState] = useState<PaymentState | null>(null);
 
+  // Nouveaux states pour le flow multi-methode
+  const [selectedPack, setSelectedPack] = useState<CoinPack | null>(null);
+  const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>(null);
+  const [checkoutStep, setCheckoutStep] = useState<CheckoutStep>('select-pack');
+
   useEffect(() => {
     if (isOpen) {
       fetchPacks();
-      setPaymentState(null);
+      resetCheckout();
     }
   }, [isOpen]);
+
+  const resetCheckout = () => {
+    setPaymentState(null);
+    setSelectedPack(null);
+    setSelectedMethod(null);
+    setCheckoutStep('select-pack');
+    setMessage('');
+  };
 
   const fetchPacks = async () => {
     setLoading(true);
@@ -87,17 +105,30 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
     }).format(amount);
   };
 
-  const handlePurchase = async (packId: string) => {
+  const handlePackSelect = (pack: CoinPack) => {
     if (!isAuthenticated) {
       setMessage(t('buyCoins.loginRequired'));
       setTimeout(() => setMessage(''), 3000);
       return;
     }
+    setSelectedPack(pack);
+    setCheckoutStep('select-method');
+  };
 
-    const pack = packs.find(p => p.id === packId);
-    if (!pack) return;
+  const handleMethodSelect = async (method: PaymentMethod) => {
+    if (!selectedPack || !method) return;
 
-    setPurchasing(packId);
+    setSelectedMethod(method);
+
+    if (method === 'stripe') {
+      await initiateStripePayment(selectedPack);
+    } else if (method === 'paypal') {
+      setCheckoutStep('checkout');
+    }
+  };
+
+  const initiateStripePayment = async (pack: CoinPack) => {
+    setPurchasing(pack.id);
     setMessage('');
 
     try {
@@ -107,45 +138,47 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ packId }),
+        body: JSON.stringify({ packId: pack.id }),
       });
 
       const data = await response.json();
 
       if (data.success) {
         if (data.clientSecret) {
-          // Stripe configure - afficher le formulaire de paiement
           setPaymentState({
             clientSecret: data.clientSecret,
             paymentId: data.paymentId,
             pack,
           });
+          setCheckoutStep('checkout');
         } else {
           // Mode simulation - paiement direct
-          setMessage(t('buyCoins.purchaseSuccess'));
-          onPurchaseComplete?.();
-          setTimeout(() => {
-            setMessage('');
-            onClose();
-          }, 2000);
+          handlePaymentComplete();
         }
       } else {
         setMessage(data.error || t('buyCoins.purchaseError'));
+        setCheckoutStep('select-method');
       }
     } catch (error) {
       setMessage(t('errors.connectionFailed'));
+      setCheckoutStep('select-method');
     } finally {
       setPurchasing(null);
-      if (!paymentState) {
-        setTimeout(() => setMessage(''), 5000);
-      }
     }
   };
 
-  const handlePaymentSuccess = async () => {
+  const handlePaymentComplete = () => {
+    setMessage(t('buyCoins.purchaseSuccess'));
+    onPurchaseComplete?.();
+    setTimeout(() => {
+      setMessage('');
+      onClose();
+    }, 2000);
+  };
+
+  const handleStripeSuccess = async () => {
     if (!paymentState) return;
 
-    // Confirmer le paiement cote serveur
     try {
       const response = await fetch(`${API_URL}/api/payments/confirm`, {
         method: 'POST',
@@ -158,33 +191,84 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
 
       const data = await response.json();
       if (data.success) {
-        setMessage(t('buyCoins.paymentSuccess'));
-        setPaymentState(null);
-        onPurchaseComplete?.();
-        setTimeout(() => {
-          setMessage('');
-          onClose();
-        }, 2500);
+        handlePaymentComplete();
+      } else {
+        setMessage(t('buyCoins.confirmationError'));
       }
     } catch (error) {
       setMessage(t('buyCoins.confirmationError'));
     }
   };
 
-  const handlePaymentCancel = () => {
-    setPaymentState(null);
+  const handlePayPalSuccess = async (orderId: string) => {
+    if (!selectedPack) return;
+
+    try {
+      // Confirmer le paiement PayPal cote serveur
+      const response = await fetch(`${API_URL}/api/payments/confirm-paypal`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          orderId,
+          packId: selectedPack.id,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        handlePaymentComplete();
+      } else {
+        setMessage(data.error || t('buyCoins.confirmationError'));
+      }
+    } catch (error) {
+      setMessage(t('buyCoins.confirmationError'));
+    }
+  };
+
+  const handlePayPalError = (error: string) => {
+    setMessage(error);
+    setCheckoutStep('select-method');
+  };
+
+  const handleCancel = () => {
+    if (checkoutStep === 'checkout') {
+      setCheckoutStep('select-method');
+      setPaymentState(null);
+    } else if (checkoutStep === 'select-method') {
+      setCheckoutStep('select-pack');
+      setSelectedPack(null);
+    } else {
+      onClose();
+    }
   };
 
   if (!isOpen) return null;
 
-  // Si on est en mode paiement Stripe
-  if (paymentState && stripePromise) {
+  // Etape 3: Checkout Stripe
+  if (checkoutStep === 'checkout' && selectedMethod === 'stripe' && paymentState && stripePromise) {
     return ReactDOM.createPortal(
-      <div className="buy-coins-overlay" onClick={handlePaymentCancel}>
+      <div className="buy-coins-overlay" onClick={handleCancel}>
         <div className="buy-coins-modal" onClick={e => e.stopPropagation()}>
-          <button className="buy-coins-close" onClick={handlePaymentCancel}>&times;</button>
+          <button className="buy-coins-close" onClick={handleCancel}>&times;</button>
 
           <h2>{t('buyCoins.finalizePurchase')}</h2>
+
+          <div className="selected-pack-summary">
+            <h3>{selectedPack?.name}</h3>
+            <div className="pack-details">
+              <span className="coins-display">
+                <span>🪙</span>
+                {selectedPack?.coins.toLocaleString()}
+                {selectedPack?.bonus && <span style={{color: '#4ade80'}}> +{selectedPack.bonus}</span>}
+              </span>
+              <span className="price-display">
+                {selectedPack && formatPrice(selectedPack.price, selectedPack.currency)}
+              </span>
+            </div>
+          </div>
 
           <div className="test-cards-info" style={{
             background: 'rgba(74, 158, 255, 0.1)',
@@ -225,8 +309,8 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
               clientSecret={paymentState.clientSecret}
               amount={paymentState.pack.price}
               currency={paymentState.pack.currency}
-              onSuccess={handlePaymentSuccess}
-              onCancel={handlePaymentCancel}
+              onSuccess={handleStripeSuccess}
+              onCancel={handleCancel}
             />
           </Elements>
         </div>
@@ -235,6 +319,111 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
     );
   }
 
+  // Etape 3: Checkout PayPal
+  if (checkoutStep === 'checkout' && selectedMethod === 'paypal' && selectedPack) {
+    return ReactDOM.createPortal(
+      <div className="buy-coins-overlay" onClick={handleCancel}>
+        <div className="buy-coins-modal" onClick={e => e.stopPropagation()}>
+          <button className="buy-coins-close" onClick={handleCancel}>&times;</button>
+
+          <h2>{t('buyCoins.finalizePurchase')}</h2>
+
+          <div className="selected-pack-summary">
+            <h3>{selectedPack.name}</h3>
+            <div className="pack-details">
+              <span className="coins-display">
+                <span>🪙</span>
+                {selectedPack.coins.toLocaleString()}
+                {selectedPack.bonus && <span style={{color: '#4ade80'}}> +{selectedPack.bonus}</span>}
+              </span>
+              <span className="price-display">
+                {formatPrice(selectedPack.price, selectedPack.currency)}
+              </span>
+            </div>
+          </div>
+
+          <PayPalCheckout
+            amount={selectedPack.price}
+            currency={selectedPack.currency}
+            packId={selectedPack.id}
+            packName={selectedPack.name}
+            onSuccess={handlePayPalSuccess}
+            onError={handlePayPalError}
+            onCancel={handleCancel}
+          />
+        </div>
+      </div>,
+      document.body
+    );
+  }
+
+  // Etape 2: Selection de la methode de paiement
+  if (checkoutStep === 'select-method' && selectedPack) {
+    return ReactDOM.createPortal(
+      <div className="buy-coins-overlay" onClick={handleCancel}>
+        <div className="buy-coins-modal" onClick={e => e.stopPropagation()}>
+          <button className="buy-coins-close" onClick={handleCancel}>&times;</button>
+
+          <h2>{t('buyCoins.selectPaymentMethod', 'Choisir le mode de paiement')}</h2>
+
+          {message && (
+            <div className={`buy-coins-message ${message.includes('succes') ? 'success' : ''}`}>
+              {message}
+            </div>
+          )}
+
+          <div className="selected-pack-summary">
+            <h3>{selectedPack.name}</h3>
+            <div className="pack-details">
+              <span className="coins-display">
+                <span>🪙</span>
+                {selectedPack.coins.toLocaleString()}
+                {selectedPack.bonus && <span style={{color: '#4ade80'}}> +{selectedPack.bonus}</span>}
+              </span>
+              <span className="price-display">
+                {formatPrice(selectedPack.price, selectedPack.currency)}
+              </span>
+            </div>
+            <button className="change-pack-btn" onClick={() => setCheckoutStep('select-pack')}>
+              {t('buyCoins.changePack', 'Changer de pack')}
+            </button>
+          </div>
+
+          <div className="payment-method-selection">
+            <h3>{t('buyCoins.howToPay', 'Comment souhaitez-vous payer ?')}</h3>
+            <div className="payment-method-buttons">
+              <button
+                className={`payment-method-btn stripe ${selectedMethod === 'stripe' ? 'selected' : ''}`}
+                onClick={() => handleMethodSelect('stripe')}
+                disabled={purchasing !== null}
+              >
+                <span className="payment-method-icon">💳</span>
+                <span>{t('buyCoins.creditCard', 'Carte bancaire')}</span>
+              </button>
+
+              <button
+                className={`payment-method-btn paypal ${selectedMethod === 'paypal' ? 'selected' : ''}`}
+                onClick={() => handleMethodSelect('paypal')}
+                disabled={purchasing !== null}
+              >
+                <span className="payment-method-icon">🅿️</span>
+                <span>PayPal</span>
+              </button>
+            </div>
+          </div>
+
+          {purchasing && (
+            <div style={{ textAlign: 'center', marginTop: '20px' }}>
+              <p style={{ color: '#888' }}>{t('buyCoins.processing')}...</p>
+            </div>
+          )}
+        </div>
+      </div>,
+      document.body
+    );
+  }
+
+  // Etape 1: Selection du pack (vue par defaut)
   return ReactDOM.createPortal(
     <div className="buy-coins-overlay" onClick={onClose}>
       <div className="buy-coins-modal" onClick={e => e.stopPropagation()}>
@@ -243,7 +432,7 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
         <h2>{t('wallet.buyCoins')}</h2>
 
         {message && (
-          <div className={`buy-coins-message ${message.includes(t('common.success').toLowerCase()) ? 'success' : ''}`}>
+          <div className={`buy-coins-message ${message.includes('succes') ? 'success' : ''}`}>
             {message}
           </div>
         )}
@@ -257,12 +446,6 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
         {!stripeConfigured && (
           <div className="buy-coins-info">
             {t('buyCoins.testModeInfo')}
-          </div>
-        )}
-
-        {stripeConfigured && !stripePromise && (
-          <div className="buy-coins-warning">
-            {t('buyCoins.configureStripe')}
           </div>
         )}
 
@@ -296,10 +479,10 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
 
                 <button
                   className="pack-buy-btn"
-                  onClick={() => handlePurchase(pack.id)}
-                  disabled={purchasing !== null || !isAuthenticated}
+                  onClick={() => handlePackSelect(pack)}
+                  disabled={!isAuthenticated}
                 >
-                  {purchasing === pack.id ? t('buyCoins.processing') : t('shop.buy')}
+                  {t('shop.buy')}
                 </button>
               </div>
             ))}
@@ -310,6 +493,7 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
           <p>{t('buyCoins.acceptedPayments')}:</p>
           <div className="payment-icons">
             <span>{t('buyCoins.creditCard')}</span>
+            <span>PayPal</span>
             <span>Apple Pay</span>
             <span>Google Pay</span>
           </div>
