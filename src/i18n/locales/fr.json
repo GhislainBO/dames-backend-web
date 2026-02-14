@@ -319,7 +319,8 @@
     "loadError": "Erreur de chargement PayPal",
     "securePayment": "Paiement sécurisé par PayPal",
     "captureError": "Erreur lors de la capture du paiement",
-    "paymentError": "Erreur de paiement PayPal"
+    "paymentError": "Erreur de paiement PayPal",
+    "processing": "Traitement du paiement..."
   },
   "gameInfo": {
     "title": "Informations",

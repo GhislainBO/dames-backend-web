@@ -90,7 +90,9 @@ const PayPalCheckout: React.FC<PayPalCheckoutProps> = ({
   const paypalRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const [sdkReady, setSdkReady] = useState(false);
+  const [processing, setProcessing] = useState(false);
   const buttonsInstance = useRef<{ close: () => void } | null>(null);
+  const isMounted = useRef(true);
 
   // Charger le SDK PayPal
   useEffect(() => {
@@ -123,9 +125,15 @@ const PayPalCheckout: React.FC<PayPalCheckoutProps> = ({
     document.body.appendChild(script);
 
     return () => {
+      // Marquer comme démonté
+      isMounted.current = false;
       // Cleanup: fermer les boutons PayPal si ils existent
       if (buttonsInstance.current) {
-        buttonsInstance.current.close();
+        try {
+          buttonsInstance.current.close();
+        } catch (e) {
+          // Ignorer les erreurs de cleanup
+        }
       }
     };
   }, [currency, onError, t]);
@@ -161,16 +169,26 @@ const PayPalCheckout: React.FC<PayPalCheckoutProps> = ({
         });
       },
       onApprove: async (data: PayPalApproveData, actions: PayPalActions) => {
+        setProcessing(true);
         try {
           const captureResult = await actions.order.capture();
 
           if (captureResult.status === 'COMPLETED') {
-            onSuccess(captureResult.id);
+            // Attendre un peu pour laisser PayPal terminer son traitement
+            setTimeout(() => {
+              if (isMounted.current) {
+                onSuccess(captureResult.id);
+              }
+            }, 500);
           } else {
-            onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
+            if (isMounted.current) {
+              onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
+            }
           }
         } catch (error) {
-          onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
+          if (isMounted.current) {
+            onError(t('paypal.captureError', 'Erreur lors de la capture du paiement'));
+          }
         }
       },
       onError: (err: Error) => {
@@ -192,6 +210,15 @@ const PayPalCheckout: React.FC<PayPalCheckoutProps> = ({
       <div className="paypal-loading">
         <div className="spinner"></div>
         <p>{t('paypal.loading', 'Chargement de PayPal...')}</p>
+      </div>
+    );
+  }
+
+  if (processing) {
+    return (
+      <div className="paypal-loading">
+        <div className="spinner"></div>
+        <p>{t('paypal.processing', 'Traitement du paiement...')}</p>
       </div>
     );
   }
