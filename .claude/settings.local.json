@@ -14,7 +14,10 @@
       "Bash(do grep -l \"align-items: center\" \"$f\")",
       "Bash(done)",
       "Bash(git restore:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(npm run:*)",
+      "Bash(sort:*)"
     ]
   }
 }

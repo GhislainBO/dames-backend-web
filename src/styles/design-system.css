@@ -2119,9 +2119,36 @@ button {
 .buy-coins-overlay {
   overflow-y: auto;
   align-items: flex-start;
-  padding-top: 100px !important;
+  padding-top: 20px !important;
   padding-bottom: 40px;
   z-index: 9999 !important;
+}
+
+/* Fix: Close buttons always visible and clickable */
+.shop-close,
+.tutorial-close,
+.tournaments-close,
+.puzzle-close-btn,
+.achievements-close,
+.battlepass-close,
+.leaderboard-close,
+.settings-close,
+.close-btn,
+.modal-close,
+.localstats-close,
+.local-achievements-close,
+.hall-of-fame-close,
+.blog-close,
+.community-close,
+.support-close,
+.resources-close,
+.partners-close,
+.promo-close,
+.auth-modal-close,
+.buy-coins-close,
+.certificate-close {
+  z-index: 100 !important;
+  position: absolute !important;
 }
 
 /* Ensure modals are properly centered when content fits */
