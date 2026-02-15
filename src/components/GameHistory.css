@@ -58,7 +58,7 @@
   border-radius: var(--ds-radius-md, 10px);
   cursor: pointer;
   font-size: 12px;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +71,7 @@
 }
 
 .btn-icon.active {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   box-shadow: var(--ds-glow-teal-sm);
@@ -130,7 +130,7 @@
   cursor: pointer;
   padding: 4px 8px;
   border-radius: var(--ds-radius-sm, 6px);
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   font-family: 'Consolas', monospace;
   font-size: 0.85rem;
 }
@@ -141,7 +141,7 @@
 }
 
 .move.current {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 700;
   box-shadow: var(--ds-glow-teal-sm);
@@ -186,14 +186,14 @@
   border-radius: var(--ds-radius-md, 10px);
   cursor: pointer;
   font-size: 13px;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .replay-controls button:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   transform: scale(1.08);
@@ -213,7 +213,7 @@
 }
 
 .replay-controls button.play-pause:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
+  background: var(--ds-gradient-success);
   box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
 }
 
@@ -246,7 +246,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.75rem;
   font-weight: 500;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

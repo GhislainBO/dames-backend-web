@@ -87,7 +87,7 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
   backdrop-filter: blur(10px);
 }
 
@@ -149,7 +149,7 @@
   padding: 20px;
   text-align: center;
   position: relative;
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
   border: 2px solid transparent;
 }
 
@@ -367,7 +367,7 @@
   border-radius: 12px;
   padding: 20px 15px;
   border: 1px solid var(--tier-color, var(--ds-border-strong));
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
   position: relative;
   overflow: hidden;
 }
@@ -443,7 +443,7 @@
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
@@ -509,7 +509,7 @@
   border-radius: 10px;
   padding: 15px 10px;
   border: 1px solid rgba(201, 169, 98, 0.1);
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
 }
 
 .stat-item:hover {

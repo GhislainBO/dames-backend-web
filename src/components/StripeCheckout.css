@@ -68,7 +68,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .checkout-cancel-btn {
@@ -84,7 +84,7 @@
 }
 
 .checkout-pay-btn {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   color: var(--ds-bg-primary, #0f1120);
   box-shadow: var(--ds-glow-teal-md);
 }
@@ -159,7 +159,7 @@
   border: 1px solid var(--ds-border-strong);
   border-radius: var(--ds-radius-md, 10px);
   padding: 14px 16px;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .stripe-element-container:focus-within {

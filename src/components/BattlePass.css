@@ -73,7 +73,7 @@
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   z-index: 10;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .battlepass-close:hover {
@@ -294,7 +294,7 @@
 
 .premium-btn {
   padding: 12px 24px;
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border: none;
   border-radius: var(--ds-radius-full, 9999px);
   color: var(--ds-bg-primary, #0f1120);
@@ -302,7 +302,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: 0 4px 20px rgba(201, 169, 98, 0.25);
@@ -332,7 +332,7 @@
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   position: relative;
@@ -402,7 +402,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   border: 2px solid var(--ds-border-normal);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .reward-item.unlocked .reward-level {
@@ -422,7 +422,7 @@
   justify-content: center;
   font-size: 0.75rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   position: relative;
 }
 
@@ -450,7 +450,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
+  background: var(--ds-gradient-success);
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -526,7 +526,7 @@
   border-radius: var(--ds-radius-lg, 14px);
   margin-bottom: 10px;
   border-left: 3px solid var(--ds-teal-500, #14b8a6);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .mission-card:hover {
@@ -627,7 +627,7 @@
 
 .claim-btn {
   padding: 8px 18px;
-  background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
+  background: var(--ds-gradient-success);
   border: none;
   border-radius: var(--ds-radius-full, 9999px);
   color: var(--ds-text-primary, #ffffff);
@@ -635,7 +635,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }

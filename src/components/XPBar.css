@@ -14,7 +14,7 @@
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-lg, 14px);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .xp-bar-compact:hover {
@@ -238,7 +238,7 @@
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border: none;
   border-radius: var(--ds-radius-md, 10px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
@@ -246,7 +246,7 @@
   font-weight: 600;
   color: var(--ds-bg-primary, #0f1120);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   box-shadow: var(--ds-glow-gold-sm);
 }
 
@@ -302,7 +302,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--ds-text-muted, #6b7280);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .weekly-dot.completed {
@@ -313,7 +313,7 @@
 }
 
 .weekly-dot.bonus {
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border-color: transparent;
 }
 
@@ -331,7 +331,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border-radius: var(--ds-radius-lg, 14px);
   box-shadow: 0 4px 20px rgba(201, 169, 98, 0.4);
   animation: rewardPopIn 0.3s ease, rewardFloat 0.5s ease 2.5s forwards;
@@ -506,11 +506,11 @@
   align-items: center;
   gap: 12px;
   padding: 14px 18px;
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   box-shadow: var(--ds-glow-gold-md);
 }
 

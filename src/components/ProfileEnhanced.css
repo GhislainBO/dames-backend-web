@@ -93,7 +93,7 @@
   font-size: 1.3rem;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   z-index: 20;
 }
 
@@ -190,7 +190,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -202,7 +202,7 @@
 }
 
 .profile-tab.active {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
@@ -252,7 +252,7 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .stat-card:hover {
@@ -342,7 +342,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .history-filters .filter-btn:hover {
@@ -372,7 +372,7 @@
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--ds-radius-lg, 14px);
   border-left: 3px solid transparent;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .history-entry:hover {
@@ -526,7 +526,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-lg, 14px);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .mode-stat:hover {

@@ -16,7 +16,7 @@
     );
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
   position: relative;
   overflow: hidden;
 }
@@ -115,7 +115,7 @@
   font-size: 1.5rem;
   position: relative;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
 }
 
 .player-avatar.white {
@@ -201,7 +201,7 @@
   background: rgba(0, 0, 0, 0.3);
   border-radius: var(--ds-radius-lg, 14px);
   opacity: 0.7;
-  transition: all 0.3s ease;
+  transition: var(--ds-transition-slow);
 }
 
 .player-timer.active {
@@ -311,7 +311,7 @@
   align-items: center;
   gap: 2px;
   padding: 2px 6px;
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border-radius: var(--ds-radius-full, 9999px);
 }
 

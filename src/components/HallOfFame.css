@@ -91,7 +91,7 @@
   font-size: 1.4rem;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .hall-of-fame-modal .close-btn:hover {
@@ -160,7 +160,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .hall-tabs .tab-btn:hover {
@@ -170,7 +170,7 @@
 }
 
 .hall-tabs .tab-btn.active {
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
@@ -192,7 +192,7 @@
   border-radius: var(--ds-radius-lg, 14px);
   padding: 15px;
   border: 1px solid var(--ds-border-subtle);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .player-card:hover {
@@ -307,7 +307,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -336,7 +336,7 @@
   border-radius: var(--ds-radius-lg, 14px);
   padding: 20px;
   border: 1px solid rgba(201, 169, 98, 0.15);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .record-card:hover {

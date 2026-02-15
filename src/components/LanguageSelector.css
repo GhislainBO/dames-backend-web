@@ -18,7 +18,7 @@
   border-radius: var(--ds-radius-lg, 14px);
   color: var(--ds-text-primary, #ffffff);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
@@ -98,7 +98,7 @@
   border: none;
   color: var(--ds-text-secondary, #b8c0d4);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   text-align: left;
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }

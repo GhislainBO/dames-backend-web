@@ -98,7 +98,7 @@
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
   padding: 0;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .auth-modal-close:hover {
@@ -150,7 +150,7 @@
   color: var(--ds-text-primary, #ffffff);
   font-family: var(--ds-font-body, 'Inter', sans-serif);
   font-size: 1rem;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   box-sizing: border-box;
 }
 
@@ -209,7 +209,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
@@ -267,8 +267,8 @@
   text-decoration: none;
   position: relative;
   padding-bottom: 2px;
-  transition: all 0.2s ease;
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  transition: var(--ds-transition-base);
+  background: var(--ds-gradient-teal);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -331,7 +331,7 @@
   font-family: var(--ds-font-body, 'Inter', sans-serif);
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   display: flex;
   align-items: center;
   justify-content: center;

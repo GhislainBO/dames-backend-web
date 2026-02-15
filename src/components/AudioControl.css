@@ -17,7 +17,7 @@
   height: 42px;
   font-size: 18px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,10 +92,10 @@
   appearance: none;
   width: 18px;
   height: 18px;
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   box-shadow: 0 2px 8px rgba(45, 212, 191, 0.4);
 }
 
@@ -107,7 +107,7 @@
 .volume-slider::-moz-range-thumb {
   width: 18px;
   height: 18px;
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border-radius: 50%;
   cursor: pointer;
   border: none;

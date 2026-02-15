@@ -98,7 +98,7 @@
   font-size: 1.4rem;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .leaderboard-close:hover {
@@ -194,7 +194,7 @@
 }
 
 .leaderboard-table tbody tr {
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .leaderboard-table tbody tr:hover {
@@ -277,7 +277,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-weight: 700;
   font-size: 1rem;
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

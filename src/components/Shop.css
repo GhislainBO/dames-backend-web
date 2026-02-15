@@ -98,7 +98,7 @@
   font-size: 22px;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   z-index: 20;
 }
 
@@ -156,7 +156,7 @@
   background: transparent;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.85rem;
   font-weight: 500;
@@ -171,7 +171,7 @@
 }
 
 .category-btn.active {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
@@ -218,7 +218,7 @@
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
   padding: 20px;
-  transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium-slow);
   position: relative;
   overflow: hidden;
 }
@@ -345,7 +345,7 @@
   display: inline-block;
   margin-top: 8px;
   padding: 3px 10px;
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   color: var(--ds-bg-primary, #0f1120);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.65rem;
@@ -370,13 +370,13 @@
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .buy-btn {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   color: var(--ds-bg-primary, #0f1120);
   box-shadow: var(--ds-glow-teal-md);
 }
@@ -408,7 +408,7 @@
 .equipped-badge {
   display: inline-block;
   padding: 10px 24px;
-  background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
+  background: var(--ds-gradient-success);
   color: var(--ds-text-primary, #ffffff);
   border-radius: var(--ds-radius-full, 9999px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);

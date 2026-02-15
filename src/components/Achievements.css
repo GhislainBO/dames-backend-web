@@ -105,7 +105,7 @@
   font-size: 1.4rem;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
   z-index: 20;
 }
 
@@ -165,7 +165,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   position: relative;
@@ -178,7 +178,7 @@
 }
 
 .tab-btn.active {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
@@ -242,7 +242,7 @@
     rgba(21, 24, 41, 0.85);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium-slow);
   position: relative;
   overflow: hidden;
 }
@@ -337,7 +337,7 @@
 }
 
 .achievement-card.unlocked .achievement-info h4 {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -385,7 +385,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: var(--ds-glow-gold-md);
@@ -474,7 +474,7 @@
   padding: 12px 18px;
   border-radius: var(--ds-radius-md, 10px);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   font-size: 1rem;
 }
 
@@ -519,7 +519,7 @@
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-normal);
 }
@@ -628,7 +628,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: var(--ds-glow-teal-md);
@@ -661,7 +661,7 @@
   font-size: 1.6rem;
   font-weight: 700;
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -705,7 +705,7 @@
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .code-input-group input:focus {
@@ -718,14 +718,14 @@
 
 .code-input-group button {
   padding: 14px 25px;
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   color: var(--ds-bg-primary, #0f1120);
   border: none;
   border-radius: var(--ds-radius-md, 10px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: var(--ds-glow-teal-md);
@@ -822,7 +822,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: var(--ds-glow-gold-lg);

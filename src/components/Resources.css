@@ -91,7 +91,7 @@
   font-size: 1.4rem;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .resources-modal .close-btn:hover {
@@ -169,7 +169,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .filter-btn:hover {
@@ -178,7 +178,7 @@
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  background: var(--ds-gradient-gold-dark);
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
@@ -200,7 +200,7 @@
   border-radius: var(--ds-radius-lg, 14px);
   padding: 16px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   border: 1px solid var(--ds-border-subtle);
 }
 

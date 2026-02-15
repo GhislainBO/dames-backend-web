@@ -14,7 +14,7 @@
 }
 
 .login-button {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
   color: var(--ds-bg-primary, #0f1120);
@@ -23,7 +23,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   box-shadow: var(--ds-glow-teal-md);
 }
 
@@ -54,7 +54,7 @@
   align-items: center;
   justify-content: center;
   border: 2px solid rgba(45, 212, 191, 0.3);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .user-profile.authenticated:hover .user-avatar {
@@ -70,7 +70,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-lg, 14px);
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .user-profile.authenticated:hover .user-info {
@@ -89,7 +89,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.8rem;
   font-weight: 600;
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -176,7 +176,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .logout-button:hover {

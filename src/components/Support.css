@@ -91,7 +91,7 @@
   font-size: 1.4rem;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .support-modal .close-btn:hover {
@@ -161,7 +161,7 @@
 }
 
 .thanks-message button {
-  background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
+  background: var(--ds-gradient-success);
   color: var(--ds-text-primary, #ffffff);
   border: none;
   padding: 10px 25px;
@@ -169,7 +169,7 @@
   cursor: pointer;
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
 }
 
@@ -228,7 +228,7 @@
   border-radius: var(--ds-radius-lg, 14px);
   padding: 15px 10px;
   text-align: center;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   cursor: default;
   border: 2px solid var(--ds-border-subtle);
 }
@@ -312,7 +312,7 @@
   background: var(--platform-color);
   color: var(--platform-text);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   text-align: left;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -386,7 +386,7 @@
   font-size: 0.85rem;
   color: var(--ds-text-secondary, #b8c0d4);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .free-way:hover {
@@ -567,7 +567,7 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .platform-choice-btn:hover {
@@ -586,7 +586,7 @@
   padding: 10px 25px;
   border-radius: var(--ds-radius-md, 10px);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.9rem;
 }
@@ -617,7 +617,7 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .share-btn:hover {

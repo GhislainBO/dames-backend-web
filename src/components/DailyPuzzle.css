@@ -90,7 +90,7 @@
   font-size: 1.3rem;
   color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .puzzle-close-btn:hover {
@@ -243,7 +243,7 @@
   justify-content: center;
   position: relative;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: var(--ds-transition-fast);
 }
 
 .puzzle-cell.light {
@@ -348,7 +348,7 @@
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: var(--ds-glow-gold-lg);
@@ -369,7 +369,7 @@
 }
 
 .btn-share {
-  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  background: var(--ds-gradient-teal);
   color: var(--ds-bg-primary, #0f1120);
   border: none;
   padding: 12px 28px;
@@ -378,7 +378,7 @@
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: var(--ds-glow-teal-lg);
@@ -406,7 +406,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: var(--ds-transition-premium);
   border: none;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -564,7 +564,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .btn-back:hover {
@@ -596,7 +596,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--ds-transition-base);
 }
 
 .test-nav-btn:hover {
