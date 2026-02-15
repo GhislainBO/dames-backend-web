@@ -1,11 +1,11 @@
 # Robots.txt for DAMESELITE - International Draughts Game
-# https://dames-backend-web.vercel.app
+# https://dameselite.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://dames-backend-web.vercel.app/sitemap.xml
+Sitemap: https://dameselite.com/sitemap.xml
 
 # AI Crawlers - Welcome
 User-agent: GPTBot
@@ -39,4 +39,4 @@ User-agent: cohere-ai
 Allow: /
 
 # LLMs.txt reference
-# See: https://dames-backend-web.vercel.app/llms.txt
+# See: https://dameselite.com/llms.txt

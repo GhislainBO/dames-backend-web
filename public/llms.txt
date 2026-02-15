@@ -39,7 +39,7 @@ International Draughts is played on a 10x10 board with 20 pieces per player.
 
 ## Technical Information
 
-- **Website**: https://dames-backend-web.vercel.app/
+- **Website**: https://dameselite.com/
 - **Platform**: React, TypeScript, Phaser.js game engine
 - **Mobile Apps**: Built with Capacitor for Android and iOS
 - **Backend**: Node.js with Socket.IO for real-time multiplayer
@@ -50,7 +50,7 @@ For questions about DAMESELITE, visit the website or contact through the app.
 
 ## How to Play
 
-1. Visit https://dames-backend-web.vercel.app/
+1. Visit https://dameselite.com/
 2. Choose your preferred language
 3. Select a game mode:
    - "Jouer contre l'IA" / "Play vs AI" for single player

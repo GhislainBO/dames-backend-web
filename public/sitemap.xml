@@ -4,22 +4,22 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://dames-backend-web.vercel.app/</loc>
-    <lastmod>2025-02-08</lastmod>
+    <loc>https://dameselite.com/</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dames-backend-web.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dames-backend-web.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://dames-backend-web.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://dames-backend-web.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://dames-backend-web.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://dames-backend-web.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dames-backend-web.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dameselite.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dameselite.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://dameselite.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dameselite.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://dameselite.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://dameselite.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dameselite.com/"/>
   </url>
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://dames-backend-web.vercel.app/privacy-policy.html</loc>
+    <loc>https://dameselite.com/privacy-policy.html</loc>
     <lastmod>2025-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -27,7 +27,7 @@
 
   <!-- Terms of Service -->
   <url>
-    <loc>https://dames-backend-web.vercel.app/terms-of-service.html</loc>
+    <loc>https://dameselite.com/terms-of-service.html</loc>
     <lastmod>2025-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
