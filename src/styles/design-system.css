@@ -2024,8 +2024,9 @@ button {
 .buy-coins-overlay {
   overflow-y: auto;
   align-items: flex-start;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 100px !important;
+  padding-bottom: 40px;
+  z-index: 9999 !important;
 }
 
 /* Ensure modals are properly centered when content fits */

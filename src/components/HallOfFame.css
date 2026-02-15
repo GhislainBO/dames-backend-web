@@ -15,8 +15,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  z-index: 1000;
-  padding: 20px;
+  z-index: 9999;
+  padding: 100px 20px 40px;
   box-sizing: border-box;
   overflow-y: auto;
   animation: hofFadeIn 0.25s ease-out;

@@ -17,7 +17,7 @@
   align-items: flex-start;
   z-index: 99999;
   overflow-y: auto;
-  padding: 20px 10px;
+  padding: 100px 20px 40px;
   box-sizing: border-box;
   animation: buyFadeIn 0.25s ease-out;
 }
