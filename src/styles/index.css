@@ -87,13 +87,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  isolation: isolate; /* Crée un nouveau contexte d'empilement */
-}
-
-/* Contenu au-dessus des effets de fond */
-.app > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* === HEADER PREMIUM === */
