@@ -1991,3 +1991,93 @@
   height: 1px;
   background: var(--ds-glass-border);
 }
+
+/* ============================================
+   GLOBAL FIXES - Modal & Button Corrections
+   ============================================ */
+
+/* Fix: Ensure all buttons have visible text by default */
+button {
+  color: inherit;
+}
+
+/* Fix: Modal overlay scrolling and centering */
+.shop-overlay,
+.tutorial-overlay,
+.tournaments-overlay,
+.daily-puzzle-overlay,
+.achievements-overlay,
+.battlepass-overlay,
+.leaderboard-overlay,
+.settings-overlay,
+.profile-enhanced-overlay,
+.localstats-overlay,
+.local-achievements-overlay,
+.hall-of-fame-overlay,
+.blog-overlay,
+.community-overlay,
+.support-overlay,
+.resources-overlay,
+.partners-overlay,
+.promo-overlay,
+.auth-modal-overlay,
+.buy-coins-overlay {
+  overflow-y: auto;
+  align-items: flex-start;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+/* Ensure modals are properly centered when content fits */
+.shop-overlay > *,
+.tutorial-overlay > *,
+.tournaments-overlay > *,
+.daily-puzzle-overlay > *,
+.achievements-overlay > *,
+.battlepass-overlay > *,
+.leaderboard-overlay > *,
+.settings-overlay > *,
+.profile-enhanced-overlay > *,
+.localstats-overlay > *,
+.local-achievements-overlay > *,
+.hall-of-fame-overlay > *,
+.blog-overlay > *,
+.community-overlay > *,
+.support-overlay > *,
+.resources-overlay > *,
+.partners-overlay > *,
+.promo-overlay > *,
+.auth-modal-overlay > *,
+.buy-coins-overlay > * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Fix: Ensure PremiumButton text is always visible */
+.menu-more-content .premium-btn {
+  color: var(--ds-text-primary, #ffffff);
+}
+
+.menu-more-content .premium-btn--secondary {
+  color: var(--ds-text-primary, #ffffff);
+  background: rgba(21, 24, 41, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(201, 169, 98, 0.15);
+}
+
+.menu-more-content .premium-btn--emerald {
+  color: var(--ds-text-primary, #ffffff);
+}
+
+.menu-more-content .premium-btn--ruby {
+  color: var(--ds-text-primary, #ffffff);
+}
+
+.menu-more-content .premium-btn--tournament {
+  color: var(--ds-text-primary, #ffffff);
+}
+
+.menu-more-content .premium-btn--outline-gold {
+  color: var(--ds-gold-400, #d4bc7a);
+}
