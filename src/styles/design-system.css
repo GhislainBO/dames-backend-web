@@ -238,10 +238,52 @@
      ============================================ */
   --ds-glass-bg: rgba(21, 24, 41, 0.85);
   --ds-glass-bg-light: rgba(35, 40, 66, 0.7);
+  --ds-glass-bg-solid: rgba(21, 24, 41, 0.98);
+  --ds-glass-bg-light-solid: rgba(35, 40, 66, 0.98);
+  --ds-glass-bg-card: rgba(21, 24, 41, 0.9);
   --ds-glass-border: rgba(201, 169, 98, 0.12);
   --ds-glass-border-subtle: rgba(255, 255, 255, 0.06);
+  --ds-glass-border-teal: rgba(45, 212, 191, 0.15);
+  --ds-glass-border-teal-strong: rgba(45, 212, 191, 0.3);
+  --ds-glass-border-gold: rgba(201, 169, 98, 0.15);
+  --ds-glass-border-gold-strong: rgba(201, 169, 98, 0.3);
+
+  /* === BORDURES STANDARDISÉES === */
+  --ds-border-subtle: rgba(255, 255, 255, 0.06);
+  --ds-border-normal: rgba(255, 255, 255, 0.08);
+  --ds-border-strong: rgba(255, 255, 255, 0.1);
+  --ds-border-intense: rgba(255, 255, 255, 0.15);
+  --ds-border-focus: rgba(255, 255, 255, 0.2);
+  --ds-border-active: rgba(255, 255, 255, 0.25);
+  --ds-border-highlight: rgba(255, 255, 255, 0.3);
+
   --ds-glass-blur: blur(24px);
+  --ds-glass-blur-light: blur(12px);
   --ds-glass-saturate: saturate(180%);
+  --ds-glass-saturate-light: saturate(150%);
+
+  /* Overlay backgrounds */
+  --ds-overlay-bg: rgba(5, 5, 8, 0.92);
+
+  /* Modal gradient (most common pattern) */
+  --ds-modal-gradient: linear-gradient(180deg, var(--ds-glass-bg-light-solid) 0%, var(--ds-glass-bg-solid) 100%);
+
+  /* === EFFETS DE GLOW STANDARDISÉS === */
+  /* Teal Glow */
+  --ds-glow-teal-sm: 0 2px 10px rgba(45, 212, 191, 0.3);
+  --ds-glow-teal-md: 0 4px 15px rgba(45, 212, 191, 0.3);
+  --ds-glow-teal-lg: 0 4px 20px rgba(45, 212, 191, 0.3);
+  --ds-glow-teal-xl: 0 6px 25px rgba(45, 212, 191, 0.4);
+  --ds-glow-teal-hover: 0 6px 25px rgba(45, 212, 191, 0.45);
+  --ds-glow-teal-intense: 0 8px 40px rgba(45, 212, 191, 0.5);
+
+  /* Gold Glow */
+  --ds-glow-gold-sm: 0 2px 10px rgba(201, 169, 98, 0.3);
+  --ds-glow-gold-md: 0 4px 15px rgba(201, 169, 98, 0.3);
+  --ds-glow-gold-lg: 0 4px 20px rgba(201, 169, 98, 0.35);
+  --ds-glow-gold-xl: 0 6px 25px rgba(201, 169, 98, 0.4);
+  --ds-glow-gold-hover: 0 6px 25px rgba(201, 169, 98, 0.45);
+  --ds-glow-gold-intense: 0 8px 40px rgba(201, 169, 98, 0.5);
 }
 
 /* ============================================

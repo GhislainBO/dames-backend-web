@@ -9,9 +9,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 5, 8, 0.92);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  background: var(--ds-overlay-bg);
+  backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -29,14 +29,9 @@
 
 .buy-coins-modal {
   position: relative;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(35, 40, 66, 0.98) 0%,
-      rgba(21, 24, 41, 0.98) 100%
-    );
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
   padding: 36px;
   width: 95%;
@@ -178,7 +173,7 @@
       rgba(255, 255, 255, 0.01) 100%
     ),
     rgba(21, 24, 41, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
   padding: 20px;
   text-align: center;
@@ -331,7 +326,7 @@
 .payment-methods {
   text-align: center;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--ds-border-subtle);
 }
 
 .payment-methods p {
@@ -378,7 +373,7 @@
   align-items: center;
   gap: 10px;
   padding: 14px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-lg, 14px);
   background: rgba(255, 255, 255, 0.03);
   color: var(--ds-text-primary, #ffffff);
@@ -392,7 +387,7 @@
 }
 
 .payment-method-btn:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--ds-border-intense);
   transform: translateY(-2px);
 }
 
@@ -450,7 +445,7 @@
   margin: 0 auto;
   padding: 12px;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-md, 10px);
   color: var(--ds-text-muted, #6b7280);
   font-size: 0.9rem;
@@ -459,7 +454,7 @@
 }
 
 .paypal-cancel-btn:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--ds-border-intense);
   color: var(--ds-text-primary, #ffffff);
 }
 
@@ -471,7 +466,7 @@
 .paypal-loading .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
+  border: 3px solid var(--ds-border-strong);
   border-top-color: #0070ba;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -537,7 +532,7 @@
   margin-top: 14px;
   padding: 8px 20px;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-md, 10px);
   color: var(--ds-text-muted, #6b7280);
   font-size: 0.8rem;
@@ -546,7 +541,7 @@
 }
 
 .change-pack-btn:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--ds-border-intense);
   color: var(--ds-text-primary, #ffffff);
 }
 

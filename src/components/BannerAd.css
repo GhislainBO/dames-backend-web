@@ -1,5 +1,6 @@
 /**
- * BannerAd - Styles pour la bannière publicitaire
+ * BannerAd - Design Premium Phase 3
+ * Dark Mode avec accents Teal/Gold
  */
 
 .banner-ad {
@@ -7,8 +8,10 @@
   left: 0;
   right: 0;
   height: 60px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  border-top: 1px solid var(--ds-border-subtle);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -18,7 +21,7 @@
 .banner-ad-top {
   top: 0;
   border-top: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--ds-border-subtle);
 }
 
 .banner-ad-bottom {
@@ -34,9 +37,10 @@
 
 .banner-ad-label {
   font-size: 0.6rem;
-  color: #888;
+  color: var(--ds-text-muted, #6b7280);
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 .banner-ad-placeholder {
@@ -44,20 +48,22 @@
   flex-direction: column;
   align-items: center;
   padding: 5px 20px;
-  background: rgba(74, 158, 255, 0.1);
-  border: 1px dashed rgba(74, 158, 255, 0.3);
-  border-radius: 4px;
+  background: rgba(45, 212, 191, 0.05);
+  border: 1px dashed rgba(45, 212, 191, 0.2);
+  border-radius: var(--ds-radius-sm, 6px);
 }
 
 .banner-ad-placeholder span {
   font-size: 0.85rem;
-  color: #4a9eff;
+  color: var(--ds-teal-400, #2dd4bf);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 .banner-ad-placeholder small {
   font-size: 0.65rem;
-  color: #888;
+  color: var(--ds-text-muted, #6b7280);
   margin-top: 2px;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 /* Ajouter du padding au body quand la bannière est visible */

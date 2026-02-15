@@ -11,7 +11,7 @@
 
 .audio-toggle {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-md, 10px);
   width: 42px;
   height: 42px;
@@ -44,14 +44,9 @@
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(35, 40, 66, 0.98) 0%,
-      rgba(21, 24, 41, 0.98) 100%
-    );
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border: 1px solid rgba(45, 212, 191, 0.15);
   border-radius: var(--ds-radius-lg, 14px);
   padding: 18px 12px;

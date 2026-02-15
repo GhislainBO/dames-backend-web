@@ -9,9 +9,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 5, 8, 0.92);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  background: var(--ds-overlay-bg);
+  backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -29,14 +29,9 @@
 
 .blog-modal {
   position: relative;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(35, 40, 66, 0.98) 0%,
-      rgba(21, 24, 41, 0.98) 100%
-    );
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
   padding: 30px;
   max-width: 700px;
@@ -146,7 +141,7 @@
 .filter-btn {
   padding: 8px 16px;
   border-radius: var(--ds-radius-full, 9999px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--ds-border-strong);
   background: rgba(255, 255, 255, 0.03);
   color: var(--ds-text-muted, #6b7280);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
@@ -184,7 +179,7 @@
   padding: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--ds-border-subtle);
 }
 
 .post-card:hover {
@@ -281,7 +276,7 @@
 .article-header {
   margin-bottom: 25px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--ds-border-subtle);
 }
 
 .article-header h2 {

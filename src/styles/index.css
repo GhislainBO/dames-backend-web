@@ -502,7 +502,7 @@ body {
 
 .menu-btn.secondary:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--ds-border-highlight);
 }
 
 /* Bouton Online (violet luxueux) */
@@ -1059,7 +1059,7 @@ body {
 
 .info-btn.back:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--ds-border-highlight);
 }
 
 /* === MODAL FIN DE PARTIE LUXUEUX === */
@@ -1322,7 +1322,7 @@ body {
 
 .btn.secondary:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--ds-border-highlight);
 }
 
 .btn.danger {
@@ -1661,7 +1661,7 @@ body {
 
 .chat-message {
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--ds-border-subtle);
   font-size: 0.9rem;
 }
 

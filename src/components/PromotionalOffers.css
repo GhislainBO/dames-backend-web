@@ -58,8 +58,8 @@
   top: 20px;
   right: 20px;
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  border: 1px solid var(--ds-border-strong);
+  color: var(--ds-text-primary, #ffffff);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -131,7 +131,7 @@
   padding: 14px 25px;
   background: linear-gradient(135deg, rgba(74, 158, 255, 0.15) 0%, rgba(106, 90, 205, 0.15) 100%);
   text-align: center;
-  color: #4a9eff;
+  color: var(--ds-teal-400, #2dd4bf);
   font-weight: 600;
   border-bottom: 1px solid rgba(74, 158, 255, 0.2);
 }
@@ -139,7 +139,7 @@
 /* === ONGLETS === */
 .promo-tabs {
   display: flex;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--ds-border-strong);
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -148,7 +148,7 @@
   padding: 16px;
   background: none;
   border: none;
-  color: #666;
+  color: var(--ds-text-muted, #6b7280);
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
@@ -159,12 +159,12 @@
 }
 
 .promo-tabs .tab:hover {
-  color: #aaa;
+  color: var(--ds-text-secondary, #b8c0d4);
   background: rgba(255, 255, 255, 0.02);
 }
 
 .promo-tabs .tab.active {
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
   background: rgba(233, 69, 96, 0.1);
 }
 
@@ -187,7 +187,7 @@
 
 .loading-text {
   text-align: center;
-  color: #666;
+  color: var(--ds-text-muted, #6b7280);
   padding: 50px;
   font-size: 1rem;
 }
@@ -200,7 +200,7 @@
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--ds-border-subtle);
   transition: all 0.3s ease;
 }
 
@@ -278,11 +278,11 @@
   margin: 0 0 10px 0;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--ds-text-primary, #ffffff);
 }
 
 .offer-desc {
-  color: #888;
+  color: var(--ds-text-muted, #6b7280);
   font-size: 0.95rem;
   margin: 0 0 20px 0;
   line-height: 1.5;
@@ -305,7 +305,7 @@
 .coins-label {
   margin-left: 8px;
   font-size: 1rem;
-  color: #888;
+  color: var(--ds-text-muted, #6b7280);
 }
 
 /* === PRIX === */
@@ -319,7 +319,7 @@
 
 .original-price {
   text-decoration: line-through;
-  color: #666;
+  color: var(--ds-text-muted, #6b7280);
   font-size: 1rem;
 }
 
@@ -336,7 +336,7 @@
 .offer-discount {
   display: inline-block;
   background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -351,7 +351,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #ff6b6b;
+  color: var(--ds-error, #ef4444);
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 15px;
@@ -376,7 +376,7 @@
   background: linear-gradient(135deg, #ff6b6b 0%, #e94560 50%, #c0392b 100%);
   border: none;
   border-radius: 12px;
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -418,8 +418,8 @@
   font-size: 1.1rem;
   margin: 0 0 18px 0;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: #888;
+  border-bottom: 1px solid var(--ds-border-strong);
+  color: var(--ds-text-muted, #6b7280);
   text-transform: uppercase;
   letter-spacing: 1px;
   display: flex;
@@ -443,7 +443,7 @@
 
 .no-offers {
   text-align: center;
-  color: #666;
+  color: var(--ds-text-muted, #6b7280);
   padding: 50px;
   font-size: 1rem;
 }
@@ -495,7 +495,7 @@
   bottom: 15px;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #f4d03f;
+  color: var(--ds-gold-400, #d4bc7a);
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   z-index: 3;
 }
@@ -509,11 +509,11 @@
   margin: 0 0 15px 0;
   font-size: 1.5rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--ds-text-primary, #ffffff);
 }
 
 .piggybank-info p {
-  color: #888;
+  color: var(--ds-text-muted, #6b7280);
   margin: 0 0 25px 0;
   font-size: 1rem;
   line-height: 1.6;
@@ -534,11 +534,11 @@
   padding: 14px 18px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--ds-border-subtle);
 }
 
 .stat-label {
-  color: #777;
+  color: var(--ds-text-secondary, #b8c0d4);
 }
 
 .stat-value {
@@ -555,7 +555,7 @@
   background: linear-gradient(135deg, #f4d03f 0%, #d4af37 50%, #b8860b 100%);
   border: none;
   border-radius: 30px;
-  color: #1a1a2e;
+  color: var(--ds-bg-primary, #0f1120);
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
@@ -589,7 +589,7 @@
 
 .break-btn:disabled {
   background: rgba(100, 100, 100, 0.3);
-  color: #666;
+  color: var(--ds-text-muted, #6b7280);
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -597,7 +597,7 @@
 .piggy-hint {
   margin-top: 20px;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--ds-text-muted, #6b7280);
   font-style: italic;
 }
 
@@ -605,7 +605,7 @@
   padding: 18px;
   background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(230, 126, 34, 0.1) 100%);
   text-align: center;
-  color: #f39c12;
+  color: var(--ds-warning, #f59e0b);
   font-size: 0.95rem;
   border-radius: 12px;
   width: 100%;

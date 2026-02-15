@@ -9,9 +9,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 5, 8, 0.92);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  background: var(--ds-overlay-bg);
+  backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -28,14 +28,9 @@
 
 .shop-modal {
   position: relative;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(35, 40, 66, 0.98) 0%,
-      rgba(21, 24, 41, 0.98) 100%
-    );
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
   padding: 0;
   width: 95%;
@@ -84,7 +79,7 @@
 
 .shop-header {
   padding: 28px 28px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--ds-border-subtle);
   position: relative;
 }
 
@@ -156,7 +151,7 @@
 
 .category-btn {
   padding: 10px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-full, 9999px);
   background: transparent;
   color: var(--ds-text-muted, #6b7280);
@@ -220,7 +215,7 @@
       rgba(255, 255, 255, 0.01) 100%
     ),
     rgba(21, 24, 41, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
   padding: 20px;
   transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -401,7 +396,7 @@
 
 .equip-btn {
   background: linear-gradient(135deg, var(--ds-accent-sapphire, #2563eb), #1d4ed8);
-  color: #fff;
+  color: var(--ds-text-primary, #ffffff);
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
 }
 
@@ -414,7 +409,7 @@
   display: inline-block;
   padding: 10px 24px;
   background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
-  color: #fff;
+  color: var(--ds-text-primary, #ffffff);
   border-radius: var(--ds-radius-full, 9999px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.8rem;

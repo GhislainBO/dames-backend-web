@@ -9,9 +9,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 5, 8, 0.92);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  background: var(--ds-overlay-bg);
+  backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -28,14 +28,9 @@
 
 .localstats-modal {
   position: relative;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(35, 40, 66, 0.98) 0%,
-      rgba(21, 24, 41, 0.98) 100%
-    );
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
   padding: 30px;
   width: 100%;
@@ -207,7 +202,7 @@
   padding: 14px 10px;
   border-radius: var(--ds-radius-lg, 14px);
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-border-subtle);
   transition: all 0.2s ease;
 }
 
@@ -327,7 +322,7 @@
   padding: 12px;
   border-radius: var(--ds-radius-lg, 14px);
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--ds-border-subtle);
 }
 
 .record-icon {
@@ -358,8 +353,8 @@
   display: flex;
   justify-content: space-between;
   padding: 14px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--ds-border-subtle);
+  border-bottom: 1px solid var(--ds-border-subtle);
   margin-bottom: 14px;
 }
 
@@ -443,7 +438,7 @@
 .confirm-yes {
   background: linear-gradient(135deg, var(--ds-error, #ef4444), #dc2626);
   border: none;
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
   box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
 
@@ -454,13 +449,13 @@
 
 .confirm-no {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--ds-border-strong);
   color: var(--ds-text-secondary, #b8c0d4);
 }
 
 .confirm-no:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--ds-border-focus);
 }
 
 /* === RESPONSIVE === */

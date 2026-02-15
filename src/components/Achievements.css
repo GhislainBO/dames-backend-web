@@ -9,9 +9,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 5, 8, 0.92);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  background: var(--ds-overlay-bg);
+  backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -28,14 +28,9 @@
 
 .achievements-modal {
   position: relative;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(35, 40, 66, 0.98) 0%,
-      rgba(21, 24, 41, 0.98) 100%
-    );
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
   padding: 0;
   width: 95%;
@@ -91,7 +86,7 @@
 
 .achievements-header {
   padding: 28px 28px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--ds-border-subtle);
   position: relative;
 }
 
@@ -162,7 +157,7 @@
 .tab-btn {
   flex: 1;
   padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-lg, 14px);
   background: transparent;
   color: var(--ds-text-muted, #6b7280);
@@ -197,7 +192,7 @@
   top: -8px;
   right: -8px;
   background: linear-gradient(135deg, var(--ds-error, #ef4444), #dc2626);
-  color: #fff;
+  color: var(--ds-text-primary, #ffffff);
   font-size: 0.65rem;
   padding: 3px 8px;
   border-radius: var(--ds-radius-full, 9999px);
@@ -245,7 +240,7 @@
       rgba(255, 255, 255, 0.01) 100%
     ),
     rgba(21, 24, 41, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
   transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
   position: relative;
@@ -310,7 +305,7 @@
   justify-content: center;
   background: rgba(0, 0, 0, 0.25);
   border-radius: var(--ds-radius-lg, 14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   flex-shrink: 0;
 }
 
@@ -430,7 +425,7 @@
       rgba(255, 255, 255, 0.01) 100%
     ),
     rgba(21, 24, 41, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
   padding: 24px;
   text-align: center;
@@ -475,7 +470,7 @@
 .copy-btn {
   background: rgba(255, 255, 255, 0.03);
   color: var(--ds-text-muted, #6b7280);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   padding: 12px 18px;
   border-radius: var(--ds-radius-md, 10px);
   cursor: pointer;
@@ -495,7 +490,7 @@
   padding: 20px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--ds-border-subtle);
 }
 
 .share-label {
@@ -526,7 +521,7 @@
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
 }
 
 .social-btn:hover {
@@ -626,7 +621,7 @@
     var(--ds-teal-400, #2dd4bf) 0%,
     var(--ds-accent-amethyst, #7c3aed) 100%
   );
-  color: #fff;
+  color: var(--ds-text-primary, #ffffff);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
@@ -702,7 +697,7 @@
 .code-input-group input {
   flex: 1;
   padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-md, 10px);
   background: rgba(0, 0, 0, 0.4);
   color: var(--ds-text-primary, #ffffff);
@@ -749,13 +744,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(35, 40, 66, 0.98) 0%,
-      rgba(21, 24, 41, 0.98) 100%
-    );
-  border: 2px solid rgba(201, 169, 98, 0.4);
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  border: 2px solid var(--ds-glass-border-gold-strong);
   border-radius: var(--ds-radius-2xl, 28px);
   padding: 35px;
   text-align: center;

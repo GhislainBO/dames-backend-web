@@ -1,5 +1,6 @@
 /**
- * InterstitialAd - Styles pour la pub plein écran
+ * InterstitialAd - Design Premium Phase 3
+ * Dark Mode avec accents Teal/Gold
  */
 
 .interstitial-overlay {
@@ -8,15 +9,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: var(--ds-overlay-bg);
+  backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
+  -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.3s ease;
+  animation: interstitialFadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
+@keyframes interstitialFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
@@ -24,10 +27,15 @@
 .interstitial-content {
   width: 90%;
   max-width: 400px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border-radius: 16px;
+  background: var(--ds-modal-gradient);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  border: 1px solid var(--ds-glass-border-teal);
+  border-radius: var(--ds-radius-xl, 20px);
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(45, 212, 191, 0.05);
 }
 
 .interstitial-header {
@@ -36,14 +44,15 @@
   align-items: center;
   padding: 12px 16px;
   background: rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--ds-border-strong);
 }
 
 .ad-label {
   font-size: 0.75rem;
-  color: #888;
+  color: var(--ds-text-muted, #6b7280);
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 .countdown {
@@ -52,11 +61,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(45, 212, 191, 0.1);
   border-radius: 50%;
   font-size: 0.9rem;
-  font-weight: bold;
-  color: #4a9eff;
+  font-weight: 600;
+  color: var(--ds-teal-400, #2dd4bf);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 .close-btn {
@@ -65,17 +75,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-border-normal);
   border-radius: 50%;
   font-size: 1.2rem;
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .close-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(45, 212, 191, 0.1);
+  border-color: rgba(45, 212, 191, 0.2);
+  color: var(--ds-teal-400, #2dd4bf);
 }
 
 .interstitial-body {
@@ -88,9 +100,9 @@
   align-items: center;
   text-align: center;
   padding: 30px;
-  background: rgba(74, 158, 255, 0.05);
-  border: 2px dashed rgba(74, 158, 255, 0.3);
-  border-radius: 12px;
+  background: rgba(45, 212, 191, 0.05);
+  border: 2px dashed rgba(45, 212, 191, 0.2);
+  border-radius: var(--ds-radius-lg, 14px);
 }
 
 .ad-icon {
@@ -100,25 +112,29 @@
 
 .ad-placeholder h3 {
   margin: 0 0 10px 0;
-  color: #4a9eff;
+  color: var(--ds-teal-400, #2dd4bf);
   font-size: 1.2rem;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-weight: 600;
 }
 
 .ad-placeholder p {
   margin: 0;
-  color: #888;
+  color: var(--ds-text-muted, #6b7280);
   font-size: 0.9rem;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 .interstitial-footer {
   padding: 15px;
   background: rgba(0, 0, 0, 0.2);
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--ds-border-subtle);
 }
 
 .interstitial-footer p {
   margin: 0;
   font-size: 0.8rem;
-  color: #ffd700;
+  color: var(--ds-gold-400, #d4bc7a);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }

@@ -14,7 +14,7 @@
       rgba(35, 40, 66, 0.6) 0%,
       rgba(21, 24, 41, 0.8) 100%
     );
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
   transition: all 0.3s ease;
   position: relative;
@@ -272,7 +272,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--ds-border-subtle);
 }
 
 .pieces-display {

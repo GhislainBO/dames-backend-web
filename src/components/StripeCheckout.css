@@ -73,13 +73,13 @@
 
 .checkout-cancel-btn {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--ds-border-strong);
   color: var(--ds-text-muted, #6b7280);
 }
 
 .checkout-cancel-btn:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--ds-border-intense);
   color: var(--ds-text-secondary, #b8c0d4);
 }
 
@@ -111,7 +111,7 @@
   gap: 8px;
   margin-top: 20px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--ds-border-subtle);
   color: var(--ds-text-muted, #6b7280);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.8rem;
@@ -156,7 +156,7 @@
 /* Stripe Element container */
 .stripe-element-container {
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--ds-border-strong);
   border-radius: var(--ds-radius-md, 10px);
   padding: 14px 16px;
   transition: all 0.2s ease;
