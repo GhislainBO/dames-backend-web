@@ -1,4 +1,5 @@
 # Robots.txt for DAMESELITE - International Draughts Game
+# Updated: 2026-02-15
 # https://dameselite.com
 
 User-agent: *
