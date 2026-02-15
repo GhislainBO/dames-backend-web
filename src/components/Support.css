@@ -1,53 +1,106 @@
 /**
- * Support.css - Styles pour la page de soutien
+ * SUPPORT - Design Premium Phase 3
+ * Dark Mode avec accents Teal/Gold
  */
 
 .support-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 5, 8, 0.92);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 20px;
   box-sizing: border-box;
+  animation: supportFadeIn 0.25s ease-out;
+}
+
+@keyframes supportFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .support-modal {
-  background: linear-gradient(145deg, #1a1a2e, #16213e);
-  border-radius: 20px;
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35, 40, 66, 0.98) 0%,
+      rgba(21, 24, 41, 0.98) 100%
+    );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: var(--ds-radius-2xl, 28px);
   padding: 30px;
   max-width: 550px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 107, 107, 0.3);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(239, 68, 68, 0.08);
+  animation: supportSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes supportSlideUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Ligne rouge/rose superieure */
+.support-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #f87171 25%,
+    #fca5a5 50%,
+    #f87171 75%,
+    transparent 100%
+  );
+  border-radius: var(--ds-radius-2xl, 28px) var(--ds-radius-2xl, 28px) 0 0;
 }
 
 .support-modal .close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: white;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius-md, 10px);
+  font-size: 1.4rem;
+  color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .support-modal .close-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: var(--ds-text-primary, #ffffff);
 }
 
 .support-header {
@@ -58,6 +111,7 @@
 .heart-icon {
   font-size: 3.5rem;
   animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 15px rgba(239, 68, 68, 0.4));
 }
 
 @keyframes heartbeat {
@@ -66,28 +120,31 @@
 }
 
 .support-header h2 {
-  color: #ff6b6b;
-  font-size: 1.8rem;
+  font-family: var(--ds-font-heading, 'Poppins', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f87171;
   margin: 10px 0 5px 0;
 }
 
 .support-header p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--ds-text-muted, #6b7280);
   margin: 0;
+  font-size: 0.9rem;
 }
 
-/* Message de remerciement */
+/* === MESSAGE DE REMERCIEMENT === */
 .thanks-message {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
-  border: 1px solid rgba(76, 175, 80, 0.3);
-  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: var(--ds-radius-xl, 20px);
   padding: 20px;
   text-align: center;
   margin-bottom: 20px;
-  animation: fadeIn 0.5s ease;
+  animation: thanksFadeIn 0.5s ease;
 }
 
-@keyframes fadeIn {
+@keyframes thanksFadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
@@ -99,33 +156,45 @@
 }
 
 .thanks-message p {
-  color: #4CAF50;
+  color: var(--ds-success, #22c55e);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0 0 15px 0;
 }
 
 .thanks-message button {
-  background: #4CAF50;
+  background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
   color: white;
   border: none;
-  padding: 8px 25px;
-  border-radius: 20px;
+  padding: 10px 25px;
+  border-radius: var(--ds-radius-full, 9999px);
   cursor: pointer;
-  font-weight: bold;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
 }
 
-/* Pourquoi soutenir */
+.thanks-message button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+/* === WHY SUPPORT === */
 .why-support {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--ds-radius-xl, 20px);
   padding: 20px;
   margin-bottom: 25px;
 }
 
 .why-support h3 {
-  color: white;
-  font-size: 1.1rem;
+  color: var(--ds-text-primary, #ffffff);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
   margin: 0 0 15px 0;
 }
 
@@ -139,17 +208,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--ds-text-secondary, #b8c0d4);
   padding: 8px 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .why-support .check {
-  color: #4CAF50;
+  color: var(--ds-success, #22c55e);
   font-weight: bold;
 }
 
-/* Tiers de donation */
+/* === DONATION TIERS === */
 .donation-tiers {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -158,13 +227,13 @@
 }
 
 .tier-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--ds-radius-lg, 14px);
   padding: 15px 10px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: default;
-  border: 2px solid transparent;
+  border: 2px solid rgba(255, 255, 255, 0.05);
 }
 
 .tier-card.clickable {
@@ -172,17 +241,17 @@
 }
 
 .tier-card:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
   transform: translateY(-3px);
 }
 
 .tier-card.clickable:hover {
-  border-color: #ffd700;
-  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+  border-color: var(--ds-gold-400, #d4bc7a);
+  box-shadow: 0 8px 25px rgba(201, 169, 98, 0.25);
 }
 
 .tier-card.clickable:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
 .tier-icon {
@@ -193,16 +262,21 @@
 
 .tier-amount {
   display: block;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.3rem;
-  font-weight: bold;
-  color: #ffd700;
+  font-weight: 700;
   margin-bottom: 3px;
+  background: linear-gradient(135deg, var(--ds-gold-300, #e8d5a3), var(--ds-gold-500, #c9a962));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .tier-name {
   display: block;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.8rem;
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
   font-weight: 600;
   margin-bottom: 5px;
 }
@@ -210,18 +284,20 @@
 .tier-desc {
   display: block;
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ds-text-muted, #6b7280);
 }
 
-/* Titre section */
+/* === SECTION TITLE === */
 .section-title {
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1rem;
+  font-weight: 600;
   margin: 0 0 15px 0;
   text-align: center;
 }
 
-/* Plateformes de donation */
+/* === DONATION PLATFORMS === */
 .donation-platforms {
   display: flex;
   flex-direction: column;
@@ -233,19 +309,20 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 15px 20px;
-  border-radius: 12px;
+  padding: 16px 20px;
+  border-radius: var(--ds-radius-lg, 14px);
   border: none;
   background: var(--platform-color);
   color: var(--platform-text);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .platform-btn:hover {
   transform: translateX(5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
 }
 
 .platform-icon {
@@ -258,33 +335,39 @@
 }
 
 .platform-name {
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .platform-desc {
   font-size: 0.85rem;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
-/* Support alternatif */
+/* === ALTERNATIVE SUPPORT === */
 .alternative-support {
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), rgba(201, 169, 98, 0.05));
+  border: 1px solid rgba(201, 169, 98, 0.2);
+  border-radius: var(--ds-radius-xl, 20px);
   padding: 20px;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .alternative-support h4 {
-  color: #ffd700;
-  margin: 0 0 5px 0;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  background: linear-gradient(135deg, var(--ds-gold-300, #e8d5a3), var(--ds-gold-500, #c9a962));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .alternative-support > p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--ds-text-muted, #6b7280);
   margin: 0 0 15px 0;
   font-size: 0.9rem;
 }
@@ -299,39 +382,39 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid transparent;
-  border-radius: 8px;
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--ds-radius-md, 10px);
+  padding: 10px 12px;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--ds-text-secondary, #b8c0d4);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .free-way:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 215, 0, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(201, 169, 98, 0.25);
   transform: translateX(3px);
 }
 
 .free-way:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
 .way-icon {
   font-size: 1.2rem;
 }
 
-/* Footer */
+/* === FOOTER === */
 .support-footer {
   text-align: center;
   padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .support-footer p {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ds-text-muted, #6b7280);
   margin: 0 0 10px 0;
   font-size: 0.9rem;
 }
@@ -342,15 +425,15 @@
   animation: heartbeat 1s ease-in-out infinite;
 }
 
-/* Setup Note */
+/* === SETUP NOTE === */
 .setup-note {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(33, 150, 243, 0.1);
-  border: 1px solid rgba(33, 150, 243, 0.3);
-  border-radius: 10px;
-  padding: 12px 15px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: var(--ds-radius-lg, 14px);
+  padding: 14px 16px;
   margin-bottom: 20px;
 }
 
@@ -360,17 +443,17 @@
 }
 
 .setup-note p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--ds-text-secondary, #b8c0d4);
   margin: 0;
   font-size: 0.85rem;
 }
 
-/* Mobile Donation Note (Google Play) */
+/* === MOBILE DONATION NOTE === */
 .mobile-donation-note {
   text-align: center;
-  background: rgba(76, 175, 80, 0.1);
-  border: 1px solid rgba(76, 175, 80, 0.3);
-  border-radius: 15px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: var(--ds-radius-xl, 20px);
   padding: 25px 20px;
   margin-bottom: 25px;
 }
@@ -382,19 +465,20 @@
 }
 
 .mobile-donation-note p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--ds-text-secondary, #b8c0d4);
   margin: 0 0 10px 0;
   font-size: 1rem;
 }
 
 .mobile-donation-note .web-url {
-  color: #4CAF50;
-  font-weight: bold;
+  color: var(--ds-success, #22c55e);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-weight: 600;
   font-size: 1.1rem;
   margin: 0;
 }
 
-/* Platform Choice Modal */
+/* === PLATFORM CHOICE MODAL === */
 .platform-choice-overlay,
 .share-modal-overlay {
   position: fixed;
@@ -402,7 +486,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(5, 5, 8, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -413,14 +499,19 @@
 
 .platform-choice-modal,
 .share-modal {
-  background: linear-gradient(145deg, #1a1a2e, #16213e);
-  border-radius: 20px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35, 40, 66, 0.98) 0%,
+      rgba(21, 24, 41, 0.98) 100%
+    );
+  border-radius: var(--ds-radius-xl, 20px);
   padding: 25px;
   max-width: 350px;
   width: 100%;
   text-align: center;
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  animation: modalSlideIn 0.3s ease;
+  border: 1px solid rgba(201, 169, 98, 0.2);
+  animation: modalSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @keyframes modalSlideIn {
@@ -436,20 +527,29 @@
 
 .platform-choice-modal h3,
 .share-modal h3 {
-  color: #ffd700;
+  font-family: var(--ds-font-heading, 'Poppins', sans-serif);
+  font-weight: 600;
   margin: 0 0 15px 0;
   font-size: 1.2rem;
+  background: linear-gradient(135deg, var(--ds-gold-300, #e8d5a3), var(--ds-gold-500, #c9a962));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .selected-amount {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--ds-text-secondary, #b8c0d4);
   margin: 0 0 20px 0;
   font-size: 1rem;
 }
 
 .selected-amount strong {
-  color: #ffd700;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--ds-gold-300, #e8d5a3), var(--ds-gold-500, #c9a962));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .platform-choice-buttons {
@@ -465,19 +565,20 @@
   justify-content: center;
   gap: 10px;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: var(--ds-radius-lg, 14px);
   border: none;
   background: var(--platform-color);
   color: var(--platform-text);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .platform-choice-btn:hover {
   transform: scale(1.02);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .platform-choice-btn .platform-icon {
@@ -486,21 +587,23 @@
 
 .cancel-btn {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--ds-text-muted, #6b7280);
   padding: 10px 25px;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-md, 10px);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.9rem;
 }
 
 .cancel-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--ds-text-secondary, #b8c0d4);
 }
 
-/* Share Modal */
+/* === SHARE MODAL === */
 .share-buttons {
   display: flex;
   flex-direction: column;
@@ -514,12 +617,13 @@
   justify-content: center;
   gap: 10px;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-md, 10px);
   border: none;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .share-btn:hover {
@@ -542,23 +646,39 @@
 }
 
 .share-btn.copy {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ds-text-primary, #ffffff);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .share-btn.copy:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive */
+/* === SCROLLBAR === */
+.support-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.support-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+
+.support-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f87171, #ef4444);
+  border-radius: 3px;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 480px) {
   .support-modal {
-    padding: 20px;
+    padding: 22px 18px;
+    border-radius: var(--ds-radius-xl, 20px);
   }
 
   .support-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .donation-tiers {
@@ -570,6 +690,6 @@
   }
 
   .platform-btn {
-    padding: 12px 15px;
+    padding: 14px 16px;
   }
 }

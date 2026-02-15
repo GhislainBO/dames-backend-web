@@ -1,45 +1,61 @@
 /**
- * Styles pour le formulaire Stripe
+ * STRIPE CHECKOUT - Design Premium Phase 3
+ * Dark Mode avec accents Teal/Gold
  */
 
 .stripe-checkout {
-  padding: 20px;
-  background: #1a1a2e;
-  border-radius: 12px;
+  padding: 24px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35, 40, 66, 0.95) 0%,
+      rgba(21, 24, 41, 0.98) 100%
+    );
+  border-radius: var(--ds-radius-xl, 20px);
+  border: 1px solid rgba(45, 212, 191, 0.15);
 }
 
 .checkout-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .checkout-header h3 {
-  color: #fff;
-  margin: 0 0 10px 0;
+  color: var(--ds-text-primary, #ffffff);
+  font-family: var(--ds-font-heading, 'Poppins', sans-serif);
+  margin: 0 0 12px 0;
   font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .checkout-amount {
-  color: #ffd700;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
   margin: 0;
+  background: linear-gradient(135deg, var(--ds-gold-300, #e8d5a3), var(--ds-gold-500, #c9a962));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .checkout-error {
-  background: rgba(248, 113, 113, 0.2);
-  color: #f87171;
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 15px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: var(--ds-error, #ef4444);
+  padding: 14px 16px;
+  border-radius: var(--ds-radius-lg, 14px);
+  margin-top: 16px;
   text-align: center;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .checkout-actions {
   display: flex;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .checkout-cancel-btn,
@@ -47,31 +63,39 @@
   flex: 1;
   padding: 14px 20px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: var(--ds-radius-lg, 14px);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .checkout-cancel-btn {
-  background: #333;
-  color: #aaa;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--ds-text-muted, #6b7280);
 }
 
 .checkout-cancel-btn:hover:not(:disabled) {
-  background: #444;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--ds-text-secondary, #b8c0d4);
 }
 
 .checkout-pay-btn {
-  background: linear-gradient(135deg, #4a9eff, #6a5acd);
-  color: #fff;
+  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  color: var(--ds-bg-primary, #0f1120);
+  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
 }
 
 .checkout-pay-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(74, 158, 255, 0.3);
+  box-shadow: 0 6px 25px rgba(45, 212, 191, 0.45);
+}
+
+.checkout-pay-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 .checkout-pay-btn:disabled,
@@ -86,10 +110,16 @@
   justify-content: center;
   gap: 8px;
   margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid #333;
-  color: #888;
-  font-size: 0.85rem;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--ds-text-muted, #6b7280);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-size: 0.8rem;
+}
+
+.checkout-security svg,
+.checkout-security .lock-icon {
+  color: var(--ds-success, #22c55e);
 }
 
 /* Personnalisation des elements Stripe */
@@ -99,23 +129,64 @@
 
 /* Style pour les cartes de test */
 .test-cards-info {
-  background: rgba(74, 158, 255, 0.1);
-  border: 1px dashed #4a9eff;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 15px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px dashed rgba(59, 130, 246, 0.3);
+  border-radius: var(--ds-radius-lg, 14px);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.85rem;
-  color: #4a9eff;
+  color: var(--ds-info, #3b82f6);
 }
 
 .test-cards-info strong {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .test-cards-info code {
   background: rgba(0, 0, 0, 0.3);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: monospace;
+  padding: 3px 8px;
+  border-radius: var(--ds-radius-sm, 6px);
+  font-family: 'Consolas', monospace;
+  font-size: 0.8rem;
+}
+
+/* Stripe Element container */
+.stripe-element-container {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--ds-radius-md, 10px);
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+}
+
+.stripe-element-container:focus-within {
+  border-color: var(--ds-teal-400, #2dd4bf);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15);
+}
+
+/* Processing state */
+.checkout-processing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  color: var(--ds-text-secondary, #b8c0d4);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+}
+
+.checkout-processing .spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(45, 212, 191, 0.2);
+  border-top-color: var(--ds-teal-400, #2dd4bf);
+  border-radius: 50%;
+  animation: checkoutSpin 0.8s linear infinite;
+}
+
+@keyframes checkoutSpin {
+  to { transform: rotate(360deg); }
 }

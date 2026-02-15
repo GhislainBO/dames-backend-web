@@ -1,53 +1,106 @@
 /**
- * Community.css - Styles pour la page communaute
+ * COMMUNITY - Design Premium Phase 3
+ * Dark Mode avec accents Teal/Gold
  */
 
 .community-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 5, 8, 0.92);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 20px;
   box-sizing: border-box;
+  animation: commFadeIn 0.25s ease-out;
+}
+
+@keyframes commFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .community-modal {
-  background: linear-gradient(145deg, #1a1a2e, #16213e);
-  border-radius: 20px;
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35, 40, 66, 0.98) 0%,
+      rgba(21, 24, 41, 0.98) 100%
+    );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: var(--ds-radius-2xl, 28px);
   padding: 30px;
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.15);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(45, 212, 191, 0.08);
+  animation: commSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes commSlideUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Ligne teal superieure */
+.community-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ds-teal-400, #2dd4bf) 25%,
+    var(--ds-teal-300, #5eead4) 50%,
+    var(--ds-teal-400, #2dd4bf) 75%,
+    transparent 100%
+  );
+  border-radius: var(--ds-radius-2xl, 28px) var(--ds-radius-2xl, 28px) 0 0;
 }
 
 .community-modal .close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: white;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius-md, 10px);
+  font-size: 1.4rem;
+  color: var(--ds-text-muted, #6b7280);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .community-modal .close-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(45, 212, 191, 0.2);
+  color: var(--ds-text-primary, #ffffff);
 }
 
 .community-header {
@@ -58,35 +111,49 @@
 .community-icon {
   font-size: 3rem;
   margin-bottom: 10px;
+  filter: drop-shadow(0 2px 10px rgba(45, 212, 191, 0.3));
 }
 
 .community-header h2 {
-  color: #ffd700;
-  font-size: 1.8rem;
-  margin: 0 0 5px 0;
+  font-family: var(--ds-font-heading, 'Poppins', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0 0 8px 0;
+  background: linear-gradient(
+    135deg,
+    var(--ds-teal-300, #5eead4) 0%,
+    var(--ds-teal-400, #2dd4bf) 50%,
+    var(--ds-teal-500, #14b8a6) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .community-header p {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ds-text-muted, #6b7280);
   margin: 0;
+  font-size: 0.9rem;
 }
 
-/* Discord highlight */
+/* === DISCORD HIGHLIGHT === */
 .discord-highlight {
   display: flex;
   align-items: center;
   gap: 15px;
   background: linear-gradient(135deg, #5865F2, #4752C4);
-  border-radius: 15px;
+  border-radius: var(--ds-radius-xl, 20px);
   padding: 20px;
   margin-bottom: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 32px rgba(88, 101, 242, 0.25);
 }
 
 .discord-highlight:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+  box-shadow: 0 12px 40px rgba(88, 101, 242, 0.4);
 }
 
 .discord-logo {
@@ -99,12 +166,14 @@
 
 .discord-info h3 {
   color: white;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   margin: 0 0 5px 0;
   font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .discord-info p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0 0 8px 0;
   font-size: 0.9rem;
 }
@@ -113,7 +182,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.85rem;
 }
 
@@ -122,10 +191,10 @@
   height: 8px;
   background: #3ba55c;
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  animation: onlinePulse 2s infinite;
 }
 
-@keyframes pulse {
+@keyframes onlinePulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
@@ -134,19 +203,29 @@
   background: white;
   color: #5865F2;
   padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: bold;
+  border-radius: var(--ds-radius-full, 9999px);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-weight: 600;
   font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Section title */
+.join-btn:hover {
+  transform: scale(1.05);
+}
+
+/* === SECTION TITLE === */
 .section-title {
-  color: white;
-  font-size: 1.1rem;
+  color: var(--ds-text-primary, #ffffff);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
   margin: 0 0 15px 0;
 }
 
-/* Social grid */
+/* === SOCIAL GRID === */
 .social-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -158,17 +237,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--ds-radius-lg, 14px);
   padding: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .social-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--social-color);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--social-color, rgba(45, 212, 191, 0.3));
   transform: translateY(-2px);
 }
 
@@ -182,13 +261,15 @@
 }
 
 .social-info h4 {
-  color: white;
+  color: var(--ds-text-primary, #ffffff);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   margin: 0 0 2px 0;
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .social-info p {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ds-text-muted, #6b7280);
   margin: 0;
   font-size: 0.75rem;
   white-space: nowrap;
@@ -197,29 +278,35 @@
 }
 
 .social-followers {
-  color: var(--social-color, #ffd700);
-  font-weight: bold;
+  color: var(--social-color, var(--ds-teal-400, #2dd4bf));
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-weight: 700;
   font-size: 0.85rem;
 }
 
-/* Newsletter */
+/* === NEWSLETTER === */
 .newsletter-section {
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 15px;
-  padding: 20px;
+  background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), rgba(201, 169, 98, 0.05));
+  border: 1px solid rgba(201, 169, 98, 0.2);
+  border-radius: var(--ds-radius-xl, 20px);
+  padding: 24px;
   margin-bottom: 25px;
   text-align: center;
 }
 
 .newsletter-section h3 {
-  color: #ffd700;
-  margin: 0 0 8px 0;
+  font-family: var(--ds-font-heading, 'Poppins', sans-serif);
   font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, var(--ds-gold-300, #e8d5a3), var(--ds-gold-500, #c9a962));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .newsletter-section > p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--ds-text-muted, #6b7280);
   margin: 0 0 15px 0;
   font-size: 0.9rem;
 }
@@ -233,42 +320,48 @@
 
 .newsletter-form input {
   flex: 1;
-  padding: 12px 15px;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 0.95rem;
+  padding: 12px 16px;
+  border-radius: var(--ds-radius-full, 9999px);
+  border: 1px solid rgba(201, 169, 98, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--ds-text-primary, #ffffff);
+  font-family: var(--ds-font-body, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
 .newsletter-form input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ds-text-muted, #6b7280);
 }
 
 .newsletter-form input:focus {
   outline: none;
-  border-color: #ffd700;
+  border-color: var(--ds-gold-400, #d4bc7a);
+  box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.15);
 }
 
 .newsletter-form button {
-  padding: 12px 25px;
-  border-radius: 25px;
+  padding: 12px 24px;
+  border-radius: var(--ds-radius-full, 9999px);
   border: none;
-  background: linear-gradient(135deg, #ffd700, #ffb300);
-  color: #1a1a2e;
-  font-weight: bold;
+  background: linear-gradient(135deg, var(--ds-gold-400, #d4bc7a), var(--ds-gold-500, #c9a962));
+  color: var(--ds-bg-primary, #0f1120);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.25);
 }
 
 .newsletter-form button:hover:not(:disabled) {
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(201, 169, 98, 0.4);
 }
 
 .newsletter-form button:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
@@ -278,15 +371,16 @@
   justify-content: center;
   gap: 10px;
   padding: 15px;
-  background: rgba(76, 175, 80, 0.2);
-  border-radius: 10px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: var(--ds-radius-lg, 14px);
   margin-bottom: 10px;
 }
 
 .check-icon {
   width: 30px;
   height: 30px;
-  background: #4CAF50;
+  background: linear-gradient(135deg, var(--ds-success, #22c55e), #16a34a);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -296,23 +390,24 @@
 }
 
 .subscribed-message p {
-  color: #4CAF50;
+  color: var(--ds-success, #22c55e);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   margin: 0;
   font-weight: 600;
 }
 
 .privacy-note {
-  color: rgba(255, 255, 255, 0.4) !important;
-  font-size: 0.8rem !important;
+  color: var(--ds-text-muted, #6b7280) !important;
+  font-size: 0.75rem !important;
   margin: 0 !important;
 }
 
-/* Stats communaute */
+/* === COMMUNITY STATS === */
 .community-stats {
   display: flex;
   justify-content: space-around;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .community-stats .stat-item {
@@ -321,25 +416,49 @@
 
 .community-stats .stat-value {
   display: block;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.8rem;
-  font-weight: bold;
-  color: #ffd700;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .community-stats .stat-label {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.85rem;
+  color: var(--ds-text-muted, #6b7280);
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Responsive */
+/* === SCROLLBAR === */
+.community-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.community-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+
+.community-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ds-teal-500, #14b8a6), var(--ds-teal-600, #0d9488));
+  border-radius: 3px;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 480px) {
   .community-modal {
-    padding: 20px;
+    padding: 22px 18px;
+    border-radius: var(--ds-radius-xl, 20px);
   }
 
   .discord-highlight {
     flex-direction: column;
     text-align: center;
+    padding: 18px;
   }
 
   .join-btn {

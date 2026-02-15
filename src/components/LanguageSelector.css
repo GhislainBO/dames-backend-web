@@ -1,5 +1,6 @@
 /**
- * Styles pour le sélecteur de langue
+ * LANGUAGE SELECTOR - Design Premium Phase 3
+ * Dark Mode avec accents Teal/Gold
  */
 
 .language-selector {
@@ -11,21 +12,23 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: white;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--ds-radius-lg, 14px);
+  color: var(--ds-text-primary, #ffffff);
   cursor: pointer;
   transition: all 0.2s ease;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 .language-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(45, 212, 191, 0.2);
 }
 
 .language-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
 .language-btn .flag {
@@ -33,12 +36,19 @@
 }
 
 .language-btn .name {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .language-btn .arrow {
   font-size: 0.7rem;
-  margin-left: 5px;
+  margin-left: 4px;
+  color: var(--ds-text-muted, #6b7280);
+  transition: transform 0.2s ease;
+}
+
+.language-selector.open .language-btn .arrow {
+  transform: rotate(180deg);
 }
 
 /* Version compacte */
@@ -53,24 +63,33 @@
   top: 100%;
   left: 0;
   right: 0;
-  min-width: 150px;
-  margin-top: 5px;
-  background: #1a1a2e;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  min-width: 160px;
+  margin-top: 6px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35, 40, 66, 0.98) 0%,
+      rgba(21, 24, 41, 0.98) 100%
+    );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(45, 212, 191, 0.15);
+  border-radius: var(--ds-radius-lg, 14px);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  animation: slideDown 0.2s ease;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(45, 212, 191, 0.05);
+  animation: langDropdown 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes slideDown {
+@keyframes langDropdown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -79,25 +98,39 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px 16px;
   background: transparent;
   border: none;
-  color: white;
+  color: var(--ds-text-secondary, #b8c0d4);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-align: left;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
 }
 
 .language-option:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(45, 212, 191, 0.08);
+  color: var(--ds-text-primary, #ffffff);
 }
 
 .language-option:active {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(45, 212, 191, 0.12);
 }
 
 .language-option.active {
-  background: rgba(233, 69, 96, 0.3);
+  background: linear-gradient(90deg, rgba(45, 212, 191, 0.15), transparent);
+  color: var(--ds-teal-400, #2dd4bf);
+  position: relative;
+}
+
+.language-option.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
 }
 
 .language-option .flag {
@@ -105,7 +138,8 @@
 }
 
 .language-option .name {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 /* RTL Support */
@@ -118,13 +152,26 @@
   text-align: right;
 }
 
+[dir="rtl"] .language-option.active::before {
+  left: auto;
+  right: 0;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .language-dropdown {
-    min-width: 140px;
+    min-width: 150px;
   }
 
   .language-option {
-    padding: 10px 12px;
+    padding: 10px 14px;
+  }
+
+  .language-btn {
+    padding: 8px 12px;
+  }
+
+  .language-btn .name {
+    font-size: 0.8rem;
   }
 }
