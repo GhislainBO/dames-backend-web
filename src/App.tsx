@@ -166,7 +166,7 @@ function AppContent({ gameMode, renderContent }: { gameMode: GameMode; renderCon
   }, [gameMode, adMobReady]);
 
   return (
-    <div className="app">
+    <div className="app ds-bg-premium">
       <header className="app-header">
         <div className="header-brand">
           <h1>DAMESELITE</h1>

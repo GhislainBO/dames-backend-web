@@ -15,7 +15,40 @@
   --ds-bg-tertiary: #1c2035;       /* Fond tertiaire */
   --ds-bg-elevated: #232842;       /* Surfaces elevees */
 
-  /* === OR CHAMPAGNE METALLIQUE === */
+  /* === TURQUOISE/TEAL - COULEUR PRIMAIRE CTA === */
+  --ds-teal-50: #f0fdfa;           /* Teal tres clair */
+  --ds-teal-100: #ccfbf1;          /* Teal clair */
+  --ds-teal-200: #99f6e4;          /* Teal doux */
+  --ds-teal-300: #5eead4;          /* Teal lumineux */
+  --ds-teal-400: #2dd4bf;          /* Teal principal (CTA) */
+  --ds-teal-500: #14b8a6;          /* Teal moyen */
+  --ds-teal-600: #0d9488;          /* Teal fonce */
+  --ds-teal-700: #0f766e;          /* Teal profond */
+  --ds-teal-800: #115e59;          /* Teal sombre */
+  --ds-teal-900: #134e4a;          /* Teal nuit */
+
+  /* Gradients Teal Premium */
+  --ds-teal-gradient: linear-gradient(
+    135deg,
+    #5eead4 0%,
+    #2dd4bf 25%,
+    #14b8a6 50%,
+    #2dd4bf 75%,
+    #5eead4 100%
+  );
+  --ds-teal-gradient-subtle: linear-gradient(
+    180deg,
+    rgba(45, 212, 191, 0.15) 0%,
+    rgba(45, 212, 191, 0.05) 100%
+  );
+  --ds-teal-shine: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(240, 253, 250, 0.4) 50%,
+    transparent 80%
+  );
+
+  /* === OR CHAMPAGNE METALLIQUE (SECONDAIRE - PREMIUM) === */
   --ds-gold-50: #fffbf0;           /* Or tres clair */
   --ds-gold-100: #fef3d9;          /* Or clair */
   --ds-gold-200: #f5e6b8;          /* Or doux */
@@ -102,9 +135,20 @@
     0 4px 20px rgba(124, 58, 237, 0.2),
     0 8px 40px rgba(124, 58, 237, 0.1);
 
+  /* Ombres Teal */
+  --ds-shadow-teal:
+    0 4px 20px rgba(45, 212, 191, 0.2),
+    0 8px 40px rgba(45, 212, 191, 0.15);
+  --ds-shadow-teal-intense:
+    0 4px 20px rgba(45, 212, 191, 0.35),
+    0 8px 40px rgba(45, 212, 191, 0.2),
+    0 0 60px rgba(45, 212, 191, 0.15);
+
   /* Glow premium */
   --ds-glow-gold: 0 0 30px rgba(201, 169, 98, 0.4);
   --ds-glow-gold-soft: 0 0 20px rgba(201, 169, 98, 0.2);
+  --ds-glow-teal: 0 0 30px rgba(45, 212, 191, 0.4);
+  --ds-glow-teal-soft: 0 0 20px rgba(45, 212, 191, 0.25);
   --ds-glow-white: 0 0 20px rgba(255, 255, 255, 0.1);
 
   /* Ombre interieure (profondeur) */
@@ -140,11 +184,12 @@
   --ds-space-20: 80px;
 
   /* ============================================
-     5. TYPOGRAPHIE
+     5. TYPOGRAPHIE (Inter + Poppins + SF Pro)
      ============================================ */
   --ds-font-display: 'Playfair Display', 'Georgia', serif;
-  --ds-font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --ds-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ds-font-heading: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --ds-font-body: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  --ds-font-ui: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --ds-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Tailles */
@@ -230,6 +275,16 @@
   }
   50% {
     box-shadow: var(--ds-shadow-gold-intense);
+  }
+}
+
+/* Glow pulse teal */
+@keyframes ds-glow-pulse-teal {
+  0%, 100% {
+    box-shadow: var(--ds-shadow-teal);
+  }
+  50% {
+    box-shadow: var(--ds-shadow-teal-intense);
   }
 }
 
@@ -408,6 +463,79 @@
   transform: translateY(-1px) scale(0.98);
   box-shadow:
     0 2px 10px rgba(201, 169, 98, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* === BOUTON CTA PRINCIPAL TEAL "JOUER RAPIDE" === */
+.ds-btn-cta {
+  /* Dimensions heroiques */
+  min-height: 64px;
+  padding: var(--ds-space-5) var(--ds-space-12);
+  font-size: var(--ds-text-lg);
+  letter-spacing: var(--ds-tracking-wider);
+  border-radius: var(--ds-radius-xl);
+
+  /* Fond teal lumineux */
+  background:
+    linear-gradient(
+      135deg,
+      #5eead4 0%,
+      #2dd4bf 20%,
+      #14b8a6 40%,
+      #2dd4bf 60%,
+      #5eead4 80%,
+      #99f6e4 100%
+    );
+  background-size: 200% 200%;
+
+  /* Texte */
+  color: var(--ds-bg-primary);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Bordure interne subtile */
+  box-shadow:
+    var(--ds-shadow-teal),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Shine overlay */
+.ds-btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left var(--ds-duration-slow) var(--ds-ease-out);
+}
+
+/* Hover */
+.ds-btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    var(--ds-shadow-teal-intense),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  animation: ds-glow-pulse-teal 2s ease-in-out infinite;
+}
+
+.ds-btn-cta:hover::before {
+  left: 120%;
+}
+
+/* Active */
+.ds-btn-cta:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow:
+    0 2px 10px rgba(45, 212, 191, 0.3),
     inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -680,4 +808,170 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: ds-shimmer 3s linear infinite;
+}
+
+/* ============================================
+   FOND TEXTURE PREMIUM
+   ============================================ */
+
+/* Fond principal avec texture */
+.ds-bg-premium {
+  position: relative;
+  background:
+    /* Vignette radiale (assombrit les bords) */
+    radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.3) 80%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    /* Degradé principal bleu nuit */
+    linear-gradient(
+      180deg,
+      #0d1020 0%,
+      #0a0a14 30%,
+      #080812 70%,
+      #050508 100%
+    );
+  background-attachment: fixed;
+}
+
+/* Overlay de bruit subtil */
+.ds-bg-premium::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Rayons de lumiere subtils venant du haut */
+.ds-bg-premium::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(45, 212, 191, 0.04) 0%,
+    rgba(45, 212, 191, 0.02) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Variante avec lueur teal */
+.ds-bg-premium-teal::after {
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(45, 212, 191, 0.06) 0%,
+    rgba(45, 212, 191, 0.03) 30%,
+    transparent 70%
+  );
+}
+
+/* Variante avec lueur or */
+.ds-bg-premium-gold::after {
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(201, 169, 98, 0.05) 0%,
+    rgba(201, 169, 98, 0.02) 30%,
+    transparent 70%
+  );
+}
+
+/* ============================================
+   SURFACES AVEC RAYONS DE LUMIERE
+   ============================================ */
+
+/* Carte avec effet de lumiere */
+.ds-card-lit {
+  background:
+    /* Rayon de lumiere du haut */
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 10%,
+      transparent 30%
+    ),
+    /* Fond glass */
+    var(--ds-glass-bg);
+  backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+  -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
+
+  border: 1px solid var(--ds-glass-border);
+  border-radius: var(--ds-radius-xl);
+
+  box-shadow:
+    var(--ds-shadow-lg),
+    /* Bordure lumineuse en haut */
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  padding: var(--ds-space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ligne doree brillante en haut */
+.ds-card-lit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(45, 212, 191, 0.4) 20%,
+    rgba(45, 212, 191, 0.6) 50%,
+    rgba(45, 212, 191, 0.4) 80%,
+    transparent 100%
+  );
+}
+
+/* Variante carte avec lueur or */
+.ds-card-lit-gold::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 169, 98, 0.4) 20%,
+    rgba(201, 169, 98, 0.6) 50%,
+    rgba(201, 169, 98, 0.4) 80%,
+    transparent 100%
+  );
+}
+
+/* Panneau avec degradé vertical */
+.ds-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(35, 40, 66, 0.9) 0%,
+    rgba(28, 32, 53, 0.85) 50%,
+    rgba(21, 24, 41, 0.9) 100%
+  );
+  backdrop-filter: var(--ds-glass-blur);
+  -webkit-backdrop-filter: var(--ds-glass-blur);
+
+  border: 1px solid var(--ds-glass-border);
+  border-radius: var(--ds-radius-xl);
+
+  box-shadow:
+    var(--ds-shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  padding: var(--ds-space-6);
+  position: relative;
 }

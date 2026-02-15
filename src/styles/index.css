@@ -71,55 +71,14 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  background: var(--color-bg-primary);
+  font-family: var(--ds-font-body, 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif);
+  background: var(--ds-bg-void, #0a0a14);
   min-height: 100vh;
-  color: var(--color-text-primary);
+  color: var(--ds-text-primary, #ffffff);
   overflow-x: hidden;
   line-height: 1.6;
-}
-
-/* === FOND ANIMÉ PREMIUM === */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(ellipse at 20% 20%, rgba(123, 44, 191, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
-    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-  z-index: -2;
-  animation: backgroundPulse 20s ease-in-out infinite;
-}
-
-@keyframes backgroundPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-/* Particules subtiles */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(233, 69, 96, 0.08) 1px, transparent 1px);
-  background-size: 100px 100px;
-  z-index: -1;
-  animation: particlesDrift 60s linear infinite;
-}
-
-@keyframes particlesDrift {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100px); }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* === LAYOUT PRINCIPAL === */
@@ -128,6 +87,13 @@ body::after {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
+  isolation: isolate; /* Crée un nouveau contexte d'empilement */
+}
+
+/* Contenu au-dessus des effets de fond */
+.app > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* === HEADER PREMIUM === */
