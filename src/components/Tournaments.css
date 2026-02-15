@@ -130,7 +130,7 @@
 /* === MESSAGES === */
 .tournaments-message {
   text-align: center;
-  padding: 12px 20px;
+  padding: var(--ds-space-3) var(--ds-space-5);
   background: rgba(34, 197, 94, 0.1);
   color: var(--ds-success, #22c55e);
   border-radius: var(--ds-radius-lg, 14px);
@@ -142,7 +142,7 @@
 
 .tournaments-warning {
   text-align: center;
-  padding: 12px 20px;
+  padding: var(--ds-space-3) var(--ds-space-5);
   background: rgba(245, 158, 11, 0.1);
   color: var(--ds-warning, #f59e0b);
   border-radius: var(--ds-radius-lg, 14px);
@@ -156,7 +156,7 @@
 .tournaments-content {
   flex: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: var(--ds-space-5);
 }
 
 .tournaments-content::-webkit-scrollbar {
@@ -176,7 +176,7 @@
 .tournaments-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--ds-space-5);
 }
 
 /* === CARTE DE TOURNOI PREMIUM === */
@@ -190,7 +190,7 @@
     rgba(21, 24, 41, 0.85);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 24px;
+  padding: var(--ds-space-6);
   transition: var(--ds-transition-premium-slow);
   position: relative;
   overflow: hidden;
@@ -279,8 +279,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  gap: 12px;
+  margin-bottom: var(--ds-space-4);
+  gap: var(--ds-space-3);
 }
 
 .tournament-header h3 {
@@ -298,7 +298,7 @@
     var(--ds-accent-amethyst, #7c3aed) 100%
   );
   color: var(--ds-text-primary, #ffffff);
-  padding: 8px 16px;
+  padding: var(--ds-space-2) var(--ds-space-4);
   border-radius: var(--ds-radius-full, 9999px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.75rem;
@@ -312,7 +312,7 @@
 .tournament-description {
   color: var(--ds-text-muted, #6b7280);
   font-size: 0.9rem;
-  margin-bottom: 18px;
+  margin-bottom: var(--ds-space-4-5);
   line-height: 1.5;
 }
 
@@ -320,9 +320,9 @@
 .tournament-info {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 18px;
-  padding: 18px;
+  gap: var(--ds-space-3);
+  margin-bottom: var(--ds-space-4-5);
+  padding: var(--ds-space-4-5);
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
   border: 1px solid var(--ds-border-subtle);
@@ -337,7 +337,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.65rem;
   color: var(--ds-text-muted, #6b7280);
-  margin-bottom: 6px;
+  margin-bottom: var(--ds-space-1-5);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -372,8 +372,8 @@
 .tournament-prizes {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: var(--ds-space-2-5);
+  margin-bottom: var(--ds-space-4);
   flex-wrap: wrap;
 }
 
@@ -438,7 +438,7 @@
 .tournament-participants {
   font-size: 0.85rem;
   color: var(--ds-text-secondary, #b8c0d4);
-  margin-bottom: 18px;
+  margin-bottom: var(--ds-space-4-5);
   padding: 12px 15px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: var(--ds-radius-md, 10px);
@@ -446,7 +446,7 @@
 }
 
 .participants-label {
-  margin-right: 10px;
+  margin-right: var(--ds-space-2-5);
   color: var(--ds-text-muted, #6b7280);
 }
 
@@ -457,13 +457,13 @@
 /* === BOUTONS D'ACTION === */
 .tournament-actions {
   display: flex;
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .register-btn,
 .unregister-btn {
   flex: 1;
-  padding: 14px 24px;
+  padding: var(--ds-space-3-5) var(--ds-space-6);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
@@ -552,8 +552,8 @@
 
   .tournament-info {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 14px;
+    gap: var(--ds-space-2-5);
+    padding: var(--ds-space-3-5);
   }
 
   .tournament-header {
@@ -567,18 +567,18 @@
 
   .tournament-card.registered .registered-badge {
     position: static;
-    margin-bottom: 12px;
+    margin-bottom: var(--ds-space-3);
     display: inline-block;
   }
 }
 
 @media (max-width: 480px) {
   .tournaments-content {
-    padding: 14px;
+    padding: var(--ds-space-3-5);
   }
 
   .tournament-card {
-    padding: 18px;
+    padding: var(--ds-space-4-5);
   }
 
   .tournament-header h3 {
@@ -591,7 +591,7 @@
 
   .register-btn,
   .unregister-btn {
-    padding: 12px 20px;
+    padding: var(--ds-space-3) var(--ds-space-5);
     font-size: 0.8rem;
   }
 
@@ -601,6 +601,6 @@
   }
 
   .tournament-prizes {
-    gap: 6px;
+    gap: var(--ds-space-1-5);
   }
 }

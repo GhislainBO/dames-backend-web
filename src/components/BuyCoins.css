@@ -120,11 +120,11 @@
 
 .buy-coins-message {
   text-align: center;
-  padding: 12px 20px;
+  padding: var(--ds-space-3) var(--ds-space-5);
   background: rgba(245, 158, 11, 0.1);
   color: var(--ds-warning, #f59e0b);
   border-radius: var(--ds-radius-lg, 14px);
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
   border: 1px solid rgba(245, 158, 11, 0.2);
   font-weight: 500;
   font-size: 0.9rem;
@@ -138,22 +138,22 @@
 
 .buy-coins-warning {
   text-align: center;
-  padding: 12px 20px;
+  padding: var(--ds-space-3) var(--ds-space-5);
   background: rgba(239, 68, 68, 0.1);
   color: var(--ds-error, #ef4444);
   border-radius: var(--ds-radius-lg, 14px);
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
   border: 1px solid rgba(239, 68, 68, 0.2);
   font-weight: 500;
 }
 
 .buy-coins-info {
   text-align: center;
-  padding: 12px 20px;
+  padding: var(--ds-space-3) var(--ds-space-5);
   background: rgba(45, 212, 191, 0.1);
   color: var(--ds-teal-400, #2dd4bf);
   border-radius: var(--ds-radius-lg, 14px);
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
   border: 1px solid rgba(45, 212, 191, 0.2);
 }
 
@@ -161,8 +161,8 @@
 .coin-packs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: var(--ds-space-4);
+  margin-bottom: var(--ds-space-6);
 }
 
 .coin-pack-card {
@@ -175,7 +175,7 @@
     rgba(21, 24, 41, 0.85);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 20px;
+  padding: var(--ds-space-5);
   text-align: center;
   position: relative;
   transition: var(--ds-transition-premium-slow);
@@ -247,8 +247,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 6px;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-1-5);
 }
 
 .coins-icon {
@@ -274,13 +274,13 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: var(--ds-space-2);
 }
 
 .pack-name {
   color: var(--ds-text-muted, #6b7280);
   font-size: 0.8rem;
-  margin-bottom: 8px;
+  margin-bottom: var(--ds-space-2);
 }
 
 .pack-price {
@@ -288,12 +288,12 @@
   font-weight: 700;
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   color: var(--ds-text-primary, #ffffff);
-  margin-bottom: 14px;
+  margin-bottom: var(--ds-space-3-5);
 }
 
 .pack-buy-btn {
   width: 100%;
-  padding: 12px;
+  padding: var(--ds-space-3);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
   background: var(--ds-gradient-teal);
@@ -325,21 +325,21 @@
 /* === MÉTHODES DE PAIEMENT === */
 .payment-methods {
   text-align: center;
-  padding-top: 20px;
+  padding-top: var(--ds-space-5);
   border-top: 1px solid var(--ds-border-subtle);
 }
 
 .payment-methods p {
   color: var(--ds-text-muted, #6b7280);
   font-size: 0.8rem;
-  margin-bottom: 12px;
+  margin-bottom: var(--ds-space-3);
 }
 
 .payment-icons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: var(--ds-space-3-5);
 }
 
 .payment-icons span {
@@ -349,7 +349,7 @@
 
 /* Payment Method Selection */
 .payment-method-selection {
-  margin-bottom: 24px;
+  margin-bottom: var(--ds-space-6);
 }
 
 .payment-method-selection h3 {
@@ -357,13 +357,13 @@
   color: var(--ds-text-primary, #ffffff);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.95rem;
-  margin-bottom: 14px;
+  margin-bottom: var(--ds-space-3-5);
   font-weight: 600;
 }
 
 .payment-method-buttons {
   display: flex;
-  gap: 12px;
+  gap: var(--ds-space-3);
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -371,8 +371,8 @@
 .payment-method-btn {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 24px;
+  gap: var(--ds-space-2-5);
+  padding: var(--ds-space-3-5) var(--ds-space-6);
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-lg, 14px);
   background: rgba(255, 255, 255, 0.03);
@@ -420,12 +420,12 @@
 
 /* PayPal Checkout Styles */
 .paypal-checkout {
-  padding: 20px;
+  padding: var(--ds-space-5);
 }
 
 .paypal-info {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
 }
 
 .paypal-info p {
@@ -443,7 +443,7 @@
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  padding: 12px;
+  padding: var(--ds-space-3);
   background: transparent;
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-md, 10px);
@@ -460,7 +460,7 @@
 
 .paypal-loading {
   text-align: center;
-  padding: 40px;
+  padding: var(--ds-space-10);
 }
 
 .paypal-loading .spinner {
@@ -486,8 +486,8 @@
   background: rgba(201, 169, 98, 0.08);
   border: 1px solid rgba(201, 169, 98, 0.2);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 20px;
-  margin-bottom: 24px;
+  padding: var(--ds-space-5);
+  margin-bottom: var(--ds-space-6);
   text-align: center;
 }
 
@@ -497,7 +497,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 12px;
+  margin-bottom: var(--ds-space-3);
   font-size: 1rem;
 }
 
@@ -505,14 +505,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: var(--ds-space-3-5);
   flex-wrap: wrap;
 }
 
 .selected-pack-summary .coins-display {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--ds-space-2);
   font-size: 1.2rem;
   font-weight: 700;
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
@@ -529,7 +529,7 @@
 }
 
 .change-pack-btn {
-  margin-top: 14px;
+  margin-top: var(--ds-space-3-5);
   padding: 8px 20px;
   background: transparent;
   border: 1px solid var(--ds-border-normal);
@@ -558,12 +558,12 @@
 
   .buy-coins-modal h2 {
     font-size: 1.25rem;
-    margin-bottom: 18px;
+    margin-bottom: var(--ds-space-4-5);
   }
 
   .coin-packs-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: var(--ds-space-2-5);
   }
 
   .coin-pack-card {
@@ -584,11 +584,11 @@
 
   .pack-price {
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: var(--ds-space-2-5);
   }
 
   .pack-buy-btn {
-    padding: 10px;
+    padding: var(--ds-space-2-5);
     font-size: 0.8rem;
   }
 

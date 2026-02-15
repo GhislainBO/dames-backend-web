@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git rev-list:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(grep:*)",
+      "Bash(while read f)",
+      "Bash(do grep -l \"align-items: center\" \"$f\")",
+      "Bash(done)",
+      "Bash(git restore:*)",
+      "Bash(find:*)"
+    ]
+  }
+}

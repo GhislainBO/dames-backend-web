@@ -33,7 +33,7 @@
   backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
-  padding: 30px;
+  padding: var(--ds-space-8);
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
@@ -103,7 +103,7 @@
 
 .blog-header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: var(--ds-space-6);
 }
 
 .blog-header h2 {
@@ -132,14 +132,14 @@
 /* === FILTRES === */
 .category-filters {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-5);
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .filter-btn {
-  padding: 8px 16px;
+  padding: var(--ds-space-2) var(--ds-space-4);
   border-radius: var(--ds-radius-full, 9999px);
   border: 1px solid var(--ds-border-strong);
   background: rgba(255, 255, 255, 0.03);
@@ -168,7 +168,7 @@
 .posts-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--ds-space-4);
 }
 
 .post-card {
@@ -176,7 +176,7 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--ds-radius-lg, 14px);
-  padding: 20px;
+  padding: var(--ds-space-5);
   cursor: pointer;
   transition: var(--ds-transition-base);
   border: 1px solid var(--ds-border-subtle);
@@ -203,7 +203,7 @@
   color: var(--ds-bg-primary, #0f1120);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 10px;
+  margin-bottom: var(--ds-space-2-5);
 }
 
 .post-content h3 {
@@ -224,7 +224,7 @@
 .post-meta,
 .article-meta {
   display: flex;
-  gap: 12px;
+  gap: var(--ds-space-3);
   color: var(--ds-text-muted, #6b7280);
   font-size: 0.75rem;
 }
@@ -258,10 +258,10 @@
   font-weight: 500;
   cursor: pointer;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ds-space-1-5);
   transition: var(--ds-transition-base);
   background: var(--ds-gradient-teal);
   -webkit-background-clip: text;
@@ -274,8 +274,8 @@
 }
 
 .article-header {
-  margin-bottom: 25px;
-  padding-bottom: 20px;
+  margin-bottom: var(--ds-space-6);
+  padding-bottom: var(--ds-space-5);
   border-bottom: 1px solid var(--ds-border-subtle);
 }
 
@@ -300,7 +300,7 @@
 }
 
 .article-content p {
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
   white-space: pre-line;
 }
 
@@ -331,7 +331,7 @@
   }
 
   .post-card {
-    padding: 16px;
+    padding: var(--ds-space-4);
   }
 
   .post-content h3 {

@@ -33,7 +33,7 @@
   backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
-  padding: 30px;
+  padding: var(--ds-space-8);
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
@@ -102,7 +102,7 @@
 
 .resources-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
 }
 
 .resources-header h2 {
@@ -132,12 +132,12 @@
 .affiliate-notice {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
   background: rgba(59, 130, 246, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
-  padding: 14px 16px;
-  margin-bottom: 20px;
+  padding: var(--ds-space-3-5) var(--ds-space-4);
+  margin-bottom: var(--ds-space-5);
 }
 
 .notice-icon {
@@ -153,14 +153,14 @@
 /* === FILTRES === */
 .category-filters {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-5);
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .filter-btn {
-  padding: 8px 16px;
+  padding: var(--ds-space-2) var(--ds-space-4);
   border-radius: var(--ds-radius-full, 9999px);
   border: 1px solid var(--ds-border-strong);
   background: rgba(255, 255, 255, 0.03);
@@ -189,16 +189,16 @@
 .resources-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .resource-card {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--ds-space-4);
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--ds-radius-lg, 14px);
-  padding: 16px;
+  padding: var(--ds-space-4);
   cursor: pointer;
   transition: var(--ds-transition-base);
   border: 1px solid var(--ds-border-subtle);
@@ -231,7 +231,7 @@
 .resource-header-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
   flex-wrap: wrap;
 }
 
@@ -265,7 +265,7 @@
 .resource-meta {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--ds-space-4);
 }
 
 .stars {
@@ -314,7 +314,7 @@
 /* === FOOTER === */
 .resources-footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: var(--ds-space-5);
   padding-top: 15px;
   border-top: 1px solid var(--ds-border-subtle);
 }
@@ -355,7 +355,7 @@
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    padding: 14px;
+    padding: var(--ds-space-3-5);
   }
 
   .resource-icon {
@@ -369,8 +369,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
-    padding-top: 12px;
+    margin-top: var(--ds-space-3);
+    padding-top: var(--ds-space-3);
     border-top: 1px solid var(--ds-border-subtle);
   }
 

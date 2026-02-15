@@ -11,8 +11,8 @@
 .language-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-2-5) var(--ds-space-4);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-lg, 14px);
@@ -42,7 +42,7 @@
 
 .language-btn .arrow {
   font-size: 0.7rem;
-  margin-left: 4px;
+  margin-left: var(--ds-space-1);
   color: var(--ds-text-muted, #6b7280);
   transition: transform 0.2s ease;
 }
@@ -53,7 +53,7 @@
 
 /* Version compacte */
 .language-selector.compact .language-btn.compact {
-  padding: 8px 12px;
+  padding: var(--ds-space-2) var(--ds-space-3);
   font-size: 1.3rem;
   min-width: auto;
 }
@@ -64,7 +64,7 @@
   left: 0;
   right: 0;
   min-width: 160px;
-  margin-top: 6px;
+  margin-top: var(--ds-space-1-5);
   background: var(--ds-modal-gradient);
   backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
@@ -91,9 +91,9 @@
 .language-option {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
   width: 100%;
-  padding: 12px 16px;
+  padding: var(--ds-space-3) var(--ds-space-4);
   background: transparent;
   border: none;
   color: var(--ds-text-secondary, #b8c0d4);
@@ -159,11 +159,11 @@
   }
 
   .language-option {
-    padding: 10px 14px;
+    padding: var(--ds-space-2-5) var(--ds-space-3-5);
   }
 
   .language-btn {
-    padding: 8px 12px;
+    padding: var(--ds-space-2) var(--ds-space-3);
   }
 
   .language-btn .name {

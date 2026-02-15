@@ -31,7 +31,7 @@
   backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
-  padding: 30px;
+  padding: var(--ds-space-8);
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
@@ -101,12 +101,12 @@
 
 .partners-header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: var(--ds-space-6);
 }
 
 .partners-icon {
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: var(--ds-space-2-5);
   animation: float-icon 3s ease-in-out infinite;
   filter: drop-shadow(0 4px 15px rgba(201, 169, 98, 0.3));
 }
@@ -139,14 +139,14 @@
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: var(--ds-space-4);
+  margin-bottom: var(--ds-space-8);
 }
 
 .partner-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  padding: 20px;
+  padding: var(--ds-space-5);
   text-align: center;
   position: relative;
   transition: var(--ds-transition-slow);
@@ -227,7 +227,7 @@
 /* Badge CTA pour rejoindre */
 .cta-badge {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: var(--ds-space-3);
   padding: 6px 14px;
   background: linear-gradient(135deg, #c9a962, #b8956e);
   color: var(--ds-bg-primary, #0f1120);
@@ -324,8 +324,8 @@
   background: linear-gradient(135deg, rgba(201, 169, 98, 0.08), rgba(201, 169, 98, 0.02));
   border: 1px solid rgba(201, 169, 98, 0.25);
   border-radius: 15px;
-  padding: 25px;
-  margin-bottom: 25px;
+  padding: var(--ds-space-6);
+  margin-bottom: var(--ds-space-6);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -358,8 +358,8 @@
 .tiers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: var(--ds-space-4);
+  margin-bottom: var(--ds-space-5);
 }
 
 .tier-card {
@@ -394,7 +394,7 @@
 .tier-card .tier-icon {
   font-size: 2rem;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: var(--ds-space-2-5);
 }
 
 .tier-card h4 {
@@ -408,7 +408,7 @@
   color: var(--ds-text-primary, #ffffff);
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: var(--ds-space-4);
 }
 
 .tier-card ul {
@@ -421,7 +421,7 @@
 .tier-card li {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: var(--ds-space-2);
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.8rem;
   padding: 5px 0;
@@ -487,7 +487,7 @@
 
 /* Stats */
 .reach-stats {
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
 }
 
 .reach-stats h3 {
@@ -500,7 +500,7 @@
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  gap: var(--ds-space-4);
 }
 
 .stat-item {
@@ -549,7 +549,7 @@
 /* Responsive */
 @media (max-width: 600px) {
   .partners-modal {
-    padding: 20px;
+    padding: var(--ds-space-5);
   }
 
   .partners-grid {

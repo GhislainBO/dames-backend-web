@@ -5,10 +5,10 @@
 
 .game-board-wrapper {
   display: flex;
-  gap: 25px;
+  gap: var(--ds-space-6);
   justify-content: center;
   align-items: flex-start;
-  padding: 15px;
+  padding: var(--ds-space-4);
   max-width: 1100px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -98,7 +98,7 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--ds-space-4);
 }
 
 .sidebar-header {
@@ -112,7 +112,7 @@
   background: linear-gradient(145deg, rgba(40, 40, 60, 0.8) 0%, rgba(26, 26, 46, 0.9) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding: 25px;
+  padding: var(--ds-space-6);
   border-radius: 16px;
   border: 1px solid var(--ds-border-normal);
   box-shadow: var(--ds-shadow-lg);
@@ -120,7 +120,7 @@
 
 .game-info-panel h3 {
   margin: 0 0 20px 0;
-  padding-bottom: 15px;
+  padding-bottom: var(--ds-space-4);
   border-bottom: 1px solid var(--ds-border-strong);
   font-weight: 400;
   font-size: 1.1rem;
@@ -133,13 +133,13 @@
 
 /* === INDICATEUR DE TOUR SPECTACULAIRE === */
 .turn-indicator {
-  padding: 18px;
+  padding: var(--ds-space-4-5);
   border-radius: 12px;
   text-align: center;
   font-size: 1.1rem;
   font-weight: 600;
   transition: all 0.4s ease;
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
   position: relative;
   overflow: hidden;
   background: rgba(26, 26, 46, 0.9);
@@ -194,14 +194,14 @@
   padding: 15px 0;
   border-top: 1px solid var(--ds-border-normal);
   border-bottom: 1px solid var(--ds-border-normal);
-  margin-bottom: 20px;
+  margin-bottom: var(--ds-space-5);
 }
 
 .piece-counter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: var(--ds-space-2);
 }
 
 .piece-icon {
@@ -239,11 +239,11 @@
 .game-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .game-btn {
-  padding: 14px 20px;
+  padding: var(--ds-space-3-5) var(--ds-space-5);
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -305,7 +305,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: var(--ds-space-5);
   z-index: 100;
   border-radius: 16px;
 }
@@ -335,8 +335,8 @@
   .game-board-wrapper {
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    gap: 20px;
+    padding: var(--ds-space-2-5);
+    gap: var(--ds-space-5);
   }
 
   .game-sidebar {
@@ -352,8 +352,8 @@
 /* === RESPONSIVE - MOBILE === */
 @media (max-width: 600px) {
   .game-board-wrapper {
-    padding: 8px;
-    gap: 15px;
+    padding: var(--ds-space-2);
+    gap: var(--ds-space-4);
   }
 
   .game-board-container {
@@ -379,7 +379,7 @@
   }
 
   .turn-indicator {
-    padding: 14px;
+    padding: var(--ds-space-3-5);
     font-size: 1rem;
   }
 }
@@ -492,7 +492,7 @@
   padding: 15px 20px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
-  margin-bottom: 15px;
+  margin-bottom: var(--ds-space-4);
   border: 1px solid var(--ds-border-subtle);
 }
 
@@ -587,8 +587,8 @@
 .players-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 15px;
+  gap: var(--ds-space-3);
+  margin-bottom: var(--ds-space-4);
 }
 
 .vs-divider-premium {
@@ -625,7 +625,7 @@
 /* Responsive pour la section joueurs */
 @media (max-width: 600px) {
   .players-section {
-    gap: 10px;
+    gap: var(--ds-space-2-5);
   }
 
   .vs-divider-premium {

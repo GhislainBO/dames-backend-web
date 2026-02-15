@@ -83,7 +83,7 @@
 
 /* === HEADER SPECTACULAIRE === */
 .battlepass-header {
-  padding: 28px;
+  padding: var(--ds-space-7);
   background: linear-gradient(
     135deg,
     var(--ds-teal-500, #14b8a6) 0%,
@@ -144,7 +144,7 @@
   opacity: 0.9;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--ds-space-2);
 }
 
 .time-remaining::before {
@@ -153,10 +153,10 @@
 
 /* === BARRE DE NIVEAU === */
 .level-info {
-  margin-top: 20px;
+  margin-top: var(--ds-space-5);
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: var(--ds-space-3-5);
   position: relative;
   z-index: 1;
 }
@@ -211,13 +211,13 @@
   min-width: 100px;
   text-align: right;
   background: rgba(0, 0, 0, 0.3);
-  padding: 8px 12px;
+  padding: var(--ds-space-2) var(--ds-space-3);
   border-radius: var(--ds-radius-full, 9999px);
 }
 
 /* === MESSAGE === */
 .battlepass-message {
-  padding: 12px 24px;
+  padding: var(--ds-space-3) var(--ds-space-6);
   background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(124, 58, 237, 0.1));
   text-align: center;
   color: var(--ds-teal-400, #2dd4bf);
@@ -228,7 +228,7 @@
 
 /* === BANNIÈRE PREMIUM === */
 .premium-banner {
-  padding: 18px 24px;
+  padding: var(--ds-space-4-5) var(--ds-space-6);
   background: linear-gradient(135deg, rgba(201, 169, 98, 0.08), rgba(184, 134, 11, 0.08));
   border-bottom: 1px solid rgba(201, 169, 98, 0.15);
   position: relative;
@@ -260,7 +260,7 @@
 .premium-content {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: var(--ds-space-4-5);
   position: relative;
   z-index: 1;
 }
@@ -293,7 +293,7 @@
 }
 
 .premium-btn {
-  padding: 12px 24px;
+  padding: var(--ds-space-3) var(--ds-space-6);
   background: var(--ds-gradient-gold-dark);
   border: none;
   border-radius: var(--ds-radius-full, 9999px);
@@ -324,7 +324,7 @@
 
 .tab {
   flex: 1;
-  padding: 14px;
+  padding: var(--ds-space-3-5);
   background: none;
   border: none;
   color: var(--ds-text-muted, #6b7280);
@@ -361,8 +361,8 @@
 /* === PISTE DE RÉCOMPENSES === */
 .rewards-track {
   display: flex;
-  gap: 14px;
-  padding: 20px;
+  gap: var(--ds-space-3-5);
+  padding: var(--ds-space-5);
   overflow-x: auto;
   flex: 1;
   background: rgba(0, 0, 0, 0.15);
@@ -387,7 +387,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .reward-level {
@@ -485,14 +485,14 @@
 
 /* === CONTENEUR DE MISSIONS === */
 .missions-container {
-  padding: 20px;
+  padding: var(--ds-space-5);
   overflow-y: auto;
   flex: 1;
   background: rgba(0, 0, 0, 0.1);
 }
 
 .missions-section {
-  margin-bottom: 24px;
+  margin-bottom: var(--ds-space-6);
 }
 
 .missions-section h3 {
@@ -505,7 +505,7 @@
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .missions-section h3::before {
@@ -524,7 +524,7 @@
   padding: 16px 18px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: var(--ds-radius-lg, 14px);
-  margin-bottom: 10px;
+  margin-bottom: var(--ds-space-2-5);
   border-left: 3px solid var(--ds-teal-500, #14b8a6);
   transition: var(--ds-transition-base);
 }
@@ -553,7 +553,7 @@
   font-family: var(--ds-font-body, 'Inter', sans-serif);
   font-weight: 600;
   font-size: 0.95rem;
-  margin-bottom: 4px;
+  margin-bottom: var(--ds-space-1);
   color: var(--ds-text-primary, #ffffff);
 }
 
@@ -561,7 +561,7 @@
   display: block;
   font-size: 0.8rem;
   color: var(--ds-text-muted, #6b7280);
-  margin-bottom: 10px;
+  margin-bottom: var(--ds-space-2-5);
 }
 
 .mission-progress-bar {
@@ -571,7 +571,7 @@
   background: rgba(0, 0, 0, 0.3);
   border-radius: var(--ds-radius-full, 9999px);
   overflow: hidden;
-  margin-bottom: 4px;
+  margin-bottom: var(--ds-space-1);
 }
 
 .mission-progress-bar .progress-fill {
@@ -605,7 +605,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
+  gap: var(--ds-space-2);
 }
 
 .xp-reward {
@@ -653,7 +653,7 @@
 
 /* === AVERTISSEMENT CONNEXION === */
 .login-warning {
-  padding: 16px;
+  padding: var(--ds-space-4);
   background: rgba(245, 158, 11, 0.08);
   text-align: center;
   color: var(--ds-warning, #f59e0b);
@@ -664,7 +664,7 @@
 .loading-text {
   text-align: center;
   color: var(--ds-text-muted, #6b7280);
-  padding: 50px;
+  padding: var(--ds-space-12);
   font-size: 1rem;
 }
 
@@ -676,7 +676,7 @@
   }
 
   .battlepass-header {
-    padding: 20px;
+    padding: var(--ds-space-5);
   }
 
   .season-info h2 {
@@ -691,7 +691,7 @@
     order: 3;
     width: 100%;
     flex: none;
-    margin-top: 10px;
+    margin-top: var(--ds-space-2-5);
   }
 
   .premium-content {
@@ -701,7 +701,7 @@
 
   .premium-text {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: var(--ds-space-2-5);
   }
 
   .premium-btn {
@@ -720,7 +720,7 @@
   .mission-card {
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
+    gap: var(--ds-space-3-5);
   }
 
   .mission-reward {
@@ -733,12 +733,12 @@
 
 @media (max-width: 480px) {
   .battlepass-header {
-    padding: 16px;
+    padding: var(--ds-space-4);
   }
 
   .rewards-track {
-    padding: 14px;
-    gap: 10px;
+    padding: var(--ds-space-3-5);
+    gap: var(--ds-space-2-5);
   }
 
   .reward-item {
@@ -751,6 +751,6 @@
   }
 
   .missions-container {
-    padding: 14px;
+    padding: var(--ds-space-3-5);
   }
 }

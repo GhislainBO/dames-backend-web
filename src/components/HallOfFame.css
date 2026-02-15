@@ -33,7 +33,7 @@
   backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
-  padding: 30px;
+  padding: var(--ds-space-8);
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
@@ -102,12 +102,12 @@
 
 .hall-header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: var(--ds-space-6);
 }
 
 .trophy-icon {
   font-size: 4rem;
-  margin-bottom: 10px;
+  margin-bottom: var(--ds-space-2-5);
   animation: trophyFloat 3s ease-in-out infinite;
   filter: drop-shadow(0 4px 20px rgba(201, 169, 98, 0.4));
 }
@@ -145,8 +145,8 @@
 /* === ONGLETS === */
 .hall-tabs {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: var(--ds-space-2-5);
+  margin-bottom: var(--ds-space-5);
   justify-content: center;
 }
 
@@ -181,16 +181,16 @@
 .players-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .player-card {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--ds-space-4);
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--ds-radius-lg, 14px);
-  padding: 15px;
+  padding: var(--ds-space-4);
   border: 1px solid var(--ds-border-subtle);
   transition: var(--ds-transition-base);
 }
@@ -295,7 +295,7 @@
 
 .player-stats {
   display: flex;
-  gap: 20px;
+  gap: var(--ds-space-5);
 }
 
 .player-stats .stat {
@@ -325,16 +325,16 @@
 .records-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--ds-space-4);
 }
 
 .record-card {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--ds-space-4);
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--ds-radius-lg, 14px);
-  padding: 20px;
+  padding: var(--ds-space-5);
   border: 1px solid rgba(201, 169, 98, 0.15);
   transition: var(--ds-transition-base);
 }
@@ -377,7 +377,7 @@
 .hall-footer {
   text-align: center;
   margin-top: 25px;
-  padding-top: 20px;
+  padding-top: var(--ds-space-5);
   border-top: 1px solid var(--ds-border-subtle);
 }
 
@@ -427,8 +427,8 @@
 
   .player-card {
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px;
+    gap: var(--ds-space-2-5);
+    padding: var(--ds-space-3);
   }
 
   .player-rank {
@@ -449,13 +449,13 @@
   .player-stats {
     width: 100%;
     justify-content: space-around;
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: var(--ds-space-2-5);
+    padding-top: var(--ds-space-2-5);
     border-top: 1px solid var(--ds-border-subtle);
   }
 
   .hall-tabs .tab-btn {
-    padding: 8px 16px;
+    padding: var(--ds-space-2) var(--ds-space-4);
     font-size: 0.8rem;
   }
 }

@@ -32,7 +32,7 @@
   backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border-radius: var(--ds-radius-2xl, 28px);
-  padding: 30px;
+  padding: var(--ds-space-8);
   width: 100%;
   max-width: 450px;
   max-height: 90vh;
@@ -121,11 +121,11 @@
 .level-section {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 18px;
+  gap: var(--ds-space-4-5);
+  padding: var(--ds-space-4-5);
   background: rgba(201, 169, 98, 0.08);
   border-radius: var(--ds-radius-xl, 20px);
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
   border: 1px solid rgba(201, 169, 98, 0.15);
 }
 
@@ -162,7 +162,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: var(--ds-space-2);
   background: linear-gradient(135deg, var(--ds-gold-300, #e8d5a3), var(--ds-gold-400, #d4bc7a));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -174,7 +174,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 6px;
+  margin-bottom: var(--ds-space-1-5);
 }
 
 .level-progress-bar {
@@ -193,8 +193,8 @@
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 22px;
+  gap: var(--ds-space-2-5);
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .stat-card {
@@ -227,7 +227,7 @@
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--ds-text-primary, #ffffff);
-  margin-bottom: 4px;
+  margin-bottom: var(--ds-space-1);
 }
 
 .stat-card.wins .stat-value {
@@ -249,7 +249,7 @@
 /* === TAUX DE VICTOIRE === */
 .winrate-section {
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .winrate-circle {
@@ -300,26 +300,26 @@
 
 /* === RECORDS === */
 .records-section {
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .records-section h3 {
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.9rem;
   color: var(--ds-text-secondary, #b8c0d4);
-  margin-bottom: 14px;
+  margin-bottom: var(--ds-space-3-5);
   font-weight: 600;
 }
 
 .records-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .record-item {
   background: rgba(255, 255, 255, 0.02);
-  padding: 12px;
+  padding: var(--ds-space-3);
   border-radius: var(--ds-radius-lg, 14px);
   text-align: center;
   border: 1px solid var(--ds-border-subtle);
@@ -355,7 +355,7 @@
   padding: 14px 0;
   border-top: 1px solid var(--ds-border-subtle);
   border-bottom: 1px solid var(--ds-border-subtle);
-  margin-bottom: 14px;
+  margin-bottom: var(--ds-space-3-5);
 }
 
 .total-item {
@@ -367,7 +367,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 0.7rem;
   color: var(--ds-text-muted, #6b7280);
-  margin-bottom: 4px;
+  margin-bottom: var(--ds-space-1);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -384,14 +384,14 @@
   text-align: center;
   font-size: 0.75rem;
   color: var(--ds-text-muted, #6b7280);
-  margin-bottom: 18px;
+  margin-bottom: var(--ds-space-4-5);
 }
 
 /* === RESET === */
 .reset-btn {
   display: block;
   width: 100%;
-  padding: 12px;
+  padding: var(--ds-space-3);
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
@@ -414,13 +414,13 @@
 
 .confirm-reset p {
   color: var(--ds-error, #ef4444);
-  margin-bottom: 12px;
+  margin-bottom: var(--ds-space-3);
   font-size: 0.9rem;
 }
 
 .confirm-buttons {
   display: flex;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
   justify-content: center;
 }
 
@@ -467,7 +467,7 @@
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: var(--ds-space-2);
   }
 
   .stat-value {
@@ -475,7 +475,7 @@
   }
 
   .level-section {
-    padding: 14px;
+    padding: var(--ds-space-3-5);
   }
 
   .level-badge {

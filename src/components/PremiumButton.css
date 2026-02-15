@@ -62,7 +62,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 /* Texte */
@@ -472,8 +472,8 @@
 .premium-btn__loader {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-left: 10px;
+  gap: var(--ds-space-1);
+  margin-left: var(--ds-space-2-5);
 }
 
 .premium-btn__loader-dot {
@@ -531,7 +531,7 @@
 @media (max-width: 600px) {
   .premium-btn {
     min-height: 48px;
-    padding: 14px 24px;
+    padding: var(--ds-space-3-5) var(--ds-space-6);
     font-size: 0.9rem;
   }
 
@@ -543,7 +543,7 @@
 
   .premium-btn--sm {
     min-height: 36px;
-    padding: 8px 16px;
+    padding: var(--ds-space-2) var(--ds-space-4);
     font-size: 0.8rem;
   }
 }

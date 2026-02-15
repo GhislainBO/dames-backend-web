@@ -107,7 +107,7 @@
 .profile-enhanced-header {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: var(--ds-space-5);
   padding: 28px 28px 20px;
   border-bottom: 1px solid var(--ds-border-subtle);
 }
@@ -154,7 +154,7 @@
 
 .level-badge {
   display: inline-block;
-  padding: 8px 16px;
+  padding: var(--ds-space-2) var(--ds-space-4);
   background: rgba(201, 169, 98, 0.12);
   border: 1px solid rgba(201, 169, 98, 0.25);
   border-radius: var(--ds-radius-full, 9999px);
@@ -174,14 +174,14 @@
 /* Tabs */
 .profile-tabs {
   display: flex;
-  gap: 8px;
-  padding: 16px 20px;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-4) var(--ds-space-5);
   background: rgba(0, 0, 0, 0.2);
 }
 
 .profile-tab {
   flex: 1;
-  padding: 12px 16px;
+  padding: var(--ds-space-3) var(--ds-space-4);
   background: transparent;
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-lg, 14px);
@@ -213,7 +213,7 @@
 .profile-content {
   flex: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: var(--ds-space-5);
 }
 
 .profile-content::-webkit-scrollbar {
@@ -233,25 +233,25 @@
 .overview-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--ds-space-4);
 }
 
 .quick-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .stat-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 18px;
+  padding: var(--ds-space-4-5);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: var(--ds-space-1-5);
   transition: var(--ds-transition-base);
 }
 
@@ -294,7 +294,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 18px;
+  padding: var(--ds-space-4-5);
 }
 
 .stats-row {
@@ -324,16 +324,16 @@
 .history-content {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--ds-space-3-5);
 }
 
 .history-filters {
   display: flex;
-  gap: 8px;
+  gap: var(--ds-space-2);
 }
 
 .history-filters .filter-btn {
-  padding: 8px 16px;
+  padding: var(--ds-space-2) var(--ds-space-4);
   background: transparent;
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-md, 10px);
@@ -359,7 +359,7 @@
 .history-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
   max-height: 350px;
   overflow-y: auto;
 }
@@ -367,8 +367,8 @@
 .history-entry {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px;
+  gap: var(--ds-space-3-5);
+  padding: var(--ds-space-3-5);
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--ds-radius-lg, 14px);
   border-left: 3px solid transparent;
@@ -402,13 +402,13 @@
 .entry-opponent {
   color: var(--ds-text-primary, #ffffff);
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: var(--ds-space-1);
   font-size: 0.95rem;
 }
 
 .entry-meta {
   display: flex;
-  gap: 14px;
+  gap: var(--ds-space-3-5);
   font-size: 0.75rem;
   color: var(--ds-text-muted, #6b7280);
 }
@@ -433,7 +433,7 @@
 
 .no-history {
   text-align: center;
-  padding: 40px;
+  padding: var(--ds-space-10);
   color: var(--ds-text-muted, #6b7280);
 }
 
@@ -441,14 +441,14 @@
 .graphs-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--ds-space-5);
 }
 
 .graph-section {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 18px;
+  padding: var(--ds-space-4-5);
 }
 
 .graph-section h3 {
@@ -463,13 +463,13 @@
 .bar-chart {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .bar-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .bar-label {
@@ -517,12 +517,12 @@
 .mode-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .mode-stat {
   text-align: center;
-  padding: 14px;
+  padding: var(--ds-space-3-5);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-lg, 14px);
@@ -536,14 +536,14 @@
 .mode-icon {
   display: block;
   font-size: 1.4rem;
-  margin-bottom: 8px;
+  margin-bottom: var(--ds-space-2);
 }
 
 .mode-name {
   display: block;
   color: var(--ds-text-primary, #ffffff);
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: var(--ds-space-1);
   font-size: 0.9rem;
 }
 
@@ -557,13 +557,13 @@
 .progress-bars {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .progress-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .progress-label {
@@ -616,8 +616,8 @@
 
   .profile-tabs {
     flex-wrap: wrap;
-    gap: 6px;
-    padding: 12px 16px;
+    gap: var(--ds-space-1-5);
+    padding: var(--ds-space-3) var(--ds-space-4);
   }
 
   .profile-tab {
@@ -628,22 +628,22 @@
 
   .quick-stats {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: var(--ds-space-2-5);
   }
 
   .stat-card {
     flex-direction: row;
     justify-content: space-between;
-    padding: 14px 16px;
+    padding: var(--ds-space-3-5) var(--ds-space-4);
   }
 
   .mode-stats {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: var(--ds-space-2-5);
   }
 
   .entry-meta {
     flex-direction: column;
-    gap: 4px;
+    gap: var(--ds-space-1);
   }
 }

@@ -8,7 +8,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
   padding: 6px 12px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
@@ -84,13 +84,13 @@
   position: absolute;
   top: 100%;
   right: 0;
-  margin-top: 10px;
+  margin-top: var(--ds-space-2-5);
   background: var(--ds-modal-gradient);
   backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   -webkit-backdrop-filter: var(--ds-glass-blur) var(--ds-glass-saturate);
   border: 1px solid rgba(45, 212, 191, 0.15);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 20px;
+  padding: var(--ds-space-5);
   min-width: 280px;
   z-index: 200;
   box-shadow:
@@ -113,9 +113,9 @@
 .xp-details-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
+  gap: var(--ds-space-3);
+  margin-bottom: var(--ds-space-4);
+  padding-bottom: var(--ds-space-4);
   border-bottom: 1px solid var(--ds-border-subtle);
 }
 
@@ -146,7 +146,7 @@
 }
 
 .xp-progress-detailed {
-  margin-bottom: 16px;
+  margin-bottom: var(--ds-space-4);
 }
 
 .xp-progress-bar-large {
@@ -154,7 +154,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 5px;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: var(--ds-space-2);
 }
 
 .xp-progress-fill-large {
@@ -198,15 +198,15 @@
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.15);
   border-radius: var(--ds-radius-lg, 14px);
-  padding: 14px;
-  margin-bottom: 16px;
+  padding: var(--ds-space-3-5);
+  margin-bottom: var(--ds-space-4);
 }
 
 .streak-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-2-5);
 }
 
 .streak-icon {
@@ -236,7 +236,7 @@
 .claim-daily-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ds-space-1-5);
   padding: 8px 14px;
   background: var(--ds-gradient-gold-dark);
   border: none;
@@ -270,7 +270,7 @@
 }
 
 .weekly-progress {
-  margin-top: 12px;
+  margin-top: var(--ds-space-3);
 }
 
 .weekly-label {
@@ -279,14 +279,14 @@
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--ds-text-muted, #6b7280);
-  margin-bottom: 10px;
+  margin-bottom: var(--ds-space-2-5);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .weekly-dots {
   display: flex;
-  gap: 6px;
+  gap: var(--ds-space-1-5);
 }
 
 .weekly-dot {
@@ -329,8 +329,8 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-2-5) var(--ds-space-4);
   background: var(--ds-gradient-gold-dark);
   border-radius: var(--ds-radius-lg, 14px);
   box-shadow: 0 4px 20px rgba(201, 169, 98, 0.4);
@@ -380,20 +380,20 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 20px;
+  padding: var(--ds-space-5);
 }
 
 .xp-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: var(--ds-space-4);
 }
 
 .level-display {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .level-badge-icon {
@@ -425,7 +425,7 @@
 .streak-display {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ds-space-1-5);
   padding: 8px 14px;
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1));
   border: 1px solid rgba(245, 158, 11, 0.3);
@@ -450,7 +450,7 @@
 }
 
 .xp-progress-container {
-  margin-bottom: 16px;
+  margin-bottom: var(--ds-space-4);
 }
 
 .xp-progress-bar {
@@ -458,7 +458,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: var(--ds-space-2);
 }
 
 .xp-progress-container .xp-progress-fill {
@@ -504,8 +504,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-3-5) var(--ds-space-4-5);
   background: var(--ds-gradient-gold-dark);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
@@ -547,7 +547,7 @@
 @media (max-width: 600px) {
   .xp-bar-compact {
     padding: 4px 8px;
-    gap: 6px;
+    gap: var(--ds-space-1-5);
   }
 
   .xp-level-badge {
@@ -563,6 +563,6 @@
   .xp-details-dropdown {
     min-width: 260px;
     right: -20px;
-    padding: 16px;
+    padding: var(--ds-space-4);
   }
 }

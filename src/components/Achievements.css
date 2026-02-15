@@ -136,7 +136,7 @@
 
 .achievements-message {
   text-align: center;
-  padding: 12px 20px;
+  padding: var(--ds-space-3) var(--ds-space-5);
   background: rgba(34, 197, 94, 0.1);
   color: var(--ds-success, #22c55e);
   border-radius: var(--ds-radius-lg, 14px);
@@ -149,14 +149,14 @@
 /* === ONGLETS PREMIUM === */
 .achievements-tabs {
   display: flex;
-  gap: 8px;
-  padding: 16px 20px;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-4) var(--ds-space-5);
   background: rgba(0, 0, 0, 0.2);
 }
 
 .tab-btn {
   flex: 1;
-  padding: 12px 16px;
+  padding: var(--ds-space-3) var(--ds-space-4);
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-lg, 14px);
   background: transparent;
@@ -204,7 +204,7 @@
 .achievements-content {
   flex: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: var(--ds-space-5);
 }
 
 .achievements-content::-webkit-scrollbar {
@@ -224,15 +224,15 @@
 .achievements-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 /* === CARTE DE SUCCÈS PREMIUM === */
 .achievement-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 18px;
+  gap: var(--ds-space-4);
+  padding: var(--ds-space-4-5);
   background:
     linear-gradient(
       180deg,
@@ -414,7 +414,7 @@
 .referral-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--ds-space-5);
 }
 
 .referral-card {
@@ -427,7 +427,7 @@
     rgba(21, 24, 41, 0.85);
   border: 1px solid var(--ds-border-subtle);
   border-radius: var(--ds-radius-xl, 20px);
-  padding: 24px;
+  padding: var(--ds-space-6);
   text-align: center;
 }
 
@@ -444,15 +444,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: var(--ds-space-3);
+  margin-bottom: var(--ds-space-5);
 }
 
 .referral-code-display .code {
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 4px;
-  padding: 14px 24px;
+  padding: var(--ds-space-3-5) var(--ds-space-6);
   border-radius: var(--ds-radius-lg, 14px);
   font-family: 'Consolas', monospace;
   border: 1px solid rgba(201, 169, 98, 0.3);
@@ -471,7 +471,7 @@
   background: rgba(255, 255, 255, 0.03);
   color: var(--ds-text-muted, #6b7280);
   border: 1px solid var(--ds-border-normal);
-  padding: 12px 18px;
+  padding: var(--ds-space-3) var(--ds-space-4-5);
   border-radius: var(--ds-radius-md, 10px);
   cursor: pointer;
   transition: var(--ds-transition-base);
@@ -487,7 +487,7 @@
 /* === SECTION PARTAGE RÉSEAUX SOCIAUX === */
 .social-share-section {
   margin: 20px 0;
-  padding: 20px;
+  padding: var(--ds-space-5);
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
   border: 1px solid var(--ds-border-subtle);
@@ -505,8 +505,8 @@
 .social-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: var(--ds-space-2-5);
+  margin-bottom: var(--ds-space-4);
 }
 
 .social-btn {
@@ -514,7 +514,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: var(--ds-space-1-5);
   padding: 14px 10px;
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
@@ -615,7 +615,7 @@
 /* Bouton Plus d'options (natif) */
 .share-btn-native {
   width: 100%;
-  padding: 12px;
+  padding: var(--ds-space-3);
   background: linear-gradient(
     135deg,
     var(--ds-teal-400, #2dd4bf) 0%,
@@ -645,9 +645,9 @@
 .referral-stats {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-bottom: 20px;
-  padding: 20px;
+  gap: var(--ds-space-10);
+  margin-bottom: var(--ds-space-5);
+  padding: var(--ds-space-5);
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
 }
@@ -686,17 +686,17 @@
 .use-code p {
   color: var(--ds-text-secondary, #b8c0d4);
   font-size: 0.9rem;
-  margin-bottom: 18px;
+  margin-bottom: var(--ds-space-4-5);
 }
 
 .code-input-group {
   display: flex;
-  gap: 12px;
+  gap: var(--ds-space-3);
 }
 
 .code-input-group input {
   flex: 1;
-  padding: 14px;
+  padding: var(--ds-space-3-5);
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-md, 10px);
   background: rgba(0, 0, 0, 0.4);
@@ -789,9 +789,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding: 12px 20px;
+  gap: var(--ds-space-3);
+  margin-bottom: var(--ds-space-3);
+  padding: var(--ds-space-3) var(--ds-space-5);
   background: rgba(45, 212, 191, 0.1);
   border: 1px solid rgba(45, 212, 191, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
@@ -808,7 +808,7 @@
 }
 
 .new-achievements-popup button {
-  margin-top: 15px;
+  margin-top: var(--ds-space-4);
   padding: 14px 40px;
   background: linear-gradient(
     135deg,
@@ -852,8 +852,8 @@
 
   .achievements-tabs {
     flex-wrap: wrap;
-    gap: 6px;
-    padding: 12px 16px;
+    gap: var(--ds-space-1-5);
+    padding: var(--ds-space-3) var(--ds-space-4);
   }
 
   .tab-btn {
@@ -865,12 +865,12 @@
 
 @media (max-width: 480px) {
   .achievements-content {
-    padding: 14px;
+    padding: var(--ds-space-3-5);
   }
 
   .achievement-card {
-    padding: 14px;
-    gap: 12px;
+    padding: var(--ds-space-3-5);
+    gap: var(--ds-space-3);
   }
 
   .achievement-icon {
@@ -885,12 +885,12 @@
 
   .referral-code-display .code {
     font-size: 1.3rem;
-    padding: 12px 18px;
+    padding: var(--ds-space-3) var(--ds-space-4-5);
   }
 
   .referral-stats {
-    gap: 25px;
-    padding: 16px;
+    gap: var(--ds-space-6);
+    padding: var(--ds-space-4);
   }
 
   .referral-stats .stat-value {

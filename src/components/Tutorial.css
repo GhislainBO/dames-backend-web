@@ -101,8 +101,8 @@
 .tutorial-progress {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: var(--ds-space-4);
+  margin-bottom: var(--ds-space-7);
 }
 
 .progress-bar {
@@ -164,9 +164,9 @@
   color: var(--ds-text-secondary, #b8c0d4);
   font-size: 1rem;
   line-height: 1.8;
-  margin-bottom: 30px;
+  margin-bottom: var(--ds-space-8);
   min-height: 160px;
-  padding: 22px;
+  padding: var(--ds-space-5-5);
   background: rgba(255, 255, 255, 0.02);
   border-radius: var(--ds-radius-xl, 20px);
   border: 1px solid var(--ds-border-subtle);
@@ -195,13 +195,13 @@
 .tutorial-navigation {
   display: flex;
   justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 22px;
+  gap: var(--ds-space-3-5);
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .nav-btn {
   flex: 1;
-  padding: 14px 24px;
+  padding: var(--ds-space-3-5) var(--ds-space-6);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
@@ -275,7 +275,7 @@
 .tutorial-dots {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: var(--ds-space-2);
 }
 
 .dot {
@@ -311,8 +311,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 18px;
-  padding: 14px;
+  margin-bottom: var(--ds-space-4-5);
+  padding: var(--ds-space-3-5);
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--ds-radius-lg, 14px);
   border: 1px solid var(--ds-border-subtle);
@@ -367,7 +367,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .quiz-badge {
@@ -391,7 +391,7 @@
   font-family: var(--ds-font-ui, 'Poppins', sans-serif);
   font-size: 1.2rem;
   color: var(--ds-text-primary, #ffffff);
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
   line-height: 1.5;
   text-align: center;
 }
@@ -399,15 +399,15 @@
 .quiz-options {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: var(--ds-space-2-5);
+  margin-bottom: var(--ds-space-4-5);
 }
 
 .quiz-option {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
+  gap: var(--ds-space-3-5);
+  padding: var(--ds-space-3-5) var(--ds-space-4-5);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--ds-border-normal);
   border-radius: var(--ds-radius-lg, 14px);
@@ -468,10 +468,10 @@
 .quiz-explanation {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 14px 18px;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-3-5) var(--ds-space-4-5);
   border-radius: var(--ds-radius-lg, 14px);
-  margin-bottom: 18px;
+  margin-bottom: var(--ds-space-4-5);
   animation: explanationFade 0.3s ease;
 }
 
@@ -512,7 +512,7 @@
 
 .quiz-next-btn {
   width: 100%;
-  padding: 14px;
+  padding: var(--ds-space-3-5);
   background: var(--ds-gradient-teal);
   border: none;
   border-radius: var(--ds-radius-lg, 14px);
@@ -546,7 +546,7 @@
 }
 
 .certificate-border {
-  padding: 28px;
+  padding: var(--ds-space-7);
   border: 2px solid;
   border-radius: var(--ds-radius-xl, 20px);
   position: relative;
@@ -563,13 +563,13 @@
 }
 
 .certificate-header {
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .certificate-icon {
   font-size: 3.5rem;
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: var(--ds-space-3-5);
 }
 
 .certificate-header h2 {
@@ -591,20 +591,20 @@
 }
 
 .certificate-body {
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .certificate-text {
   color: var(--ds-text-secondary, #b8c0d4);
   font-size: 0.95rem;
-  margin-bottom: 22px;
+  margin-bottom: var(--ds-space-5-5);
 }
 
 .certificate-score {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: var(--ds-space-2);
 }
 
 .score-value {
@@ -689,7 +689,7 @@
 .certificate-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--ds-space-2-5);
 }
 
 .certificate-download {
@@ -760,16 +760,16 @@
   .tutorial-content {
     font-size: 0.95rem;
     min-height: auto;
-    padding: 18px;
+    padding: var(--ds-space-4-5);
   }
 
   .nav-btn {
-    padding: 12px 16px;
+    padding: var(--ds-space-3) var(--ds-space-4);
     font-size: 0.85rem;
   }
 
   .tutorial-dots {
-    gap: 6px;
+    gap: var(--ds-space-1-5);
   }
 
   .dot {
@@ -786,7 +786,7 @@
   }
 
   .certificate-border {
-    padding: 18px;
+    padding: var(--ds-space-4-5);
   }
 
   .score-value {
