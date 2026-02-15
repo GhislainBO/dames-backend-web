@@ -5,11 +5,13 @@ import { Difficulty } from '../game/types';
 import { DraughtsScene, SceneCallbacks, sceneCallbacksRef, GameState } from '../game/DraughtsScene';
 import GameHistory from './GameHistory';
 import AudioControl from './AudioControl';
+import PlayerPanel from './PlayerPanel';
 import { useCosmetics, hexToNumber } from '../context/CosmeticsContext';
 import { useAuth } from '../context/AuthContext';
 import { notificationService } from '../services/NotificationService';
 import { adMobService } from '../services/AdMobService';
 import { localStatsService } from '../services/LocalStatsService';
+import { progressionService, XP_REWARDS } from '../services/ProgressionService';
 import './GameBoard.css';
 
 const API_URL = 'https://dames-backend-production.up.railway.app';
@@ -59,7 +61,7 @@ function GameBoard({ mode, difficulty, playerColor }: GameBoardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<DraughtsScene | null>(null);
   const { equipped } = useCosmetics();
-  const { token, isAuthenticated } = useAuth();
+  const { token, isAuthenticated, user } = useAuth();
 
   // Refs pour éviter le problème de stale closure
   const tokenRef = useRef(token);
@@ -138,6 +140,26 @@ function GameBoard({ mode, difficulty, playerColor }: GameBoardProps) {
 
     // Enregistrer dans les stats locales
     localStatsService.endGame(result);
+
+    // Attribuer l'XP selon le résultat
+    if (mode === 'ai') {
+      if (result === 'win') {
+        const xpKey = `WIN_AI_${difficulty.toUpperCase()}` as keyof typeof XP_REWARDS;
+        progressionService.addXP(XP_REWARDS[xpKey] || XP_REWARDS.WIN_AI_MEDIUM);
+      } else if (result === 'loss') {
+        progressionService.addXP(XP_REWARDS.LOSS);
+      } else {
+        progressionService.addXP(XP_REWARDS.DRAW);
+      }
+    } else if (mode === 'pvp') {
+      if (result === 'win') {
+        progressionService.addXP(XP_REWARDS.WIN_PVP);
+      } else {
+        progressionService.addXP(XP_REWARDS.DRAW);
+      }
+    }
+    // Dispatch event pour mettre à jour l'XP bar
+    window.dispatchEvent(new CustomEvent('progressionUpdate'));
 
     // Afficher une publicité interstitielle après la partie
     adMobService.showInterstitialAd();
@@ -393,25 +415,33 @@ function GameBoard({ mode, difficulty, playerColor }: GameBoardProps) {
           )}
         </div>
 
-        {/* Compteur de pieces */}
-        <div className="pieces-count">
-          <div className="piece-counter">
-            <div className="piece-icon white">
-              {gameState.whitePieces}
-              {gameState.whiteKings > 0 && <span className="kings-badge">{gameState.whiteKings}</span>}
-            </div>
-            <span className="piece-label">{t('game.white', 'Blancs')}</span>
-            <span className="captures-count">-{gameState.capturedByBlack}</span>
+        {/* Panneaux joueurs */}
+        <div className="players-section">
+          <PlayerPanel
+            color="white"
+            isCurrentTurn={gameState.currentTurn === 'white'}
+            pieceCount={gameState.whitePieces}
+            kingCount={gameState.whiteKings}
+            capturedCount={gameState.capturedByWhite}
+            isAI={mode === 'ai' && playerColor === 'black'}
+            aiDifficulty={difficulty}
+            playerName={mode === 'ai' && playerColor === 'white' ? (user?.username || t('game.you', 'Vous')) : (mode === 'pvp' ? t('game.player1', 'Joueur 1') : undefined)}
+            isGameOver={gameState.isGameOver}
+          />
+          <div className="vs-divider-premium">
+            <span className="vs-text">VS</span>
           </div>
-          <div className="vs-divider">VS</div>
-          <div className="piece-counter">
-            <div className="piece-icon black">
-              {gameState.blackPieces}
-              {gameState.blackKings > 0 && <span className="kings-badge">{gameState.blackKings}</span>}
-            </div>
-            <span className="piece-label">{t('game.black', 'Noirs')}</span>
-            <span className="captures-count">-{gameState.capturedByWhite}</span>
-          </div>
+          <PlayerPanel
+            color="black"
+            isCurrentTurn={gameState.currentTurn === 'black'}
+            pieceCount={gameState.blackPieces}
+            kingCount={gameState.blackKings}
+            capturedCount={gameState.capturedByBlack}
+            isAI={mode === 'ai' && playerColor === 'white'}
+            aiDifficulty={difficulty}
+            playerName={mode === 'ai' && playerColor === 'black' ? (user?.username || t('game.you', 'Vous')) : (mode === 'pvp' ? t('game.player2', 'Joueur 2') : undefined)}
+            isGameOver={gameState.isGameOver}
+          />
         </div>
 
         <GameHistory

@@ -6,6 +6,7 @@ import Lobby from './components/Lobby';
 import OnlineGame from './components/OnlineGame';
 import UserProfile from './components/UserProfile';
 import Wallet from './components/Wallet';
+import XPBar from './components/XPBar';
 import BannerAd from './components/BannerAd';
 import InterstitialAd from './components/InterstitialAd';
 import { SocketProvider } from './context/SocketContext';
@@ -173,6 +174,7 @@ function AppContent({ gameMode, renderContent }: { gameMode: GameMode; renderCon
           <span className="header-subtitle">FMJD 10×10 • RÈGLES INTERNATIONALES</span>
         </div>
         <div className="header-right">
+          <XPBar compact />
           <LanguageSelector compact />
           <Wallet />
           <UserProfile />

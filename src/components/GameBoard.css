@@ -582,3 +582,57 @@
 .piece-counter.capturing .piece-icon {
   animation: captureFlash 0.3s ease;
 }
+
+/* === SECTION JOUEURS PREMIUM === */
+.players-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.vs-divider-premium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+  position: relative;
+}
+
+.vs-divider-premium::before,
+.vs-divider-premium::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent
+  );
+}
+
+.vs-text {
+  padding: 0 16px;
+  font-family: var(--ds-font-ui, 'Poppins', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ds-text-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Responsive pour la section joueurs */
+@media (max-width: 600px) {
+  .players-section {
+    gap: 10px;
+  }
+
+  .vs-divider-premium {
+    padding: 4px 0;
+  }
+
+  .vs-text {
+    font-size: 0.7rem;
+  }
+}
