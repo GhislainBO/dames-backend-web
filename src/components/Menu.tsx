@@ -49,6 +49,7 @@ function Menu({ onStartGame }: MenuProps) {
   const [showPartners, setShowPartners] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [showMoreModes, setShowMoreModes] = useState(false);
 
   const toggleAISettings = () => {
     setShowAISettings(!showAISettings);
@@ -60,22 +61,17 @@ function Menu({ onStartGame }: MenuProps) {
 
   return (
     <div className="menu">
-      <h2 className="ds-text-gold">{t('menu.title')}</h2>
+      <h2 className="ds-text-shimmer">{t('menu.title')}</h2>
 
-      <div className="menu-buttons">
-        {/* === CTA PRINCIPAL - JOUER === */}
-        <PremiumButton
-          variant="play"
-          size="lg"
-          fullWidth
-          onClick={toggleAISettings}
-          icon={<span>♟</span>}
-        >
-          {t('menu.playVsAI')}
-        </PremiumButton>
+      {/* === CTA PRINCIPAL - JOUER RAPIDE === */}
+      <div className="menu-cta">
+        <button className="ds-btn ds-btn-cta" onClick={toggleAISettings}>
+          <span style={{ marginRight: '12px', fontSize: '1.5rem' }}>▶</span>
+          {t('menu.quickPlay', 'JOUER RAPIDE')}
+        </button>
 
         {showAISettings && (
-          <div className="ai-settings">
+          <div className="ai-settings ds-card-lit" style={{ marginTop: '16px' }}>
             <div className="setting-group">
               <label>{t('ai.difficulty')}</label>
               <select
@@ -101,216 +97,199 @@ function Menu({ onStartGame }: MenuProps) {
               </select>
             </div>
 
+            <button className="ds-btn ds-btn-cta ds-btn-full" onClick={handleStartAIGame}>
+              <span style={{ marginRight: '8px' }}>▶</span>
+              {t('menu.start')}
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* === GRILLE DE MODES PRINCIPAUX === */}
+      <div className="menu-modes-grid">
+        {/* Solo vs IA */}
+        <div className="mode-card solo" onClick={toggleAISettings}>
+          <span className="mode-card-icon">🤖</span>
+          <span className="mode-card-title">{t('menu.solo', 'Solo')}</span>
+          <span className="mode-card-desc">{t('menu.vsAI', 'vs IA')}</span>
+        </div>
+
+        {/* Multijoueur en ligne */}
+        <div className="mode-card multiplayer" onClick={() => onStartGame('online')}>
+          <span className="mode-card-icon">🌐</span>
+          <span className="mode-card-title">{t('menu.online')}</span>
+          <span className="mode-card-desc">{t('menu.ranked', 'Classé')}</span>
+          <span className="mode-card-badge">Live</span>
+        </div>
+
+        {/* 2 Joueurs local */}
+        <div className="mode-card" onClick={() => onStartGame('pvp')}>
+          <span className="mode-card-icon">👥</span>
+          <span className="mode-card-title">{t('menu.pvp')}</span>
+          <span className="mode-card-desc">{t('menu.local', 'Local')}</span>
+        </div>
+
+        {/* Puzzles */}
+        <div className="mode-card puzzle" onClick={() => setShowDailyPuzzle(true)}>
+          <span className="mode-card-icon">🧩</span>
+          <span className="mode-card-title">{t('menu.puzzles', 'Puzzles')}</span>
+          <span className="mode-card-desc">{t('menu.daily', 'Quotidien')}</span>
+          <span className="mode-card-badge new">+XP</span>
+        </div>
+
+        {/* Tournois */}
+        <div className="mode-card tournament" onClick={() => setShowTournaments(true)}>
+          <span className="mode-card-icon">🏆</span>
+          <span className="mode-card-title">{t('menu.tournaments')}</span>
+          <span className="mode-card-desc">Blitz Arena</span>
+          <span className="mode-card-badge gold">🔥</span>
+        </div>
+
+        {/* Classement */}
+        <div className="mode-card" onClick={() => setShowLeaderboard(true)}>
+          <span className="mode-card-icon">📊</span>
+          <span className="mode-card-title">{t('menu.leaderboard')}</span>
+          <span className="mode-card-desc">{t('menu.rankings', 'Ligues')}</span>
+        </div>
+      </div>
+
+      {/* === BARRE DE NAVIGATION BAS === */}
+      <div className="menu-bottom-nav">
+        <button className="menu-nav-btn" onClick={() => setShowShop(true)}>
+          <span className="menu-nav-btn-icon">🛒</span>
+          <span>{t('menu.shop')}</span>
+        </button>
+
+        <button className="menu-nav-btn" onClick={() => setShowProfile(true)}>
+          <span className="menu-nav-btn-icon">👤</span>
+          <span>{t('menu.profile', 'Profil')}</span>
+        </button>
+
+        <button className="menu-nav-btn" onClick={() => setShowTutorial(true)}>
+          <span className="menu-nav-btn-icon">📖</span>
+          <span>{t('menu.tutorial')}</span>
+        </button>
+
+        <button className="menu-nav-btn" onClick={() => setShowSettings(true)}>
+          <span className="menu-nav-btn-icon">⚙️</span>
+          <span>{t('menu.settings', 'Options')}</span>
+        </button>
+      </div>
+
+      {/* === SECTION AUTRES MODES === */}
+      <div className="menu-more-section">
+        <button
+          className="menu-more-toggle"
+          onClick={() => setShowMoreModes(!showMoreModes)}
+        >
+          <span>{showMoreModes ? '▲' : '▼'}</span>
+          <span>{t('menu.moreModes', 'Plus de modes')}</span>
+        </button>
+
+        {showMoreModes && (
+          <div className="menu-more-content">
             <PremiumButton
               variant="emerald"
               fullWidth
-              onClick={handleStartAIGame}
-              icon={<span>▶</span>}
+              onClick={() => setShowAchievements(true)}
+              icon={<span>🎖</span>}
             >
-              {t('menu.start')}
+              {t('menu.achievements')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="secondary"
+              fullWidth
+              onClick={() => setShowLocalStats(true)}
+              icon={<span>📈</span>}
+            >
+              {t('menu.stats', 'Statistiques')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="emerald"
+              fullWidth
+              onClick={() => setShowLocalAchievements(true)}
+              icon={<span>🏅</span>}
+            >
+              {t('menu.localAchievements', 'Succes Locaux')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="outline-gold"
+              fullWidth
+              onClick={() => setShowHallOfFame(true)}
+              icon={<span>👑</span>}
+            >
+              {t('menu.hallOfFame', 'Hall of Fame')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="tournament"
+              fullWidth
+              onClick={() => setShowBattlePass(true)}
+              icon={<span>⭐</span>}
+            >
+              {t('battlePass.title')}
+            </PremiumButton>
+
+            {!adMobService.isNative() && (
+              <PremiumButton
+                variant="ruby"
+                fullWidth
+                onClick={() => setShowPromotions(true)}
+                icon={<span>🎁</span>}
+              >
+                {t('promotions.title')}
+              </PremiumButton>
+            )}
+
+            <PremiumButton
+              variant="secondary"
+              fullWidth
+              onClick={() => setShowBlog(true)}
+              icon={<span>📰</span>}
+            >
+              {t('menu.blog', 'Blog & Actualites')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="secondary"
+              fullWidth
+              onClick={() => setShowCommunity(true)}
+              icon={<span>🌍</span>}
+            >
+              {t('menu.community', 'Communaute')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="ruby"
+              fullWidth
+              onClick={() => setShowSupport(true)}
+              icon={<span>❤️</span>}
+            >
+              {t('menu.support', 'Nous Soutenir')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="secondary"
+              fullWidth
+              onClick={() => setShowResources(true)}
+              icon={<span>📚</span>}
+            >
+              {t('menu.resources', 'Ressources')}
+            </PremiumButton>
+
+            <PremiumButton
+              variant="secondary"
+              fullWidth
+              onClick={() => setShowPartners(true)}
+              icon={<span>🤝</span>}
+            >
+              {t('menu.partners', 'Partenaires')}
             </PremiumButton>
           </div>
         )}
-
-        {/* === MODES DE JEU === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => onStartGame('pvp')}
-          icon={<span>👥</span>}
-        >
-          {t('menu.pvp')}
-        </PremiumButton>
-
-        <PremiumButton
-          variant="tournament"
-          fullWidth
-          onClick={() => onStartGame('online')}
-          icon={<span>🌐</span>}
-        >
-          {t('menu.online')}
-        </PremiumButton>
-
-        {/* === TOURNOIS === */}
-        <PremiumButton
-          variant="tournament"
-          fullWidth
-          onClick={() => setShowTournaments(true)}
-          icon={<span>🏆</span>}
-        >
-          {t('menu.tournaments')}
-        </PremiumButton>
-
-        {/* === CLASSEMENT === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowLeaderboard(true)}
-          icon={<span>📊</span>}
-        >
-          {t('menu.leaderboard')}
-        </PremiumButton>
-
-        {/* === PUZZLE DU JOUR === */}
-        <PremiumButton
-          variant="outline-gold"
-          fullWidth
-          onClick={() => setShowDailyPuzzle(true)}
-          icon={<span>🧩</span>}
-        >
-          {t('menu.puzzle', 'Puzzle du Jour')}
-        </PremiumButton>
-
-        {/* === TUTORIEL === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowTutorial(true)}
-          icon={<span>📖</span>}
-        >
-          {t('menu.tutorial')}
-        </PremiumButton>
-
-        {/* === BOUTIQUE === */}
-        <PremiumButton
-          variant="play"
-          fullWidth
-          onClick={() => setShowShop(true)}
-          icon={<span>🛒</span>}
-        >
-          {t('menu.shop')}
-        </PremiumButton>
-
-        {/* Offres promotionnelles - uniquement sur Web (pas sur mobile/Google Play) */}
-        {!adMobService.isNative() && (
-          <PremiumButton
-            variant="ruby"
-            fullWidth
-            onClick={() => setShowPromotions(true)}
-            icon={<span>🎁</span>}
-          >
-            {t('promotions.title')}
-          </PremiumButton>
-        )}
-
-        {/* === BATTLE PASS === */}
-        <button
-          className="menu-btn battlepass"
-          onClick={() => setShowBattlePass(true)}
-        >
-          {t('battlePass.title')}
-        </button>
-
-        {/* === SUCCES === */}
-        <PremiumButton
-          variant="emerald"
-          fullWidth
-          onClick={() => setShowAchievements(true)}
-          icon={<span>🎖</span>}
-        >
-          {t('menu.achievements')}
-        </PremiumButton>
-
-        {/* === STATISTIQUES === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowLocalStats(true)}
-          icon={<span>📈</span>}
-        >
-          {t('menu.stats', 'Statistiques')}
-        </PremiumButton>
-
-        {/* === SUCCES LOCAUX === */}
-        <PremiumButton
-          variant="emerald"
-          fullWidth
-          onClick={() => setShowLocalAchievements(true)}
-          icon={<span>🏅</span>}
-        >
-          {t('menu.localAchievements', 'Succes Locaux')}
-        </PremiumButton>
-
-        {/* === HALL OF FAME === */}
-        <PremiumButton
-          variant="outline-gold"
-          fullWidth
-          onClick={() => setShowHallOfFame(true)}
-          icon={<span>👑</span>}
-        >
-          {t('menu.hallOfFame', 'Hall of Fame')}
-        </PremiumButton>
-
-        {/* === BLOG === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowBlog(true)}
-          icon={<span>📰</span>}
-        >
-          {t('menu.blog', 'Blog & Actualites')}
-        </PremiumButton>
-
-        {/* === COMMUNAUTE === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowCommunity(true)}
-          icon={<span>🌍</span>}
-        >
-          {t('menu.community', 'Communaute')}
-        </PremiumButton>
-
-        {/* === SUPPORT === */}
-        <PremiumButton
-          variant="ruby"
-          fullWidth
-          onClick={() => setShowSupport(true)}
-          icon={<span>❤️</span>}
-        >
-          {t('menu.support', 'Nous Soutenir')}
-        </PremiumButton>
-
-        {/* === RESSOURCES === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowResources(true)}
-          icon={<span>📚</span>}
-        >
-          {t('menu.resources', 'Ressources')}
-        </PremiumButton>
-
-        {/* === PARTENAIRES === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowPartners(true)}
-          icon={<span>🤝</span>}
-        >
-          {t('menu.partners', 'Partenaires')}
-        </PremiumButton>
-
-        {/* === PROFIL === */}
-        <PremiumButton
-          variant="profile"
-          fullWidth
-          onClick={() => setShowProfile(true)}
-          icon={<span>👤</span>}
-        >
-          {t('menu.profile', 'Mon Profil')}
-        </PremiumButton>
-
-        {/* === PARAMETRES === */}
-        <PremiumButton
-          variant="secondary"
-          fullWidth
-          onClick={() => setShowSettings(true)}
-          icon={<span>⚙️</span>}
-        >
-          {t('menu.settings', 'Parametres')}
-        </PremiumButton>
-
       </div>
 
       <Leaderboard
