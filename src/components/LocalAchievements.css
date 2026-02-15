@@ -303,7 +303,7 @@
   border-color: var(--cat-color, var(--ds-teal-500, #14b8a6));
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
-  box-shadow: 0 2px 12px rgba(45, 212, 191, 0.3);
+  box-shadow: var(--ds-glow-teal-sm);
 }
 
 /* === LISTE DES ACHIEVEMENTS === */
@@ -427,11 +427,11 @@
   cursor: pointer;
   transition: all 0.2s ease;
   animation: claimGlow 1.5s ease-in-out infinite;
-  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3);
+  box-shadow: var(--ds-glow-gold-md);
 }
 
 @keyframes claimGlow {
-  0%, 100% { box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3); }
+  0%, 100% { box-shadow: var(--ds-glow-gold-md); }
   50% { box-shadow: 0 4px 25px rgba(201, 169, 98, 0.5); }
 }
 

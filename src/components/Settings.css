@@ -299,7 +299,7 @@
   background: var(--ds-text-muted, #6b7280);
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--ds-shadow-sm);
 }
 
 .toggle input:checked + .toggle-slider {

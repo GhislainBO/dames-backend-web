@@ -250,7 +250,7 @@
 .nav-btn.next {
   background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
   color: var(--ds-bg-primary, #0f1120);
-  box-shadow: 0 4px 20px rgba(45, 212, 191, 0.3);
+  box-shadow: var(--ds-glow-teal-lg);
 }
 
 .nav-btn.next:hover {
@@ -528,7 +528,7 @@
 
 .quiz-next-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(45, 212, 191, 0.4);
+  box-shadow: var(--ds-glow-teal-xl);
 }
 
 /* === CERTIFICAT === */
@@ -714,7 +714,7 @@
 
 .certificate-download:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(201, 169, 98, 0.4);
+  box-shadow: var(--ds-glow-gold-xl);
 }
 
 .certificate-actions .certificate-close {

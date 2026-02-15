@@ -268,7 +268,7 @@
 .achievement-card:hover {
   border-color: rgba(45, 212, 191, 0.3);
   transform: translateX(4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--ds-shadow-card);
 }
 
 .achievement-card:hover::before {
@@ -388,7 +388,7 @@
   transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3);
+  box-shadow: var(--ds-glow-gold-md);
 }
 
 .claim-btn:hover {
@@ -631,7 +631,7 @@
   transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.25);
+  box-shadow: var(--ds-glow-teal-md);
 }
 
 .share-btn-native:hover {
@@ -728,7 +728,7 @@
   transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.25);
+  box-shadow: var(--ds-glow-teal-md);
 }
 
 .code-input-group button:hover {
@@ -825,7 +825,7 @@
   transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 20px rgba(201, 169, 98, 0.3);
+  box-shadow: var(--ds-glow-gold-lg);
 }
 
 .new-achievements-popup button:hover {

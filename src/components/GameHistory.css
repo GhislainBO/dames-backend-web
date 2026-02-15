@@ -18,7 +18,7 @@
   min-height: 300px;
   max-height: 500px;
   border: 1px solid var(--ds-border-subtle);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--ds-shadow-lg);
 }
 
 /* === HEADER === */
@@ -74,7 +74,7 @@
   background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
-  box-shadow: 0 2px 10px rgba(45, 212, 191, 0.3);
+  box-shadow: var(--ds-glow-teal-sm);
 }
 
 /* === LISTE DES COUPS === */
@@ -144,7 +144,7 @@
   background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 700;
-  box-shadow: 0 2px 10px rgba(45, 212, 191, 0.3);
+  box-shadow: var(--ds-glow-teal-sm);
 }
 
 .move.played {
@@ -197,7 +197,7 @@
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   transform: scale(1.08);
-  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
+  box-shadow: var(--ds-glow-teal-md);
 }
 
 .replay-controls button:disabled {

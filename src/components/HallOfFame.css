@@ -174,7 +174,7 @@
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
-  box-shadow: 0 4px 20px rgba(201, 169, 98, 0.35);
+  box-shadow: var(--ds-glow-gold-lg);
 }
 
 /* === LISTE DES JOUEURS === */

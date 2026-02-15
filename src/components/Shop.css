@@ -298,7 +298,7 @@
   height: 65px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--ds-shadow-md);
 }
 
 .preview-square {
@@ -378,7 +378,7 @@
 .buy-btn {
   background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
   color: var(--ds-bg-primary, #0f1120);
-  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.25);
+  box-shadow: var(--ds-glow-teal-md);
 }
 
 .buy-btn:hover:not(:disabled) {

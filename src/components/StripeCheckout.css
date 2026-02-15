@@ -86,12 +86,12 @@
 .checkout-pay-btn {
   background: linear-gradient(135deg, var(--ds-teal-400, #2dd4bf), var(--ds-teal-500, #14b8a6));
   color: var(--ds-bg-primary, #0f1120);
-  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
+  box-shadow: var(--ds-glow-teal-md);
 }
 
 .checkout-pay-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(45, 212, 191, 0.45);
+  box-shadow: var(--ds-glow-teal-hover);
 }
 
 .checkout-pay-btn:active:not(:disabled) {

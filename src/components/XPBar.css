@@ -247,7 +247,7 @@
   color: var(--ds-bg-primary, #0f1120);
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 10px rgba(201, 169, 98, 0.3);
+  box-shadow: var(--ds-glow-gold-sm);
 }
 
 .claim-daily-btn:hover {
@@ -511,12 +511,12 @@
   border-radius: var(--ds-radius-lg, 14px);
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3);
+  box-shadow: var(--ds-glow-gold-md);
 }
 
 .claim-daily-btn-large:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(201, 169, 98, 0.45);
+  box-shadow: var(--ds-glow-gold-hover);
 }
 
 .claim-icon {

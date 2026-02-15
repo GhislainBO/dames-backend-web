@@ -161,7 +161,7 @@
   border-color: transparent;
   color: var(--ds-bg-primary, #0f1120);
   font-weight: 600;
-  box-shadow: 0 2px 12px rgba(45, 212, 191, 0.3);
+  box-shadow: var(--ds-glow-teal-sm);
 }
 
 /* === LISTE DES ARTICLES === */

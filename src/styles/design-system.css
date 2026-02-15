@@ -284,6 +284,14 @@
   --ds-glow-gold-xl: 0 6px 25px rgba(201, 169, 98, 0.4);
   --ds-glow-gold-hover: 0 6px 25px rgba(201, 169, 98, 0.45);
   --ds-glow-gold-intense: 0 8px 40px rgba(201, 169, 98, 0.5);
+
+  /* === OMBRES DE BASE (noir) === */
+  --ds-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --ds-shadow-md: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --ds-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --ds-shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --ds-shadow-card: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --ds-shadow-dropdown: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* ============================================
