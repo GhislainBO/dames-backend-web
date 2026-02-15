@@ -203,8 +203,6 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
   const handlePayPalSuccess = async (orderId: string) => {
     if (!selectedPack) return;
 
-    console.log('[PayPal] Confirming payment with orderId:', orderId);
-
     try {
       // Confirmer le paiement PayPal cote serveur
       const response = await fetch(`${API_URL}/api/payments/confirm-paypal`, {
@@ -220,7 +218,6 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
       });
 
       const data = await response.json();
-      console.log('[PayPal] Server response:', data);
 
       if (data.success) {
         handlePaymentComplete();
@@ -512,4 +509,3 @@ function BuyCoins({ isOpen, onClose, onPurchaseComplete }: BuyCoinsProps) {
 }
 
 export default BuyCoins;
-// Force rebuild Sat, Feb 14, 2026  9:42:17 PM

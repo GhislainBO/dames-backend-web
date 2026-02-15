@@ -169,16 +169,10 @@ const PayPalCheckout: React.FC<PayPalCheckoutProps> = ({
         });
       },
       onApprove: async (data: PayPalApproveData, actions: PayPalActions) => {
-        console.log('[PayPal] onApprove called, orderID:', data.orderID);
         setProcessing(true);
-
-        // Envoyer l'orderID au backend pour capture et validation
-        // Ne pas capturer côté client pour éviter "Window closed before response"
-        console.log('[PayPal] Sending orderID to backend for capture...');
         onSuccess(data.orderID);
       },
-      onError: (err: Error) => {
-        console.error('PayPal Error:', err);
+      onError: () => {
         onError(t('paypal.paymentError', 'Erreur de paiement PayPal'));
       },
       onCancel: () => {
