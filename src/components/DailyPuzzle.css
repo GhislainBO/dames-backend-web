@@ -5,20 +5,25 @@
 
 .daily-puzzle-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: var(--ds-overlay-bg);
   backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 9999;
-  padding: 20px;
+
+  /* Scroll container */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Flexbox for centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Padding to ensure modal is never touching edges */
+  padding: 40px 20px;
   box-sizing: border-box;
-  overflow: hidden;
+
   animation: puzzleFadeIn 0.25s ease-out;
 }
 
@@ -36,13 +41,18 @@
   padding: var(--ds-space-8);
   max-width: 500px;
   width: 100%;
-  max-height: min(90vh, 800px);
   border: 1px solid rgba(45, 212, 191, 0.15);
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.5),
     0 0 80px rgba(45, 212, 191, 0.08);
   animation: puzzleSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  margin: auto;
+
+  /* Vertical centering with auto margins */
+  margin-top: auto;
+  margin-bottom: auto;
+
+  /* Ensure modal doesn't shrink */
+  flex-shrink: 0;
 }
 
 @keyframes puzzleSlideIn {

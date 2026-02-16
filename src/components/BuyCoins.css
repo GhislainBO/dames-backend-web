@@ -5,20 +5,25 @@
 
 .buy-coins-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: var(--ds-overlay-bg);
   backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 99999;
-  overflow: hidden;
-  padding: 20px;
+
+  /* Scroll container */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Flexbox for centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Padding */
+  padding: 40px 20px;
   box-sizing: border-box;
+
   animation: buyFadeIn 0.25s ease-out;
 }
 
@@ -36,12 +41,14 @@
   padding: 36px;
   width: 95%;
   max-width: 700px;
-  margin: auto;
   border: 1px solid rgba(201, 169, 98, 0.15);
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.5),
     0 0 80px rgba(201, 169, 98, 0.06);
   animation: buySlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
 }
 
 @keyframes buySlideIn {
