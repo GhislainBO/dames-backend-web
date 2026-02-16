@@ -13,12 +13,12 @@
   backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   z-index: 9999;
-  padding: 100px 20px 40px;
+  padding: 20px;
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow: hidden;
   animation: profileFadeIn 0.25s ease-out;
 }
 
@@ -212,7 +212,7 @@
 /* Content scrollable */
 .profile-content {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   padding: var(--ds-space-5);
 }
 
@@ -361,7 +361,7 @@
   flex-direction: column;
   gap: var(--ds-space-2-5);
   max-height: 350px;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .history-entry {

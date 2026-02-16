@@ -12,12 +12,12 @@
   backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   -webkit-backdrop-filter: var(--ds-glass-blur-light) var(--ds-glass-saturate-light);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   z-index: 9999;
-  padding: 100px 20px 40px;
+  padding: 20px;
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow: hidden;
   animation: partnersFadeIn 0.25s ease-out;
 }
 
@@ -35,7 +35,7 @@
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.5),
@@ -420,7 +420,7 @@
 
 .tier-card li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--ds-space-2);
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.8rem;
