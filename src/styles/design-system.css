@@ -2097,80 +2097,10 @@ button {
 }
 
 /* ==============================================
-   MODAL SYSTEM FIX - Close button always visible
-   ==============================================
+   MODAL SYSTEM - Styles are now in component CSS files
+   ============================================== */
 
-   Strategy: Overlay scrolls, close button fixed to viewport
-   This works with existing JSX structure (no content wrapper needed)
-*/
-
-/* Step 1: Overlay - scrollable, flex center */
-.shop-overlay,
-.tutorial-overlay,
-.tournaments-overlay,
-.daily-puzzle-overlay,
-.achievements-overlay,
-.battlepass-overlay,
-.leaderboard-overlay,
-.settings-overlay,
-.profile-enhanced-overlay,
-.localstats-overlay,
-.local-achievements-overlay,
-.hall-of-fame-overlay,
-.blog-overlay,
-.community-overlay,
-.support-overlay,
-.resources-overlay,
-.partners-overlay,
-.promo-overlay,
-.auth-modal-overlay,
-.buy-coins-overlay {
-  /* Flexbox centering */
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-
-  /* Scrollable overlay */
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-
-  /* Safe padding */
-  padding: 40px 20px !important;
-  box-sizing: border-box !important;
-
-  /* Ensure on top */
-  z-index: 9999 !important;
-}
-
-/* Step 2: Modal containers - centered with auto margin */
-.shop-modal,
-.tutorial-modal,
-.tournaments-modal,
-.daily-puzzle-modal,
-.achievements-modal,
-.battlepass-modal,
-.leaderboard-modal,
-.settings-modal,
-.profile-enhanced-modal,
-.localstats-modal,
-.local-achievements-modal,
-.hall-of-fame-modal,
-.blog-modal,
-.community-modal,
-.support-modal,
-.resources-modal,
-.partners-modal,
-.promo-modal,
-.auth-modal,
-.buy-coins-modal {
-  /* Center vertically with margin auto */
-  margin: auto !important;
-
-  /* Relative for close button positioning */
-  position: relative !important;
-}
-
-/* Step 3: FIXED Close button - always visible in viewport */
+/* Close buttons z-index only - positioning handled by components */
 .shop-close,
 .tutorial-close,
 .tournaments-close,
@@ -2193,55 +2123,7 @@ button {
 .auth-modal-close,
 .buy-coins-close,
 .certificate-close {
-  /* Fixed to viewport - ALWAYS visible */
-  position: fixed !important;
-  top: 50px !important;
-  right: 30px !important;
-
-  /* High z-index to stay on top */
-  z-index: 10001 !important;
-
-  /* Visual styling for visibility */
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 50% !important;
-  background: rgba(15, 17, 32, 0.95) !important;
-  border: 2px solid rgba(45, 212, 191, 0.5) !important;
-  color: #fff !important;
-  font-size: 24px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-  transition: all 0.2s ease !important;
-}
-
-.shop-close:hover,
-.tutorial-close:hover,
-.tournaments-close:hover,
-.puzzle-close-btn:hover,
-.achievements-close:hover,
-.battlepass-close:hover,
-.leaderboard-close:hover,
-.settings-close:hover,
-.close-btn:hover,
-.modal-close:hover,
-.localstats-close:hover,
-.local-achievements-close:hover,
-.hall-of-fame-close:hover,
-.blog-close:hover,
-.community-close:hover,
-.support-close:hover,
-.resources-close:hover,
-.partners-close:hover,
-.promo-close:hover,
-.auth-modal-close:hover,
-.buy-coins-close:hover,
-.certificate-close:hover {
-  background: rgba(45, 212, 191, 0.3) !important;
-  border-color: rgba(45, 212, 191, 0.8) !important;
-  transform: scale(1.1) !important;
+  z-index: 100;
 }
 
 /* Fix: Ensure PremiumButton text is always visible */
