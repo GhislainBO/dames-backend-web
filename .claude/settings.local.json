@@ -17,7 +17,8 @@
       "Bash(find:*)",
       "Bash(npm run deploy:*)",
       "Bash(npm run:*)",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "WebFetch(domain:dameselite.com)"
     ]
   }
 }

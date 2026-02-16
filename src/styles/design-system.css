@@ -2097,17 +2097,14 @@ button {
 }
 
 /* ==============================================
-   MODAL SYSTEM FIX - Proper centering & scrolling
+   MODAL SYSTEM FIX - Close button always visible
    ==============================================
 
-   Architecture:
-   - Overlay: fixed, centered grid, NO scroll
-   - Modal: max-height constraint, flex column
-   - Modal content: internal scroll
-   - Close button: always visible in header
+   Strategy: Overlay scrolls, close button fixed to viewport
+   This works with existing JSX structure (no content wrapper needed)
 */
 
-/* Step 1: Overlay - centered, no scroll */
+/* Step 1: Overlay - scrollable, flex center */
 .shop-overlay,
 .tutorial-overlay,
 .tournaments-overlay,
@@ -2128,24 +2125,24 @@ button {
 .promo-overlay,
 .auth-modal-overlay,
 .buy-coins-overlay {
-  /* Reset any conflicting styles */
-  display: grid !important;
-  place-items: center !important;
-  align-items: center !important;
+  /* Flexbox centering */
+  display: flex !important;
   justify-content: center !important;
+  align-items: flex-start !important;
 
-  /* No scroll on overlay - modal scrolls internally */
-  overflow: hidden !important;
+  /* Scrollable overlay */
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 
-  /* Padding for safe area */
-  padding: 20px !important;
+  /* Safe padding */
+  padding: 40px 20px !important;
   box-sizing: border-box !important;
 
   /* Ensure on top */
   z-index: 9999 !important;
 }
 
-/* Step 2: Modal containers - constrained height, flex layout */
+/* Step 2: Modal containers - centered with auto margin */
 .shop-modal,
 .tutorial-modal,
 .tournaments-modal,
@@ -2166,78 +2163,14 @@ button {
 .promo-modal,
 .auth-modal,
 .buy-coins-modal {
-  /* Constrain height - use dvh with vh fallback */
-  max-height: min(90vh, 900px) !important;
-  max-height: min(90dvh, 900px) !important;
+  /* Center vertically with margin auto */
+  margin: auto !important;
 
-  /* Flex layout for header/content/footer structure */
-  display: flex !important;
-  flex-direction: column !important;
-
-  /* No margin needed - grid centers */
-  margin: 0 !important;
-
-  /* Contain internal scroll */
-  overflow: hidden !important;
-}
-
-/* Step 3: Modal content areas - internal scroll */
-.shop-content,
-.tutorial-content,
-.tournaments-content,
-.daily-puzzle-content,
-.achievements-content,
-.battlepass-content,
-.leaderboard-content,
-.settings-content,
-.profile-enhanced-content,
-.localstats-content,
-.local-achievements-content,
-.hall-of-fame-content,
-.blog-content,
-.community-content,
-.support-content,
-.resources-content,
-.partners-content,
-.promo-content,
-.auth-modal-content,
-.buy-coins-content,
-.modal-body,
-.modal-content {
-  flex: 1 1 auto !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  min-height: 0 !important; /* Required for flex scroll */
-}
-
-/* Step 4: Modal headers - sticky at top, always visible */
-.shop-header,
-.tutorial-header,
-.tournaments-header,
-.puzzle-header,
-.achievements-header,
-.battlepass-header,
-.leaderboard-header,
-.settings-header,
-.profile-enhanced-header,
-.localstats-header,
-.local-achievements-header,
-.hall-of-fame-header,
-.blog-header,
-.community-header,
-.support-header,
-.resources-header,
-.partners-header,
-.promo-header,
-.auth-modal-header,
-.buy-coins-header,
-.modal-header {
-  flex-shrink: 0 !important;
+  /* Relative for close button positioning */
   position: relative !important;
-  z-index: 10 !important;
 }
 
-/* Step 5: Close buttons - high z-index, always clickable */
+/* Step 3: FIXED Close button - always visible in viewport */
 .shop-close,
 .tutorial-close,
 .tournaments-close,
@@ -2260,22 +2193,55 @@ button {
 .auth-modal-close,
 .buy-coins-close,
 .certificate-close {
-  z-index: 100 !important;
-  position: absolute !important;
-  top: 16px !important;
-  right: 16px !important;
+  /* Fixed to viewport - ALWAYS visible */
+  position: fixed !important;
+  top: 50px !important;
+  right: 30px !important;
+
+  /* High z-index to stay on top */
+  z-index: 10001 !important;
+
+  /* Visual styling for visibility */
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(15, 17, 32, 0.95) !important;
+  border: 2px solid rgba(45, 212, 191, 0.5) !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.2s ease !important;
 }
 
-/* Step 6: Ensure modal footers stay at bottom */
-.shop-footer,
-.tutorial-footer,
-.tournaments-footer,
-.achievements-footer,
-.battlepass-footer,
-.leaderboard-footer,
-.settings-footer,
-.modal-footer {
-  flex-shrink: 0 !important;
+.shop-close:hover,
+.tutorial-close:hover,
+.tournaments-close:hover,
+.puzzle-close-btn:hover,
+.achievements-close:hover,
+.battlepass-close:hover,
+.leaderboard-close:hover,
+.settings-close:hover,
+.close-btn:hover,
+.modal-close:hover,
+.localstats-close:hover,
+.local-achievements-close:hover,
+.hall-of-fame-close:hover,
+.blog-close:hover,
+.community-close:hover,
+.support-close:hover,
+.resources-close:hover,
+.partners-close:hover,
+.promo-close:hover,
+.auth-modal-close:hover,
+.buy-coins-close:hover,
+.certificate-close:hover {
+  background: rgba(45, 212, 191, 0.3) !important;
+  border-color: rgba(45, 212, 191, 0.8) !important;
+  transform: scale(1.1) !important;
 }
 
 /* Fix: Ensure PremiumButton text is always visible */
